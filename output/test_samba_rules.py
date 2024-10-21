@@ -20,7 +20,7 @@ class TestSambaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'smbd')
         self.assertEqual(response.rule_id, '13102')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_samba_connect_denied(self) -> None:
@@ -31,7 +31,7 @@ class TestSambaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'smbd')
         self.assertEqual(response.rule_id, '13102')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_samba_permission_denied_1(self) -> None:

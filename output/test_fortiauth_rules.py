@@ -20,7 +20,7 @@ class TestFortiauthRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortiauth')
         self.assertEqual(response.rule_id, '44732')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_fortiauth_failed_authentication(self) -> None:
@@ -31,7 +31,7 @@ class TestFortiauthRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortiauth')
         self.assertEqual(response.rule_id, '44733')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_fortiauth_successful_authentication(self) -> None:
@@ -42,7 +42,7 @@ class TestFortiauthRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortiauth')
         self.assertEqual(response.rule_id, '44734')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_fortiauth_info_event(self) -> None:
@@ -53,5 +53,5 @@ class TestFortiauthRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortiauth')
         self.assertEqual(response.rule_id, '44735')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 

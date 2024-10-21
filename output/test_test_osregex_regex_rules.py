@@ -20,7 +20,7 @@ class TestTest_osregex_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'osregex_realloc_test')
         self.assertEqual(response.rule_id, '999733')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_osregex_test_osregex_3_action(self) -> None:
@@ -31,7 +31,7 @@ class TestTest_osregex_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_osregex_3')
         self.assertEqual(response.rule_id, '999706')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_osregex_test_osregex_3_action_n(self) -> None:
@@ -42,7 +42,7 @@ class TestTest_osregex_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_osregex_3')
         self.assertEqual(response.rule_id, '999707')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_osregex_test_osregex_4_extra_data(self) -> None:
@@ -53,7 +53,7 @@ class TestTest_osregex_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_osregex_4')
         self.assertEqual(response.rule_id, '999708')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_osregex_test_osregex_4_extra_data_n(self) -> None:
@@ -64,7 +64,7 @@ class TestTest_osregex_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_osregex_4')
         self.assertEqual(response.rule_id, '999709')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_osregex_test_osregex_5_id(self) -> None:
@@ -75,7 +75,7 @@ class TestTest_osregex_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_osregex_5')
         self.assertEqual(response.rule_id, '999710')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_osregex_test_osregex_5_id_n(self) -> None:
@@ -86,7 +86,7 @@ class TestTest_osregex_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_osregex_5')
         self.assertEqual(response.rule_id, '999711')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_osregex_test_osregex_6_location(self) -> None:
@@ -97,7 +97,7 @@ class TestTest_osregex_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_osregex_6')
         self.assertEqual(response.rule_id, '999712')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_osregex_test_osregex_6_hostname(self) -> None:
@@ -108,7 +108,7 @@ class TestTest_osregex_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_osregex_6')
         self.assertEqual(response.rule_id, '999713')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_osregex_test_osregex_6_program_name(self) -> None:
@@ -119,7 +119,7 @@ class TestTest_osregex_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_osregex_6')
         self.assertEqual(response.rule_id, '999714')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_osregex_test_osregex_7_match(self) -> None:
@@ -130,7 +130,7 @@ class TestTest_osregex_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_osregex_7')
         self.assertEqual(response.rule_id, '999715')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_osregex_test_osregex_7_match_n(self) -> None:
@@ -141,7 +141,7 @@ class TestTest_osregex_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_osregex_7')
         self.assertEqual(response.rule_id, '999716')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_osregex_test_osregex_8_protocol(self) -> None:
@@ -152,7 +152,7 @@ class TestTest_osregex_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_osregex_8')
         self.assertEqual(response.rule_id, '999717')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_osregex_test_osregex_8_protocol_n(self) -> None:
@@ -163,7 +163,7 @@ class TestTest_osregex_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_osregex_8')
         self.assertEqual(response.rule_id, '999718')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_osregex_test_osregex_9_user(self) -> None:
@@ -174,7 +174,7 @@ class TestTest_osregex_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_osregex_9')
         self.assertEqual(response.rule_id, '999719')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_osregex_test_osregex_9_user_n(self) -> None:
@@ -185,7 +185,7 @@ class TestTest_osregex_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_osregex_9')
         self.assertEqual(response.rule_id, '999720')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_osregex_test_osregex_10_url(self) -> None:
@@ -196,7 +196,7 @@ class TestTest_osregex_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_osregex_10')
         self.assertEqual(response.rule_id, '999721')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_osregex_test_osregex_10_url_n(self) -> None:
@@ -207,7 +207,7 @@ class TestTest_osregex_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_osregex_10')
         self.assertEqual(response.rule_id, '999722')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_osregex_test_osregex_11_srcport(self) -> None:
@@ -218,7 +218,7 @@ class TestTest_osregex_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_osregex_11')
         self.assertEqual(response.rule_id, '999723')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_osregex_test_osregex_11_srcport_n(self) -> None:
@@ -229,7 +229,7 @@ class TestTest_osregex_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_osregex_11')
         self.assertEqual(response.rule_id, '999724')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_osregex_test_osregex_12_dstport(self) -> None:
@@ -240,7 +240,7 @@ class TestTest_osregex_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_osregex_12')
         self.assertEqual(response.rule_id, '999725')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_osregex_test_osregex_12_dstport_n(self) -> None:
@@ -251,7 +251,7 @@ class TestTest_osregex_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_osregex_12')
         self.assertEqual(response.rule_id, '999726')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_osregex_test_osregex_13_status(self) -> None:
@@ -262,7 +262,7 @@ class TestTest_osregex_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_osregex_13')
         self.assertEqual(response.rule_id, '999727')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_osregex_test_osregex_13_status_n(self) -> None:
@@ -273,7 +273,7 @@ class TestTest_osregex_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_osregex_13')
         self.assertEqual(response.rule_id, '999728')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_osregex_test_osregex_14_system_name(self) -> None:
@@ -284,7 +284,7 @@ class TestTest_osregex_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_osregex_14')
         self.assertEqual(response.rule_id, '999729')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_osregex_test_osregex_14_system_name_n(self) -> None:
@@ -295,7 +295,7 @@ class TestTest_osregex_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_osregex_14')
         self.assertEqual(response.rule_id, '999730')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_osregex_test_osregex_15_data(self) -> None:
@@ -306,7 +306,7 @@ class TestTest_osregex_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_osregex_15')
         self.assertEqual(response.rule_id, '999731')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_osregex_test_osregex_15_data_n(self) -> None:
@@ -317,5 +317,5 @@ class TestTest_osregex_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_osregex_15')
         self.assertEqual(response.rule_id, '999732')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 

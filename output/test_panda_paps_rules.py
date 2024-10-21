@@ -20,7 +20,7 @@ class TestPanda_papsRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'paps')
         self.assertEqual(response.rule_id, '64201')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_panda_paps_low_severity_event_detected(self) -> None:
@@ -31,7 +31,7 @@ class TestPanda_papsRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'paps')
         self.assertEqual(response.rule_id, '64202')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_panda_paps_medium_severity_event_detected(self) -> None:
@@ -42,7 +42,7 @@ class TestPanda_papsRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'paps')
         self.assertEqual(response.rule_id, '64203')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_panda_paps_high_severity_event_detected(self) -> None:
@@ -53,7 +53,7 @@ class TestPanda_papsRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'paps')
         self.assertEqual(response.rule_id, '64204')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_panda_paps_very_high_severity_event_detected(self) -> None:
@@ -64,7 +64,7 @@ class TestPanda_papsRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'paps')
         self.assertEqual(response.rule_id, '64205')
-        self.assertEqual(response.alert, 14)
+        self.assertEqual(response.rule_level, 14)
 
 
     def test_panda_paps_the_child_process_is_corrupted_or_defective(self) -> None:
@@ -75,7 +75,7 @@ class TestPanda_papsRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'paps')
         self.assertEqual(response.rule_id, '64206')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_panda_paps_the_parent_process_is_corrupted_or_defective(self) -> None:
@@ -86,7 +86,7 @@ class TestPanda_papsRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'paps')
         self.assertEqual(response.rule_id, '64207')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_panda_paps_a_file_is_corrupted_or_defective(self) -> None:
@@ -97,5 +97,5 @@ class TestPanda_papsRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'paps')
         self.assertEqual(response.rule_id, '64208')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 

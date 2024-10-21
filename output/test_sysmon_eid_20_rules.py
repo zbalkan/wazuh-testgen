@@ -20,7 +20,7 @@ class TestSysmon_eid_20Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '89501')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_wmiconsumerevent_created_possible_persistence_tactic_using_executables(self) -> None:
@@ -31,5 +31,5 @@ class TestSysmon_eid_20Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '89502')
-        self.assertEqual(response.alert, 14)
+        self.assertEqual(response.rule_level, 14)
 

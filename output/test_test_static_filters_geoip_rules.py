@@ -20,7 +20,7 @@ class TestTest_static_filters_geoipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_same_filters')
         self.assertEqual(response.rule_id, '999262')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_same_fields_same_srcgeoip_2(self) -> None:
@@ -31,7 +31,7 @@ class TestTest_static_filters_geoipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_same_filters')
         self.assertEqual(response.rule_id, '999262')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_same_fields_same_srcgeoip_3(self) -> None:
@@ -42,7 +42,7 @@ class TestTest_static_filters_geoipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_same_filters')
         self.assertEqual(response.rule_id, '999262')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_same_fields_same_srcgeoip_4(self) -> None:
@@ -53,7 +53,7 @@ class TestTest_static_filters_geoipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_same_filters')
         self.assertEqual(response.rule_id, '999262')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_same_fields_same_srcgeoip_5(self) -> None:
@@ -64,7 +64,7 @@ class TestTest_static_filters_geoipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_same_filters')
         self.assertEqual(response.rule_id, '999262')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_same_fields_same_srcgeoip_6(self) -> None:
@@ -75,7 +75,7 @@ class TestTest_static_filters_geoipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_same_filters')
         self.assertEqual(response.rule_id, '999262')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_same_fields_same_srcgeoip_7(self) -> None:
@@ -86,7 +86,7 @@ class TestTest_static_filters_geoipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_same_filters')
         self.assertEqual(response.rule_id, '999262')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_different_fields_different_srcgeoip_1(self) -> None:
@@ -97,7 +97,7 @@ class TestTest_static_filters_geoipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_different_filters')
         self.assertEqual(response.rule_id, '999264')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_different_fields_different_srcgeoip_2(self) -> None:
@@ -108,7 +108,7 @@ class TestTest_static_filters_geoipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_different_filters')
         self.assertEqual(response.rule_id, '999264')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_different_fields_different_srcgeoip_3(self) -> None:
@@ -119,7 +119,7 @@ class TestTest_static_filters_geoipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_different_filters')
         self.assertEqual(response.rule_id, '999264')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_different_fields_different_srcgeoip_4(self) -> None:
@@ -130,7 +130,7 @@ class TestTest_static_filters_geoipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_different_filters')
         self.assertEqual(response.rule_id, '999264')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_different_fields_different_srcgeoip_5(self) -> None:
@@ -141,7 +141,7 @@ class TestTest_static_filters_geoipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_different_filters')
         self.assertEqual(response.rule_id, '999264')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_different_fields_different_srcgeoip_6(self) -> None:
@@ -152,7 +152,7 @@ class TestTest_static_filters_geoipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_different_filters')
         self.assertEqual(response.rule_id, '999264')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_different_fields_different_srcgeoip_7(self) -> None:
@@ -163,7 +163,7 @@ class TestTest_static_filters_geoipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_different_filters')
         self.assertEqual(response.rule_id, '999264')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_same_fields_same_dstgeoip_1(self) -> None:
@@ -174,7 +174,7 @@ class TestTest_static_filters_geoipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_same_filters')
         self.assertEqual(response.rule_id, '999266')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_same_fields_same_dstgeoip_2(self) -> None:
@@ -185,7 +185,7 @@ class TestTest_static_filters_geoipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_same_filters')
         self.assertEqual(response.rule_id, '999266')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_same_fields_same_dstgeoip_3(self) -> None:
@@ -196,7 +196,7 @@ class TestTest_static_filters_geoipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_same_filters')
         self.assertEqual(response.rule_id, '999266')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_same_fields_same_dstgeoip_4(self) -> None:
@@ -207,7 +207,7 @@ class TestTest_static_filters_geoipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_same_filters')
         self.assertEqual(response.rule_id, '999266')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_same_fields_same_dstgeoip_5(self) -> None:
@@ -218,7 +218,7 @@ class TestTest_static_filters_geoipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_same_filters')
         self.assertEqual(response.rule_id, '999266')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_same_fields_same_dstgeoip_6(self) -> None:
@@ -229,7 +229,7 @@ class TestTest_static_filters_geoipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_same_filters')
         self.assertEqual(response.rule_id, '999266')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_same_fields_same_dstgeoip_7(self) -> None:
@@ -240,7 +240,7 @@ class TestTest_static_filters_geoipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_same_filters')
         self.assertEqual(response.rule_id, '999266')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_different_fields_different_dstgeoip_1(self) -> None:
@@ -251,7 +251,7 @@ class TestTest_static_filters_geoipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_different_filters')
         self.assertEqual(response.rule_id, '999268')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_different_fields_different_dstgeoip_2(self) -> None:
@@ -262,7 +262,7 @@ class TestTest_static_filters_geoipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_different_filters')
         self.assertEqual(response.rule_id, '999268')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_different_fields_different_dstgeoip_3(self) -> None:
@@ -273,7 +273,7 @@ class TestTest_static_filters_geoipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_different_filters')
         self.assertEqual(response.rule_id, '999268')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_different_fields_different_dstgeoip_4(self) -> None:
@@ -284,7 +284,7 @@ class TestTest_static_filters_geoipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_different_filters')
         self.assertEqual(response.rule_id, '999268')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_different_fields_different_dstgeoip_5(self) -> None:
@@ -295,7 +295,7 @@ class TestTest_static_filters_geoipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_different_filters')
         self.assertEqual(response.rule_id, '999268')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_different_fields_different_dstgeoip_6(self) -> None:
@@ -306,7 +306,7 @@ class TestTest_static_filters_geoipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_different_filters')
         self.assertEqual(response.rule_id, '999268')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_different_fields_different_dstgeoip_7(self) -> None:
@@ -317,5 +317,5 @@ class TestTest_static_filters_geoipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_different_filters')
         self.assertEqual(response.rule_id, '999268')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 

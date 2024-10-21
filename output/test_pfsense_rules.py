@@ -20,7 +20,7 @@ class TestPfsenseRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'pf')
         self.assertEqual(response.rule_id, '87700')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_pfsense_firewall_drop_event(self) -> None:
@@ -31,5 +31,5 @@ class TestPfsenseRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'pf')
         self.assertEqual(response.rule_id, '87701')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 

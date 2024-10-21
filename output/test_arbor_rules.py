@@ -20,7 +20,7 @@ class TestArborRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'arbor')
         self.assertEqual(response.rule_id, '88801')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_blocked_host_2(self) -> None:
@@ -31,5 +31,5 @@ class TestArborRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'arbor')
         self.assertEqual(response.rule_id, '88801')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 

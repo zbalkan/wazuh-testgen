@@ -20,5 +20,5 @@ class TestMcafee_epoRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'mcafee-epo2')
         self.assertEqual(response.rule_id, '65501')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 

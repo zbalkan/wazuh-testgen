@@ -20,7 +20,7 @@ class TestAudit_scpRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'auditd')
         self.assertEqual(response.rule_id, '92600')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_executed_python_script_from_tmp_folder_1(self) -> None:
@@ -31,7 +31,7 @@ class TestAudit_scpRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'auditd')
         self.assertEqual(response.rule_id, '92601')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_executed_python_script_from_tmp_folder_2(self) -> None:
@@ -42,7 +42,7 @@ class TestAudit_scpRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'auditd')
         self.assertEqual(response.rule_id, '92601')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_executed_python_script_from_tmp_folder_3(self) -> None:
@@ -60,7 +60,7 @@ class TestAudit_scpRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'auditd')
         self.assertEqual(response.rule_id, '92602')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_scp_used_to_copy_a_file_over_ssh(self) -> None:
@@ -71,7 +71,7 @@ class TestAudit_scpRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'auditd')
         self.assertEqual(response.rule_id, '92603')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_processes_running_for_all_users_were_queried_with_ps_command(self) -> None:
@@ -82,7 +82,7 @@ class TestAudit_scpRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'auditd')
         self.assertEqual(response.rule_id, '92604')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_executed_recursive_query_of_all_files_using_ls_command(self) -> None:
@@ -93,5 +93,5 @@ class TestAudit_scpRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'auditd')
         self.assertEqual(response.rule_id, '92605')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 

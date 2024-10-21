@@ -20,7 +20,7 @@ class TestApacheRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'apache-errorlog')
         self.assertEqual(response.rule_id, '30106')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_apache_code_red_attack(self) -> None:
@@ -31,7 +31,7 @@ class TestApacheRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'apache-errorlog')
         self.assertEqual(response.rule_id, '30107')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_apache_attempt_to_access_an_non_existent_file(self) -> None:
@@ -42,7 +42,7 @@ class TestApacheRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'apache-errorlog')
         self.assertEqual(response.rule_id, '30112')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_apache_notice_messages_grouped(self) -> None:
@@ -53,7 +53,7 @@ class TestApacheRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'apache-errorlog')
         self.assertEqual(response.rule_id, '30103')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_apache_apache_22_error_messages_grouped(self) -> None:
@@ -64,7 +64,7 @@ class TestApacheRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'apache-errorlog')
         self.assertEqual(response.rule_id, '30101')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_apache_apache_24_error_messages_grouped_1(self) -> None:
@@ -75,7 +75,7 @@ class TestApacheRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'apache-errorlog')
         self.assertEqual(response.rule_id, '30301')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_apache_apache_24_error_messages_grouped_2(self) -> None:
@@ -86,7 +86,7 @@ class TestApacheRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'apache-errorlog')
         self.assertEqual(response.rule_id, '30301')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_apache_apache_24_warn_messages_grouped(self) -> None:
@@ -97,7 +97,7 @@ class TestApacheRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'apache-errorlog')
         self.assertEqual(response.rule_id, '30302')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_apache_attempt_to_access_forbidden_file_or_directory(self) -> None:
@@ -108,7 +108,7 @@ class TestApacheRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'apache-errorlog')
         self.assertEqual(response.rule_id, '30305')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_apache_messages_grouped_1(self) -> None:
@@ -119,7 +119,7 @@ class TestApacheRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'apache-errorlog')
         self.assertEqual(response.rule_id, '30100')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_apache_messages_grouped_2(self) -> None:
@@ -130,7 +130,7 @@ class TestApacheRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'apache-errorlog')
         self.assertEqual(response.rule_id, '30100')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_apache_php_notices_in_apache_24_errorlog(self) -> None:
@@ -141,5 +141,5 @@ class TestApacheRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'apache-errorlog')
         self.assertEqual(response.rule_id, '30318')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 

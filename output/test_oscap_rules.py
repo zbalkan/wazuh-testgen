@@ -20,7 +20,7 @@ class TestOscapRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'oscap')
         self.assertEqual(response.rule_id, '81401')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_openscap_evaluation_finished(self) -> None:
@@ -31,7 +31,7 @@ class TestOscapRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'oscap')
         self.assertEqual(response.rule_id, '81402')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_openscap_evaluation_finished_with_some_failures(self) -> None:
@@ -42,7 +42,7 @@ class TestOscapRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'oscap')
         self.assertEqual(response.rule_id, '81403')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_openscap_error_openscap_not_installed(self) -> None:
@@ -53,7 +53,7 @@ class TestOscapRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'oscap')
         self.assertEqual(response.rule_id, '81502')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_openscap_error_impossible_to_execute_openscap(self) -> None:
@@ -64,7 +64,7 @@ class TestOscapRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'oscap')
         self.assertEqual(response.rule_id, '81503')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_openscap_error_wrong_configuration_inexistent_policy(self) -> None:
@@ -75,7 +75,7 @@ class TestOscapRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'oscap')
         self.assertEqual(response.rule_id, '81504')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_openscap_error_wrong_configuration_invalid_policy(self) -> None:
@@ -86,7 +86,7 @@ class TestOscapRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'oscap')
         self.assertEqual(response.rule_id, '81505')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_openscap_error_problem_executing_oscap(self) -> None:
@@ -97,7 +97,7 @@ class TestOscapRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'oscap')
         self.assertEqual(response.rule_id, '81506')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_openscap_error_wrong_configuration_inexistent_profile(self) -> None:
@@ -108,7 +108,7 @@ class TestOscapRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'oscap')
         self.assertEqual(response.rule_id, '81507')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_openscap_error_timeout_expired(self) -> None:
@@ -119,7 +119,7 @@ class TestOscapRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'oscap')
         self.assertEqual(response.rule_id, '81508')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_openscap_rule_pass(self) -> None:
@@ -130,7 +130,7 @@ class TestOscapRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'oscap')
         self.assertEqual(response.rule_id, '81521')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_openscap_rule_notchecked(self) -> None:
@@ -141,7 +141,7 @@ class TestOscapRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'oscap')
         self.assertEqual(response.rule_id, '81522')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_openscap_rule_notapplicable(self) -> None:
@@ -152,7 +152,7 @@ class TestOscapRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'oscap')
         self.assertEqual(response.rule_id, '81523')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_openscap_rule_fixed(self) -> None:
@@ -163,7 +163,7 @@ class TestOscapRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'oscap')
         self.assertEqual(response.rule_id, '81524')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_openscap_rule_informational(self) -> None:
@@ -174,7 +174,7 @@ class TestOscapRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'oscap')
         self.assertEqual(response.rule_id, '81525')
-        self.assertEqual(response.alert, 1)
+        self.assertEqual(response.rule_level, 1)
 
 
     def test_openscap_rule_error(self) -> None:
@@ -185,7 +185,7 @@ class TestOscapRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'oscap')
         self.assertEqual(response.rule_id, '81526')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_openscap_rule_unknown(self) -> None:
@@ -196,7 +196,7 @@ class TestOscapRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'oscap')
         self.assertEqual(response.rule_id, '81527')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_openscap_rule_notselected(self) -> None:
@@ -207,7 +207,7 @@ class TestOscapRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'oscap')
         self.assertEqual(response.rule_id, '81528')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_openscap_rule_failed_severity_low(self) -> None:
@@ -218,7 +218,7 @@ class TestOscapRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'oscap')
         self.assertEqual(response.rule_id, '81529')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_openscap_rule_failed_severity_medium(self) -> None:
@@ -229,7 +229,7 @@ class TestOscapRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'oscap')
         self.assertEqual(response.rule_id, '81530')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_openscap_rule_failed_severity_high(self) -> None:
@@ -240,7 +240,7 @@ class TestOscapRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'oscap')
         self.assertEqual(response.rule_id, '81531')
-        self.assertEqual(response.alert, 9)
+        self.assertEqual(response.rule_level, 9)
 
 
     def test_openscap_report_overview(self) -> None:
@@ -251,7 +251,7 @@ class TestOscapRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'oscap')
         self.assertEqual(response.rule_id, '81540')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_openscap_report_overview_score_less_than_90(self) -> None:
@@ -262,7 +262,7 @@ class TestOscapRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'oscap')
         self.assertEqual(response.rule_id, '81541')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_openscap_report_overview_score_less_than_80(self) -> None:
@@ -273,7 +273,7 @@ class TestOscapRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'oscap')
         self.assertEqual(response.rule_id, '81542')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_openscap_report_overview_score_less_than_50(self) -> None:
@@ -284,7 +284,7 @@ class TestOscapRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'oscap')
         self.assertEqual(response.rule_id, '81543')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_openscap_report_overview_score_less_than_30(self) -> None:
@@ -295,7 +295,7 @@ class TestOscapRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'oscap')
         self.assertEqual(response.rule_id, '81544')
-        self.assertEqual(response.alert, 9)
+        self.assertEqual(response.rule_level, 9)
 
 
     def test_openscap_oval_pass(self) -> None:
@@ -306,7 +306,7 @@ class TestOscapRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'oscap')
         self.assertEqual(response.rule_id, '81551')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_openscap_oval_fail(self) -> None:
@@ -317,7 +317,7 @@ class TestOscapRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'oscap')
         self.assertEqual(response.rule_id, '81552')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_openscap_oval_report_overview(self) -> None:
@@ -328,7 +328,7 @@ class TestOscapRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'oscap')
         self.assertEqual(response.rule_id, '81560')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_openscap_oval_report_overview_score_less_than_90(self) -> None:
@@ -339,7 +339,7 @@ class TestOscapRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'oscap')
         self.assertEqual(response.rule_id, '81561')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_openscap_oval_report_overview_score_less_than_80(self) -> None:
@@ -350,7 +350,7 @@ class TestOscapRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'oscap')
         self.assertEqual(response.rule_id, '81562')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_openscap_oval_report_overview_score_less_than_50(self) -> None:
@@ -361,7 +361,7 @@ class TestOscapRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'oscap')
         self.assertEqual(response.rule_id, '81563')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_openscap_oval_report_overview_score_less_than_30(self) -> None:
@@ -372,5 +372,5 @@ class TestOscapRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'oscap')
         self.assertEqual(response.rule_id, '81564')
-        self.assertEqual(response.alert, 9)
+        self.assertEqual(response.rule_level, 9)
 

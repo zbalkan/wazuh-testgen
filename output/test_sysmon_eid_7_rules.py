@@ -20,7 +20,7 @@ class TestSysmon_eid_7Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92151')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_printer_spooler_service_loads_a_dll_file(self) -> None:
@@ -31,7 +31,7 @@ class TestSysmon_eid_7Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92152')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_suspicious_process_loaded_vaultclidll_module(self) -> None:
@@ -42,7 +42,7 @@ class TestSysmon_eid_7Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92153')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_mshta_process_loaded_taskschddll_module(self) -> None:
@@ -53,7 +53,7 @@ class TestSysmon_eid_7Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92155')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_word_process_loaded_vbeuidll_module(self) -> None:
@@ -64,7 +64,7 @@ class TestSysmon_eid_7Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92156')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_executable_loaded_a_dll_from_temp_directory(self) -> None:
@@ -75,5 +75,5 @@ class TestSysmon_eid_7Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92157')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 

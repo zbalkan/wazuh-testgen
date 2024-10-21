@@ -20,7 +20,7 @@ class TestEximRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'windows-date-format')
         self.assertEqual(response.rule_id, '87502')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_exim_auth_failure_2(self) -> None:
@@ -31,7 +31,7 @@ class TestEximRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'windows-date-format')
         self.assertEqual(response.rule_id, '87502')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_exim_connection(self) -> None:
@@ -42,7 +42,7 @@ class TestEximRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'windows-date-format')
         self.assertEqual(response.rule_id, '87504')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_exim_connection_lost(self) -> None:
@@ -53,7 +53,7 @@ class TestEximRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'windows-date-format')
         self.assertEqual(response.rule_id, '87505')
-        self.assertEqual(response.alert, 1)
+        self.assertEqual(response.rule_level, 1)
 
 
     def test_exim_syntax_protocol_error(self) -> None:
@@ -64,7 +64,7 @@ class TestEximRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'windows-date-format')
         self.assertEqual(response.rule_id, '87506')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_exim_protocol_synchronization_error(self) -> None:
@@ -75,7 +75,7 @@ class TestEximRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'windows-date-format')
         self.assertEqual(response.rule_id, '87507')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_exim_unrouteable_address(self) -> None:
@@ -86,5 +86,5 @@ class TestEximRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'windows-date-format')
         self.assertEqual(response.rule_id, '87508')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 

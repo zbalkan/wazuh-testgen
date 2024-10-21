@@ -20,7 +20,7 @@ class TestFortimailRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortimail-like')
         self.assertEqual(response.rule_id, '44641')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_fortimail_an_administrator_successfully_logged_in_using_the_web_based_manager_or_cli(self) -> None:
@@ -31,7 +31,7 @@ class TestFortimailRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortimail-like')
         self.assertEqual(response.rule_id, '44649')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_fortimail_heartbeat_related_activities(self) -> None:
@@ -42,7 +42,7 @@ class TestFortimailRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortimail-like')
         self.assertEqual(response.rule_id, '44696')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_fortimail_the_file_contains_the_specified_virus(self) -> None:
@@ -53,7 +53,7 @@ class TestFortimailRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortimail-like')
         self.assertEqual(response.rule_id, '44718')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_fortimail_spam_related_events(self) -> None:
@@ -64,7 +64,7 @@ class TestFortimailRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortimail-like')
         self.assertEqual(response.rule_id, '44719')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_fortimail_fortimail_encrypted_or_decrypted_an_email(self) -> None:
@@ -75,5 +75,5 @@ class TestFortimailRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortimail-like')
         self.assertEqual(response.rule_id, '44720')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 

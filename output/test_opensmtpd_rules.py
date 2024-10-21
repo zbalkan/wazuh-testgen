@@ -20,7 +20,7 @@ class TestOpensmtpdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'smtpd')
         self.assertEqual(response.rule_id, '53501')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_new_session(self) -> None:
@@ -31,7 +31,7 @@ class TestOpensmtpdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'smtpd')
         self.assertEqual(response.rule_id, '53502')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_message_accepted(self) -> None:
@@ -42,7 +42,7 @@ class TestOpensmtpdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'smtpd')
         self.assertEqual(response.rule_id, '53504')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_session_closed(self) -> None:
@@ -53,7 +53,7 @@ class TestOpensmtpdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'smtpd')
         self.assertEqual(response.rule_id, '53503')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_disconnect(self) -> None:
@@ -64,7 +64,7 @@ class TestOpensmtpdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'smtpd')
         self.assertEqual(response.rule_id, '53500')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_no_ssl(self) -> None:
@@ -75,7 +75,7 @@ class TestOpensmtpdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'smtpd')
         self.assertEqual(response.rule_id, '53507')
-        self.assertEqual(response.alert, 2)
+        self.assertEqual(response.rule_level, 2)
 
 
     def test_started_tls(self) -> None:
@@ -86,5 +86,5 @@ class TestOpensmtpdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'smtpd')
         self.assertEqual(response.rule_id, '53500')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 

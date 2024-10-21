@@ -20,7 +20,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91532')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_exchangeadmin(self) -> None:
@@ -31,7 +31,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91533')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_exchangeitem(self) -> None:
@@ -42,7 +42,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91534')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_exchangeitemgroup(self) -> None:
@@ -53,7 +53,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91535')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_sharepoint(self) -> None:
@@ -64,7 +64,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91536')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_sharepointfileoperation(self) -> None:
@@ -75,7 +75,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91537')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_onedrive(self) -> None:
@@ -86,7 +86,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91538')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_azureactivedirectory(self) -> None:
@@ -97,7 +97,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91539')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_azureactivedirectoryaccountlogon(self) -> None:
@@ -108,7 +108,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91540')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_datacentersecuritycmdlet(self) -> None:
@@ -119,7 +119,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91541')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_compliancedlpsharepoint(self) -> None:
@@ -130,7 +130,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91542')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_compliancedlpexchange(self) -> None:
@@ -141,7 +141,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91543')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_sharepointsharingoperation(self) -> None:
@@ -152,7 +152,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91544')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_azureactivedirectorystslogon(self) -> None:
@@ -163,7 +163,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91545')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_skypeforbusinesspstnusage(self) -> None:
@@ -174,7 +174,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91546')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_skypeforbusinessusersblocked(self) -> None:
@@ -185,7 +185,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91547')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_office_365_securitycompliancecentereopcmdlet(self) -> None:
@@ -196,7 +196,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91548')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_office_365_exchangeaggregatedoperation(self) -> None:
@@ -207,7 +207,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91549')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_powerbiaudit(self) -> None:
@@ -218,7 +218,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91550')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_crm(self) -> None:
@@ -229,7 +229,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91551')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_yammer(self) -> None:
@@ -240,7 +240,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91552')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_skypeforbusinesscmdlets(self) -> None:
@@ -251,7 +251,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91553')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_discovery(self) -> None:
@@ -262,7 +262,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91554')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_office_365_microsoftteams(self) -> None:
@@ -273,7 +273,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91555')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_threatintelligence(self) -> None:
@@ -284,7 +284,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91556')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_office_365_mailsubmission(self) -> None:
@@ -295,7 +295,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91557')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_office_365_microsoftflow(self) -> None:
@@ -306,7 +306,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91558')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_aed(self) -> None:
@@ -317,7 +317,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91559')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_microsoftstream(self) -> None:
@@ -328,7 +328,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91560')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_compliancedlpsharepointclassification(self) -> None:
@@ -339,7 +339,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91561')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_threatfinder(self) -> None:
@@ -350,7 +350,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91562')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_office_365_project(self) -> None:
@@ -361,7 +361,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91563')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_sharepointlistoperation(self) -> None:
@@ -372,7 +372,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91564')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_sharepointcommentoperation(self) -> None:
@@ -383,7 +383,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91565')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_datagovernance(self) -> None:
@@ -394,7 +394,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91566')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_office_365_kaizala(self) -> None:
@@ -405,7 +405,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91567')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_securitycompliancealerts(self) -> None:
@@ -416,7 +416,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91568')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_office_365_threatintelligenceurl(self) -> None:
@@ -427,7 +427,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91569')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_office_365_securitycomplianceinsights(self) -> None:
@@ -438,7 +438,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91570')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_office_365_miplabel(self) -> None:
@@ -449,7 +449,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91571')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_office_365_workplaceanalytics(self) -> None:
@@ -460,7 +460,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91572')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_powerappsapp(self) -> None:
@@ -471,7 +471,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91573')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_powerappsplan(self) -> None:
@@ -482,7 +482,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91574')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_threatintelligenceatpcontent(self) -> None:
@@ -493,7 +493,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91575')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_office_365_labelcontentexplorer(self) -> None:
@@ -504,7 +504,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91576')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_teamshealthcare(self) -> None:
@@ -515,7 +515,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91577')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_exchangeitemaggregated(self) -> None:
@@ -526,7 +526,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91578')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_office_365_hygieneevent(self) -> None:
@@ -537,7 +537,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91579')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_office_365_datainsightsrestapiaudit(self) -> None:
@@ -548,7 +548,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91580')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_informationbarrierpolicyapplication(self) -> None:
@@ -559,7 +559,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91581')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_sharepointlistitemoperation(self) -> None:
@@ -570,7 +570,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91582')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_sharepointcontenttypeoperation(self) -> None:
@@ -581,7 +581,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91583')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_sharepointfieldoperation(self) -> None:
@@ -592,7 +592,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91584')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_microsoftteamsadmin(self) -> None:
@@ -603,7 +603,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91585')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_office_365_hrsignal(self) -> None:
@@ -614,7 +614,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91586')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_microsoftteamsdevice(self) -> None:
@@ -625,7 +625,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91587')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_microsoftteamsanalytics(self) -> None:
@@ -636,7 +636,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91588')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_informationworkerprotection(self) -> None:
@@ -647,7 +647,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91589')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_office_365_campaign(self) -> None:
@@ -658,7 +658,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91590')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_office_365_dlpendpoint(self) -> None:
@@ -669,7 +669,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91591')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_airinvestigation(self) -> None:
@@ -680,7 +680,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91592')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_office_365_quarantine(self) -> None:
@@ -691,7 +691,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91593')
-        self.assertEqual(response.alert, 9)
+        self.assertEqual(response.rule_level, 9)
 
 
     def test_office_365_microsoftforms(self) -> None:
@@ -702,7 +702,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91594')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_applicationaudit(self) -> None:
@@ -713,7 +713,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91595')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_compliancesupervisionexchange(self) -> None:
@@ -724,7 +724,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91596')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_customerkeyserviceencryption(self) -> None:
@@ -735,7 +735,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91597')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_office_365_officenative(self) -> None:
@@ -746,7 +746,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91598')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_office_365_mipautolabelsharepointitem(self) -> None:
@@ -757,7 +757,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91599')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_mipautolabelsharepointpolicylocation(self) -> None:
@@ -768,7 +768,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91600')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_microsoftteamsshifts(self) -> None:
@@ -779,7 +779,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91601')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_mipautolabelexchangeitem(self) -> None:
@@ -790,7 +790,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91602')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_cortanabriefing(self) -> None:
@@ -801,7 +801,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91603')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_search(self) -> None:
@@ -812,7 +812,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91604')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_wdatpalerts(self) -> None:
@@ -823,7 +823,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91605')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_office_365_mdatpaudit(self) -> None:
@@ -834,7 +834,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91606')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_office_365_sensitivitylabelpolicymatch(self) -> None:
@@ -845,7 +845,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91607')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_office_365_sensitivitylabelaction(self) -> None:
@@ -856,7 +856,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91608')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_office_365_sensitivitylabeledfileaction(self) -> None:
@@ -867,7 +867,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91609')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_office_365_attacksim(self) -> None:
@@ -878,7 +878,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91610')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_airmanualinvestigation(self) -> None:
@@ -889,7 +889,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91611')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_office_365_securitycompliancerbac(self) -> None:
@@ -900,7 +900,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91612')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_office_365_usertraining(self) -> None:
@@ -911,7 +911,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91613')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_airadminactioninvestigation(self) -> None:
@@ -922,7 +922,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91614')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_office_365_mstic(self) -> None:
@@ -933,7 +933,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91615')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_office_365_physicalbadgingsignal(self) -> None:
@@ -944,7 +944,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91616')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_aipdiscover(self) -> None:
@@ -955,7 +955,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91617')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_office_365_aipsensitivitylabelaction(self) -> None:
@@ -966,7 +966,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91618')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_office_365_aipprotectionaction(self) -> None:
@@ -977,7 +977,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91619')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_office_365_aipfiledeleted(self) -> None:
@@ -988,7 +988,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91620')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_office_365_aipheartbeat(self) -> None:
@@ -999,7 +999,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91621')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_mcasalerts(self) -> None:
@@ -1010,7 +1010,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91622')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_office_365_onpremisesfilesharescannerdlp(self) -> None:
@@ -1021,7 +1021,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91623')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_office_365_onpremisessharepointscannerdlp(self) -> None:
@@ -1032,7 +1032,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91624')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_office_365_exchangesearch(self) -> None:
@@ -1043,7 +1043,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91625')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_sharepointsearch(self) -> None:
@@ -1054,7 +1054,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91626')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_privacyinsights(self) -> None:
@@ -1065,7 +1065,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91627')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_myanalyticssettings(self) -> None:
@@ -1076,7 +1076,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91628')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_securitycomplianceuserchange(self) -> None:
@@ -1087,7 +1087,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91629')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_office_365_compliancedlpexchangeclassification(self) -> None:
@@ -1098,7 +1098,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91630')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_mipexactdatamatch(self) -> None:
@@ -1109,7 +1109,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91631')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_module_internal_event_3_request_fail(self) -> None:
@@ -1120,7 +1120,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91648')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_office_365_filemalwaredetected(self) -> None:
@@ -1131,7 +1131,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91700')
-        self.assertEqual(response.alert, 14)
+        self.assertEqual(response.rule_level, 14)
 
 
     def test_office_365_filemalwaredetected_priority(self) -> None:
@@ -1142,7 +1142,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91700')
-        self.assertEqual(response.alert, 14)
+        self.assertEqual(response.rule_level, 14)
 
 
     def test_office_365_documentsensitivitymismatchdetected(self) -> None:
@@ -1153,7 +1153,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91701')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_office_365_filedownloaded(self) -> None:
@@ -1164,7 +1164,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91702')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_office_365_permissionleveladded(self) -> None:
@@ -1175,7 +1175,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91703')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_office_365_sharinginvitationblocked(self) -> None:
@@ -1186,7 +1186,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91704')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_office_365_add_mailboxpermission(self) -> None:
@@ -1197,7 +1197,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91705')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_office_365_addfolderpermissions(self) -> None:
@@ -1208,7 +1208,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91706')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_office_365_send(self) -> None:
@@ -1219,7 +1219,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91707')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_office_365_sendas(self) -> None:
@@ -1230,7 +1230,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91708')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_office_365_sendonbehalf(self) -> None:
@@ -1241,7 +1241,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91708')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_office_365_add_user(self) -> None:
@@ -1252,7 +1252,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91709')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_office_365_update_user(self) -> None:
@@ -1263,7 +1263,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91710')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_office_365_add_member_to_role(self) -> None:
@@ -1274,7 +1274,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91711')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_office_365_add_group(self) -> None:
@@ -1285,7 +1285,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91712')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_office_365_add_member_to_group(self) -> None:
@@ -1296,7 +1296,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91713')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_office_365_add_service_principal_credentials(self) -> None:
@@ -1307,7 +1307,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91714')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_office_365_caseadminupdated(self) -> None:
@@ -1318,7 +1318,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91715')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_office_365_caseadminadded(self) -> None:
@@ -1329,7 +1329,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91716')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_office_365_caseadded(self) -> None:
@@ -1340,7 +1340,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91717')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_office_365_searchcreated(self) -> None:
@@ -1351,7 +1351,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91718')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_office_365_quarantinedelete(self) -> None:
@@ -1362,7 +1362,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91719')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_office_365_quarantineexport(self) -> None:
@@ -1373,7 +1373,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91720')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_office_365_quarantinepreview(self) -> None:
@@ -1384,7 +1384,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91721')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_office_365_quarantinerelease(self) -> None:
@@ -1395,7 +1395,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91722')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_office_365_quarantineviewheader(self) -> None:
@@ -1406,7 +1406,7 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91723')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_office_365_fullaccessright_exchange(self) -> None:
@@ -1417,5 +1417,5 @@ class TestOffice365Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91725')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 

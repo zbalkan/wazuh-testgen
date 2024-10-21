@@ -20,7 +20,7 @@ class TestGlpiRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'apache-errorlog')
         self.assertEqual(response.rule_id, '30303')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_web_accesslog_glpi_get_message(self) -> None:
@@ -31,7 +31,7 @@ class TestGlpiRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'web-accesslog')
         self.assertEqual(response.rule_id, '31108')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_web_accesslog_glpi_options_message(self) -> None:
@@ -42,5 +42,5 @@ class TestGlpiRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'web-accesslog')
         self.assertEqual(response.rule_id, '31108')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 

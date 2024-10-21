@@ -20,7 +20,7 @@ class TestOwlhRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '66001')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_ssl(self) -> None:
@@ -31,7 +31,7 @@ class TestOwlhRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '66002')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_dns(self) -> None:
@@ -42,7 +42,7 @@ class TestOwlhRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '66003')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_conn(self) -> None:
@@ -53,5 +53,5 @@ class TestOwlhRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '66004')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 

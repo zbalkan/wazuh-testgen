@@ -20,7 +20,7 @@ class TestJunosRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'junos-ids')
         self.assertEqual(response.rule_id, '67101')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_junos_deny_1(self) -> None:
@@ -31,7 +31,7 @@ class TestJunosRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'junos-rt-flow')
         self.assertEqual(response.rule_id, '67103')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_junos_deny_2(self) -> None:
@@ -42,5 +42,5 @@ class TestJunosRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'junos-rt-flow')
         self.assertEqual(response.rule_id, '67103')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 

@@ -20,7 +20,7 @@ class TestDovecotRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'dovecot')
         self.assertEqual(response.rule_id, '9705')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_auth_failed_2(self) -> None:
@@ -31,7 +31,7 @@ class TestDovecotRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'dovecot')
         self.assertEqual(response.rule_id, '9705')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_auth_failed_3(self) -> None:
@@ -42,7 +42,7 @@ class TestDovecotRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'dovecot')
         self.assertEqual(response.rule_id, '9705')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_dovecot_is_starting(self) -> None:
@@ -53,7 +53,7 @@ class TestDovecotRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'dovecot')
         self.assertEqual(response.rule_id, '9703')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_fatal_error_1(self) -> None:
@@ -64,7 +64,7 @@ class TestDovecotRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'dovecot')
         self.assertEqual(response.rule_id, '9704')
-        self.assertEqual(response.alert, 2)
+        self.assertEqual(response.rule_level, 2)
 
 
     def test_fatal_error_2(self) -> None:
@@ -75,7 +75,7 @@ class TestDovecotRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'dovecot')
         self.assertEqual(response.rule_id, '9704')
-        self.assertEqual(response.alert, 2)
+        self.assertEqual(response.rule_level, 2)
 
 
     def test_user_authentication_failure(self) -> None:
@@ -86,7 +86,7 @@ class TestDovecotRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'dovecot-info')
         self.assertEqual(response.rule_id, '9770')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_dovecot_auth_failed(self) -> None:
@@ -97,7 +97,7 @@ class TestDovecotRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'dovecot')
         self.assertEqual(response.rule_id, '9702')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_xxx_nothing_1(self) -> None:
@@ -122,7 +122,7 @@ class TestDovecotRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'dovecot-info')
         self.assertEqual(response.rule_id, '9771')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_session_disconnected(self) -> None:
@@ -133,7 +133,7 @@ class TestDovecotRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'dovecot')
         self.assertEqual(response.rule_id, '9706')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_aborted_login(self) -> None:
@@ -144,7 +144,7 @@ class TestDovecotRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'dovecot')
         self.assertEqual(response.rule_id, '9707')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_xxx_logged_out(self) -> None:
@@ -162,5 +162,5 @@ class TestDovecotRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'dovecot-info')
         self.assertEqual(response.rule_id, '9771')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 

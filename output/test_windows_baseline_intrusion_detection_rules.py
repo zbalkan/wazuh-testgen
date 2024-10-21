@@ -20,7 +20,7 @@ class TestWindows_baseline_intrusion_detectionRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '67011')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_app_locker_would_block_exe_execution(self) -> None:
@@ -31,7 +31,7 @@ class TestWindows_baseline_intrusion_detectionRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '67012')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_app_locker_blocked_exe_execution(self) -> None:
@@ -42,7 +42,7 @@ class TestWindows_baseline_intrusion_detectionRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '67013')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_task_scheduler_create_task(self) -> None:
@@ -53,7 +53,7 @@ class TestWindows_baseline_intrusion_detectionRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '67014')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_task_scheduler_delete_task(self) -> None:
@@ -64,7 +64,7 @@ class TestWindows_baseline_intrusion_detectionRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '67015')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_task_scheduler_disable_task(self) -> None:
@@ -75,7 +75,7 @@ class TestWindows_baseline_intrusion_detectionRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '67016')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_create_service(self) -> None:
@@ -86,7 +86,7 @@ class TestWindows_baseline_intrusion_detectionRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '61138')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_terminal_services_connect(self) -> None:
@@ -97,7 +97,7 @@ class TestWindows_baseline_intrusion_detectionRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '60108')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_terminal_services_disconnect(self) -> None:
@@ -108,7 +108,7 @@ class TestWindows_baseline_intrusion_detectionRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '60108')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_network_share_object_access_without_ipc$_and_netlogon_shares(self) -> None:
@@ -119,7 +119,7 @@ class TestWindows_baseline_intrusion_detectionRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '67017')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_network_share_object_access_with_ipc$_and_netlogon_shares(self) -> None:
@@ -130,7 +130,7 @@ class TestWindows_baseline_intrusion_detectionRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '67017')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_change_system_date(self) -> None:
@@ -141,7 +141,7 @@ class TestWindows_baseline_intrusion_detectionRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '60132')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_shutdown_initiate_requests(self) -> None:
@@ -152,7 +152,7 @@ class TestWindows_baseline_intrusion_detectionRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '67018')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_applocker_packaged_ui_execution_allowed(self) -> None:
@@ -163,7 +163,7 @@ class TestWindows_baseline_intrusion_detectionRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '67019')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_applocker_packaged_ui_execution_would_block(self) -> None:
@@ -174,7 +174,7 @@ class TestWindows_baseline_intrusion_detectionRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '67020')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_applocker_packaged_ui_execution_blocked(self) -> None:
@@ -185,7 +185,7 @@ class TestWindows_baseline_intrusion_detectionRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '67021')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_local_logons_without_network_or_service_events(self) -> None:
@@ -196,7 +196,7 @@ class TestWindows_baseline_intrusion_detectionRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '67022')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_clear_audit_logs(self) -> None:
@@ -207,7 +207,7 @@ class TestWindows_baseline_intrusion_detectionRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '63103')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_clear_logs(self) -> None:
@@ -218,7 +218,7 @@ class TestWindows_baseline_intrusion_detectionRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '63104')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_user_initiated_logoff(self) -> None:
@@ -229,7 +229,7 @@ class TestWindows_baseline_intrusion_detectionRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '60137')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_local_logons_without_network_or_service_events_(self) -> None:
@@ -240,7 +240,7 @@ class TestWindows_baseline_intrusion_detectionRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '67022')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_user_logoff_for_all_non_network_logon_sessions(self) -> None:
@@ -251,7 +251,7 @@ class TestWindows_baseline_intrusion_detectionRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '67023')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_service_logon_events_if_the_user_account_isnt_localsystem_networkservice_localservice(self) -> None:
@@ -262,7 +262,7 @@ class TestWindows_baseline_intrusion_detectionRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '67024')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_service_logon_events_if_the_user_is_networkservice(self) -> None:
@@ -273,7 +273,7 @@ class TestWindows_baseline_intrusion_detectionRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '60106')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_network_create_share(self) -> None:
@@ -284,7 +284,7 @@ class TestWindows_baseline_intrusion_detectionRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '67025')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_network_delete_share(self) -> None:
@@ -295,7 +295,7 @@ class TestWindows_baseline_intrusion_detectionRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '67026')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_process_create(self) -> None:
@@ -306,7 +306,7 @@ class TestWindows_baseline_intrusion_detectionRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '67027')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_special_privileges_admin_equivalent_access_assigned_to_new_logon_excluding_localsystem(self) -> None:
@@ -317,7 +317,7 @@ class TestWindows_baseline_intrusion_detectionRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '67028')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_log_attempted_ts_connect_to_remote_serverm(self) -> None:
@@ -328,5 +328,5 @@ class TestWindows_baseline_intrusion_detectionRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '67029')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 

@@ -20,7 +20,7 @@ class TestNextcloudRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '88203')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_nextcloud_brute_force_2(self) -> None:
@@ -31,7 +31,7 @@ class TestNextcloudRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '88203')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_nextcloud_brute_force_3(self) -> None:
@@ -42,7 +42,7 @@ class TestNextcloudRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '88203')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_nextcloud_brute_force_4(self) -> None:
@@ -53,7 +53,7 @@ class TestNextcloudRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '88203')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_nextcloud_brute_force_5(self) -> None:
@@ -64,7 +64,7 @@ class TestNextcloudRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '88203')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_nextcloud_brute_force_6(self) -> None:
@@ -75,7 +75,7 @@ class TestNextcloudRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '88203')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_nextcloud_brute_force_7(self) -> None:
@@ -86,7 +86,7 @@ class TestNextcloudRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '88203')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_nextcloud_brute_force_8(self) -> None:
@@ -97,7 +97,7 @@ class TestNextcloudRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '88203')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_nextcloud_logout_successful(self) -> None:
@@ -108,7 +108,7 @@ class TestNextcloudRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '88210')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_nextcloud_authentication_successful(self) -> None:
@@ -119,7 +119,7 @@ class TestNextcloudRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '88211')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_nextcloud_authentication_failed(self) -> None:
@@ -130,7 +130,7 @@ class TestNextcloudRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '88212')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_nextcloud_file_accessed(self) -> None:
@@ -141,7 +141,7 @@ class TestNextcloudRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '88213')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_nextcloud_file_created(self) -> None:
@@ -152,7 +152,7 @@ class TestNextcloudRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '88214')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_nextcloud_file_deleted(self) -> None:
@@ -163,7 +163,7 @@ class TestNextcloudRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '88215')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_nextcloud_preview_accessed(self) -> None:
@@ -174,5 +174,5 @@ class TestNextcloudRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '88216')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 

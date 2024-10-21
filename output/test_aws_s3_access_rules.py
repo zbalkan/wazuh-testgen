@@ -20,7 +20,7 @@ class TestAws_s3_accessRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '80360')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_aws_s3_delete_operation(self) -> None:
@@ -31,7 +31,7 @@ class TestAws_s3_accessRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '80361')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_operation_get(self) -> None:
@@ -42,7 +42,7 @@ class TestAws_s3_accessRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '80362')
-        self.assertEqual(response.alert, 2)
+        self.assertEqual(response.rule_level, 2)
 
 
     def test_silence_general_restgetobject(self) -> None:
@@ -53,7 +53,7 @@ class TestAws_s3_accessRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '80363')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_operation_put(self) -> None:
@@ -64,7 +64,7 @@ class TestAws_s3_accessRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '80364')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_silence_events_when_s3_puts(self) -> None:
@@ -75,7 +75,7 @@ class TestAws_s3_accessRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '80365')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_aws_s3_post_operation(self) -> None:
@@ -86,7 +86,7 @@ class TestAws_s3_accessRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '80366')
-        self.assertEqual(response.alert, 2)
+        self.assertEqual(response.rule_level, 2)
 
 
     def test_generic_error(self) -> None:
@@ -97,7 +97,7 @@ class TestAws_s3_accessRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '80367')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_access_denied(self) -> None:
@@ -108,7 +108,7 @@ class TestAws_s3_accessRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '80368')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_aws_s3_authentication_failure(self) -> None:
@@ -119,5 +119,5 @@ class TestAws_s3_accessRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '80370')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 

@@ -20,7 +20,7 @@ class TestSysmon_eid_11Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92200')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_possible_abuse_of_windows_admin_shares_by_binary_dropped_in_windows_root_folder_by_system_process(self) -> None:
@@ -31,7 +31,7 @@ class TestSysmon_eid_11Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92218')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_executable_file_created_by_powershell(self) -> None:
@@ -42,7 +42,7 @@ class TestSysmon_eid_11Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92203')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_powershell_process_created_executable_file_in_appdata_temp_folder(self) -> None:
@@ -53,7 +53,7 @@ class TestSysmon_eid_11Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92204')
-        self.assertEqual(response.alert, 9)
+        self.assertEqual(response.rule_level, 9)
 
 
     def test_dll_file_created_by_printer_spool_service(self) -> None:
@@ -64,7 +64,7 @@ class TestSysmon_eid_11Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92206')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_binary_file_dropped_in_users\public_folder(self) -> None:
@@ -75,7 +75,7 @@ class TestSysmon_eid_11Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92207')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_binary_file_dropped_in_users\public_folder_via_ssh(self) -> None:
@@ -86,7 +86,7 @@ class TestSysmon_eid_11Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92208')
-        self.assertEqual(response.alert, 15)
+        self.assertEqual(response.rule_level, 15)
 
 
     def test_executable_file_dropped_in_folder_commonly_used_by_malware(self) -> None:
@@ -97,7 +97,7 @@ class TestSysmon_eid_11Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92213')
-        self.assertEqual(response.alert, 15)
+        self.assertEqual(response.rule_level, 15)
 
 
     def test_drop_binary_in_public_folder_1(self) -> None:
@@ -108,7 +108,7 @@ class TestSysmon_eid_11Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92207')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_drop_binary_in_public_folder_2(self) -> None:
@@ -119,7 +119,7 @@ class TestSysmon_eid_11Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92207')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_drop_reg_in_public_folder(self) -> None:
@@ -130,7 +130,7 @@ class TestSysmon_eid_11Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92209')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_powershell_process_created_scripting_file_in_appdata_temp_folder(self) -> None:
@@ -141,7 +141,7 @@ class TestSysmon_eid_11Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92201')
-        self.assertEqual(response.alert, 9)
+        self.assertEqual(response.rule_level, 9)
 
 
     def test_office_application_creates_suspicious_file(self) -> None:
@@ -152,7 +152,7 @@ class TestSysmon_eid_11Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92214')
-        self.assertEqual(response.alert, 15)
+        self.assertEqual(response.rule_level, 15)
 
 
     def test_mshta_creates_executable_file(self) -> None:
@@ -163,7 +163,7 @@ class TestSysmon_eid_11Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92215')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_powershellexe_created_a_temporary_file_under_system_folder(self) -> None:
@@ -174,7 +174,7 @@ class TestSysmon_eid_11Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92216')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_$wineventdataimage_created_a_new_scripting_file_under_user_data_folder(self) -> None:
@@ -185,7 +185,7 @@ class TestSysmon_eid_11Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92201')
-        self.assertEqual(response.alert, 9)
+        self.assertEqual(response.rule_level, 9)
 
 
     def test_binary_dropped_in_windows_root_folder_by_$wineventdataimage_process_possible_abuse_of_windows_admin_shares(self) -> None:
@@ -196,7 +196,7 @@ class TestSysmon_eid_11Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92202')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_possible_dll_search_order_hijack_by_dll_created_in_windows_root_folder(self) -> None:
@@ -207,7 +207,7 @@ class TestSysmon_eid_11Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92219')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_suspicious_file_compression_activity_in_users\public_folder(self) -> None:
@@ -218,7 +218,7 @@ class TestSysmon_eid_11Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92210')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_suspicious_executable_file_creation_by_rundll32_$wineventdatatargetfilename(self) -> None:
@@ -229,7 +229,7 @@ class TestSysmon_eid_11Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92211')
-        self.assertEqual(response.alert, 14)
+        self.assertEqual(response.rule_level, 14)
 
 
     def test_a_screensaver_executable_created_a_file(self) -> None:
@@ -240,7 +240,7 @@ class TestSysmon_eid_11Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92221')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_suspicious_file_compression_activity_by_powershell_$wineventdatatargetfilename(self) -> None:
@@ -251,7 +251,7 @@ class TestSysmon_eid_11Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92212')
-        self.assertEqual(response.alert, 14)
+        self.assertEqual(response.rule_level, 14)
 
 
     def test_an_executable_accesschkexe_created_a_password_dump_file_in_a_system_directory(self) -> None:
@@ -262,7 +262,7 @@ class TestSysmon_eid_11Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92222')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_pfx_file_created(self) -> None:
@@ -273,7 +273,7 @@ class TestSysmon_eid_11Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92224')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_powershell_process_created_pfx_file_possible_private_key_or_certificate_exportation(self) -> None:
@@ -284,7 +284,7 @@ class TestSysmon_eid_11Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92226')
-        self.assertEqual(response.alert, 14)
+        self.assertEqual(response.rule_level, 14)
 
 
     def test_binary_created_in_windows_root_folder_by_winrm_process(self) -> None:
@@ -295,7 +295,7 @@ class TestSysmon_eid_11Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92220')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_powershell_process_created_an_executable_file_in_windows_root_folder(self) -> None:
@@ -306,7 +306,7 @@ class TestSysmon_eid_11Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92205')
-        self.assertEqual(response.alert, 9)
+        self.assertEqual(response.rule_level, 9)
 
 
     def test_curl_process_created_an_dll_binary(self) -> None:
@@ -317,5 +317,5 @@ class TestSysmon_eid_11Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92227')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 

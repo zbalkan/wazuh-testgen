@@ -20,7 +20,7 @@ class TestTest_pcre2_regex_geoipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_pcre2_16')
         self.assertEqual(response.rule_id, '999600')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_pcre2_test_pcre2_16_srcgeoip_n(self) -> None:
@@ -31,7 +31,7 @@ class TestTest_pcre2_regex_geoipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_pcre2_16')
         self.assertEqual(response.rule_id, '999601')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_pcre2_test_pcre2_17_dstgeoip(self) -> None:
@@ -42,7 +42,7 @@ class TestTest_pcre2_regex_geoipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_pcre2_17')
         self.assertEqual(response.rule_id, '999602')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_pcre2_test_pcre2_17_dstgeoip_n(self) -> None:
@@ -53,5 +53,5 @@ class TestTest_pcre2_regex_geoipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_pcre2_17')
         self.assertEqual(response.rule_id, '999603')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 

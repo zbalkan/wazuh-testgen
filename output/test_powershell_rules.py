@@ -20,7 +20,7 @@ class TestPowershellRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91807')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_get_itemproperty_query_registry(self) -> None:
@@ -31,7 +31,7 @@ class TestPowershellRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91808')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_base64_decode_from_scriptblock(self) -> None:
@@ -42,7 +42,7 @@ class TestPowershellRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91809')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_createthread_api_execution(self) -> None:
@@ -53,7 +53,7 @@ class TestPowershellRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91810')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_powershell_script_executed_"expand_archive"_$wineventdatascriptblocktext(self) -> None:
@@ -64,7 +64,7 @@ class TestPowershellRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91811')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_powershell_script_deleted_a_registry_key_from_an_object(self) -> None:
@@ -75,7 +75,7 @@ class TestPowershellRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91814')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_powershell_executing_process_discovery(self) -> None:
@@ -86,7 +86,7 @@ class TestPowershellRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91815')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_powershell_script_querying_system_environment_variables(self) -> None:
@@ -97,7 +97,7 @@ class TestPowershellRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91816')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_powershell_script_executed_new_service_command(self) -> None:
@@ -108,7 +108,7 @@ class TestPowershellRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91818')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_powershell_script_created_a_compressed_file(self) -> None:
@@ -119,7 +119,7 @@ class TestPowershellRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91821')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_powershell_script_executed_"invoke_command"_cmdlet_in_remote_computer(self) -> None:
@@ -130,7 +130,7 @@ class TestPowershellRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91823')
-        self.assertEqual(response.alert, 14)
+        self.assertEqual(response.rule_level, 14)
 
 
     def test_powershell_collected_clipboard_data(self) -> None:
@@ -141,7 +141,7 @@ class TestPowershellRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91824')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_powershell_executed_file_compression(self) -> None:
@@ -152,7 +152,7 @@ class TestPowershellRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91825')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_powershell_executed_"copy_item"(self) -> None:
@@ -163,7 +163,7 @@ class TestPowershellRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91826')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_powershell_executed_a_creation_or_update_of_a_wmi_instance_with_encoded_values(self) -> None:
@@ -174,7 +174,7 @@ class TestPowershellRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91828')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_powershell_executed_"getcomputernameex"(self) -> None:
@@ -185,7 +185,7 @@ class TestPowershellRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91829')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_powershell_executed_"netwkstagetinfo"(self) -> None:
@@ -196,7 +196,7 @@ class TestPowershellRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91830')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_powershell_executed_"getusernameex"(self) -> None:
@@ -207,7 +207,7 @@ class TestPowershellRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91831')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_powershell_executed_"createtoolhelp32snapshot"(self) -> None:
@@ -218,7 +218,7 @@ class TestPowershellRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91832')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_timestomp(self) -> None:
@@ -229,7 +229,7 @@ class TestPowershellRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91834')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_powershell_tampering_with_wmi_antivirusproduct_class(self) -> None:
@@ -240,7 +240,7 @@ class TestPowershellRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91835')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_powershell_tampering_software_installation_info_on_system_registry(self) -> None:
@@ -251,7 +251,7 @@ class TestPowershellRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91836')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_powershell_script_executed_convertsidtostringsid_api(self) -> None:
@@ -262,7 +262,7 @@ class TestPowershellRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91817')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_powershell_executed_"get_content_stream_or_invoke_expresion"_possible_string_execution_as_code(self) -> None:
@@ -273,7 +273,7 @@ class TestPowershellRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91837')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_powershell_queried_win32_bios_possible_sandbox_detection_activity(self) -> None:
@@ -284,7 +284,7 @@ class TestPowershellRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91838')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_powershell_queried_win32_computersystem_possible_system_discovery_activity(self) -> None:
@@ -295,7 +295,7 @@ class TestPowershellRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91839')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_powershell_queried_win32_pnpentity_possible_devices_adapter_discovery_activity(self) -> None:
@@ -306,7 +306,7 @@ class TestPowershellRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91840')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_powershell_queried_win32_process_possible_process_discovery_activity(self) -> None:
@@ -317,7 +317,7 @@ class TestPowershellRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91841')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_powershell_executed_"get_item_path"_script_trying_to_see_files_in_path(self) -> None:
@@ -328,7 +328,7 @@ class TestPowershellRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91842')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_possible_addition_of_new_item_to_windows_startup_registry(self) -> None:
@@ -339,7 +339,7 @@ class TestPowershellRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91844')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_outlook_add_in_was_loaded_by_powershell(self) -> None:
@@ -350,7 +350,7 @@ class TestPowershellRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91845')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_powershell_used_net_compression_method(self) -> None:
@@ -361,5 +361,5 @@ class TestPowershellRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91846')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 

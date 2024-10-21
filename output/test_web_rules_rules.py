@@ -20,7 +20,7 @@ class TestWeb_rulesRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'web-accesslog-iis6')
         self.assertEqual(response.rule_id, '31106')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_not_a_web_attack_returned_code_200_success(self) -> None:
@@ -38,7 +38,7 @@ class TestWeb_rulesRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'web-accesslog-iis-default')
         self.assertEqual(response.rule_id, '31108')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_a_web_page_returned_code_404_not_found(self) -> None:
@@ -49,7 +49,7 @@ class TestWeb_rulesRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'web-accesslog-iis-default')
         self.assertEqual(response.rule_id, '31101')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_a_web_attacked_returned_code_404(self) -> None:
@@ -60,7 +60,7 @@ class TestWeb_rulesRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'web-accesslog-iis-default')
         self.assertEqual(response.rule_id, '31104')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_a_web_page_returned_code_404_not_found_syslog_format(self) -> None:
@@ -71,7 +71,7 @@ class TestWeb_rulesRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'web-accesslog')
         self.assertEqual(response.rule_id, '31101')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_a_web_attacked_returned_code_404_syslog_format(self) -> None:
@@ -82,7 +82,7 @@ class TestWeb_rulesRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'web-accesslog')
         self.assertEqual(response.rule_id, '31104')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_sql_injection_attempt_syslog_format(self) -> None:
@@ -93,7 +93,7 @@ class TestWeb_rulesRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'web-accesslog')
         self.assertEqual(response.rule_id, '31103')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_sql_injection_attempt(self) -> None:
@@ -104,7 +104,7 @@ class TestWeb_rulesRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'web-accesslog')
         self.assertEqual(response.rule_id, '31170')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_sql_injection_attempt_2(self) -> None:
@@ -115,5 +115,5 @@ class TestWeb_rulesRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'web-accesslog')
         self.assertEqual(response.rule_id, '31171')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 

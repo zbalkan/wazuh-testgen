@@ -20,7 +20,7 @@ class TestF5_big_ipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'f5-bigip')
         self.assertEqual(response.rule_id, '65261')
-        self.assertEqual(response.alert, 9)
+        self.assertEqual(response.rule_level, 9)
 
 
     def test_syn_flood_attack(self) -> None:
@@ -31,7 +31,7 @@ class TestF5_big_ipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'f5-bigip')
         self.assertEqual(response.rule_id, '65262')
-        self.assertEqual(response.alert, 13)
+        self.assertEqual(response.rule_level, 13)
 
 
     def test_stopped_throttling_traffic(self) -> None:
@@ -42,7 +42,7 @@ class TestF5_big_ipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'f5-bigip')
         self.assertEqual(response.rule_id, '65263')
-        self.assertEqual(response.alert, 9)
+        self.assertEqual(response.rule_level, 9)
 
 
     def test_syn_cookie_threshold_is_reached(self) -> None:
@@ -53,7 +53,7 @@ class TestF5_big_ipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'f5-bigip')
         self.assertEqual(response.rule_id, '65264')
-        self.assertEqual(response.alert, 9)
+        self.assertEqual(response.rule_level, 9)
 
 
     def test_detected_a_syncookie_dos_attack(self) -> None:
@@ -64,7 +64,7 @@ class TestF5_big_ipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'f5-bigip')
         self.assertEqual(response.rule_id, '65265')
-        self.assertEqual(response.alert, 13)
+        self.assertEqual(response.rule_level, 13)
 
 
     def test_ongoing_ddos_attack(self) -> None:
@@ -75,7 +75,7 @@ class TestF5_big_ipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'f5-bigip')
         self.assertEqual(response.rule_id, '65266')
-        self.assertEqual(response.alert, 13)
+        self.assertEqual(response.rule_level, 13)
 
 
     def test_created_updated_afm_bdos_dynamic_signature_by_the_afm_bdosd_daemon_during_an_attack(self) -> None:
@@ -86,7 +86,7 @@ class TestF5_big_ipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'f5-bigip')
         self.assertEqual(response.rule_id, '65267')
-        self.assertEqual(response.alert, 11)
+        self.assertEqual(response.rule_level, 11)
 
 
     def test_number_of_allowed_new_connections_per_second_for_pool_member_has_been_exceeded(self) -> None:
@@ -97,7 +97,7 @@ class TestF5_big_ipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'f5-bigip')
         self.assertEqual(response.rule_id, '65268')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_syncookie_dos_attack_has_stopped(self) -> None:
@@ -108,7 +108,7 @@ class TestF5_big_ipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'f5-bigip')
         self.assertEqual(response.rule_id, '65269')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_syncookie_counter_exceeded_vip_threshold(self) -> None:
@@ -119,7 +119,7 @@ class TestF5_big_ipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'f5-bigip')
         self.assertEqual(response.rule_id, '65270')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_syn_cookie_state_exited(self) -> None:
@@ -130,7 +130,7 @@ class TestF5_big_ipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'f5-bigip')
         self.assertEqual(response.rule_id, '65271')
-        self.assertEqual(response.alert, 2)
+        self.assertEqual(response.rule_level, 2)
 
 
     def test_sslv2_is_no_longer_supported_and_has_been_removed(self) -> None:
@@ -141,7 +141,7 @@ class TestF5_big_ipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'f5-bigip')
         self.assertEqual(response.rule_id, '65272')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_user_is_prevented_from_doing_things_they_are_not_authorized_to_do(self) -> None:
@@ -152,7 +152,7 @@ class TestF5_big_ipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'f5-bigip')
         self.assertEqual(response.rule_id, '65273')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_mcpd_has_detected_that_sync_traffic_is_being_sent_over_a_vlan_that_is_not_the_correct_one(self) -> None:
@@ -163,7 +163,7 @@ class TestF5_big_ipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'f5-bigip')
         self.assertEqual(response.rule_id, '65274')
-        self.assertEqual(response.alert, 9)
+        self.assertEqual(response.rule_level, 9)
 
 
     def test_too_many_sip_media_sessions_have_been_established_for_the_current_configuration(self) -> None:
@@ -174,7 +174,7 @@ class TestF5_big_ipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'f5-bigip')
         self.assertEqual(response.rule_id, '65275')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_critical_error_for_tmm_it_restarts_attempts_to_reconnect_will_be_made_after_that(self) -> None:
@@ -185,7 +185,7 @@ class TestF5_big_ipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'f5-bigip')
         self.assertEqual(response.rule_id, '65276')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_errors_could_be_caused_by_a_broken_feature_or_critical_system_errors(self) -> None:
@@ -196,7 +196,7 @@ class TestF5_big_ipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'f5-bigip')
         self.assertEqual(response.rule_id, '65277')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_the_hal_daemon_might_not_be_able_to_correctly_identify_the_platform_or_publish_the_hardware_abstraction_configuration_at_startup_or_has_encountered_a_critical_failure_during_normal_operation_1(self) -> None:
@@ -207,7 +207,7 @@ class TestF5_big_ipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'f5-bigip')
         self.assertEqual(response.rule_id, '65278')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_the_hal_daemon_might_not_be_able_to_correctly_identify_the_platform_or_publish_the_hardware_abstraction_configuration_at_startup_or_has_encountered_a_critical_failure_during_normal_operation_2(self) -> None:
@@ -218,7 +218,7 @@ class TestF5_big_ipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'f5-bigip')
         self.assertEqual(response.rule_id, '65278')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_hardware_sensor_critical_alarm(self) -> None:
@@ -229,7 +229,7 @@ class TestF5_big_ipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'f5-bigip')
         self.assertEqual(response.rule_id, '65279')
-        self.assertEqual(response.alert, 13)
+        self.assertEqual(response.rule_level, 13)
 
 
     def test_aom_has_indicated_that_a_temperature_sensor_has_crossed_a_critical_level_threshold(self) -> None:
@@ -240,7 +240,7 @@ class TestF5_big_ipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'f5-bigip')
         self.assertEqual(response.rule_id, '65280')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_aom_has_indicated_that_a_fan_sensor_has_crossed_a_critical_threshold(self) -> None:
@@ -251,7 +251,7 @@ class TestF5_big_ipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'f5-bigip')
         self.assertEqual(response.rule_id, '65281')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_aom_has_indicated_that_a_power_sensor_has_crossed_a_critical_threshold(self) -> None:
@@ -262,7 +262,7 @@ class TestF5_big_ipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'f5-bigip')
         self.assertEqual(response.rule_id, '65282')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_critical_error_that_prevents_the_broadcom_switch_from_operating_at_the_proper_configuration_required_by_big_ip(self) -> None:
@@ -273,7 +273,7 @@ class TestF5_big_ipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'f5-bigip')
         self.assertEqual(response.rule_id, '65283')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_critical_errors_in_communication_between_tmm_threads_specifically_by_mpi_proxy(self) -> None:
@@ -284,7 +284,7 @@ class TestF5_big_ipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'f5-bigip')
         self.assertEqual(response.rule_id, '65284')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_serious_issue_preventing_the_guest_from_starting_or_shutting_down(self) -> None:
@@ -295,7 +295,7 @@ class TestF5_big_ipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'f5-bigip')
         self.assertEqual(response.rule_id, '65285')
-        self.assertEqual(response.alert, 9)
+        self.assertEqual(response.rule_level, 9)
 
 
     def test_critical_the_big_ip_system_is_not_allowed_not_to_go_active_1(self) -> None:
@@ -306,7 +306,7 @@ class TestF5_big_ipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'f5-bigip')
         self.assertEqual(response.rule_id, '65286')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_critical_the_big_ip_system_is_not_allowed_not_to_go_active_2(self) -> None:
@@ -317,7 +317,7 @@ class TestF5_big_ipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'f5-bigip')
         self.assertEqual(response.rule_id, '65286')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_critical_the_big_ip_system_is_not_allowed_not_to_go_active_3(self) -> None:
@@ -328,7 +328,7 @@ class TestF5_big_ipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'f5-bigip')
         self.assertEqual(response.rule_id, '65286')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_critical_the_errdefsd_daemon_is_out_of_memory(self) -> None:
@@ -339,7 +339,7 @@ class TestF5_big_ipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'f5-bigip')
         self.assertEqual(response.rule_id, '65287')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_critical_the_file_platform_isnt_found_and_licensing_logic_cannot_determine_the_platform_type(self) -> None:
@@ -350,7 +350,7 @@ class TestF5_big_ipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'f5-bigip')
         self.assertEqual(response.rule_id, '65288')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_bot_defense_1(self) -> None:
@@ -361,7 +361,7 @@ class TestF5_big_ipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'f5-bigip')
         self.assertEqual(response.rule_id, '65289')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_bot_defense_2(self) -> None:
@@ -372,7 +372,7 @@ class TestF5_big_ipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'f5-bigip')
         self.assertEqual(response.rule_id, '65289')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_tcp_dump(self) -> None:
@@ -383,7 +383,7 @@ class TestF5_big_ipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'f5-bigip')
         self.assertEqual(response.rule_id, '65290')
-        self.assertEqual(response.alert, 2)
+        self.assertEqual(response.rule_level, 2)
 
 
     def test_tcp_dump_remote_session(self) -> None:
@@ -394,7 +394,7 @@ class TestF5_big_ipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'f5-bigip')
         self.assertEqual(response.rule_id, '65291')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_asm_error(self) -> None:
@@ -405,7 +405,7 @@ class TestF5_big_ipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'f5-bigip')
         self.assertEqual(response.rule_id, '65292')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_asm_illegal_action(self) -> None:
@@ -416,7 +416,7 @@ class TestF5_big_ipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'f5-bigip-cef')
         self.assertEqual(response.rule_id, '65294')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_asm_sql_injection(self) -> None:
@@ -427,7 +427,7 @@ class TestF5_big_ipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'f5-bigip-cef')
         self.assertEqual(response.rule_id, '65295')
-        self.assertEqual(response.alert, 13)
+        self.assertEqual(response.rule_level, 13)
 
 
     def test_bigip_asm_violation_detected_1(self) -> None:
@@ -438,7 +438,7 @@ class TestF5_big_ipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'f5-bigip-cef')
         self.assertEqual(response.rule_id, '65296')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_bigip_asm_violation_detected_2(self) -> None:
@@ -449,7 +449,7 @@ class TestF5_big_ipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'f5-bigip-cef')
         self.assertEqual(response.rule_id, '65296')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_bigip_asm_anomaly_detected_1(self) -> None:
@@ -460,7 +460,7 @@ class TestF5_big_ipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'f5-bigip-cef')
         self.assertEqual(response.rule_id, '65297')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_bigip_asm_anomaly_detected_2(self) -> None:
@@ -471,7 +471,7 @@ class TestF5_big_ipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'f5-bigip-cef')
         self.assertEqual(response.rule_id, '65297')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_bigip_asm_anomaly_detected_3(self) -> None:
@@ -482,7 +482,7 @@ class TestF5_big_ipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'f5-bigip-cef')
         self.assertEqual(response.rule_id, '65297')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_f5_bigip_info_message_detected(self) -> None:
@@ -493,7 +493,7 @@ class TestF5_big_ipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'f5-bigip')
         self.assertEqual(response.rule_id, '65298')
-        self.assertEqual(response.alert, 2)
+        self.assertEqual(response.rule_level, 2)
 
 
     def test_f5_bigip_notice_message_detected(self) -> None:
@@ -504,7 +504,7 @@ class TestF5_big_ipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'f5-bigip')
         self.assertEqual(response.rule_id, '65299')
-        self.assertEqual(response.alert, 2)
+        self.assertEqual(response.rule_level, 2)
 
 
     def test_f5_bigip_warning_message_detected(self) -> None:
@@ -515,7 +515,7 @@ class TestF5_big_ipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'f5-bigip')
         self.assertEqual(response.rule_id, '65300')
-        self.assertEqual(response.alert, 2)
+        self.assertEqual(response.rule_level, 2)
 
 
     def test_f5_bigip_alert_message_detected(self) -> None:
@@ -526,7 +526,7 @@ class TestF5_big_ipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'f5-bigip')
         self.assertEqual(response.rule_id, '65301')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_f5_bigip_critical_message_detected(self) -> None:
@@ -537,5 +537,5 @@ class TestF5_big_ipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'f5-bigip')
         self.assertEqual(response.rule_id, '65302')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 

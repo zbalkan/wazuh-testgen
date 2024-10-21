@@ -20,7 +20,7 @@ class TestGitlabRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '65600')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_error_couldnt_complete_push_request(self) -> None:
@@ -31,7 +31,7 @@ class TestGitlabRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '65601')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_redirection_the_push_request_has_more_than_one_possible_response(self) -> None:
@@ -42,7 +42,7 @@ class TestGitlabRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '65602')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_user_administrator_was_created(self) -> None:
@@ -53,7 +53,7 @@ class TestGitlabRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'gitlab-12-application-log')
         self.assertEqual(response.rule_id, '65603')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_documentcloud_created_a_new_project(self) -> None:
@@ -64,7 +64,7 @@ class TestGitlabRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'gitlab-12-application-log')
         self.assertEqual(response.rule_id, '65604')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_user_dummy_was_removed(self) -> None:
@@ -75,7 +75,7 @@ class TestGitlabRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'gitlab-12-application-log')
         self.assertEqual(response.rule_id, '65605')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_project_project133_was_removed(self) -> None:
@@ -86,7 +86,7 @@ class TestGitlabRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'gitlab-12-application-log')
         self.assertEqual(response.rule_id, '65606')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_error_sending_message(self) -> None:
@@ -97,7 +97,7 @@ class TestGitlabRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '65607')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_successfully_posted(self) -> None:
@@ -108,7 +108,7 @@ class TestGitlabRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '65608')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_gitlab_kubernetes_1_error_unauthorized(self) -> None:
@@ -119,7 +119,7 @@ class TestGitlabRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '65609')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_gitlab_kubernetes_2_info(self) -> None:
@@ -130,7 +130,7 @@ class TestGitlabRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '65610')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_gitlab_githost_error(self) -> None:
@@ -141,7 +141,7 @@ class TestGitlabRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '65611')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_gitlab_audit_info_1(self) -> None:
@@ -152,7 +152,7 @@ class TestGitlabRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '65612')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_gitlab_audit_info_2(self) -> None:
@@ -163,7 +163,7 @@ class TestGitlabRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '65612')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_gitlab_audit_info_3(self) -> None:
@@ -174,7 +174,7 @@ class TestGitlabRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '65612')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_gitlab_sidekiq_2_info(self) -> None:
@@ -185,7 +185,7 @@ class TestGitlabRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'gitlab-sidekiq')
         self.assertEqual(response.rule_id, '65614')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_gitlab_sidekiq_1_error(self) -> None:
@@ -196,7 +196,7 @@ class TestGitlabRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'gitlab-sidekiq')
         self.assertEqual(response.rule_id, '65615')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_gitlab_sidekiq_3_info(self) -> None:
@@ -207,7 +207,7 @@ class TestGitlabRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '65616')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_gitlab_sidekiq_4_error(self) -> None:
@@ -218,7 +218,7 @@ class TestGitlabRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '65617')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_gitlab_shell_stderr_1_info_1(self) -> None:
@@ -229,7 +229,7 @@ class TestGitlabRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'gitlab-shell-stderr')
         self.assertEqual(response.rule_id, '65618')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_gitlab_shell_stderr_1_info_2(self) -> None:
@@ -240,7 +240,7 @@ class TestGitlabRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'gitlab-shell-stderr')
         self.assertEqual(response.rule_id, '65618')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_gitlab_shell_stderr_2_warn_1(self) -> None:
@@ -251,7 +251,7 @@ class TestGitlabRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'gitlab-shell-stderr')
         self.assertEqual(response.rule_id, '65619')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_gitlab_shell_stderr_2_warn_2(self) -> None:
@@ -262,7 +262,7 @@ class TestGitlabRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'gitlab-shell-stderr')
         self.assertEqual(response.rule_id, '65619')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_gitlab_graphql_query(self) -> None:
@@ -273,7 +273,7 @@ class TestGitlabRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '65620')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_get_request_completed_succesfully(self) -> None:
@@ -284,7 +284,7 @@ class TestGitlabRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '65621')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_error_couldnt_complete_get_request(self) -> None:
@@ -295,7 +295,7 @@ class TestGitlabRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '65622')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_redirection_the_get_request_has_more_than_one_possible_response(self) -> None:
@@ -306,5 +306,5 @@ class TestGitlabRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '65623')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 

@@ -20,7 +20,7 @@ class TestMacosRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'macOS_tccd')
         self.assertEqual(response.rule_id, '89600')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_$application_has_been_denied_permission_to_$service_at_$time(self) -> None:
@@ -31,7 +31,7 @@ class TestMacosRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'macOS_tccd')
         self.assertEqual(response.rule_id, '89601')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_screen_unlocked_with_userid_$userid(self) -> None:
@@ -42,7 +42,7 @@ class TestMacosRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'macOS_loginwindow')
         self.assertEqual(response.rule_id, '89602')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_screen_locked(self) -> None:
@@ -53,7 +53,7 @@ class TestMacosRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'macOS_loginwindow')
         self.assertEqual(response.rule_id, '89603')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_user_logoff(self) -> None:
@@ -64,7 +64,7 @@ class TestMacosRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'macOS_sessionlogoutd')
         self.assertEqual(response.rule_id, '89604')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_user_login(self) -> None:
@@ -75,7 +75,7 @@ class TestMacosRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'macOS_loginwindow')
         self.assertEqual(response.rule_id, '89605')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_attempt_to_connect_to_screen_sharing_with_username_$dstuser_from_$ip_address_failed(self) -> None:
@@ -86,7 +86,7 @@ class TestMacosRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'macOS_screensharingd')
         self.assertEqual(response.rule_id, '89606')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_attempt_to_connect_to_screen_sharing_with_username_$dstuser_from_$ip_address_succeeded(self) -> None:
@@ -97,7 +97,7 @@ class TestMacosRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'macOS_screensharingd')
         self.assertEqual(response.rule_id, '89607')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_session_$sessionid_has_been_created(self) -> None:
@@ -108,7 +108,7 @@ class TestMacosRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'macOS_securityd')
         self.assertEqual(response.rule_id, '89608')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_session_$sessionid_has_been_destroyed(self) -> None:
@@ -119,7 +119,7 @@ class TestMacosRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'macOS_securityd')
         self.assertEqual(response.rule_id, '89609')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_plus_symbol_on_timestamp(self) -> None:
@@ -130,5 +130,5 @@ class TestMacosRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'macOS_loginwindow')
         self.assertEqual(response.rule_id, '89603')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 

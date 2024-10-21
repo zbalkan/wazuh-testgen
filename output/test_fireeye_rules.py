@@ -20,7 +20,7 @@ class TestFireeyeRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cef-fireeye')
         self.assertEqual(response.rule_id, '150101')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_fireeye_malicious_script(self) -> None:
@@ -31,7 +31,7 @@ class TestFireeyeRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cef-fireeye')
         self.assertEqual(response.rule_id, '150102')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_fireeye_malware_callback(self) -> None:
@@ -42,5 +42,5 @@ class TestFireeyeRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cef-fireeye')
         self.assertEqual(response.rule_id, '150101')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 

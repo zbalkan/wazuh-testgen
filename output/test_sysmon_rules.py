@@ -20,7 +20,7 @@ class TestSysmonRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'windows')
         self.assertEqual(response.rule_id, '184666')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_sysmon_eventid1_non_suspicious_svchost_process(self) -> None:
@@ -31,7 +31,7 @@ class TestSysmonRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'windows')
         self.assertEqual(response.rule_id, '184667')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_windows_event(self) -> None:
@@ -42,7 +42,7 @@ class TestSysmonRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'windows')
         self.assertEqual(response.rule_id, '18101')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_sysmon_eventid_1(self) -> None:
@@ -53,7 +53,7 @@ class TestSysmonRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '61603')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_sysmon_eventid_2(self) -> None:
@@ -64,7 +64,7 @@ class TestSysmonRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '61604')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_sysmon_eventid_3(self) -> None:
@@ -75,7 +75,7 @@ class TestSysmonRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '61605')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_sysmon_eventid_4(self) -> None:
@@ -86,7 +86,7 @@ class TestSysmonRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '61606')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_sysmon_eventid_5(self) -> None:
@@ -97,7 +97,7 @@ class TestSysmonRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '61607')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_sysmon_eventid_6(self) -> None:
@@ -108,7 +108,7 @@ class TestSysmonRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '61608')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_sysmon_eventid_7(self) -> None:
@@ -119,7 +119,7 @@ class TestSysmonRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '61609')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_sysmon_eventid_8(self) -> None:
@@ -130,7 +130,7 @@ class TestSysmonRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '61610')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_sysmon_eventid_10(self) -> None:
@@ -141,7 +141,7 @@ class TestSysmonRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '61612')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_sysmon_eventid_11(self) -> None:
@@ -152,7 +152,7 @@ class TestSysmonRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '61613')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_sysmon_eventid_12(self) -> None:
@@ -163,7 +163,7 @@ class TestSysmonRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '61614')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_sysmon_eventid_13(self) -> None:
@@ -174,7 +174,7 @@ class TestSysmonRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '61615')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_sysmon_eventid_15(self) -> None:
@@ -185,7 +185,7 @@ class TestSysmonRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '61617')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_sysmon_eventid_16(self) -> None:
@@ -196,7 +196,7 @@ class TestSysmonRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '61644')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_sysmon_eventid_17(self) -> None:
@@ -207,7 +207,7 @@ class TestSysmonRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '61645')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_sysmon_eventid_19(self) -> None:
@@ -218,7 +218,7 @@ class TestSysmonRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '61647')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_sysmon_eventid_20(self) -> None:
@@ -229,7 +229,7 @@ class TestSysmonRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '61648')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_sysmon_eventid_21(self) -> None:
@@ -240,7 +240,7 @@ class TestSysmonRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '61649')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_sysmon_eventid_22(self) -> None:
@@ -251,7 +251,7 @@ class TestSysmonRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '61650')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_sysmon_eventid_23(self) -> None:
@@ -262,7 +262,7 @@ class TestSysmonRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '61651')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_sysmon_eventid_25(self) -> None:
@@ -273,7 +273,7 @@ class TestSysmonRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '61653')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_sysmon_eventid_255(self) -> None:
@@ -284,5 +284,5 @@ class TestSysmonRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '61655')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 

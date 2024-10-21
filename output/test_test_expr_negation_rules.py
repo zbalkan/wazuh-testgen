@@ -20,7 +20,7 @@ class TestTest_expr_negationRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_expr_negation')
         self.assertEqual(response.rule_id, '999300')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_expr_negation_action_2(self) -> None:
@@ -31,7 +31,7 @@ class TestTest_expr_negationRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_expr_negation')
         self.assertEqual(response.rule_id, '999301')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_expr_negation_action_3(self) -> None:
@@ -49,7 +49,7 @@ class TestTest_expr_negationRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_expr_negation')
         self.assertEqual(response.rule_id, '999302')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_expr_negation_dstip_2(self) -> None:
@@ -60,7 +60,7 @@ class TestTest_expr_negationRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_expr_negation')
         self.assertEqual(response.rule_id, '999303')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_expr_negation_dstip_3(self) -> None:
@@ -78,7 +78,7 @@ class TestTest_expr_negationRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_expr_negation')
         self.assertEqual(response.rule_id, '999304')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_expr_negation_extra_data_2(self) -> None:
@@ -89,7 +89,7 @@ class TestTest_expr_negationRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_expr_negation')
         self.assertEqual(response.rule_id, '999305')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_expr_negation_extra_data_3(self) -> None:
@@ -107,7 +107,7 @@ class TestTest_expr_negationRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_expr_negation')
         self.assertEqual(response.rule_id, '999306')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_expr_negation_field_2(self) -> None:
@@ -118,7 +118,7 @@ class TestTest_expr_negationRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_expr_negation')
         self.assertEqual(response.rule_id, '999307')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_expr_negation_field_3(self) -> None:
@@ -136,7 +136,7 @@ class TestTest_expr_negationRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_expr_negation_predec_fields')
         self.assertEqual(response.rule_id, '999308')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_expr_negation_hostname_2(self) -> None:
@@ -147,7 +147,7 @@ class TestTest_expr_negationRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_expr_negation_predec_fields')
         self.assertEqual(response.rule_id, '999309')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_expr_negation_hostname_3(self) -> None:
@@ -165,7 +165,7 @@ class TestTest_expr_negationRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_expr_negation')
         self.assertEqual(response.rule_id, '999310')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_expr_negation_id_2(self) -> None:
@@ -176,7 +176,7 @@ class TestTest_expr_negationRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_expr_negation')
         self.assertEqual(response.rule_id, '999311')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_expr_negation_id_3(self) -> None:
@@ -194,7 +194,7 @@ class TestTest_expr_negationRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_expr_negation_predec_fields')
         self.assertEqual(response.rule_id, '999312')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_expr_negation_location_2(self) -> None:
@@ -205,7 +205,7 @@ class TestTest_expr_negationRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_expr_negation_predec_fields')
         self.assertEqual(response.rule_id, '999313')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_expr_negation_match_1_1(self) -> None:
@@ -216,7 +216,7 @@ class TestTest_expr_negationRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_expr_negation_match')
         self.assertEqual(response.rule_id, '999314')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_expr_negation_match_1_2(self) -> None:
@@ -227,7 +227,7 @@ class TestTest_expr_negationRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_expr_negation_match')
         self.assertEqual(response.rule_id, '999314')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_expr_negation_match_2_1(self) -> None:
@@ -238,7 +238,7 @@ class TestTest_expr_negationRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_expr_negation_match')
         self.assertEqual(response.rule_id, '999315')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_expr_negation_match_2_2(self) -> None:
@@ -249,7 +249,7 @@ class TestTest_expr_negationRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_expr_negation_match')
         self.assertEqual(response.rule_id, '999315')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_expr_negation_match_3_1(self) -> None:
@@ -274,7 +274,7 @@ class TestTest_expr_negationRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_expr_negation_program_name')
         self.assertEqual(response.rule_id, '999316')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_expr_negation_program_name_2(self) -> None:
@@ -285,7 +285,7 @@ class TestTest_expr_negationRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_expr_negation_program_name')
         self.assertEqual(response.rule_id, '999317')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_expr_negation_program_name_3(self) -> None:
@@ -303,7 +303,7 @@ class TestTest_expr_negationRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_expr_negation')
         self.assertEqual(response.rule_id, '999318')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_expr_negation_protocol_2(self) -> None:
@@ -314,7 +314,7 @@ class TestTest_expr_negationRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_expr_negation')
         self.assertEqual(response.rule_id, '999319')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_expr_negation_protocol_3(self) -> None:
@@ -332,7 +332,7 @@ class TestTest_expr_negationRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_expr_negation_regex')
         self.assertEqual(response.rule_id, '999320')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_expr_negation_regex_1_2(self) -> None:
@@ -343,7 +343,7 @@ class TestTest_expr_negationRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_expr_negation_regex')
         self.assertEqual(response.rule_id, '999320')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_expr_negation_regex_2_1(self) -> None:
@@ -354,7 +354,7 @@ class TestTest_expr_negationRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_expr_negation_regex')
         self.assertEqual(response.rule_id, '999321')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_expr_negation_regex_2_2(self) -> None:
@@ -365,7 +365,7 @@ class TestTest_expr_negationRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_expr_negation_regex')
         self.assertEqual(response.rule_id, '999321')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_expr_negation_regex_3_1(self) -> None:
@@ -390,7 +390,7 @@ class TestTest_expr_negationRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_expr_negation')
         self.assertEqual(response.rule_id, '999322')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_expr_negation_srcip_2(self) -> None:
@@ -401,7 +401,7 @@ class TestTest_expr_negationRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_expr_negation')
         self.assertEqual(response.rule_id, '999323')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_expr_negation_srcip_3(self) -> None:
@@ -419,7 +419,7 @@ class TestTest_expr_negationRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_expr_negation')
         self.assertEqual(response.rule_id, '999324')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_expr_negation_user_2(self) -> None:
@@ -430,7 +430,7 @@ class TestTest_expr_negationRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_expr_negation')
         self.assertEqual(response.rule_id, '999325')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_expr_negation_user_3(self) -> None:
@@ -448,7 +448,7 @@ class TestTest_expr_negationRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_expr_negation')
         self.assertEqual(response.rule_id, '999326')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_expr_negation_url_2(self) -> None:
@@ -459,7 +459,7 @@ class TestTest_expr_negationRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_expr_negation')
         self.assertEqual(response.rule_id, '999327')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_expr_negation_url_3(self) -> None:
@@ -477,7 +477,7 @@ class TestTest_expr_negationRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_expr_negation')
         self.assertEqual(response.rule_id, '999328')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_expr_negation_srcport_2(self) -> None:
@@ -488,7 +488,7 @@ class TestTest_expr_negationRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_expr_negation')
         self.assertEqual(response.rule_id, '999329')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_expr_negation_srcport_3(self) -> None:
@@ -506,7 +506,7 @@ class TestTest_expr_negationRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_expr_negation')
         self.assertEqual(response.rule_id, '999330')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_expr_negation_dstport_2(self) -> None:
@@ -517,7 +517,7 @@ class TestTest_expr_negationRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_expr_negation')
         self.assertEqual(response.rule_id, '999331')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_expr_negation_dstport_3(self) -> None:
@@ -535,7 +535,7 @@ class TestTest_expr_negationRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_expr_negation')
         self.assertEqual(response.rule_id, '999332')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_expr_negation_status_2(self) -> None:
@@ -546,7 +546,7 @@ class TestTest_expr_negationRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_expr_negation')
         self.assertEqual(response.rule_id, '999333')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_expr_negation_status_3(self) -> None:
@@ -564,7 +564,7 @@ class TestTest_expr_negationRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_expr_negation_predec_fields')
         self.assertEqual(response.rule_id, '999334')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_expr_negation_system_name_2(self) -> None:
@@ -575,7 +575,7 @@ class TestTest_expr_negationRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_expr_negation_predec_fields')
         self.assertEqual(response.rule_id, '999335')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_expr_negation_system_name_3(self) -> None:
@@ -593,7 +593,7 @@ class TestTest_expr_negationRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_expr_negation_predec_fields')
         self.assertEqual(response.rule_id, '999336')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_expr_negation_data_2(self) -> None:
@@ -604,7 +604,7 @@ class TestTest_expr_negationRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_expr_negation_predec_fields')
         self.assertEqual(response.rule_id, '999337')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_expr_negation_data_3(self) -> None:

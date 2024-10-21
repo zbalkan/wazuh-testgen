@@ -20,7 +20,7 @@ class TestTest_osregex_regex_geoipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_osregex_16')
         self.assertEqual(response.rule_id, '999800')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_osregex_test_osregex_16_srcgeoip_n(self) -> None:
@@ -31,7 +31,7 @@ class TestTest_osregex_regex_geoipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_osregex_16')
         self.assertEqual(response.rule_id, '999801')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_osregex_test_osregex_17_dstgeoip(self) -> None:
@@ -42,7 +42,7 @@ class TestTest_osregex_regex_geoipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_osregex_17')
         self.assertEqual(response.rule_id, '999802')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_osregex_test_osregex_17_dstgeoip_n(self) -> None:
@@ -53,5 +53,5 @@ class TestTest_osregex_regex_geoipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_osregex_17')
         self.assertEqual(response.rule_id, '999803')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 

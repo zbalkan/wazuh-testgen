@@ -20,7 +20,7 @@ class TestFreepbxRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'FreePBX')
         self.assertEqual(response.rule_id, '70007')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_freepbx_2(self) -> None:
@@ -31,7 +31,7 @@ class TestFreepbxRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'FreePBX')
         self.assertEqual(response.rule_id, '70005')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_freepbx_3(self) -> None:
@@ -42,7 +42,7 @@ class TestFreepbxRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'FreePBX')
         self.assertEqual(response.rule_id, '70008')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_freepbx_4(self) -> None:
@@ -53,7 +53,7 @@ class TestFreepbxRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'FreePBX')
         self.assertEqual(response.rule_id, '70001')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_freepbx_5(self) -> None:
@@ -64,7 +64,7 @@ class TestFreepbxRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'FreePBX')
         self.assertEqual(response.rule_id, '70006')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_freepbx_6(self) -> None:
@@ -75,5 +75,5 @@ class TestFreepbxRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'FreePBX')
         self.assertEqual(response.rule_id, '70005')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 

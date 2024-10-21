@@ -20,7 +20,7 @@ class TestPhpRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'nginx-errorlog')
         self.assertEqual(response.rule_id, '31411')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_php_internal_error_missing_file_or_function(self) -> None:
@@ -31,5 +31,5 @@ class TestPhpRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'nginx-errorlog')
         self.assertEqual(response.rule_id, '31421')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 

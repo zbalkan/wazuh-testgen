@@ -20,7 +20,7 @@ class TestPaloaltoRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'paloalto')
         self.assertEqual(response.rule_id, '64500')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_palo_alto_generic_2(self) -> None:
@@ -31,7 +31,7 @@ class TestPaloaltoRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'paloalto')
         self.assertEqual(response.rule_id, '64500')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_palo_alto_generic_3(self) -> None:
@@ -42,7 +42,7 @@ class TestPaloaltoRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'paloalto')
         self.assertEqual(response.rule_id, '64500')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_palo_alto_generic_4(self) -> None:
@@ -53,7 +53,7 @@ class TestPaloaltoRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'paloalto')
         self.assertEqual(response.rule_id, '64500')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_palo_alto_generic_5(self) -> None:
@@ -64,7 +64,7 @@ class TestPaloaltoRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'paloalto')
         self.assertEqual(response.rule_id, '64500')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_palo_alto_severity_informational_low_1(self) -> None:
@@ -75,7 +75,7 @@ class TestPaloaltoRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'paloalto')
         self.assertEqual(response.rule_id, '64501')
-        self.assertEqual(response.alert, 2)
+        self.assertEqual(response.rule_level, 2)
 
 
     def test_palo_alto_severity_informational_low_2(self) -> None:
@@ -86,7 +86,7 @@ class TestPaloaltoRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'paloalto')
         self.assertEqual(response.rule_id, '64501')
-        self.assertEqual(response.alert, 2)
+        self.assertEqual(response.rule_level, 2)
 
 
     def test_palo_alto_severity_medium(self) -> None:
@@ -97,7 +97,7 @@ class TestPaloaltoRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'paloalto')
         self.assertEqual(response.rule_id, '64502')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_palo_alto_severity_high_1(self) -> None:
@@ -108,7 +108,7 @@ class TestPaloaltoRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'paloalto')
         self.assertEqual(response.rule_id, '64503')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_palo_alto_severity_high_2(self) -> None:
@@ -119,7 +119,7 @@ class TestPaloaltoRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'paloalto')
         self.assertEqual(response.rule_id, '64503')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_palo_alto_severity_critical(self) -> None:
@@ -130,7 +130,7 @@ class TestPaloaltoRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'paloalto')
         self.assertEqual(response.rule_id, '64504')
-        self.assertEqual(response.alert, 11)
+        self.assertEqual(response.rule_level, 11)
 
 
     def test_palo_alto_traffic(self) -> None:
@@ -141,7 +141,7 @@ class TestPaloaltoRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'paloalto')
         self.assertEqual(response.rule_id, '64505')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_palo_alto_traffic_start(self) -> None:
@@ -152,7 +152,7 @@ class TestPaloaltoRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'paloalto')
         self.assertEqual(response.rule_id, '64506')
-        self.assertEqual(response.alert, 2)
+        self.assertEqual(response.rule_level, 2)
 
 
     def test_palo_alto_traffic_end(self) -> None:
@@ -163,7 +163,7 @@ class TestPaloaltoRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'paloalto')
         self.assertEqual(response.rule_id, '64507')
-        self.assertEqual(response.alert, 2)
+        self.assertEqual(response.rule_level, 2)
 
 
     def test_palo_alto_traffic_dropped_1(self) -> None:
@@ -174,7 +174,7 @@ class TestPaloaltoRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'paloalto')
         self.assertEqual(response.rule_id, '64508')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_palo_alto_traffic_dropped_2(self) -> None:
@@ -185,5 +185,5 @@ class TestPaloaltoRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'paloalto')
         self.assertEqual(response.rule_id, '64508')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 

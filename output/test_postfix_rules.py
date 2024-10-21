@@ -20,7 +20,7 @@ class TestPostfixRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'postfix-reject')
         self.assertEqual(response.rule_id, '3300')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_reject_rcpt2(self) -> None:
@@ -31,5 +31,5 @@ class TestPostfixRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'postfix-reject')
         self.assertEqual(response.rule_id, '3306')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 

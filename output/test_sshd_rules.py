@@ -20,7 +20,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5739')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_ssh_connection_reset_by_peer(self) -> None:
@@ -31,7 +31,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5740')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_ssh_connection_refused(self) -> None:
@@ -42,7 +42,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5741')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_ssh_connection_timed_out(self) -> None:
@@ -53,7 +53,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5742')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_ssh_no_route_to_host(self) -> None:
@@ -64,7 +64,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5743')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_ssh_port_forwarding_issue(self) -> None:
@@ -75,7 +75,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5744')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_ssh_transport_endpoint_is_not_connected(self) -> None:
@@ -86,7 +86,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5745')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_ssh_get_remote_port_failed(self) -> None:
@@ -97,7 +97,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5746')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_ssh_bad_client_public_dh_value_1(self) -> None:
@@ -108,7 +108,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5747')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_ssh_bad_client_public_dh_value_2(self) -> None:
@@ -119,7 +119,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5747')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_ssh_corrupted_mac_on_input_1(self) -> None:
@@ -130,7 +130,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5748')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_ssh_corrupted_mac_on_input_2(self) -> None:
@@ -141,7 +141,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5748')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_ssh_bad_packet_length_1(self) -> None:
@@ -152,7 +152,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5749')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_ssh_bad_packet_length_2(self) -> None:
@@ -163,7 +163,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5749')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_ssh_unable_to_negotiate(self) -> None:
@@ -174,7 +174,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5753')
-        self.assertEqual(response.alert, 2)
+        self.assertEqual(response.rule_level, 2)
 
 
     def test_ssh_no_matching_key_exchange_1(self) -> None:
@@ -185,7 +185,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5752')
-        self.assertEqual(response.alert, 2)
+        self.assertEqual(response.rule_level, 2)
 
 
     def test_ssh_no_matching_key_exchange_2(self) -> None:
@@ -196,7 +196,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5752')
-        self.assertEqual(response.alert, 2)
+        self.assertEqual(response.rule_level, 2)
 
 
     def test_invalid_user_1(self) -> None:
@@ -207,7 +207,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5710')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_invalid_user_2(self) -> None:
@@ -225,7 +225,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5710')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_invalid_user_4(self) -> None:
@@ -243,7 +243,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5710')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_invalid_user_6(self) -> None:
@@ -254,7 +254,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5710')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_invalid_user_7(self) -> None:
@@ -265,7 +265,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5710')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_invalid_user_8(self) -> None:
@@ -276,7 +276,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5710')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_invalid_user_9(self) -> None:
@@ -287,7 +287,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5710')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_failed_to_create_session(self) -> None:
@@ -298,7 +298,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5754')
-        self.assertEqual(response.alert, 1)
+        self.assertEqual(response.rule_level, 1)
 
 
     def test_bad_authorized_keys(self) -> None:
@@ -309,7 +309,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5755')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_subsystem_failed(self) -> None:
@@ -320,7 +320,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5756')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_login_failed(self) -> None:
@@ -331,7 +331,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5716')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_bad_dns_1(self) -> None:
@@ -342,7 +342,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5757')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_bad_dns_2(self) -> None:
@@ -353,7 +353,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5757')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_max_auth_attempts_1(self) -> None:
@@ -364,7 +364,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5758')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_max_auth_attempts_2(self) -> None:
@@ -375,7 +375,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5758')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_max_auth_attempts_3(self) -> None:
@@ -386,7 +386,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5758')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_sshd_authentication_error_1(self) -> None:
@@ -397,7 +397,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5760')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_sshd_authentication_error_2(self) -> None:
@@ -408,7 +408,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5760')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_sshd_connection_close(self) -> None:
@@ -419,7 +419,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5722')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_sshd_disconnected_from(self) -> None:
@@ -430,7 +430,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5761')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_sshd_disconnected_from_invalid(self) -> None:
@@ -441,7 +441,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5710')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_sshd_disconnecting_invalid(self) -> None:
@@ -452,7 +452,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5710')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_sshd_insecure_connection_attempt(self) -> None:
@@ -463,7 +463,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5706')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_sshd_connection_reset(self) -> None:
@@ -474,7 +474,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5762')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_sshd_denied_user_1(self) -> None:
@@ -485,7 +485,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5718')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_sshd_denied_user_2(self) -> None:
@@ -496,7 +496,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5718')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_sshd_multiple_access_attempts_using_a_denied_user_1(self) -> None:
@@ -507,7 +507,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5719')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_sshd_multiple_access_attempts_using_a_denied_user_2(self) -> None:
@@ -518,7 +518,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5719')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_sshd_multiple_access_attempts_using_a_denied_user_3(self) -> None:
@@ -529,7 +529,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5719')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_sshd_multiple_access_attempts_using_a_denied_user_4(self) -> None:
@@ -540,7 +540,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5719')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_sshd_multiple_access_attempts_using_a_denied_user_5(self) -> None:
@@ -551,7 +551,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5719')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_sshd_multiple_access_attempts_using_a_denied_user_6(self) -> None:
@@ -562,7 +562,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5719')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_sshd_multiple_access_attempts_using_a_denied_user_7(self) -> None:
@@ -573,7 +573,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5719')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_sshd_multiple_access_attempts_using_a_denied_user_8(self) -> None:
@@ -584,7 +584,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5719')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_sshd_reverse_lookup_error(self) -> None:
@@ -595,7 +595,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5702')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_sshd_possible_attack(self) -> None:
@@ -606,7 +606,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5701')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_sshd_brute_force_rule_1(self) -> None:
@@ -617,7 +617,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5763')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_sshd_brute_force_rule_2(self) -> None:
@@ -628,7 +628,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5763')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_sshd_brute_force_rule_3(self) -> None:
@@ -639,7 +639,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5763')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_sshd_brute_force_rule_4(self) -> None:
@@ -650,7 +650,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5763')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_sshd_brute_force_rule_5(self) -> None:
@@ -661,7 +661,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5763')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_sshd_brute_force_rule_6(self) -> None:
@@ -672,7 +672,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5763')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_sshd_brute_force_rule_7(self) -> None:
@@ -683,7 +683,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5763')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_sshd_brute_force_rule_8(self) -> None:
@@ -694,7 +694,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5763')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_sshd_brute_force_rule_2_1(self) -> None:
@@ -705,7 +705,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5712')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_sshd_brute_force_rule_2_2(self) -> None:
@@ -716,7 +716,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5712')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_sshd_brute_force_rule_2_3(self) -> None:
@@ -727,7 +727,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5712')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_sshd_brute_force_rule_2_4(self) -> None:
@@ -738,7 +738,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5712')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_sshd_brute_force_rule_2_5(self) -> None:
@@ -749,7 +749,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5712')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_sshd_brute_force_rule_2_6(self) -> None:
@@ -760,7 +760,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5712')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_sshd_brute_force_rule_2_7(self) -> None:
@@ -771,7 +771,7 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5712')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_sshd_brute_force_rule_2_8(self) -> None:
@@ -782,5 +782,5 @@ class TestSshdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sshd')
         self.assertEqual(response.rule_id, '5712')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 

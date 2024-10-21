@@ -20,5 +20,5 @@ class TestWin-generic_rulesRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '64105')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 

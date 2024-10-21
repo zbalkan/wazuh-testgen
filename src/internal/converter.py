@@ -36,7 +36,7 @@ class Test{class_name}Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, '{decoder}')
         self.assertEqual(response.rule_id, '{rule}')
-        self.assertEqual(response.alert, {alert})
+        self.assertEqual(response.rule_level, {alert})
 
 """
 

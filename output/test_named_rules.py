@@ -20,7 +20,7 @@ class TestNamedRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'named')
         self.assertEqual(response.rule_id, '12108')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_query_cache_denied_2(self) -> None:
@@ -31,7 +31,7 @@ class TestNamedRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'named')
         self.assertEqual(response.rule_id, '12108')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_query_cache_denied_3(self) -> None:
@@ -42,7 +42,7 @@ class TestNamedRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'named')
         self.assertEqual(response.rule_id, '12108')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_query_cache_denied_4(self) -> None:
@@ -60,5 +60,5 @@ class TestNamedRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'named')
         self.assertEqual(response.rule_id, '12108')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 

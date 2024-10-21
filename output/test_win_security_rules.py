@@ -20,7 +20,7 @@ class TestWin_securityRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '60109')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_user_account_changed(self) -> None:
@@ -31,7 +31,7 @@ class TestWin_securityRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '60110')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_windows_audit_policy_changed(self) -> None:
@@ -42,7 +42,7 @@ class TestWin_securityRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '60112')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_domain_users_group_changed(self) -> None:
@@ -53,7 +53,7 @@ class TestWin_securityRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '60160')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_a_new_external_device_was_recognized_by_the_system(self) -> None:
@@ -64,7 +64,7 @@ class TestWin_securityRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '60227')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_a_scheduled_task_was_created(self) -> None:
@@ -75,7 +75,7 @@ class TestWin_securityRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '60228')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_a_directory_service_object_was_modified(self) -> None:
@@ -86,7 +86,7 @@ class TestWin_securityRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '60229')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_a_directory_service_object_was_created(self) -> None:
@@ -97,7 +97,7 @@ class TestWin_securityRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '60230')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_a_directory_service_object_was_deleted(self) -> None:
@@ -108,5 +108,5 @@ class TestWin_securityRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '60231')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 

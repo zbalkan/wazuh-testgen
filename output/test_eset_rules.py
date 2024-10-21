@@ -20,7 +20,7 @@ class TestEsetRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'eset-bsd')
         self.assertEqual(response.rule_id, '42002')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_eset_firewall_aggregated_rules_group(self) -> None:
@@ -31,7 +31,7 @@ class TestEsetRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'eset-bsd')
         self.assertEqual(response.rule_id, '42003')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_eset_hips_aggregated_rules_group(self) -> None:
@@ -42,7 +42,7 @@ class TestEsetRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'eset-bsd')
         self.assertEqual(response.rule_id, '42004')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_eset_audit_rules_group(self) -> None:
@@ -53,7 +53,7 @@ class TestEsetRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'eset-bsd')
         self.assertEqual(response.rule_id, '42005')
-        self.assertEqual(response.alert, 2)
+        self.assertEqual(response.rule_level, 2)
 
 
     def test_eset_enterprise_inspector_alert_rules_group(self) -> None:
@@ -64,7 +64,7 @@ class TestEsetRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'eset-bsd')
         self.assertEqual(response.rule_id, '42006')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_eset_warning_severity(self) -> None:
@@ -75,7 +75,7 @@ class TestEsetRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'eset-bsd')
         self.assertEqual(response.rule_id, '42007')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_eset_error_severity(self) -> None:
@@ -86,7 +86,7 @@ class TestEsetRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'eset-bsd')
         self.assertEqual(response.rule_id, '42008')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_eset_critical_severity(self) -> None:
@@ -97,5 +97,5 @@ class TestEsetRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'eset-bsd')
         self.assertEqual(response.rule_id, '42009')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 

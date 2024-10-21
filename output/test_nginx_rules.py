@@ -20,7 +20,7 @@ class TestNginxRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'nginx-errorlog')
         self.assertEqual(response.rule_id, '31300')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_nginx_error_message(self) -> None:
@@ -31,7 +31,7 @@ class TestNginxRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'nginx-errorlog')
         self.assertEqual(response.rule_id, '31301')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_nginx_warning_message(self) -> None:
@@ -42,7 +42,7 @@ class TestNginxRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'nginx-errorlog')
         self.assertEqual(response.rule_id, '31302')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_nginx_critical_message(self) -> None:
@@ -53,7 +53,7 @@ class TestNginxRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'nginx-errorlog')
         self.assertEqual(response.rule_id, '31303')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_server_returned_404_reported_in_the_accesslog_1(self) -> None:
@@ -64,7 +64,7 @@ class TestNginxRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'nginx-errorlog')
         self.assertEqual(response.rule_id, '31310')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_server_returned_404_reported_in_the_accesslog_2(self) -> None:
@@ -75,7 +75,7 @@ class TestNginxRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'nginx-errorlog')
         self.assertEqual(response.rule_id, '31310')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_incomplete_client_request(self) -> None:
@@ -86,7 +86,7 @@ class TestNginxRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'nginx-errorlog')
         self.assertEqual(response.rule_id, '31311')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_initial_401_authentication_request(self) -> None:
@@ -97,7 +97,7 @@ class TestNginxRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'nginx-errorlog')
         self.assertEqual(response.rule_id, '31312')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_web_authentication_failed_1(self) -> None:
@@ -108,7 +108,7 @@ class TestNginxRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'nginx-errorlog')
         self.assertEqual(response.rule_id, '31315')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_web_authentication_failed_2(self) -> None:
@@ -119,7 +119,7 @@ class TestNginxRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'nginx-errorlog')
         self.assertEqual(response.rule_id, '31315')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_common_cache_error_when_files_were_removed(self) -> None:
@@ -130,7 +130,7 @@ class TestNginxRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'nginx-errorlog')
         self.assertEqual(response.rule_id, '31317')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_invalid_uri_file_name_too_long(self) -> None:
@@ -141,5 +141,5 @@ class TestNginxRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'nginx-errorlog')
         self.assertEqual(response.rule_id, '31320')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 

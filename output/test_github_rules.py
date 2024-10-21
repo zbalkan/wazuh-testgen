@@ -20,7 +20,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91101')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_account_billing_plan_change(self) -> None:
@@ -31,7 +31,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91102')
-        self.assertEqual(response.alert, 9)
+        self.assertEqual(response.rule_level, 9)
 
 
     def test_github_account_plan_change(self) -> None:
@@ -42,7 +42,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91103')
-        self.assertEqual(response.alert, 9)
+        self.assertEqual(response.rule_level, 9)
 
 
     def test_github_account_pending_plan_change(self) -> None:
@@ -53,7 +53,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91104')
-        self.assertEqual(response.alert, 9)
+        self.assertEqual(response.rule_level, 9)
 
 
     def test_github_account_pending_subscription_change(self) -> None:
@@ -64,7 +64,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91105')
-        self.assertEqual(response.alert, 9)
+        self.assertEqual(response.rule_level, 9)
 
 
     def test_github_advisory_credit(self) -> None:
@@ -75,7 +75,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91106')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_advisory_credit_accept(self) -> None:
@@ -86,7 +86,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91107')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_advisory_credit_create(self) -> None:
@@ -97,7 +97,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91108')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_advisory_credit_decline(self) -> None:
@@ -108,7 +108,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91109')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_advisory_credit_destroy(self) -> None:
@@ -119,7 +119,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91110')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_billing(self) -> None:
@@ -130,7 +130,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91111')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_billing_change_billing_type(self) -> None:
@@ -141,7 +141,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91112')
-        self.assertEqual(response.alert, 9)
+        self.assertEqual(response.rule_level, 9)
 
 
     def test_github_billing_change_billing_email(self) -> None:
@@ -152,7 +152,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91113')
-        self.assertEqual(response.alert, 9)
+        self.assertEqual(response.rule_level, 9)
 
 
     def test_github_dependabot_alerts(self) -> None:
@@ -163,7 +163,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91114')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_dependabot_alerts_disable(self) -> None:
@@ -174,7 +174,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91115')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_github_dependabot_alerts_enable(self) -> None:
@@ -185,7 +185,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91116')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_dependabot_alerts_new_repos(self) -> None:
@@ -196,7 +196,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91117')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_dependabot_alerts_new_repos_disable(self) -> None:
@@ -207,7 +207,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91118')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_github_dependabot_alerts_new_repos_enable(self) -> None:
@@ -218,7 +218,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91119')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_dependabot_security_updates(self) -> None:
@@ -229,7 +229,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91120')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_dependabot_security_updates_disable(self) -> None:
@@ -240,7 +240,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91121')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_github_dependabot_security_updates_enable(self) -> None:
@@ -251,7 +251,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91122')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_dependabot_security_updates_new_repos(self) -> None:
@@ -262,7 +262,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91123')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_dependabot_security_updates_new_repos_disable(self) -> None:
@@ -273,7 +273,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91124')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_github_dependabot_security_updates_new_repos_enable(self) -> None:
@@ -284,7 +284,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91125')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_dependency_graph(self) -> None:
@@ -295,7 +295,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91126')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_dependency_graph_disable(self) -> None:
@@ -306,7 +306,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91127')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_github_dependency_graph_enable(self) -> None:
@@ -317,7 +317,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91128')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_dependency_graph_new_repos(self) -> None:
@@ -328,7 +328,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91129')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_dependency_graph_new_repos_disable(self) -> None:
@@ -339,7 +339,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91130')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_github_dependency_graph_new_repos_enable(self) -> None:
@@ -350,7 +350,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91131')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_discussion_post(self) -> None:
@@ -361,7 +361,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91132')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_discussion_post_update(self) -> None:
@@ -372,7 +372,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91133')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_discussion_post_destroy(self) -> None:
@@ -383,7 +383,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91134')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_discussion_post_reply(self) -> None:
@@ -394,7 +394,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91135')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_discussion_post_replay_update(self) -> None:
@@ -405,7 +405,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91136')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_discussion_post_replay_destroy(self) -> None:
@@ -416,7 +416,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91137')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_enterprise(self) -> None:
@@ -427,7 +427,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91139')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_enterprise_remove_self_hosted_runner(self) -> None:
@@ -438,7 +438,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91140')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_enterprise_register_self_hosted_runner(self) -> None:
@@ -449,7 +449,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91141')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_enterprise_runner_group_created(self) -> None:
@@ -460,7 +460,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91142')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_enterprise_runner_group_removed(self) -> None:
@@ -471,7 +471,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91143')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_enterprise_runner_group_runner_removed(self) -> None:
@@ -482,7 +482,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91144')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_enterprise_runner_group_runners_added(self) -> None:
@@ -493,7 +493,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91145')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_enterprise_runner_group_runners_updated(self) -> None:
@@ -504,7 +504,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91146')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_enterprise_runner_group_updated(self) -> None:
@@ -515,7 +515,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91147')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_enterprise_self_hosted_runner_updated(self) -> None:
@@ -526,7 +526,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91148')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_environment(self) -> None:
@@ -537,7 +537,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91149')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_environment_create_actions_secret(self) -> None:
@@ -548,7 +548,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91150')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_environment_delete(self) -> None:
@@ -559,7 +559,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91151')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_environment_remove_actions_secret(self) -> None:
@@ -570,7 +570,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91152')
-        self.assertEqual(response.alert, 9)
+        self.assertEqual(response.rule_level, 9)
 
 
     def test_github_environment_update_actions_secret(self) -> None:
@@ -581,7 +581,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91153')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_environment_add_protection_rule(self) -> None:
@@ -592,7 +592,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91154')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_environment_update_protection_rule(self) -> None:
@@ -603,7 +603,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91155')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_environment_remove_protection_rule(self) -> None:
@@ -614,7 +614,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91156')
-        self.assertEqual(response.alert, 9)
+        self.assertEqual(response.rule_level, 9)
 
 
     def test_github_git(self) -> None:
@@ -625,7 +625,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91157')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_git_clone(self) -> None:
@@ -636,7 +636,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91158')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_git_fetch(self) -> None:
@@ -647,7 +647,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91159')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_git_push(self) -> None:
@@ -658,7 +658,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91160')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_hook(self) -> None:
@@ -669,7 +669,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91161')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_hook_create(self) -> None:
@@ -680,7 +680,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91162')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_hook_config_changed(self) -> None:
@@ -691,7 +691,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91163')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_hook_destroy(self) -> None:
@@ -702,7 +702,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91164')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_hook_events_changed(self) -> None:
@@ -713,7 +713,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91165')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_integration_installation_1(self) -> None:
@@ -724,7 +724,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91166')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_integration_installation_2(self) -> None:
@@ -735,7 +735,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91166')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_integration_installation_create(self) -> None:
@@ -746,7 +746,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91167')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_integration_installation_close(self) -> None:
@@ -757,7 +757,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91168')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_issues_1(self) -> None:
@@ -768,7 +768,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91169')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_issues_2(self) -> None:
@@ -779,7 +779,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91169')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_issues_destroy(self) -> None:
@@ -790,7 +790,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91170')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_marketplace_agreement_signature(self) -> None:
@@ -801,7 +801,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91171')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_marketplace_agreement_signature_create(self) -> None:
@@ -812,7 +812,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91172')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_marketplace_listing(self) -> None:
@@ -823,7 +823,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91173')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_marketplace_listing_approve(self) -> None:
@@ -834,7 +834,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91174')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_marketplace_listing_create(self) -> None:
@@ -845,7 +845,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91175')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_marketplace_listing_delist(self) -> None:
@@ -856,7 +856,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91176')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_marketplace_listing_redraft(self) -> None:
@@ -867,7 +867,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91177')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_marketplace_listing_reject(self) -> None:
@@ -878,7 +878,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91178')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_members_can_create_pages(self) -> None:
@@ -889,7 +889,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91179')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_members_can_create_pages_enable(self) -> None:
@@ -900,7 +900,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91180')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_members_can_create_pages_disable(self) -> None:
@@ -911,7 +911,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91181')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_oauth_application(self) -> None:
@@ -922,7 +922,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91182')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_oauth_application_create(self) -> None:
@@ -933,7 +933,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91183')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_oauth_application_destroy(self) -> None:
@@ -944,7 +944,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91184')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_oauth_application_reset_secret(self) -> None:
@@ -955,7 +955,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91185')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_oauth_application_revoke_tokens(self) -> None:
@@ -966,7 +966,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91186')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_oauth_application_transfer(self) -> None:
@@ -977,7 +977,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91187')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_organization(self) -> None:
@@ -988,7 +988,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91188')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_organization_add_billing_manager(self) -> None:
@@ -999,7 +999,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91189')
-        self.assertEqual(response.alert, 9)
+        self.assertEqual(response.rule_level, 9)
 
 
     def test_github_organization_add_member(self) -> None:
@@ -1010,7 +1010,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91190')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_organization_advanced_security_policy_selected_member_disabled(self) -> None:
@@ -1021,7 +1021,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91191')
-        self.assertEqual(response.alert, 9)
+        self.assertEqual(response.rule_level, 9)
 
 
     def test_github_organization_advanced_security_policy_selected_member_enabled(self) -> None:
@@ -1032,7 +1032,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91192')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_organization_audit_log_export_1(self) -> None:
@@ -1043,7 +1043,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91193')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_organization_audit_log_export_2(self) -> None:
@@ -1054,7 +1054,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91193')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_organization_block_user(self) -> None:
@@ -1065,7 +1065,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91194')
-        self.assertEqual(response.alert, 9)
+        self.assertEqual(response.rule_level, 9)
 
 
     def test_github_organization_cancel_invitation(self) -> None:
@@ -1076,7 +1076,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91195')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_organization_create(self) -> None:
@@ -1087,7 +1087,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91196')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_organization_create_actions_secret(self) -> None:
@@ -1098,7 +1098,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91197')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_organization_disable_member_team_creation_permission(self) -> None:
@@ -1109,7 +1109,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91198')
-        self.assertEqual(response.alert, 9)
+        self.assertEqual(response.rule_level, 9)
 
 
     def test_github_organization_disable_oauth_app_restrictions(self) -> None:
@@ -1120,7 +1120,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91199')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_github_organization_disable_saml(self) -> None:
@@ -1131,7 +1131,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91200')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_github_organization_disable_two_factor_requirement(self) -> None:
@@ -1142,7 +1142,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91201')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_github_organization_display_commenter_full_name_enabled(self) -> None:
@@ -1153,7 +1153,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91202')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_organization_enable_member_team_creation_permission(self) -> None:
@@ -1164,7 +1164,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91203')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_organization_enable_oauth_app_restrictions(self) -> None:
@@ -1175,7 +1175,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91204')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_organization_enable_saml(self) -> None:
@@ -1186,7 +1186,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91205')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_organization_enable_two_factor_requirement(self) -> None:
@@ -1197,7 +1197,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91206')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_organization_invite_member(self) -> None:
@@ -1208,7 +1208,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91207')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_organization_oauth_app_access_approved(self) -> None:
@@ -1219,7 +1219,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91208')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_organization_oauth_app_access_denied(self) -> None:
@@ -1230,7 +1230,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91209')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_github_organization_oauth_app_access_requested(self) -> None:
@@ -1241,7 +1241,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91210')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_organization_register_self_hosted_runner(self) -> None:
@@ -1252,7 +1252,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91211')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_organization_remove_actions_secret(self) -> None:
@@ -1263,7 +1263,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91212')
-        self.assertEqual(response.alert, 9)
+        self.assertEqual(response.rule_level, 9)
 
 
     def test_github_organization_remove_billing_manager(self) -> None:
@@ -1274,7 +1274,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91213')
-        self.assertEqual(response.alert, 9)
+        self.assertEqual(response.rule_level, 9)
 
 
     def test_github_organization_remove_member(self) -> None:
@@ -1285,7 +1285,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91214')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_organization_remove_outside_collaborator(self) -> None:
@@ -1296,7 +1296,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91215')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_organization_remove_self_hosted_runner(self) -> None:
@@ -1307,7 +1307,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91216')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_organization_restore_member(self) -> None:
@@ -1318,7 +1318,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91217')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_organization_revoke_external_identity(self) -> None:
@@ -1329,7 +1329,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91218')
-        self.assertEqual(response.alert, 9)
+        self.assertEqual(response.rule_level, 9)
 
 
     def test_github_organization_revoke_sso_session(self) -> None:
@@ -1340,7 +1340,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91219')
-        self.assertEqual(response.alert, 9)
+        self.assertEqual(response.rule_level, 9)
 
 
     def test_github_organization_runner_group_created(self) -> None:
@@ -1351,7 +1351,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91220')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_organization_runner_group_removed(self) -> None:
@@ -1362,7 +1362,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91221')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_organization_runner_group_runner_removed(self) -> None:
@@ -1373,7 +1373,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91222')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_organization_runner_group_runners_added(self) -> None:
@@ -1384,7 +1384,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91223')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_organization_runner_group_runners_updated(self) -> None:
@@ -1395,7 +1395,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91224')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_organization_runner_group_updated(self) -> None:
@@ -1406,7 +1406,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91225')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_organization_self_hosted_runner_updated(self) -> None:
@@ -1417,7 +1417,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91226')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_organization_set_actions_retention_limit(self) -> None:
@@ -1428,7 +1428,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91227')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_organization_unblock_user(self) -> None:
@@ -1439,7 +1439,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91228')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_organization_update_actions_secret(self) -> None:
@@ -1450,7 +1450,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91229')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_organization_update_actions_settings(self) -> None:
@@ -1461,7 +1461,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91230')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_organization_update_default_repository_permission(self) -> None:
@@ -1472,7 +1472,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91231')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_organization_update_member(self) -> None:
@@ -1483,7 +1483,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91232')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_organization_update_member_repository_creation_permission(self) -> None:
@@ -1494,7 +1494,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91233')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_organization_update_new_repository_default_branch_setting(self) -> None:
@@ -1505,7 +1505,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91234')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_organization_update_saml_provider_settings(self) -> None:
@@ -1516,7 +1516,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91235')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_organization_update_terms_of_service(self) -> None:
@@ -1527,7 +1527,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91236')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_organization_credential_authorization(self) -> None:
@@ -1538,7 +1538,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91239')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_organization_credential_authorization_grant(self) -> None:
@@ -1549,7 +1549,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91240')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_organization_credential_authorization_deauthorized(self) -> None:
@@ -1560,7 +1560,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91241')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_github_organization_credential_authorization_revoke(self) -> None:
@@ -1571,7 +1571,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91242')
-        self.assertEqual(response.alert, 9)
+        self.assertEqual(response.rule_level, 9)
 
 
     def test_github_organization_default_label_1(self) -> None:
@@ -1582,7 +1582,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91243')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_organization_default_label_2(self) -> None:
@@ -1593,7 +1593,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91243')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_organization_default_label_create(self) -> None:
@@ -1604,7 +1604,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91244')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_organization_default_label_update(self) -> None:
@@ -1615,7 +1615,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91245')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_organization_default_label_destroy(self) -> None:
@@ -1626,7 +1626,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91246')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_packages(self) -> None:
@@ -1637,7 +1637,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91247')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_package_version_published(self) -> None:
@@ -1648,7 +1648,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91248')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_package_version_deleted(self) -> None:
@@ -1659,7 +1659,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91249')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_package_deleted(self) -> None:
@@ -1670,7 +1670,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91250')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_package_version_restored(self) -> None:
@@ -1681,7 +1681,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91251')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_package_restored(self) -> None:
@@ -1692,7 +1692,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91252')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_payment_method(self) -> None:
@@ -1703,7 +1703,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91253')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_payment_method_clear(self) -> None:
@@ -1714,7 +1714,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91254')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_payment_method_create(self) -> None:
@@ -1725,7 +1725,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91255')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_payment_method_update(self) -> None:
@@ -1736,7 +1736,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91256')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_profile_picture(self) -> None:
@@ -1747,7 +1747,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91257')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_profile_picture_update(self) -> None:
@@ -1758,7 +1758,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91258')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_project(self) -> None:
@@ -1769,7 +1769,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91259')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_project_create(self) -> None:
@@ -1780,7 +1780,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91260')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_project_link(self) -> None:
@@ -1791,7 +1791,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91261')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_project_rename(self) -> None:
@@ -1802,7 +1802,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91262')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_project_update(self) -> None:
@@ -1813,7 +1813,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91263')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_project_delete(self) -> None:
@@ -1824,7 +1824,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91264')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_project_unlink(self) -> None:
@@ -1835,7 +1835,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91265')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_project_update_org_permission(self) -> None:
@@ -1846,7 +1846,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91266')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_project_update_team_permission(self) -> None:
@@ -1857,7 +1857,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91267')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_project_update_user_permission(self) -> None:
@@ -1868,7 +1868,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91268')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_organization_domain(self) -> None:
@@ -1879,7 +1879,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91269')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_organization_domain_create(self) -> None:
@@ -1890,7 +1890,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91270')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_organization_domain_delete(self) -> None:
@@ -1901,7 +1901,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91271')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_private_repository_forking(self) -> None:
@@ -1912,7 +1912,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91272')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_private_repository_forking_enable(self) -> None:
@@ -1923,7 +1923,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91273')
-        self.assertEqual(response.alert, 9)
+        self.assertEqual(response.rule_level, 9)
 
 
     def test_github_private_repository_forking_disable(self) -> None:
@@ -1934,7 +1934,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91274')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_protected_branch(self) -> None:
@@ -1945,7 +1945,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91275')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_protected_branch_create(self) -> None:
@@ -1956,7 +1956,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91276')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_protected_branch_destroy(self) -> None:
@@ -1967,7 +1967,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91277')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_protected_branch_update_admin_enforced(self) -> None:
@@ -1978,7 +1978,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91278')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_protected_branch_update_require_code_owner_review(self) -> None:
@@ -1989,7 +1989,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91279')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_protected_branch_dismissal_restricted_users_teams(self) -> None:
@@ -2000,7 +2000,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91280')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_protected_branch_dismiss_stale_reviews(self) -> None:
@@ -2011,7 +2011,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91281')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_protected_branch_update_signature_requirement_enforcement_level(self) -> None:
@@ -2022,7 +2022,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91282')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_protected_branch_update_pull_request_reviews_enforcement_level(self) -> None:
@@ -2033,7 +2033,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91283')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_protected_branch_update_required_status_checks_enforcement_level(self) -> None:
@@ -2044,7 +2044,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91284')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_protected_branch_update_strict_required_status_checks_policy(self) -> None:
@@ -2055,7 +2055,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91285')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_protected_branch_rejected_ref_update(self) -> None:
@@ -2066,7 +2066,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91286')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_protected_branch_policy_override(self) -> None:
@@ -2077,7 +2077,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91287')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_protected_branch_update_allow_force_pushes_enforcement_level(self) -> None:
@@ -2088,7 +2088,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91288')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_protected_branch_update_allow_deletions_enforcement_level(self) -> None:
@@ -2099,7 +2099,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91289')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_protected_branch_update_linear_history_requirement_enforcement_level(self) -> None:
@@ -2110,7 +2110,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91290')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_pull_request(self) -> None:
@@ -2121,7 +2121,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91292')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_pull_request_create(self) -> None:
@@ -2132,7 +2132,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91293')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_pull_request_close(self) -> None:
@@ -2143,7 +2143,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91294')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_pull_request_reopen(self) -> None:
@@ -2154,7 +2154,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91295')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_pull_request_merge(self) -> None:
@@ -2165,7 +2165,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91296')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_pull_request_indirect_merge(self) -> None:
@@ -2176,7 +2176,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91297')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_pull_request_ready_for_review(self) -> None:
@@ -2187,7 +2187,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91298')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_pull_request_converted_to_draft(self) -> None:
@@ -2198,7 +2198,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91299')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_pull_request_create_review_request(self) -> None:
@@ -2209,7 +2209,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91300')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_pull_request_remove_review_request(self) -> None:
@@ -2220,7 +2220,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91301')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_pull_request_review(self) -> None:
@@ -2231,7 +2231,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91302')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_pull_request_review_submit(self) -> None:
@@ -2242,7 +2242,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91303')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_pull_request_review_dismiss(self) -> None:
@@ -2253,7 +2253,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91304')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_pull_request_review_delete(self) -> None:
@@ -2264,7 +2264,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91305')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_pull_request_review_comment(self) -> None:
@@ -2275,7 +2275,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91306')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_pull_request_review_comment_create(self) -> None:
@@ -2286,7 +2286,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91307')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_pull_request_review_comment_update(self) -> None:
@@ -2297,7 +2297,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91308')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_pull_request_review_comment_delete(self) -> None:
@@ -2308,7 +2308,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91309')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_repo(self) -> None:
@@ -2319,7 +2319,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91310')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_repo_access(self) -> None:
@@ -2330,7 +2330,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91311')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_repo_actions_enabled(self) -> None:
@@ -2341,7 +2341,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91312')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_repo_add_member(self) -> None:
@@ -2352,7 +2352,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91313')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_repo_add_topic(self) -> None:
@@ -2363,7 +2363,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91314')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_repo_advanced_security_disabled(self) -> None:
@@ -2374,7 +2374,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91315')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_github_repo_advanced_security_enabled(self) -> None:
@@ -2385,7 +2385,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91316')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_repo_archived(self) -> None:
@@ -2396,7 +2396,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91317')
-        self.assertEqual(response.alert, 9)
+        self.assertEqual(response.rule_level, 9)
 
 
     def test_github_repo_create(self) -> None:
@@ -2407,7 +2407,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91318')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_repo_create_actions_secret(self) -> None:
@@ -2418,7 +2418,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91319')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_repo_destroy(self) -> None:
@@ -2429,7 +2429,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91320')
-        self.assertEqual(response.alert, 9)
+        self.assertEqual(response.rule_level, 9)
 
 
     def test_github_repo_disable(self) -> None:
@@ -2440,7 +2440,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91321')
-        self.assertEqual(response.alert, 9)
+        self.assertEqual(response.rule_level, 9)
 
 
     def test_github_repo_enable(self) -> None:
@@ -2451,7 +2451,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91322')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_repo_pages_create(self) -> None:
@@ -2462,7 +2462,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91323')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_repo_pages_https_redirect_enabled(self) -> None:
@@ -2473,7 +2473,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91324')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_repo_pages_private(self) -> None:
@@ -2484,7 +2484,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91325')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_repo_pages_public(self) -> None:
@@ -2495,7 +2495,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91326')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_repo_pages_source(self) -> None:
@@ -2506,7 +2506,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91327')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_repo_remove_actions_secret(self) -> None:
@@ -2517,7 +2517,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91328')
-        self.assertEqual(response.alert, 9)
+        self.assertEqual(response.rule_level, 9)
 
 
     def test_github_repo_remove_member(self) -> None:
@@ -2528,7 +2528,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91329')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_repo_register_self_hosted_runner(self) -> None:
@@ -2539,7 +2539,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91330')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_repo_remove_self_hosted_runner(self) -> None:
@@ -2550,7 +2550,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91331')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_repo_remove_topic(self) -> None:
@@ -2561,7 +2561,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91332')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_repo_rename(self) -> None:
@@ -2572,7 +2572,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91333')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_repo_self_hosted_runner_updated(self) -> None:
@@ -2583,7 +2583,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91334')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_repo_set_actions_retention_limit(self) -> None:
@@ -2594,7 +2594,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91335')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_repo_transfer(self) -> None:
@@ -2605,7 +2605,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91336')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_repo_transfer_start(self) -> None:
@@ -2616,7 +2616,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91337')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_repo_unarchived(self) -> None:
@@ -2627,7 +2627,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91338')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_repo_update_actions_secret(self) -> None:
@@ -2638,7 +2638,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91339')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_repository_advisory(self) -> None:
@@ -2649,7 +2649,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91340')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_repository_advisory_close(self) -> None:
@@ -2660,7 +2660,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91341')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_repository_advisory_cve_request(self) -> None:
@@ -2671,7 +2671,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91342')
-        self.assertEqual(response.alert, 9)
+        self.assertEqual(response.rule_level, 9)
 
 
     def test_github_repository_advisory_github_broadcast(self) -> None:
@@ -2682,7 +2682,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91343')
-        self.assertEqual(response.alert, 9)
+        self.assertEqual(response.rule_level, 9)
 
 
     def test_github_repository_advisory_github_withdraw(self) -> None:
@@ -2693,7 +2693,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91344')
-        self.assertEqual(response.alert, 9)
+        self.assertEqual(response.rule_level, 9)
 
 
     def test_github_repository_advisory_open(self) -> None:
@@ -2704,7 +2704,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91345')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_repository_advisory_publish(self) -> None:
@@ -2715,7 +2715,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91346')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_repository_advisory_reopen(self) -> None:
@@ -2726,7 +2726,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91347')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_repository_advisory_update(self) -> None:
@@ -2737,7 +2737,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91348')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_repository_content_analysis(self) -> None:
@@ -2748,7 +2748,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91349')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_repository_content_analysis_enable(self) -> None:
@@ -2759,7 +2759,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91350')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_repository_content_analysis_disable(self) -> None:
@@ -2770,7 +2770,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91351')
-        self.assertEqual(response.alert, 9)
+        self.assertEqual(response.rule_level, 9)
 
 
     def test_github_repository_dependency_graph(self) -> None:
@@ -2781,7 +2781,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91352')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_repository_dependency_graph_disable(self) -> None:
@@ -2792,7 +2792,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91353')
-        self.assertEqual(response.alert, 9)
+        self.assertEqual(response.rule_level, 9)
 
 
     def test_github_repository_dependency_graph_enable(self) -> None:
@@ -2803,7 +2803,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91354')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_repository_projects_change(self) -> None:
@@ -2814,7 +2814,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91355')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_repository_projects_change_disable(self) -> None:
@@ -2825,7 +2825,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91356')
-        self.assertEqual(response.alert, 9)
+        self.assertEqual(response.rule_level, 9)
 
 
     def test_github_repository_projects_change_enable(self) -> None:
@@ -2836,7 +2836,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91357')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_repository_secret_scanning(self) -> None:
@@ -2847,7 +2847,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91358')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_repository_secret_scanning_disable(self) -> None:
@@ -2858,7 +2858,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91359')
-        self.assertEqual(response.alert, 9)
+        self.assertEqual(response.rule_level, 9)
 
 
     def test_github_repository_secret_scanning_enable(self) -> None:
@@ -2869,7 +2869,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91360')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_repository_vulnerability_alert(self) -> None:
@@ -2880,7 +2880,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91361')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_repository_vulnerability_alert_create(self) -> None:
@@ -2891,7 +2891,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91362')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_github_repository_vulnerability_alert_dismiss(self) -> None:
@@ -2902,7 +2902,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91363')
-        self.assertEqual(response.alert, 9)
+        self.assertEqual(response.rule_level, 9)
 
 
     def test_github_repository_vulnerability_alert_resolve(self) -> None:
@@ -2913,7 +2913,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91364')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_repository_vulnerability_alerts(self) -> None:
@@ -2924,7 +2924,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91365')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_repository_vulnerability_alerts_authorized_users_teams(self) -> None:
@@ -2935,7 +2935,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91366')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_repository_vulnerability_alerts_disable(self) -> None:
@@ -2946,7 +2946,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91367')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_github_repository_vulnerability_alerts_enable(self) -> None:
@@ -2957,7 +2957,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91368')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_secret_scanning(self) -> None:
@@ -2968,7 +2968,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91369')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_secret_scanning_disable(self) -> None:
@@ -2979,7 +2979,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91370')
-        self.assertEqual(response.alert, 9)
+        self.assertEqual(response.rule_level, 9)
 
 
     def test_github_secret_scanning_enable(self) -> None:
@@ -2990,7 +2990,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91371')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_secret_scanning_new_repos(self) -> None:
@@ -3001,7 +3001,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91372')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_secret_scanning_new_repos_disable(self) -> None:
@@ -3012,7 +3012,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91373')
-        self.assertEqual(response.alert, 9)
+        self.assertEqual(response.rule_level, 9)
 
 
     def test_github_secret_scanning_new_repos_enable(self) -> None:
@@ -3023,7 +3023,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91374')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_sponsors(self) -> None:
@@ -3034,7 +3034,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91375')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_sponsors_custom_amount_settings_change(self) -> None:
@@ -3045,7 +3045,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91376')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_sponsors_repo_funding_links_file_action(self) -> None:
@@ -3056,7 +3056,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91377')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_sponsors_sponsorship_cancel(self) -> None:
@@ -3067,7 +3067,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91378')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_sponsors_sponsorship_create(self) -> None:
@@ -3078,7 +3078,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91379')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_sponsors_sponsorship_preference_change(self) -> None:
@@ -3089,7 +3089,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91380')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_sponsors_sponsorship_tier_change(self) -> None:
@@ -3100,7 +3100,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91381')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_sponsors_sponsored_developer_approve(self) -> None:
@@ -3111,7 +3111,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91382')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_sponsors_sponsored_developer_create(self) -> None:
@@ -3122,7 +3122,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91383')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_sponsors_sponsored_developer_disable(self) -> None:
@@ -3133,7 +3133,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91384')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_sponsors_sponsored_developer_redraft(self) -> None:
@@ -3144,7 +3144,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91385')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_sponsors_sponsored_developer_profile_update(self) -> None:
@@ -3155,7 +3155,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91386')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_sponsors_sponsored_developer_request_approval(self) -> None:
@@ -3166,7 +3166,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91387')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_sponsors_sponsored_developer_tier_description_update(self) -> None:
@@ -3177,7 +3177,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91388')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_sponsors_sponsored_developer_update_newsletter_send(self) -> None:
@@ -3188,7 +3188,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91389')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_sponsors_waitlist_invite_sponsored_developer(self) -> None:
@@ -3199,7 +3199,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91390')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_sponsors_waitlist_join(self) -> None:
@@ -3210,7 +3210,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91391')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_team(self) -> None:
@@ -3221,7 +3221,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91392')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_team_add_member(self) -> None:
@@ -3232,7 +3232,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91393')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_team_add_repository(self) -> None:
@@ -3243,7 +3243,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91394')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_team_change_parent_team(self) -> None:
@@ -3254,7 +3254,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91395')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_team_change_privacy(self) -> None:
@@ -3265,7 +3265,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91396')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_team_create(self) -> None:
@@ -3276,7 +3276,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91397')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_team_demote_maintainer(self) -> None:
@@ -3287,7 +3287,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91398')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_team_destroy(self) -> None:
@@ -3298,7 +3298,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91399')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_team_promote_maintainer(self) -> None:
@@ -3309,7 +3309,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91400')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_team_remove_member(self) -> None:
@@ -3320,7 +3320,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91401')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_team_remove_repository(self) -> None:
@@ -3331,7 +3331,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91402')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_team_discussions(self) -> None:
@@ -3342,7 +3342,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91403')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_team_discussions_disable(self) -> None:
@@ -3353,7 +3353,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91404')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_team_discussions_enable(self) -> None:
@@ -3364,7 +3364,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91405')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_workflows(self) -> None:
@@ -3375,7 +3375,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91406')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_workflows_cancel_workflow_run(self) -> None:
@@ -3386,7 +3386,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91407')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_workflows_completed_workflow_run(self) -> None:
@@ -3397,7 +3397,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91408')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_workflows_created_workflow_run(self) -> None:
@@ -3408,7 +3408,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91409')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_workflows_delete_workflow_run(self) -> None:
@@ -3419,7 +3419,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91410')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_workflows_disable_workflow(self) -> None:
@@ -3430,7 +3430,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91411')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_workflows_enable_workflow(self) -> None:
@@ -3441,7 +3441,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91412')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_workflows_rerun_workflow_run(self) -> None:
@@ -3452,7 +3452,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91413')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_workflows_prepared_workflow_job(self) -> None:
@@ -3463,7 +3463,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91414')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_codespaces(self) -> None:
@@ -3474,7 +3474,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91415')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_codespaces_create(self) -> None:
@@ -3485,7 +3485,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91416')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_codespaces_resume(self) -> None:
@@ -3496,7 +3496,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91417')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_codespaces_delete(self) -> None:
@@ -3507,7 +3507,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91418')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_codespaces_create_an_org_secret(self) -> None:
@@ -3518,7 +3518,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91419')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_github_codespaces_update_an_org_secret(self) -> None:
@@ -3529,7 +3529,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91420')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_github_codespaces_remove_an_org_secret(self) -> None:
@@ -3540,7 +3540,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91421')
-        self.assertEqual(response.alert, 9)
+        self.assertEqual(response.rule_level, 9)
 
 
     def test_github_codespaces_manage_access_and_security(self) -> None:
@@ -3551,7 +3551,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91422')
-        self.assertEqual(response.alert, 9)
+        self.assertEqual(response.rule_level, 9)
 
 
     def test_github_module_internal_event_3_request_fail(self) -> None:
@@ -3562,7 +3562,7 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91448')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_github_generic_rule(self) -> None:
@@ -3573,5 +3573,5 @@ class TestGithubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '91449')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 

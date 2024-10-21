@@ -27,7 +27,7 @@ class TestOverwriteRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'ow_test')
         self.assertEqual(response.rule_id, '999911')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_overwrite_success_and_child_matches_1(self) -> None:
@@ -38,7 +38,7 @@ class TestOverwriteRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'ow_test')
         self.assertEqual(response.rule_id, '999912')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_overwrite_success_and_child_matches_2(self) -> None:
@@ -49,7 +49,7 @@ class TestOverwriteRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'ow_test')
         self.assertEqual(response.rule_id, '999912')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_overwrite_success_and_child_matches_3(self) -> None:
@@ -60,7 +60,7 @@ class TestOverwriteRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'ow_test')
         self.assertEqual(response.rule_id, '999912')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_overwrite_if_matched_sid_1(self) -> None:
@@ -71,7 +71,7 @@ class TestOverwriteRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'ow_test')
         self.assertEqual(response.rule_id, '999914')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_overwrite_if_matched_sid_2(self) -> None:
@@ -82,7 +82,7 @@ class TestOverwriteRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'ow_test')
         self.assertEqual(response.rule_id, '999914')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_overwrite_if_matched_sid_3(self) -> None:
@@ -93,7 +93,7 @@ class TestOverwriteRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'ow_test')
         self.assertEqual(response.rule_id, '999914')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_overwrite_if_matched_group_1(self) -> None:
@@ -104,7 +104,7 @@ class TestOverwriteRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'ow_test')
         self.assertEqual(response.rule_id, '999917')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_overwrite_if_matched_group_2(self) -> None:
@@ -115,7 +115,7 @@ class TestOverwriteRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'ow_test')
         self.assertEqual(response.rule_id, '999917')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_overwrite_if_matched_group_3(self) -> None:
@@ -126,7 +126,7 @@ class TestOverwriteRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'ow_test')
         self.assertEqual(response.rule_id, '999917')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_overwrite_&_list(self) -> None:
@@ -137,7 +137,7 @@ class TestOverwriteRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'ow_test')
         self.assertEqual(response.rule_id, '999918')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_overwrite_&_field(self) -> None:
@@ -148,7 +148,7 @@ class TestOverwriteRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_overwrite')
         self.assertEqual(response.rule_id, '999919')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_multiple_overwrite(self) -> None:
@@ -159,7 +159,7 @@ class TestOverwriteRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_overwrite')
         self.assertEqual(response.rule_id, '999920')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_overwrite_with_if_sid(self) -> None:
@@ -170,7 +170,7 @@ class TestOverwriteRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_overwrite')
         self.assertEqual(response.rule_id, '999922')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_overwrite_with_if_level(self) -> None:
@@ -181,5 +181,5 @@ class TestOverwriteRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_overwrite')
         self.assertEqual(response.rule_id, '999924')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 

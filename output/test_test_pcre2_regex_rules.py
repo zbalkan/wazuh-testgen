@@ -20,7 +20,7 @@ class TestTest_pcre2_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_pcre2_0')
         self.assertEqual(response.rule_id, '999500')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_pcre2_test_pcre2_0_protocol_n(self) -> None:
@@ -31,7 +31,7 @@ class TestTest_pcre2_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_pcre2_0')
         self.assertEqual(response.rule_id, '999501')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_pcre2_test_pcre2_1_dynamic_field(self) -> None:
@@ -42,7 +42,7 @@ class TestTest_pcre2_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_pcre2_1')
         self.assertEqual(response.rule_id, '999502')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_pcre2_test_pcre2_1_dynamic_field_n(self) -> None:
@@ -53,7 +53,7 @@ class TestTest_pcre2_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_pcre2_1')
         self.assertEqual(response.rule_id, '999503')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_pcre2_test_pcre2_2_regex(self) -> None:
@@ -64,7 +64,7 @@ class TestTest_pcre2_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_pcre2_2')
         self.assertEqual(response.rule_id, '999504')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_pcre2_test_pcre2_2_regex_n(self) -> None:
@@ -75,7 +75,7 @@ class TestTest_pcre2_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_pcre2_2')
         self.assertEqual(response.rule_id, '999505')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_pcre2_test_pcre2_3_action(self) -> None:
@@ -86,7 +86,7 @@ class TestTest_pcre2_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_pcre2_3')
         self.assertEqual(response.rule_id, '999506')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_pcre2_test_pcre2_3_action_n(self) -> None:
@@ -97,7 +97,7 @@ class TestTest_pcre2_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_pcre2_3')
         self.assertEqual(response.rule_id, '999507')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_pcre2_test_pcre2_4_extra_data(self) -> None:
@@ -108,7 +108,7 @@ class TestTest_pcre2_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_pcre2_4')
         self.assertEqual(response.rule_id, '999508')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_pcre2_test_pcre2_4_extra_data_n(self) -> None:
@@ -119,7 +119,7 @@ class TestTest_pcre2_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_pcre2_4')
         self.assertEqual(response.rule_id, '999509')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_pcre2_test_pcre2_5_id(self) -> None:
@@ -130,7 +130,7 @@ class TestTest_pcre2_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_pcre2_5')
         self.assertEqual(response.rule_id, '999510')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_pcre2_test_pcre2_5_id_n(self) -> None:
@@ -141,7 +141,7 @@ class TestTest_pcre2_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_pcre2_5')
         self.assertEqual(response.rule_id, '999511')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_pcre2_test_pcre2_6_location(self) -> None:
@@ -152,7 +152,7 @@ class TestTest_pcre2_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_pcre2_6')
         self.assertEqual(response.rule_id, '999512')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_pcre2_test_pcre2_6_hostname(self) -> None:
@@ -163,7 +163,7 @@ class TestTest_pcre2_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_pcre2_6')
         self.assertEqual(response.rule_id, '999513')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_pcre2_test_pcre2_6_program_name(self) -> None:
@@ -174,7 +174,7 @@ class TestTest_pcre2_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_pcre2_6')
         self.assertEqual(response.rule_id, '999514')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_pcre2_test_pcre2_7_match(self) -> None:
@@ -185,7 +185,7 @@ class TestTest_pcre2_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_pcre2_7')
         self.assertEqual(response.rule_id, '999515')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_pcre2_test_pcre2_7_match_n(self) -> None:
@@ -196,7 +196,7 @@ class TestTest_pcre2_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_pcre2_7')
         self.assertEqual(response.rule_id, '999516')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_pcre2_test_pcre2_8_protocol(self) -> None:
@@ -207,7 +207,7 @@ class TestTest_pcre2_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_pcre2_8')
         self.assertEqual(response.rule_id, '999517')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_pcre2_test_pcre2_8_protocol_n(self) -> None:
@@ -218,7 +218,7 @@ class TestTest_pcre2_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_pcre2_8')
         self.assertEqual(response.rule_id, '999518')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_pcre2_test_pcre2_9_user(self) -> None:
@@ -229,7 +229,7 @@ class TestTest_pcre2_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_pcre2_9')
         self.assertEqual(response.rule_id, '999519')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_pcre2_test_pcre2_9_user_n(self) -> None:
@@ -240,7 +240,7 @@ class TestTest_pcre2_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_pcre2_9')
         self.assertEqual(response.rule_id, '999520')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_pcre2_test_pcre2_10_url(self) -> None:
@@ -251,7 +251,7 @@ class TestTest_pcre2_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_pcre2_10')
         self.assertEqual(response.rule_id, '999521')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_pcre2_test_pcre2_10_url_n(self) -> None:
@@ -262,7 +262,7 @@ class TestTest_pcre2_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_pcre2_10')
         self.assertEqual(response.rule_id, '999522')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_pcre2_test_pcre2_11_srcport(self) -> None:
@@ -273,7 +273,7 @@ class TestTest_pcre2_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_pcre2_11')
         self.assertEqual(response.rule_id, '999523')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_pcre2_test_pcre2_11_srcport_n(self) -> None:
@@ -284,7 +284,7 @@ class TestTest_pcre2_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_pcre2_11')
         self.assertEqual(response.rule_id, '999524')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_pcre2_test_pcre2_12_dstport(self) -> None:
@@ -295,7 +295,7 @@ class TestTest_pcre2_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_pcre2_12')
         self.assertEqual(response.rule_id, '999525')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_pcre2_test_pcre2_12_dstport_n(self) -> None:
@@ -306,7 +306,7 @@ class TestTest_pcre2_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_pcre2_12')
         self.assertEqual(response.rule_id, '999526')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_pcre2_test_pcre2_13_status(self) -> None:
@@ -317,7 +317,7 @@ class TestTest_pcre2_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_pcre2_13')
         self.assertEqual(response.rule_id, '999527')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_pcre2_test_pcre2_13_status_n(self) -> None:
@@ -328,7 +328,7 @@ class TestTest_pcre2_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_pcre2_13')
         self.assertEqual(response.rule_id, '999528')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_pcre2_test_pcre2_14_system_name(self) -> None:
@@ -339,7 +339,7 @@ class TestTest_pcre2_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_pcre2_14')
         self.assertEqual(response.rule_id, '999529')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_pcre2_test_pcre2_14_system_name_n(self) -> None:
@@ -350,7 +350,7 @@ class TestTest_pcre2_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_pcre2_14')
         self.assertEqual(response.rule_id, '999530')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_pcre2_test_pcre2_15_data(self) -> None:
@@ -361,7 +361,7 @@ class TestTest_pcre2_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_pcre2_15')
         self.assertEqual(response.rule_id, '999531')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_pcre2_test_pcre2_15_data_n(self) -> None:
@@ -372,5 +372,5 @@ class TestTest_pcre2_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_pcre2_15')
         self.assertEqual(response.rule_id, '999532')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 

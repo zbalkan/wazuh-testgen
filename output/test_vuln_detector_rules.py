@@ -20,7 +20,7 @@ class TestVuln_detectorRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '23502')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_cve_removed_2(self) -> None:

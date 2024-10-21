@@ -20,7 +20,7 @@ class TestTest_osmatch_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_osmatch_1')
         self.assertEqual(response.rule_id, '999902')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_osmatch_test_osmatch_1_dynamic_field_n(self) -> None:
@@ -31,7 +31,7 @@ class TestTest_osmatch_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_osmatch_1')
         self.assertEqual(response.rule_id, '999903')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_osmatch_test_osmatch_2_regex(self) -> None:
@@ -42,7 +42,7 @@ class TestTest_osmatch_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_osmatch_2')
         self.assertEqual(response.rule_id, '999904')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_osmatch_test_osmatch_2_regex_n(self) -> None:
@@ -53,7 +53,7 @@ class TestTest_osmatch_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_osmatch_2')
         self.assertEqual(response.rule_id, '999905')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_osmatch_test_osmatch_3_action(self) -> None:
@@ -64,7 +64,7 @@ class TestTest_osmatch_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_osmatch_3')
         self.assertEqual(response.rule_id, '999906')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_osmatch_test_osmatch_3_action_n(self) -> None:
@@ -75,5 +75,5 @@ class TestTest_osmatch_regexRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_osmatch_3')
         self.assertEqual(response.rule_id, '999907')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 

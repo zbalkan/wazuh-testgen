@@ -20,7 +20,7 @@ class TestSuRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'su')
         self.assertEqual(response.rule_id, '5302')
-        self.assertEqual(response.alert, 9)
+        self.assertEqual(response.rule_level, 9)
 
 
     def test_su_bad_pass(self) -> None:
@@ -31,7 +31,7 @@ class TestSuRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'su')
         self.assertEqual(response.rule_id, '5301')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_su_pam_auth_fail_1(self) -> None:
@@ -56,5 +56,5 @@ class TestSuRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'su')
         self.assertEqual(response.rule_id, '5305')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 

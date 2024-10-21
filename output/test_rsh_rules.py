@@ -20,7 +20,7 @@ class TestRshRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'rshd')
         self.assertEqual(response.rule_id, '2551')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_rshd_illegal_2(self) -> None:

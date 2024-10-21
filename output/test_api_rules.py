@@ -20,7 +20,7 @@ class TestApiRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'wazuh-api')
         self.assertEqual(response.rule_id, '410')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_api_unauthorized(self) -> None:
@@ -31,7 +31,7 @@ class TestApiRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'wazuh-api')
         self.assertEqual(response.rule_id, '411')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_apis_response_code_returned_error_permission_denied(self) -> None:
@@ -42,7 +42,7 @@ class TestApiRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'wazuh-api')
         self.assertEqual(response.rule_id, '412')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_resource_not_found(self) -> None:
@@ -53,7 +53,7 @@ class TestApiRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'wazuh-api')
         self.assertEqual(response.rule_id, '413')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_invalid_http_method(self) -> None:
@@ -64,7 +64,7 @@ class TestApiRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'wazuh-api')
         self.assertEqual(response.rule_id, '414')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_invalid_content_type(self) -> None:
@@ -75,7 +75,7 @@ class TestApiRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'wazuh-api')
         self.assertEqual(response.rule_id, '415')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_maximum_request_body_size_exceeded(self) -> None:
@@ -86,7 +86,7 @@ class TestApiRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'wazuh-api')
         self.assertEqual(response.rule_id, '416')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_max_number_of_requests_per_minute_reached(self) -> None:
@@ -97,7 +97,7 @@ class TestApiRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'wazuh-api')
         self.assertEqual(response.rule_id, '417')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_internal_error(self) -> None:
@@ -108,7 +108,7 @@ class TestApiRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'wazuh-api')
         self.assertEqual(response.rule_id, '418')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_apis_put_method_event(self) -> None:
@@ -119,7 +119,7 @@ class TestApiRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'wazuh-api')
         self.assertEqual(response.rule_id, '407')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_apis_get_method_event_success(self) -> None:
@@ -130,7 +130,7 @@ class TestApiRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'wazuh-api')
         self.assertEqual(response.rule_id, '406')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_api_post_method_event_success(self) -> None:
@@ -141,7 +141,7 @@ class TestApiRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'wazuh-api')
         self.assertEqual(response.rule_id, '409')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_api_delete_method_event_success(self) -> None:
@@ -152,7 +152,7 @@ class TestApiRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'wazuh-api')
         self.assertEqual(response.rule_id, '408')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_api_info_informative_event(self) -> None:
@@ -163,7 +163,7 @@ class TestApiRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'wazuh-api-info')
         self.assertEqual(response.rule_id, '421')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_api_info_warning_event(self) -> None:
@@ -174,7 +174,7 @@ class TestApiRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'wazuh-api-info')
         self.assertEqual(response.rule_id, '422')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_api_info_error_event(self) -> None:
@@ -185,7 +185,7 @@ class TestApiRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'wazuh-api-info')
         self.assertEqual(response.rule_id, '423')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_api_info_ip_blocked(self) -> None:
@@ -196,7 +196,7 @@ class TestApiRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'wazuh-api-info')
         self.assertEqual(response.rule_id, '428')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_api_info_critical_event(self) -> None:
@@ -207,7 +207,7 @@ class TestApiRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'wazuh-api-info')
         self.assertEqual(response.rule_id, '424')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_api_authentication_success(self) -> None:
@@ -218,7 +218,7 @@ class TestApiRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'wazuh-api')
         self.assertEqual(response.rule_id, '426')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_api_authentication_success_with_hash(self) -> None:
@@ -229,7 +229,7 @@ class TestApiRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'wazuh-api')
         self.assertEqual(response.rule_id, '426')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_api_authentication_failure(self) -> None:
@@ -240,5 +240,5 @@ class TestApiRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'wazuh-api')
         self.assertEqual(response.rule_id, '427')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 

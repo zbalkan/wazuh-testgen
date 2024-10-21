@@ -20,7 +20,7 @@ class TestExchangeRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'HTTPProxyLog')
         self.assertEqual(response.rule_id, '91002')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_ms_exchange_possible_proxylogon_vulnerability_exploitation_cve_2021_27065(self) -> None:
@@ -31,5 +31,5 @@ class TestExchangeRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'ECPServerLog')
         self.assertEqual(response.rule_id, '91003')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 

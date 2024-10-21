@@ -20,7 +20,7 @@ class TestCisco_ftdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ftd')
         self.assertEqual(response.rule_id, '91501')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_cisco_ftd_high_severity_alert_2(self) -> None:
@@ -31,7 +31,7 @@ class TestCisco_ftdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ftd')
         self.assertEqual(response.rule_id, '91501')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_cisco_ftd_critical_severity_alert_1(self) -> None:
@@ -42,7 +42,7 @@ class TestCisco_ftdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ftd')
         self.assertEqual(response.rule_id, '91502')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_cisco_ftd_critical_severity_alert_2(self) -> None:
@@ -53,7 +53,7 @@ class TestCisco_ftdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ftd')
         self.assertEqual(response.rule_id, '91502')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_cisco_ftd_error_alert_1(self) -> None:
@@ -64,7 +64,7 @@ class TestCisco_ftdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ftd')
         self.assertEqual(response.rule_id, '91503')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_cisco_ftd_error_alert_2(self) -> None:
@@ -75,7 +75,7 @@ class TestCisco_ftdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ftd')
         self.assertEqual(response.rule_id, '91503')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_cisco_ftd_warning_alert_1(self) -> None:
@@ -86,7 +86,7 @@ class TestCisco_ftdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ftd')
         self.assertEqual(response.rule_id, '91504')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_cisco_ftd_warning_alert_2(self) -> None:
@@ -97,7 +97,7 @@ class TestCisco_ftdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ftd')
         self.assertEqual(response.rule_id, '91504')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_cisco_ftd_notification_alerts_1(self) -> None:
@@ -108,7 +108,7 @@ class TestCisco_ftdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ftd')
         self.assertEqual(response.rule_id, '91505')
-        self.assertEqual(response.alert, 2)
+        self.assertEqual(response.rule_level, 2)
 
 
     def test_cisco_ftd_notification_alerts_2(self) -> None:
@@ -119,7 +119,7 @@ class TestCisco_ftdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ftd')
         self.assertEqual(response.rule_id, '91505')
-        self.assertEqual(response.alert, 2)
+        self.assertEqual(response.rule_level, 2)
 
 
     def test_cisco_ftd_notification_alerts_3(self) -> None:
@@ -130,7 +130,7 @@ class TestCisco_ftdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ftd')
         self.assertEqual(response.rule_id, '91505')
-        self.assertEqual(response.alert, 2)
+        self.assertEqual(response.rule_level, 2)
 
 
     def test_cisco_ftd_notification_alerts_4(self) -> None:
@@ -141,7 +141,7 @@ class TestCisco_ftdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ftd')
         self.assertEqual(response.rule_id, '91505')
-        self.assertEqual(response.alert, 2)
+        self.assertEqual(response.rule_level, 2)
 
 
     def test_cisco_ftd_debugging_alerts_1(self) -> None:
@@ -152,7 +152,7 @@ class TestCisco_ftdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ftd')
         self.assertEqual(response.rule_id, '91506')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_cisco_ftd_debugging_alerts_2(self) -> None:
@@ -163,7 +163,7 @@ class TestCisco_ftdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ftd')
         self.assertEqual(response.rule_id, '91506')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_cisco_ftd_failed_login_attempt(self) -> None:
@@ -174,7 +174,7 @@ class TestCisco_ftdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ftd')
         self.assertEqual(response.rule_id, '91507')
-        self.assertEqual(response.alert, 9)
+        self.assertEqual(response.rule_level, 9)
 
 
     def test_cisco_ftd_user_privilege_changed(self) -> None:
@@ -185,7 +185,7 @@ class TestCisco_ftdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ftd')
         self.assertEqual(response.rule_id, '91508')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_cisco_ftd_successful_login(self) -> None:
@@ -196,7 +196,7 @@ class TestCisco_ftdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ftd')
         self.assertEqual(response.rule_id, '91509')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_cisco_ftd_arp_collision_detected(self) -> None:
@@ -207,7 +207,7 @@ class TestCisco_ftdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ftd')
         self.assertEqual(response.rule_id, '91510')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_cisco_ftd_attempt_to_connect_from_a_blocked_ip(self) -> None:
@@ -218,7 +218,7 @@ class TestCisco_ftdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ftd')
         self.assertEqual(response.rule_id, '91511')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_cisco_ftd_connection_limit_exceeded(self) -> None:
@@ -229,7 +229,7 @@ class TestCisco_ftdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ftd')
         self.assertEqual(response.rule_id, '91512')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_cisco_ftd_attack_in_progress_detected_1(self) -> None:
@@ -240,7 +240,7 @@ class TestCisco_ftdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ftd')
         self.assertEqual(response.rule_id, '91515')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_cisco_ftd_attack_in_progress_detected_2(self) -> None:
@@ -251,7 +251,7 @@ class TestCisco_ftdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ftd')
         self.assertEqual(response.rule_id, '91515')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_cisco_ftd_attack_in_progress_detected_3(self) -> None:
@@ -262,7 +262,7 @@ class TestCisco_ftdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ftd')
         self.assertEqual(response.rule_id, '91515')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_cisco_ftd_attack_in_progress_detected_4(self) -> None:
@@ -273,7 +273,7 @@ class TestCisco_ftdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ftd')
         self.assertEqual(response.rule_id, '91515')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_cisco_ftd_attack_in_progress_detected_5(self) -> None:
@@ -284,7 +284,7 @@ class TestCisco_ftdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ftd')
         self.assertEqual(response.rule_id, '91515')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_cisco_ftd_aaa_vpn_authentication_failed(self) -> None:
@@ -295,7 +295,7 @@ class TestCisco_ftdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ftd')
         self.assertEqual(response.rule_id, '91516')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_cisco_ftd_aaa_vpn_authentication_successful(self) -> None:
@@ -306,7 +306,7 @@ class TestCisco_ftdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ftd')
         self.assertEqual(response.rule_id, '91517')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_cisco_ftd_aaa_vpn_user_locked_out(self) -> None:
@@ -317,7 +317,7 @@ class TestCisco_ftdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ftd')
         self.assertEqual(response.rule_id, '91518')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_cisco_ftd_disallowing_new_connections(self) -> None:
@@ -328,7 +328,7 @@ class TestCisco_ftdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ftd')
         self.assertEqual(response.rule_id, '91519')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_cisco_ftd_firewall_failover_pair_communication_problem_1(self) -> None:
@@ -339,7 +339,7 @@ class TestCisco_ftdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ftd')
         self.assertEqual(response.rule_id, '91520')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_cisco_ftd_firewall_failover_pair_communication_problem_2(self) -> None:
@@ -350,7 +350,7 @@ class TestCisco_ftdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ftd')
         self.assertEqual(response.rule_id, '91520')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_cisco_ftd_firewall_failover_pair_communication_problem_3(self) -> None:
@@ -361,7 +361,7 @@ class TestCisco_ftdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ftd')
         self.assertEqual(response.rule_id, '91520')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_cisco_ftd_firewall_configuration_deleted(self) -> None:
@@ -372,7 +372,7 @@ class TestCisco_ftdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ftd')
         self.assertEqual(response.rule_id, '91521')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_cisco_ftd_firewall_configuration_changed_1(self) -> None:
@@ -383,7 +383,7 @@ class TestCisco_ftdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ftd')
         self.assertEqual(response.rule_id, '91522')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_cisco_ftd_firewall_configuration_changed_2(self) -> None:
@@ -394,7 +394,7 @@ class TestCisco_ftdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ftd')
         self.assertEqual(response.rule_id, '91522')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_cisco_ftd_firewall_configuration_changed_3(self) -> None:
@@ -405,7 +405,7 @@ class TestCisco_ftdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ftd')
         self.assertEqual(response.rule_id, '91522')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_cisco_ftd_firewall_configuration_changed_4(self) -> None:
@@ -416,7 +416,7 @@ class TestCisco_ftdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ftd')
         self.assertEqual(response.rule_id, '91522')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_cisco_ftd_firewall_command_executed_for_accounting_only(self) -> None:
@@ -427,7 +427,7 @@ class TestCisco_ftdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ftd')
         self.assertEqual(response.rule_id, '91523')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_cisco_ftd_firewall_command_executed_for_accounting(self) -> None:
@@ -438,7 +438,7 @@ class TestCisco_ftdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ftd')
         self.assertEqual(response.rule_id, '91524')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_cisco_ftd_user_created_or_modified_on_the_firewall_1(self) -> None:
@@ -449,7 +449,7 @@ class TestCisco_ftdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ftd')
         self.assertEqual(response.rule_id, '91525')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_cisco_ftd_user_created_or_modified_on_the_firewall_2(self) -> None:
@@ -460,7 +460,7 @@ class TestCisco_ftdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ftd')
         self.assertEqual(response.rule_id, '91525')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_cisco_ftd_ip_spoofing_attack_detected(self) -> None:
@@ -471,5 +471,5 @@ class TestCisco_ftdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ftd')
         self.assertEqual(response.rule_id, '91530')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 

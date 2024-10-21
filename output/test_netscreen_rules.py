@@ -20,7 +20,7 @@ class TestNetscreenRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'netscreenfw')
         self.assertEqual(response.rule_id, '4509')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_firewall_policy_changed(self) -> None:
@@ -31,7 +31,7 @@ class TestNetscreenRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'netscreenfw')
         self.assertEqual(response.rule_id, '4508')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_successfull_admin_login_to_the_netscreen_firewall(self) -> None:
@@ -42,7 +42,7 @@ class TestNetscreenRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'netscreenfw')
         self.assertEqual(response.rule_id, '4507')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_syn_flood(self) -> None:
@@ -53,5 +53,5 @@ class TestNetscreenRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'netscreenfw')
         self.assertEqual(response.rule_id, '4560')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 

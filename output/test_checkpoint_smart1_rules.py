@@ -20,7 +20,7 @@ class TestCheckpoint_smart1Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'checkpoint-smart1')
         self.assertEqual(response.rule_id, '64222')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_checkpoint_smart1_reject_prohibit_a_packet_from_passing_send_an_icmp_destination_unreachable_back_to_the_source_host(self) -> None:
@@ -31,7 +31,7 @@ class TestCheckpoint_smart1Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'checkpoint-smart1')
         self.assertEqual(response.rule_id, '64223')
-        self.assertEqual(response.alert, 9)
+        self.assertEqual(response.rule_level, 9)
 
 
     def test_checkpoint_smart1_encrypt_connection_encrypted(self) -> None:
@@ -42,7 +42,7 @@ class TestCheckpoint_smart1Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'checkpoint-smart1')
         self.assertEqual(response.rule_id, '64224')
-        self.assertEqual(response.alert, 2)
+        self.assertEqual(response.rule_level, 2)
 
 
     def test_checkpoint_smart1_decrypt_connection_decrypted(self) -> None:
@@ -53,7 +53,7 @@ class TestCheckpoint_smart1Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'checkpoint-smart1')
         self.assertEqual(response.rule_id, '64225')
-        self.assertEqual(response.alert, 2)
+        self.assertEqual(response.rule_level, 2)
 
 
     def test_checkpoint_smart1_key_install_encryption_keys_were_created(self) -> None:
@@ -64,7 +64,7 @@ class TestCheckpoint_smart1Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'checkpoint-smart1')
         self.assertEqual(response.rule_id, '64226')
-        self.assertEqual(response.alert, 2)
+        self.assertEqual(response.rule_level, 2)
 
 
     def test_checkpoint_smart1_monitored_a_security_event_was_monitored;_however_it_was_not_blocked_due_to_the_current_configuration(self) -> None:
@@ -75,7 +75,7 @@ class TestCheckpoint_smart1Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'checkpoint-smart1')
         self.assertEqual(response.rule_id, '64227')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_checkpoint_smart1_bypass_the_connection_passed_transparently_through_interspect(self) -> None:
@@ -86,7 +86,7 @@ class TestCheckpoint_smart1Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'checkpoint-smart1')
         self.assertEqual(response.rule_id, '64228')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_checkpoint_smart1_flag_flags_the_connection(self) -> None:
@@ -97,7 +97,7 @@ class TestCheckpoint_smart1Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'checkpoint-smart1')
         self.assertEqual(response.rule_id, '64229')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_checkpoint_smart1_login_a_user_logged_into_the_system(self) -> None:
@@ -108,7 +108,7 @@ class TestCheckpoint_smart1Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'checkpoint-smart1')
         self.assertEqual(response.rule_id, '64230')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_checkpoint_smart1_vpn_routing_the_connection_was_routed_through_the_gateway_acting_as_a_central_hub(self) -> None:
@@ -119,7 +119,7 @@ class TestCheckpoint_smart1Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'checkpoint-smart1')
         self.assertEqual(response.rule_id, '64231')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_checkpoint_smart1_deauthorize_client_authentication_logoff(self) -> None:
@@ -130,7 +130,7 @@ class TestCheckpoint_smart1Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'checkpoint-smart1')
         self.assertEqual(response.rule_id, '64232')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_checkpoint_smart1_authorize_client_authentication_logon(self) -> None:
@@ -141,7 +141,7 @@ class TestCheckpoint_smart1Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'checkpoint-smart1')
         self.assertEqual(response.rule_id, '64233')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_checkpoint_smart1_block_connection_blocked_by_interspect(self) -> None:
@@ -152,7 +152,7 @@ class TestCheckpoint_smart1Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'checkpoint-smart1')
         self.assertEqual(response.rule_id, '64234')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_checkpoint_smart1_detect_connection_was_detected_by_interspect(self) -> None:
@@ -163,7 +163,7 @@ class TestCheckpoint_smart1Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'checkpoint-smart1')
         self.assertEqual(response.rule_id, '64235')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_checkpoint_smart1_inspect_connection_was_subject_to_a_configured_protections(self) -> None:
@@ -174,7 +174,7 @@ class TestCheckpoint_smart1Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'checkpoint-smart1')
         self.assertEqual(response.rule_id, '64236')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_checkpoint_smart1_quarantine_the_ip_source_address_of_the_connection_was_quarantined(self) -> None:
@@ -185,7 +185,7 @@ class TestCheckpoint_smart1Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'checkpoint-smart1')
         self.assertEqual(response.rule_id, '64237')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_checkpoint_smart1_replace_malicious_code_malicious_code_in_the_connection_was_replaced(self) -> None:
@@ -196,7 +196,7 @@ class TestCheckpoint_smart1Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'checkpoint-smart1')
         self.assertEqual(response.rule_id, '64238')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_checkpoint_smart1_the_firewall_allowed_a_url(self) -> None:
@@ -207,5 +207,5 @@ class TestCheckpoint_smart1Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'checkpoint-smart1')
         self.assertEqual(response.rule_id, '64239')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 

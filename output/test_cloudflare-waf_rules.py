@@ -20,7 +20,7 @@ class TestCloudflare-wafRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92502')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_cloudflare_waf_post_method_event(self) -> None:
@@ -31,7 +31,7 @@ class TestCloudflare-wafRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92503')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_cloudflare_waf_put_method_event(self) -> None:
@@ -42,7 +42,7 @@ class TestCloudflare-wafRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92504')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_cloudflare_waf_auth_event(self) -> None:
@@ -53,7 +53,7 @@ class TestCloudflare-wafRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92506')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_cloudflare_waf_auth_failure_event(self) -> None:
@@ -64,7 +64,7 @@ class TestCloudflare-wafRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92507')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_cloudflare_waf_returned_error_event(self) -> None:
@@ -75,7 +75,7 @@ class TestCloudflare-wafRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92508')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_cloudflare_waf_returned_400_code_event(self) -> None:
@@ -86,7 +86,7 @@ class TestCloudflare-wafRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92509')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_cloudflare_waf_returned_401_code_event(self) -> None:
@@ -97,7 +97,7 @@ class TestCloudflare-wafRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92510')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_cloudflare_waf_returned_403_code_event(self) -> None:
@@ -108,7 +108,7 @@ class TestCloudflare-wafRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92511')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_cloudflare_waf_returned_404_code_event(self) -> None:
@@ -119,7 +119,7 @@ class TestCloudflare-wafRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92512')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_cloudflare_waf_returned_405_code_event(self) -> None:
@@ -130,7 +130,7 @@ class TestCloudflare-wafRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92513')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_cloudflare_waf_returned_413_code_event(self) -> None:
@@ -141,7 +141,7 @@ class TestCloudflare-wafRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92514')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_cloudflare_waf_returned_500_code_event(self) -> None:
@@ -152,5 +152,5 @@ class TestCloudflare-wafRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92515')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 

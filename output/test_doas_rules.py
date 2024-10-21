@@ -20,7 +20,7 @@ class TestDoasRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'doas')
         self.assertEqual(response.rule_id, '51554')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_command_run_as_root(self) -> None:
@@ -31,7 +31,7 @@ class TestDoasRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'doas')
         self.assertEqual(response.rule_id, '51556')
-        self.assertEqual(response.alert, 2)
+        self.assertEqual(response.rule_level, 2)
 
 
     def test_failed_auth(self) -> None:
@@ -42,7 +42,7 @@ class TestDoasRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'doas')
         self.assertEqual(response.rule_id, '51557')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_doas_command_run(self) -> None:
@@ -53,5 +53,5 @@ class TestDoasRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'doas')
         self.assertEqual(response.rule_id, '51555')
-        self.assertEqual(response.alert, 1)
+        self.assertEqual(response.rule_level, 1)
 

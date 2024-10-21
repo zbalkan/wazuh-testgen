@@ -20,7 +20,7 @@ class TestAuditdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'auditd')
         self.assertEqual(response.rule_id, '80701')
-        self.assertEqual(response.alert, 1)
+        self.assertEqual(response.rule_level, 1)
 
 
     def test_auditd_daemon_start_resume_failed(self) -> None:
@@ -31,7 +31,7 @@ class TestAuditdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'auditd')
         self.assertEqual(response.rule_id, '80702')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_auditd_daemon_end(self) -> None:
@@ -42,7 +42,7 @@ class TestAuditdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'auditd')
         self.assertEqual(response.rule_id, '80703')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_auditd_daemon_abort(self) -> None:
@@ -53,7 +53,7 @@ class TestAuditdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'auditd')
         self.assertEqual(response.rule_id, '80704')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_auditd_configuration_changed_1(self) -> None:
@@ -64,7 +64,7 @@ class TestAuditdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'auditd')
         self.assertEqual(response.rule_id, '80705')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_auditd_configuration_changed_2(self) -> None:
@@ -75,7 +75,7 @@ class TestAuditdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'auditd')
         self.assertEqual(response.rule_id, '80705')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_auditd_device_enables_promiscuous_mode(self) -> None:
@@ -86,7 +86,7 @@ class TestAuditdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'auditd')
         self.assertEqual(response.rule_id, '80710')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_auditd_process_ended_abnormally(self) -> None:
@@ -97,7 +97,7 @@ class TestAuditdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'auditd')
         self.assertEqual(response.rule_id, '80711')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_auditd_execution_of_a_file_ended_abnormally(self) -> None:
@@ -108,7 +108,7 @@ class TestAuditdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'auditd')
         self.assertEqual(response.rule_id, '80712')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_auditd_file_is_made_executable(self) -> None:
@@ -119,7 +119,7 @@ class TestAuditdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'auditd')
         self.assertEqual(response.rule_id, '80713')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_auditd_file_or_a_directory_access_ended_abnormally(self) -> None:
@@ -130,7 +130,7 @@ class TestAuditdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'auditd')
         self.assertEqual(response.rule_id, '80714')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_auditd_failure_of_the_abstract_machine_test_utility_amtu_detected(self) -> None:
@@ -141,7 +141,7 @@ class TestAuditdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'auditd')
         self.assertEqual(response.rule_id, '80715')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_auditd_maximum_amount_of_discretionary_access_control_dac_or_mandatory_access_control_mac_failures_reached(self) -> None:
@@ -152,7 +152,7 @@ class TestAuditdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'auditd')
         self.assertEqual(response.rule_id, '80716')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_auditd_role_based_access_control_rbac_failure_detected_1(self) -> None:
@@ -163,7 +163,7 @@ class TestAuditdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'auditd')
         self.assertEqual(response.rule_id, '80717')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_auditd_role_based_access_control_rbac_failure_detected_2(self) -> None:
@@ -174,7 +174,7 @@ class TestAuditdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'auditd')
         self.assertEqual(response.rule_id, '80717')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_auditd_user_space_account_addition_ended_abnormally(self) -> None:
@@ -185,7 +185,7 @@ class TestAuditdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'auditd')
         self.assertEqual(response.rule_id, '80718')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_auditd_user_space_account_deletion_ended_abnormally(self) -> None:
@@ -196,7 +196,7 @@ class TestAuditdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'auditd')
         self.assertEqual(response.rule_id, '80719')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_auditd_user_space_account_modification_ended_abnormally(self) -> None:
@@ -207,7 +207,7 @@ class TestAuditdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'auditd')
         self.assertEqual(response.rule_id, '80720')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_auditd_user_becomes_root(self) -> None:
@@ -218,7 +218,7 @@ class TestAuditdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'auditd')
         self.assertEqual(response.rule_id, '80721')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_auditd_account_login_attempt_ended_abnormally(self) -> None:
@@ -229,7 +229,7 @@ class TestAuditdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'auditd')
         self.assertEqual(response.rule_id, '80722')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_auditd_limit_of_failed_login_attempts_reached(self) -> None:
@@ -240,7 +240,7 @@ class TestAuditdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'auditd')
         self.assertEqual(response.rule_id, '80723')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_auditd_login_attempt_from_a_forbidden_location(self) -> None:
@@ -251,7 +251,7 @@ class TestAuditdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'auditd')
         self.assertEqual(response.rule_id, '80724')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_auditd_login_attempt_reached_the_maximum_amount_of_concurrent_sessions(self) -> None:
@@ -262,7 +262,7 @@ class TestAuditdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'auditd')
         self.assertEqual(response.rule_id, '80725')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_auditd_login_attempt_is_made_at_a_time_when_it_is_prevented(self) -> None:
@@ -273,7 +273,7 @@ class TestAuditdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'auditd')
         self.assertEqual(response.rule_id, '80726')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_auditd_selinux_permission_check(self) -> None:
@@ -284,7 +284,7 @@ class TestAuditdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'auditd')
         self.assertEqual(response.rule_id, '80730')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_auditd_selinux_mode_enforcing_permissive_off_is_changed(self) -> None:
@@ -295,7 +295,7 @@ class TestAuditdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'auditd')
         self.assertEqual(response.rule_id, '80731')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_auditd_selinux_error_1(self) -> None:
@@ -306,7 +306,7 @@ class TestAuditdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'auditd')
         self.assertEqual(response.rule_id, '80732')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_auditd_selinux_error_2(self) -> None:
@@ -317,7 +317,7 @@ class TestAuditdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'auditd')
         self.assertEqual(response.rule_id, '80732')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_auditd_replay_attack_detected(self) -> None:
@@ -328,7 +328,7 @@ class TestAuditdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'auditd')
         self.assertEqual(response.rule_id, '80740')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_auditd_group_id_changed(self) -> None:
@@ -339,7 +339,7 @@ class TestAuditdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'auditd')
         self.assertEqual(response.rule_id, '80741')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_auditd_user_id_changed(self) -> None:
@@ -350,7 +350,7 @@ class TestAuditdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'auditd')
         self.assertEqual(response.rule_id, '80742')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_audit_created_$auditfilename_1(self) -> None:
@@ -361,7 +361,7 @@ class TestAuditdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'auditd')
         self.assertEqual(response.rule_id, '80790')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_audit_created_$auditfilename_2(self) -> None:
@@ -372,7 +372,7 @@ class TestAuditdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'auditd')
         self.assertEqual(response.rule_id, '80790')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_audit_passwd_was_used_to_lock_an_account(self) -> None:
@@ -383,7 +383,7 @@ class TestAuditdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'auditd')
         self.assertEqual(response.rule_id, '80793')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_audit_passwd_was_used_to_unlock_an_account(self) -> None:
@@ -394,5 +394,5 @@ class TestAuditdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'auditd')
         self.assertEqual(response.rule_id, '80794')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 

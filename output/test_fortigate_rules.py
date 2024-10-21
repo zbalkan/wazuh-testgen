@@ -20,7 +20,7 @@ class TestFortigateRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortigate-firewall-v5')
         self.assertEqual(response.rule_id, '81604')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_fortigate_login_failed_1(self) -> None:
@@ -31,7 +31,7 @@ class TestFortigateRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortigate-firewall-v5')
         self.assertEqual(response.rule_id, '81606')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_fortigate_login_failed_2(self) -> None:
@@ -42,7 +42,7 @@ class TestFortigateRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortigate-firewall-v5')
         self.assertEqual(response.rule_id, '81606')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_fortigate_configuration_changed(self) -> None:
@@ -53,7 +53,7 @@ class TestFortigateRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortigate-firewall-v5')
         self.assertEqual(response.rule_id, '81608')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_fortigate_default_tunneling_setting_could_be_ips(self) -> None:
@@ -64,7 +64,7 @@ class TestFortigateRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortigate-firewall-v5')
         self.assertEqual(response.rule_id, '81610')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_fortigate_firewall_configuration_changes_1(self) -> None:
@@ -75,7 +75,7 @@ class TestFortigateRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortigate-firewall-v5')
         self.assertEqual(response.rule_id, '81612')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_fortigate_firewall_configuration_changes_2(self) -> None:
@@ -86,7 +86,7 @@ class TestFortigateRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortigate-firewall-v5')
         self.assertEqual(response.rule_id, '81612')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_fortigate_firewall_configuration_changes_3(self) -> None:
@@ -97,7 +97,7 @@ class TestFortigateRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortigate-firewall-v5')
         self.assertEqual(response.rule_id, '81612')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_fortigate_ssl_vpn_user_failed_login_attempt(self) -> None:
@@ -108,7 +108,7 @@ class TestFortigateRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortigate-firewall-v5')
         self.assertEqual(response.rule_id, '81614')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_fortigate_user_logout_successful(self) -> None:
@@ -119,7 +119,7 @@ class TestFortigateRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortigate-firewall-v5')
         self.assertEqual(response.rule_id, '81616')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_fortigate_3_traffic_to_be_aware_of_1(self) -> None:
@@ -130,7 +130,7 @@ class TestFortigateRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortigate-firewall-v3')
         self.assertEqual(response.rule_id, '81618')
-        self.assertEqual(response.alert, 1)
+        self.assertEqual(response.rule_level, 1)
 
 
     def test_fortigate_3_traffic_to_be_aware_of_2(self) -> None:
@@ -141,7 +141,7 @@ class TestFortigateRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortigate-firewall-v3')
         self.assertEqual(response.rule_id, '81618')
-        self.assertEqual(response.alert, 1)
+        self.assertEqual(response.rule_level, 1)
 
 
     def test_fortigate_4_traffic_to_be_aware_of_1(self) -> None:
@@ -152,7 +152,7 @@ class TestFortigateRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortigate-firewall-v4')
         self.assertEqual(response.rule_id, '81618')
-        self.assertEqual(response.alert, 1)
+        self.assertEqual(response.rule_level, 1)
 
 
     def test_fortigate_4_traffic_to_be_aware_of_2(self) -> None:
@@ -163,7 +163,7 @@ class TestFortigateRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortigate-firewall-v4')
         self.assertEqual(response.rule_id, '81618')
-        self.assertEqual(response.alert, 1)
+        self.assertEqual(response.rule_level, 1)
 
 
     def test_fortigate_4_traffic_to_be_aware_of_3(self) -> None:
@@ -174,7 +174,7 @@ class TestFortigateRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortigate-firewall-v4')
         self.assertEqual(response.rule_id, '81618')
-        self.assertEqual(response.alert, 1)
+        self.assertEqual(response.rule_level, 1)
 
 
     def test_fortigate_5_traffic_to_be_aware_of_1(self) -> None:
@@ -185,7 +185,7 @@ class TestFortigateRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortigate-firewall-v5')
         self.assertEqual(response.rule_id, '81618')
-        self.assertEqual(response.alert, 1)
+        self.assertEqual(response.rule_level, 1)
 
 
     def test_fortigate_5_traffic_to_be_aware_of_2(self) -> None:
@@ -196,7 +196,7 @@ class TestFortigateRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortigate-firewall-v5')
         self.assertEqual(response.rule_id, '81618')
-        self.assertEqual(response.alert, 1)
+        self.assertEqual(response.rule_level, 1)
 
 
     def test_fortigate_6_traffic_to_be_aware_of_1(self) -> None:
@@ -207,7 +207,7 @@ class TestFortigateRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortigate-firewall-v6')
         self.assertEqual(response.rule_id, '81618')
-        self.assertEqual(response.alert, 1)
+        self.assertEqual(response.rule_level, 1)
 
 
     def test_fortigate_6_traffic_to_be_aware_of_2(self) -> None:
@@ -218,7 +218,7 @@ class TestFortigateRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortigate-firewall-v6')
         self.assertEqual(response.rule_id, '81618')
-        self.assertEqual(response.alert, 1)
+        self.assertEqual(response.rule_level, 1)
 
 
     def test_fortigate_6_traffic_to_be_aware_of_3(self) -> None:
@@ -229,7 +229,7 @@ class TestFortigateRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortigate-firewall-v6')
         self.assertEqual(response.rule_id, '81618')
-        self.assertEqual(response.alert, 1)
+        self.assertEqual(response.rule_level, 1)
 
 
     def test_fortigate_vpn_user_connected(self) -> None:
@@ -240,7 +240,7 @@ class TestFortigateRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortigate-firewall-v5')
         self.assertEqual(response.rule_id, '81622')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_fortigate_vpn_user_disconnected(self) -> None:
@@ -251,7 +251,7 @@ class TestFortigateRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortigate-firewall-v5')
         self.assertEqual(response.rule_id, '81624')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_fortigate_user_successfully_logged_into_firewall_interface(self) -> None:
@@ -262,7 +262,7 @@ class TestFortigateRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortigate-firewall-v5')
         self.assertEqual(response.rule_id, '81626')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_fortigate_attack_detected(self) -> None:
@@ -273,7 +273,7 @@ class TestFortigateRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortigate-firewall-v5')
         self.assertEqual(response.rule_id, '81628')
-        self.assertEqual(response.alert, 11)
+        self.assertEqual(response.rule_level, 11)
 
 
     def test_fortigate_5_attack_dropped(self) -> None:
@@ -284,7 +284,7 @@ class TestFortigateRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortigate-firewall-v5')
         self.assertEqual(response.rule_id, '81629')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_fortigate_6_attack_dropped(self) -> None:
@@ -295,7 +295,7 @@ class TestFortigateRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortigate-firewall-v6')
         self.assertEqual(response.rule_id, '81629')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_fortigate_attack_session_cleared(self) -> None:
@@ -306,7 +306,7 @@ class TestFortigateRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortigate-firewall-v6')
         self.assertEqual(response.rule_id, '81630')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_fortigate_firewall_configuration_changes(self) -> None:
@@ -317,7 +317,7 @@ class TestFortigateRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortigate-firewall-v5')
         self.assertEqual(response.rule_id, '81631')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_fortigate_5_app_passed_by_firewall(self) -> None:
@@ -328,7 +328,7 @@ class TestFortigateRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortigate-firewall-v5')
         self.assertEqual(response.rule_id, '81633')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_fortigate_6_app_passed_by_firewall(self) -> None:
@@ -339,7 +339,7 @@ class TestFortigateRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortigate-firewall-v6')
         self.assertEqual(response.rule_id, '81633')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_fortigate_app_blocked_by_firewall(self) -> None:
@@ -350,7 +350,7 @@ class TestFortigateRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortigate-firewall-v6')
         self.assertEqual(response.rule_id, '81634')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_fortigate_vpn_related_information(self) -> None:
@@ -361,7 +361,7 @@ class TestFortigateRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortigate-firewall-v5')
         self.assertEqual(response.rule_id, '81636')
-        self.assertEqual(response.alert, 1)
+        self.assertEqual(response.rule_level, 1)
 
 
     def test_fortigate_5_blocked_url_because_a_virus_was_detected(self) -> None:
@@ -372,7 +372,7 @@ class TestFortigateRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortigate-firewall-v5')
         self.assertEqual(response.rule_id, '81639')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_fortigate_6_blocked_url_because_a_virus_was_detected(self) -> None:
@@ -383,7 +383,7 @@ class TestFortigateRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortigate-firewall-v6')
         self.assertEqual(response.rule_id, '81639')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_fortigate_url_belongs_to_an_allowed_category(self) -> None:
@@ -394,7 +394,7 @@ class TestFortigateRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortigate-firewall-v5')
         self.assertEqual(response.rule_id, '81640')
-        self.assertEqual(response.alert, 1)
+        self.assertEqual(response.rule_level, 1)
 
 
     def test_fortigate_virtual_cluster_detected_member_join(self) -> None:
@@ -405,7 +405,7 @@ class TestFortigateRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortigate-firewall-v6')
         self.assertEqual(response.rule_id, '81642')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_fortigate_ssl_fatal_alert(self) -> None:
@@ -416,7 +416,7 @@ class TestFortigateRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortigate-firewall-v6')
         self.assertEqual(response.rule_id, '81643')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_fortigate_5_blocked_url_belongs_to_a_denied_category_in_policy_1(self) -> None:
@@ -427,7 +427,7 @@ class TestFortigateRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortigate-firewall-v5')
         self.assertEqual(response.rule_id, '81644')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_fortigate_5_blocked_url_belongs_to_a_denied_category_in_policy_2(self) -> None:
@@ -438,7 +438,7 @@ class TestFortigateRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortigate-firewall-v5')
         self.assertEqual(response.rule_id, '81644')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_fortigate_6_blocked_url_belongs_to_a_denied_category_in_policy(self) -> None:
@@ -449,7 +449,7 @@ class TestFortigateRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortigate-firewall-v6')
         self.assertEqual(response.rule_id, '81644')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_fortigate_ssl_anomalies_blocked_connection_1(self) -> None:
@@ -460,7 +460,7 @@ class TestFortigateRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortigate-firewall-v6')
         self.assertEqual(response.rule_id, '81645')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_fortigate_ssl_anomalies_blocked_connection_2(self) -> None:
@@ -471,7 +471,7 @@ class TestFortigateRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortigate-firewall-v6')
         self.assertEqual(response.rule_id, '81645')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_fortigate_ssl_anomalies_blocked_connection_3(self) -> None:
@@ -482,7 +482,7 @@ class TestFortigateRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortigate-firewall-v6')
         self.assertEqual(response.rule_id, '81645')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_fortigate_ssl_anomalies_blocked_connection_4(self) -> None:
@@ -493,7 +493,7 @@ class TestFortigateRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortigate-firewall-v6')
         self.assertEqual(response.rule_id, '81645')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_fortigate_ssl_anomalies_blocked_connection_5(self) -> None:
@@ -504,7 +504,7 @@ class TestFortigateRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortigate-firewall-v6')
         self.assertEqual(response.rule_id, '81645')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_fortigate_file_was_blocked_by_file_filter(self) -> None:
@@ -515,5 +515,5 @@ class TestFortigateRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortigate-firewall-v6')
         self.assertEqual(response.rule_id, '81646')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 

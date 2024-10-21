@@ -20,7 +20,7 @@ class TestWin_event_channelRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92650')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_successful_remote_logon(self) -> None:
@@ -31,7 +31,7 @@ class TestWin_event_channelRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92651')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_successful_remote_logon_detected_ntlm_authentication(self) -> None:
@@ -42,7 +42,7 @@ class TestWin_event_channelRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92652')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_successful_remote_logon_detected_ntlm_authentication_with_rdp_signature(self) -> None:
@@ -53,7 +53,7 @@ class TestWin_event_channelRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92657')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_user_logged_with_rdp_1(self) -> None:
@@ -64,7 +64,7 @@ class TestWin_event_channelRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92653')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_user_logged_with_rdp_2(self) -> None:
@@ -75,7 +75,7 @@ class TestWin_event_channelRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92653')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_printer_driver_failed_to_load(self) -> None:
@@ -86,7 +86,7 @@ class TestWin_event_channelRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92655')
-        self.assertEqual(response.alert, 15)
+        self.assertEqual(response.rule_level, 15)
 
 
     def test_user_logged_using_remote_desktop_connection_rdp(self) -> None:
@@ -97,5 +97,5 @@ class TestWin_event_channelRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92656')
-        self.assertEqual(response.alert, 15)
+        self.assertEqual(response.rule_level, 15)
 

@@ -20,7 +20,7 @@ class TestTest_expr_negation_geoipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_expr_negation_geoip')
         self.assertEqual(response.rule_id, '999402')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_expr_negation_geoip_dstgroip_2(self) -> None:
@@ -31,7 +31,7 @@ class TestTest_expr_negation_geoipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_expr_negation_geoip')
         self.assertEqual(response.rule_id, '999403')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_expr_negation_geoip_dstgroip_3(self) -> None:
@@ -49,7 +49,7 @@ class TestTest_expr_negation_geoipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_expr_negation_geoip')
         self.assertEqual(response.rule_id, '999400')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_expr_negation_geoip_srcgroip_2(self) -> None:
@@ -60,7 +60,7 @@ class TestTest_expr_negation_geoipRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_expr_negation_geoip')
         self.assertEqual(response.rule_id, '999401')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_expr_negation_geoip_srcgroip_3(self) -> None:

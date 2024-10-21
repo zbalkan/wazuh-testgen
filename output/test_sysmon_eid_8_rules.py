@@ -20,7 +20,7 @@ class TestSysmon_eid_8Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92400')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_possible_code_injection_on_mstscexe(self) -> None:
@@ -31,7 +31,7 @@ class TestSysmon_eid_8Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92401')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_possible_code_injection_on_synchostexe(self) -> None:
@@ -42,7 +42,7 @@ class TestSysmon_eid_8Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92402')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_possible_code_injection_on_lsassexe_possible_credential_dumping(self) -> None:
@@ -53,5 +53,5 @@ class TestSysmon_eid_8Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92403')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 

@@ -20,7 +20,7 @@ class TestCisco_iosRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ios')
         self.assertEqual(response.rule_id, '20100')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_cisco_ios_ids_sig_2(self) -> None:
@@ -31,7 +31,7 @@ class TestCisco_iosRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ios')
         self.assertEqual(response.rule_id, '20100')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_cisco_ios_ids_sig_3(self) -> None:
@@ -42,7 +42,7 @@ class TestCisco_iosRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ios')
         self.assertEqual(response.rule_id, '20100')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_cisco_ios_acl_1(self) -> None:
@@ -53,7 +53,7 @@ class TestCisco_iosRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ios')
         self.assertEqual(response.rule_id, '4716')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_cisco_ios_acl_2(self) -> None:
@@ -64,7 +64,7 @@ class TestCisco_iosRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ios')
         self.assertEqual(response.rule_id, '4716')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_cisco_ios_acl_3(self) -> None:
@@ -75,7 +75,7 @@ class TestCisco_iosRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ios')
         self.assertEqual(response.rule_id, '4716')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_cisco_ios_acl_4(self) -> None:
@@ -86,7 +86,7 @@ class TestCisco_iosRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ios')
         self.assertEqual(response.rule_id, '4716')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_cisco_ios_acl_5(self) -> None:
@@ -97,7 +97,7 @@ class TestCisco_iosRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ios')
         self.assertEqual(response.rule_id, '4716')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_cisco_ios_cisco_switch_1(self) -> None:
@@ -108,7 +108,7 @@ class TestCisco_iosRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ios')
         self.assertEqual(response.rule_id, '4715')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_cisco_ios_cisco_switch_2(self) -> None:
@@ -119,7 +119,7 @@ class TestCisco_iosRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ios')
         self.assertEqual(response.rule_id, '4715')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_cisco_ios_cisco_switch_3(self) -> None:
@@ -130,7 +130,7 @@ class TestCisco_iosRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ios')
         self.assertEqual(response.rule_id, '4715')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_cisco_ios_syslog(self) -> None:
@@ -141,7 +141,7 @@ class TestCisco_iosRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ios')
         self.assertEqual(response.rule_id, '4715')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_cisco_ios_generic_1(self) -> None:
@@ -152,7 +152,7 @@ class TestCisco_iosRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ios')
         self.assertEqual(response.rule_id, '4700')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_cisco_ios_generic_2(self) -> None:
@@ -163,7 +163,7 @@ class TestCisco_iosRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ios')
         self.assertEqual(response.rule_id, '4700')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_cisco_ios_generic_3(self) -> None:
@@ -174,7 +174,7 @@ class TestCisco_iosRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ios')
         self.assertEqual(response.rule_id, '4700')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_cisco_ios_error_message_1(self) -> None:
@@ -185,7 +185,7 @@ class TestCisco_iosRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ios')
         self.assertEqual(response.rule_id, '4713')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_cisco_ios_error_message_2(self) -> None:
@@ -196,5 +196,5 @@ class TestCisco_iosRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-ios')
         self.assertEqual(response.rule_id, '4713')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 

@@ -20,7 +20,7 @@ class TestSystemdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'systemd')
         self.assertEqual(response.rule_id, '40701')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_system_time_changed(self) -> None:
@@ -31,5 +31,5 @@ class TestSystemdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'systemd')
         self.assertEqual(response.rule_id, '40705')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 

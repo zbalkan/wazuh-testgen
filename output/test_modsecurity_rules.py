@@ -20,7 +20,7 @@ class TestModsecurityRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'apache-errorlog')
         self.assertEqual(response.rule_id, '30401')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_modsecurity_warning_messages_grouped_2(self) -> None:
@@ -31,7 +31,7 @@ class TestModsecurityRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'apache-errorlog')
         self.assertEqual(response.rule_id, '30401')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_modsecurity_audit_log_messages_grouped_1(self) -> None:
@@ -42,7 +42,7 @@ class TestModsecurityRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'apache-errorlog')
         self.assertEqual(response.rule_id, '30403')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_modsecurity_audit_log_messages_grouped_2(self) -> None:
@@ -53,7 +53,7 @@ class TestModsecurityRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'apache-errorlog')
         self.assertEqual(response.rule_id, '30403')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_modsecurity_rejected_a_query_1(self) -> None:
@@ -64,7 +64,7 @@ class TestModsecurityRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'apache-errorlog')
         self.assertEqual(response.rule_id, '30411')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_modsecurity_rejected_a_query_2(self) -> None:
@@ -75,5 +75,5 @@ class TestModsecurityRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'apache-errorlog')
         self.assertEqual(response.rule_id, '30411')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 

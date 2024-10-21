@@ -20,7 +20,7 @@ class TestSysmon_eid_3Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92101')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_dcom_rpc_activity_from_powershell_process(self) -> None:
@@ -31,7 +31,7 @@ class TestSysmon_eid_3Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92102')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_ldap_activity_from_powershell_process(self) -> None:
@@ -42,7 +42,7 @@ class TestSysmon_eid_3Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92103')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_possible_suspicious_access_to_windows_admin_shares(self) -> None:
@@ -53,7 +53,7 @@ class TestSysmon_eid_3Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92105')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_windows_system_process_activity_over_smb_port(self) -> None:
@@ -64,7 +64,7 @@ class TestSysmon_eid_3Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92106')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_script_generated_suspicious_network_activity_over_tcp_protocol(self) -> None:
@@ -75,7 +75,7 @@ class TestSysmon_eid_3Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92107')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_rdp_port_network_activity(self) -> None:
@@ -86,7 +86,7 @@ class TestSysmon_eid_3Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92108')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_loopback_ip_rdp_port_network_activity(self) -> None:
@@ -97,7 +97,7 @@ class TestSysmon_eid_3Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92109')
-        self.assertEqual(response.alert, 15)
+        self.assertEqual(response.rule_level, 15)
 
 
     def test_left_to_right_override_binary_does_network_connection(self) -> None:
@@ -108,7 +108,7 @@ class TestSysmon_eid_3Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92104')
-        self.assertEqual(response.alert, 15)
+        self.assertEqual(response.rule_level, 15)
 
 
     def test_detected_winrm_activity(self) -> None:
@@ -119,5 +119,5 @@ class TestSysmon_eid_3Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92110')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 

@@ -20,7 +20,7 @@ class TestAws_security_hubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '99836')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_aws_security_hub_codebuild_bitbucket_source_repository_url_contains_sensitive_credentials(self) -> None:
@@ -31,7 +31,7 @@ class TestAws_security_hubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '99837')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_aws_security_hub_codebuild_project_environment_variable_contain_clear_text_credentials(self) -> None:
@@ -42,7 +42,7 @@ class TestAws_security_hubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '99838')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_aws_security_hub_database_migration_service_replication_instance_is_public(self) -> None:
@@ -53,7 +53,7 @@ class TestAws_security_hubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '99839')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_aws_security_hub_amazon_documentdb_manual_cluster_snapshot_is_public(self) -> None:
@@ -64,7 +64,7 @@ class TestAws_security_hubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '99840')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_aws_security_hub_ebs_snapshot_is_publicly_restorable(self) -> None:
@@ -75,7 +75,7 @@ class TestAws_security_hubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '99841')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_aws_security_hub_security_groups_allow_unrestricted_access_to_ports_with_high_risk(self) -> None:
@@ -86,7 +86,7 @@ class TestAws_security_hubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '99842')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_aws_security_hub_amazon_emr_block_public_access_setting_not_enabled(self) -> None:
@@ -97,7 +97,7 @@ class TestAws_security_hubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '99843')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_aws_security_hub_elasticsearch_domain_is_publicly_accessible(self) -> None:
@@ -108,7 +108,7 @@ class TestAws_security_hubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '99844')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_aws_security_hub_iam_root_user_access_key_exists(self) -> None:
@@ -119,7 +119,7 @@ class TestAws_security_hubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '99845')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_aws_security_hub_hardware_mfa_not_enabled_for_the_root_user(self) -> None:
@@ -130,7 +130,7 @@ class TestAws_security_hubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '99846')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_aws_security_hub_mfa_not_enabled_for_the_root_user(self) -> None:
@@ -141,7 +141,7 @@ class TestAws_security_hubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '99847')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_aws_security_hub_aws_kms_keys_scheduled_for_deletion(self) -> None:
@@ -152,7 +152,7 @@ class TestAws_security_hubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '99848')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_aws_security_hub_lambda_function_policies_allow_public_access(self) -> None:
@@ -163,7 +163,7 @@ class TestAws_security_hubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '99849')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_aws_security_hub_neptune_db_cluster_snapshot_is_public(self) -> None:
@@ -174,7 +174,7 @@ class TestAws_security_hubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '99850')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_aws_security_hub_opensearch_domain_is_publicly_accessible(self) -> None:
@@ -185,7 +185,7 @@ class TestAws_security_hubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '99851')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_aws_security_hub_rds_snapshot_is_public(self) -> None:
@@ -196,7 +196,7 @@ class TestAws_security_hubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '99852')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_aws_security_hub_amazon_rds_instance_is_publicly_accessible(self) -> None:
@@ -207,7 +207,7 @@ class TestAws_security_hubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '99853')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_aws_security_hub_amazon_redshift_cluster_is_publicly_accessible(self) -> None:
@@ -218,7 +218,7 @@ class TestAws_security_hubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '99854')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_aws_security_hub_amazon_s3_general_purpose_bucket_permits_public_read_access(self) -> None:
@@ -229,7 +229,7 @@ class TestAws_security_hubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '99855')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_aws_security_hub_amazon_s3_general_purpose_bucket_permits_public_write_access(self) -> None:
@@ -240,7 +240,7 @@ class TestAws_security_hubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '99856')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_aws_security_hub_amazon_s3_access_point_block_public_access_settings_are_not_enabled(self) -> None:
@@ -251,7 +251,7 @@ class TestAws_security_hubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '99857')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_aws_security_hub_aws_systems_manager_document_is_public(self) -> None:
@@ -262,7 +262,7 @@ class TestAws_security_hubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '99858')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_aws_security_hub_amazon_ec2_instance_uses_a_public_ipv4_address(self) -> None:
@@ -273,7 +273,7 @@ class TestAws_security_hubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '99859')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_aws_security_hub_amazon_s3_general_purpose_bucket_allows_public_access_at_the_bucket_level(self) -> None:
@@ -284,5 +284,5 @@ class TestAws_security_hubRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '99860')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 

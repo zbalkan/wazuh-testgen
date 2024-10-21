@@ -20,7 +20,7 @@ class TestAmazon_sec_lakeRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '99020')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_amazon_security_lake_cloudtrail_successful_api_operation_by_user_from_srcip(self) -> None:
@@ -31,7 +31,7 @@ class TestAmazon_sec_lakeRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '99022')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_amazon_security_lake_cloudtrail_successful_api_operation(self) -> None:
@@ -42,7 +42,7 @@ class TestAmazon_sec_lakeRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '99023')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_amazon_security_lake_cloudtrail_successful_api_operation_from_srcip(self) -> None:
@@ -53,7 +53,7 @@ class TestAmazon_sec_lakeRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '99024')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_amazon_security_lake_cloudtrail_successful_api_operation_by_user(self) -> None:
@@ -64,7 +64,7 @@ class TestAmazon_sec_lakeRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '99025')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_credentials_access_attempt_to_retrieve_ec2_credentials(self) -> None:
@@ -75,7 +75,7 @@ class TestAmazon_sec_lakeRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '99026')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_security_group_with_inbound_rules_allowing_unknown_cidrip_on_port_unknown_port_detected(self) -> None:
@@ -86,7 +86,7 @@ class TestAmazon_sec_lakeRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '99028')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_possible_iam_role_backdooring_iam_role_granted_from_an_external_account(self) -> None:
@@ -97,7 +97,7 @@ class TestAmazon_sec_lakeRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '99029')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_possible_disruption_of_cloudtrail_logging_management_events_logging_disabled_with_an_event_selector(self) -> None:
@@ -108,7 +108,7 @@ class TestAmazon_sec_lakeRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '99030')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_amazon_security_lake_vpc_ssh_connection_established_dst(self) -> None:
@@ -119,7 +119,7 @@ class TestAmazon_sec_lakeRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '99051')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_amazon_security_lake_vpc_ssh_connection_established_src(self) -> None:
@@ -130,7 +130,7 @@ class TestAmazon_sec_lakeRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '99052')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_amazon_security_lake_vpc_rdp_connection_established_dst(self) -> None:
@@ -141,7 +141,7 @@ class TestAmazon_sec_lakeRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '99053')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_amazon_security_lake_vpc_rdp_connection_established_src(self) -> None:
@@ -152,7 +152,7 @@ class TestAmazon_sec_lakeRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '99054')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_amazon_security_lake_vpc_smb_connection_established_dst(self) -> None:
@@ -163,7 +163,7 @@ class TestAmazon_sec_lakeRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '99055')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_amazon_security_lake_vpc_smb_connection_established_src(self) -> None:
@@ -174,7 +174,7 @@ class TestAmazon_sec_lakeRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '99056')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_amazon_security_lake_vpc_dce_rpc_connection_established_dst(self) -> None:
@@ -185,7 +185,7 @@ class TestAmazon_sec_lakeRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '99057')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_amazon_security_lake_vpc_dce_rpc_connection_established_src(self) -> None:
@@ -196,7 +196,7 @@ class TestAmazon_sec_lakeRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '99058')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_amazon_security_lake_route_53_succsessful_dns_request_query_type_hostname_from_srcip(self) -> None:
@@ -207,7 +207,7 @@ class TestAmazon_sec_lakeRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '99080')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_amazon_security_lake_route_53_failed_dns_request_for_a_non_existent_domain_query_type_hostname_from_srcip(self) -> None:
@@ -218,7 +218,7 @@ class TestAmazon_sec_lakeRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '99081')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_amazon_security_lake_route_53_failed_dns_request_query_type_hostname_from_srcip(self) -> None:
@@ -229,5 +229,5 @@ class TestAmazon_sec_lakeRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '99082')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 

@@ -20,7 +20,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64001')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_cisco_asa_alert_message_2(self) -> None:
@@ -31,7 +31,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64001')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_cisco_asa_alert_message_3(self) -> None:
@@ -42,7 +42,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64001')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_cisco_asa_critical_message_1(self) -> None:
@@ -53,7 +53,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64002')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_cisco_asa_critical_message_2(self) -> None:
@@ -64,7 +64,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64002')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_cisco_asa_critical_message_3(self) -> None:
@@ -75,7 +75,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64002')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_cisco_asa_critical_message_4(self) -> None:
@@ -86,7 +86,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64002')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_cisco_asa_error_message_1(self) -> None:
@@ -97,7 +97,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64003')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_cisco_asa_error_message_2(self) -> None:
@@ -108,7 +108,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64003')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_cisco_asa_error_message_3(self) -> None:
@@ -119,7 +119,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64003')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_cisco_asa_error_message_4(self) -> None:
@@ -130,7 +130,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64003')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_cisco_asa_error_message_5(self) -> None:
@@ -141,7 +141,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64003')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_cisco_asa_error_message_6(self) -> None:
@@ -152,7 +152,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64003')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_cisco_asa_error_message_7(self) -> None:
@@ -163,7 +163,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64003')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_cisco_asa_error_message_8(self) -> None:
@@ -174,7 +174,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64003')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_cisco_asa_error_message_9(self) -> None:
@@ -185,7 +185,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64003')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_cisco_asa_warning_message_1(self) -> None:
@@ -196,7 +196,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64004')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_cisco_asa_warning_message_2(self) -> None:
@@ -207,7 +207,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64004')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_cisco_asa_warning_message_3(self) -> None:
@@ -218,7 +218,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64004')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_cisco_asa_warning_message_4(self) -> None:
@@ -229,7 +229,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64004')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_cisco_asa_warning_message_5(self) -> None:
@@ -240,7 +240,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64004')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_cisco_asa_warning_message_6(self) -> None:
@@ -251,7 +251,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64004')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_cisco_asa_warning_message_7(self) -> None:
@@ -262,7 +262,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64004')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_cisco_asa_warning_message_8(self) -> None:
@@ -273,7 +273,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64004')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_cisco_asa_warning_message_9(self) -> None:
@@ -284,7 +284,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64004')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_cisco_asa_warning_message_10(self) -> None:
@@ -295,7 +295,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64004')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_cisco_asa_warning_message_11(self) -> None:
@@ -306,7 +306,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64004')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_cisco_asa_warning_message_12(self) -> None:
@@ -317,7 +317,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64004')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_cisco_asa_warning_message_13(self) -> None:
@@ -328,7 +328,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64004')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_cisco_asa_warning_message_14(self) -> None:
@@ -339,7 +339,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64004')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_cisco_asa_warning_message_15(self) -> None:
@@ -350,7 +350,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64004')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_cisco_asa_warning_message_16(self) -> None:
@@ -361,7 +361,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64004')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_cisco_asa_warning_message_17(self) -> None:
@@ -372,7 +372,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64004')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_cisco_asa_warning_message_18(self) -> None:
@@ -383,7 +383,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64004')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_cisco_asa_warning_message_19(self) -> None:
@@ -394,7 +394,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64004')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_cisco_asa_warning_message_20(self) -> None:
@@ -405,7 +405,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64004')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_cisco_asa_warning_message_21(self) -> None:
@@ -416,7 +416,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64004')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_cisco_asa_notification_informational_message_1(self) -> None:
@@ -427,7 +427,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64005')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_cisco_asa_notification_informational_message_2(self) -> None:
@@ -438,7 +438,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64005')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_cisco_asa_notification_informational_message_3(self) -> None:
@@ -449,7 +449,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64005')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_cisco_asa_notification_informational_message_4(self) -> None:
@@ -460,7 +460,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64005')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_cisco_asa_notification_informational_message_5(self) -> None:
@@ -471,7 +471,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64005')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_cisco_asa_notification_informational_message_6(self) -> None:
@@ -482,7 +482,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64005')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_cisco_asa_notification_informational_message_7(self) -> None:
@@ -493,7 +493,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64005')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_cisco_asa_notification_informational_message_8(self) -> None:
@@ -504,7 +504,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64005')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_cisco_asa_notification_informational_message_9(self) -> None:
@@ -515,7 +515,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64005')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_cisco_asa_notification_informational_message_10(self) -> None:
@@ -526,7 +526,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64005')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_cisco_asa_notification_informational_message_11(self) -> None:
@@ -537,7 +537,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64005')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_cisco_asa_notification_informational_message_12(self) -> None:
@@ -548,7 +548,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64005')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_cisco_asa_notification_informational_message_13(self) -> None:
@@ -559,7 +559,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64005')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_cisco_asa_notification_informational_message_14(self) -> None:
@@ -570,7 +570,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64005')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_cisco_asa_notification_informational_message_15(self) -> None:
@@ -581,7 +581,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64005')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_cisco_asa_notification_informational_message_16(self) -> None:
@@ -592,7 +592,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64005')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_cisco_asa_notification_informational_message_17(self) -> None:
@@ -603,7 +603,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64005')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_cisco_asa_notification_informational_message_18(self) -> None:
@@ -614,7 +614,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64005')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_cisco_asa_notification_informational_message_19(self) -> None:
@@ -625,7 +625,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64005')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_cisco_asa_notification_informational_message_20(self) -> None:
@@ -636,7 +636,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64005')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_cisco_asa_notification_informational_message_21(self) -> None:
@@ -647,7 +647,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64005')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_cisco_asa_notification_informational_message_22(self) -> None:
@@ -658,7 +658,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64005')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_cisco_asa_notification_informational_message_23(self) -> None:
@@ -669,7 +669,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64005')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_cisco_asa_debug_message(self) -> None:
@@ -680,7 +680,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64006')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_cisco_asa_failed_login_attempt(self) -> None:
@@ -691,7 +691,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64007')
-        self.assertEqual(response.alert, 9)
+        self.assertEqual(response.rule_level, 9)
 
 
     def test_cisco_asa_privilege_changed(self) -> None:
@@ -702,7 +702,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64008')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_cisco_asa_successful_login(self) -> None:
@@ -713,7 +713,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64009')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_cisco_asa_password_mismatch_while_running_enable(self) -> None:
@@ -724,7 +724,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64010')
-        self.assertEqual(response.alert, 9)
+        self.assertEqual(response.rule_level, 9)
 
 
     def test_cisco_asa_arp_collision_detected(self) -> None:
@@ -735,7 +735,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64011')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_cisco_asa_attempt_to_connect_from_a_blocked_shunned_ip(self) -> None:
@@ -746,7 +746,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64012')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_cisco_asa_connection_limit_exceeded(self) -> None:
@@ -757,7 +757,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64013')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_cisco_asa_attack_in_progress_detected_1(self) -> None:
@@ -768,7 +768,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64017')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_cisco_asa_attack_in_progress_detected_2(self) -> None:
@@ -779,7 +779,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64017')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_cisco_asa_attack_in_progress_detected_3(self) -> None:
@@ -790,7 +790,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64017')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_cisco_asa_attack_in_progress_detected_4(self) -> None:
@@ -801,7 +801,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64017')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_cisco_asa_aaa_vpn_authentication_failed(self) -> None:
@@ -812,7 +812,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64018')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_cisco_asa_aaa_vpn_authentication_successful(self) -> None:
@@ -823,7 +823,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64019')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_cisco_asa_aaa_vpn_user_locked_out(self) -> None:
@@ -834,7 +834,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64020')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_cisco_asa_the_asa_is_disallowing_new_connections(self) -> None:
@@ -845,7 +845,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64021')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_cisco_asa_firewall_failover_pair_communication_problem_1(self) -> None:
@@ -856,7 +856,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64022')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_cisco_asa_firewall_failover_pair_communication_problem_2(self) -> None:
@@ -867,7 +867,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64022')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_cisco_asa_firewall_failover_pair_communication_problem_3(self) -> None:
@@ -878,7 +878,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64022')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_cisco_asa_firewall_configuration_deleted(self) -> None:
@@ -889,7 +889,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64023')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_cisco_asa_firewall_configuration_changed_1(self) -> None:
@@ -900,7 +900,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64024')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_cisco_asa_firewall_configuration_changed_2(self) -> None:
@@ -911,7 +911,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64024')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_cisco_asa_firewall_configuration_changed_3(self) -> None:
@@ -922,7 +922,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64024')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_cisco_asa_firewall_configuration_changed_4(self) -> None:
@@ -933,7 +933,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64024')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_cisco_asa_firewall_command_executed_for_accounting_only_i(self) -> None:
@@ -944,7 +944,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64025')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_cisco_asa_firewall_command_executed_for_accounting_only_ii(self) -> None:
@@ -955,7 +955,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64026')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_cisco_asa_user_created_or_modified_on_the_firewall_1(self) -> None:
@@ -966,7 +966,7 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64027')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 
 
     def test_cisco_asa_user_created_or_modified_on_the_firewall_2(self) -> None:
@@ -977,5 +977,5 @@ class TestCisco_asaRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cisco-asa')
         self.assertEqual(response.rule_id, '64027')
-        self.assertEqual(response.alert, 8)
+        self.assertEqual(response.rule_level, 8)
 

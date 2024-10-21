@@ -20,7 +20,7 @@ class TestHuawei_usgRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'huawei-usg')
         self.assertEqual(response.rule_id, '89214')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_huawei_usg_default_level_6_1(self) -> None:
@@ -31,7 +31,7 @@ class TestHuawei_usgRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'huawei-usg')
         self.assertEqual(response.rule_id, '89216')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_huawei_usg_default_level_6_2(self) -> None:
@@ -42,5 +42,5 @@ class TestHuawei_usgRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'huawei-usg')
         self.assertEqual(response.rule_id, '89216')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 

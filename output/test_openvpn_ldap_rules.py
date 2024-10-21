@@ -20,7 +20,7 @@ class TestOpenvpn_ldapRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'openvpn')
         self.assertEqual(response.rule_id, '81805')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_openvpn_ldap_logon_failure(self) -> None:
@@ -31,5 +31,5 @@ class TestOpenvpn_ldapRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'openvpn')
         self.assertEqual(response.rule_id, '81806')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 

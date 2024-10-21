@@ -20,7 +20,7 @@ class TestSophos_fwRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sophos-fw')
         self.assertEqual(response.rule_id, '70021')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_sophos_firewall_traffic_allowed(self) -> None:
@@ -31,7 +31,7 @@ class TestSophos_fwRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sophos-fw')
         self.assertEqual(response.rule_id, '70022')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_sophos_firewall_traffic_detect(self) -> None:
@@ -42,7 +42,7 @@ class TestSophos_fwRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sophos-fw')
         self.assertEqual(response.rule_id, '70023')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_sophos_firewall_traffic_drop(self) -> None:
@@ -53,7 +53,7 @@ class TestSophos_fwRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sophos-fw')
         self.assertEqual(response.rule_id, '70024')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_sophos_firewall_traffic_clean(self) -> None:
@@ -64,7 +64,7 @@ class TestSophos_fwRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sophos-fw')
         self.assertEqual(response.rule_id, '70025')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_sophos_firewall_virus_detected(self) -> None:
@@ -75,7 +75,7 @@ class TestSophos_fwRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sophos-fw')
         self.assertEqual(response.rule_id, '70026')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_sophos_firewall_traffic_spam(self) -> None:
@@ -86,7 +86,7 @@ class TestSophos_fwRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sophos-fw')
         self.assertEqual(response.rule_id, '70027')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_sophos_firewall_traffic_admin(self) -> None:
@@ -97,7 +97,7 @@ class TestSophos_fwRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sophos-fw')
         self.assertEqual(response.rule_id, '70028')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_sophos_firewall_traffic_authentication(self) -> None:
@@ -108,7 +108,7 @@ class TestSophos_fwRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sophos-fw')
         self.assertEqual(response.rule_id, '70029')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_sophos_firewall_traffic_system(self) -> None:
@@ -119,5 +119,5 @@ class TestSophos_fwRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sophos-fw')
         self.assertEqual(response.rule_id, '70030')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 

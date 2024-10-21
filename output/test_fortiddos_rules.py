@@ -20,7 +20,7 @@ class TestFortiddosRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortiddos-like')
         self.assertEqual(response.rule_id, '44629')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_fortigate_ips_low_severity(self) -> None:
@@ -31,7 +31,7 @@ class TestFortiddosRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortiddos-like')
         self.assertEqual(response.rule_id, '44630')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_fortigate_ips_medium_severity(self) -> None:
@@ -42,5 +42,5 @@ class TestFortiddosRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'fortiddos-like')
         self.assertEqual(response.rule_id, '44631')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 

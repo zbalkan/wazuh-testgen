@@ -20,7 +20,7 @@ class TestDropbearRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'dropbear')
         self.assertEqual(response.rule_id, '51003')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_dropbear_bad_password_attempt_for_non_existing_user(self) -> None:
@@ -31,7 +31,7 @@ class TestDropbearRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'dropbear')
         self.assertEqual(response.rule_id, '51093')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_dropbear_user_successfully_logged_in_using_a_public_key(self) -> None:
@@ -42,5 +42,5 @@ class TestDropbearRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'dropbear')
         self.assertEqual(response.rule_id, '51010')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 

@@ -20,7 +20,7 @@ class TestWeb_appsecRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'web-accesslog')
         self.assertEqual(response.rule_id, '31501')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_wordpress_comment_spam_coming_from_a_fake_search_engine_ua_2(self) -> None:
@@ -31,7 +31,7 @@ class TestWeb_appsecRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'web-accesslog')
         self.assertEqual(response.rule_id, '31501')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_wordpress_comment_spam_coming_from_a_fake_search_engine_ua_3(self) -> None:
@@ -42,7 +42,7 @@ class TestWeb_appsecRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'web-accesslog')
         self.assertEqual(response.rule_id, '31501')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_timthumb_vulnerability_exploit_attempt(self) -> None:
@@ -53,7 +53,7 @@ class TestWeb_appsecRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'web-accesslog')
         self.assertEqual(response.rule_id, '31502')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_oscommerce_loginphp_bypass_attempt(self) -> None:
@@ -64,7 +64,7 @@ class TestWeb_appsecRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'web-accesslog')
         self.assertEqual(response.rule_id, '31503')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_oscommerce_file_manager_loginphp_bypass_attempt(self) -> None:
@@ -75,7 +75,7 @@ class TestWeb_appsecRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'web-accesslog')
         self.assertEqual(response.rule_id, '31504')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_timthumb_backdoor_access_attempt(self) -> None:
@@ -86,7 +86,7 @@ class TestWeb_appsecRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'web-accesslog')
         self.assertEqual(response.rule_id, '31505')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_cartphp_directory_transversal_attempt(self) -> None:
@@ -97,7 +97,7 @@ class TestWeb_appsecRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'web-accesslog')
         self.assertEqual(response.rule_id, '31506')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_blacklisted_user_agent_known_malicious_user_agent_1(self) -> None:
@@ -108,7 +108,7 @@ class TestWeb_appsecRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'web-accesslog')
         self.assertEqual(response.rule_id, '31508')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_blacklisted_user_agent_known_malicious_user_agent_2(self) -> None:
@@ -119,7 +119,7 @@ class TestWeb_appsecRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'web-accesslog')
         self.assertEqual(response.rule_id, '31508')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_blacklisted_user_agent_known_malicious_user_agent_3(self) -> None:
@@ -130,7 +130,7 @@ class TestWeb_appsecRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'web-accesslog')
         self.assertEqual(response.rule_id, '31508')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_blacklisted_user_agent_known_malicious_user_agent_4(self) -> None:
@@ -141,7 +141,7 @@ class TestWeb_appsecRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'web-accesslog')
         self.assertEqual(response.rule_id, '31508')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_blacklisted_user_agent_known_malicious_user_agent_5(self) -> None:
@@ -152,7 +152,7 @@ class TestWeb_appsecRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'web-accesslog')
         self.assertEqual(response.rule_id, '31508')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_blacklisted_user_agent_known_malicious_user_agent_6(self) -> None:
@@ -163,7 +163,7 @@ class TestWeb_appsecRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'web-accesslog')
         self.assertEqual(response.rule_id, '31508')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_blacklisted_user_agent_known_malicious_user_agent_7(self) -> None:
@@ -174,7 +174,7 @@ class TestWeb_appsecRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'web-accesslog')
         self.assertEqual(response.rule_id, '31508')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_cms_wordpress_or_joomla_login_attempt_1(self) -> None:
@@ -185,7 +185,7 @@ class TestWeb_appsecRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'web-accesslog')
         self.assertEqual(response.rule_id, '31509')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_cms_wordpress_or_joomla_login_attempt_2(self) -> None:
@@ -196,7 +196,7 @@ class TestWeb_appsecRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'web-accesslog')
         self.assertEqual(response.rule_id, '31509')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_blacklisted_user_agent_wget(self) -> None:
@@ -207,7 +207,7 @@ class TestWeb_appsecRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'web-accesslog')
         self.assertEqual(response.rule_id, '31511')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_uploadify_vulnerability_exploit_attempt(self) -> None:
@@ -218,7 +218,7 @@ class TestWeb_appsecRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'web-accesslog')
         self.assertEqual(response.rule_id, '31512')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_bbs_deletephp_exploit_attempt(self) -> None:
@@ -229,7 +229,7 @@ class TestWeb_appsecRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'web-accesslog')
         self.assertEqual(response.rule_id, '31513')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_simple_shellphp_command_execution(self) -> None:
@@ -240,7 +240,7 @@ class TestWeb_appsecRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'web-accesslog')
         self.assertEqual(response.rule_id, '31514')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_phpmyadmin_scans_looking_for_setupphp(self) -> None:
@@ -251,7 +251,7 @@ class TestWeb_appsecRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'web-accesslog')
         self.assertEqual(response.rule_id, '31515')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_suspicious_url_access_1(self) -> None:
@@ -262,7 +262,7 @@ class TestWeb_appsecRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'web-accesslog')
         self.assertEqual(response.rule_id, '31516')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_suspicious_url_access_2(self) -> None:
@@ -273,7 +273,7 @@ class TestWeb_appsecRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'web-accesslog')
         self.assertEqual(response.rule_id, '31516')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_suspicious_url_access_3(self) -> None:
@@ -284,7 +284,7 @@ class TestWeb_appsecRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'web-accesslog')
         self.assertEqual(response.rule_id, '31516')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_suspicious_url_access_4(self) -> None:
@@ -295,7 +295,7 @@ class TestWeb_appsecRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'web-accesslog')
         self.assertEqual(response.rule_id, '31516')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_suspicious_url_access_5(self) -> None:
@@ -306,7 +306,7 @@ class TestWeb_appsecRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'web-accesslog')
         self.assertEqual(response.rule_id, '31516')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_suspicious_url_access_6(self) -> None:
@@ -317,7 +317,7 @@ class TestWeb_appsecRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'web-accesslog')
         self.assertEqual(response.rule_id, '31516')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_post_request_received(self) -> None:

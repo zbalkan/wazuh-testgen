@@ -20,7 +20,7 @@ class TestApparmorRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'kernel')
         self.assertEqual(response.rule_id, '52001')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_apparmor_allowed_or_status(self) -> None:
@@ -31,7 +31,7 @@ class TestApparmorRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'kernel')
         self.assertEqual(response.rule_id, '52001')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_apparmor_denied(self) -> None:
@@ -42,7 +42,7 @@ class TestApparmorRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'kernel')
         self.assertEqual(response.rule_id, '52002')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_apparmor_denied_mknod_operation(self) -> None:
@@ -53,7 +53,7 @@ class TestApparmorRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'kernel')
         self.assertEqual(response.rule_id, '52004')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_apparmor_denied_exec_operation(self) -> None:
@@ -64,5 +64,5 @@ class TestApparmorRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'kernel')
         self.assertEqual(response.rule_id, '52003')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 

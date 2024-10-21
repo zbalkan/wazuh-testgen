@@ -20,7 +20,7 @@ class TestGcpRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '65040')
-        self.assertEqual(response.alert, 2)
+        self.assertEqual(response.rule_level, 2)
 
 
     def test_gcp_generic_warning(self) -> None:
@@ -31,7 +31,7 @@ class TestGcpRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '65041')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_gcp_generic_notice(self) -> None:
@@ -42,7 +42,7 @@ class TestGcpRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '65042')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_gcp_vpc_firewall_deny_rule_triggered(self) -> None:
@@ -53,7 +53,7 @@ class TestGcpRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '65048')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_gcp_vpc_firewall_allow_rule_triggered(self) -> None:
@@ -64,7 +64,7 @@ class TestGcpRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '65049')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_gcp_vpc_flow_rules_grouped(self) -> None:
@@ -75,7 +75,7 @@ class TestGcpRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '65050')
-        self.assertEqual(response.alert, 2)
+        self.assertEqual(response.rule_level, 2)
 
 
     def test_collection_gcp_pub_sub_subscription_creation(self) -> None:
@@ -86,7 +86,7 @@ class TestGcpRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '65051')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_collection_gcp_pub_sub_topic_creation(self) -> None:
@@ -97,7 +97,7 @@ class TestGcpRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '65052')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_gcp_firewall_rule_created(self) -> None:
@@ -108,7 +108,7 @@ class TestGcpRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '65053')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_gcp_firewall_rule_deleted(self) -> None:
@@ -119,7 +119,7 @@ class TestGcpRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '65054')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_defense_evasion_gcp_firewall_rule_modified(self) -> None:
@@ -130,7 +130,7 @@ class TestGcpRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '65055')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_gcp_logging_bucket_deleted(self) -> None:
@@ -141,7 +141,7 @@ class TestGcpRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '65056')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_gcp_logging_sink_deleted(self) -> None:
@@ -152,7 +152,7 @@ class TestGcpRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '65057')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_gcp_pub_sub_subscription_deleted(self) -> None:
@@ -163,7 +163,7 @@ class TestGcpRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '65058')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_gcp_pub_sub_topic_deleted(self) -> None:
@@ -174,7 +174,7 @@ class TestGcpRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '65059')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_gcp_storage_bucket_configuration_modified(self) -> None:
@@ -185,7 +185,7 @@ class TestGcpRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '65060')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_gcp_storage_bucket_permissions_modified(self) -> None:
@@ -196,7 +196,7 @@ class TestGcpRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '65061')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_gcp_logging_sink_modified(self) -> None:
@@ -207,7 +207,7 @@ class TestGcpRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '65062')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_gcp_iam_role_deleted(self) -> None:
@@ -218,7 +218,7 @@ class TestGcpRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '65063')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_gcp_iam_service_account_deleted(self) -> None:
@@ -229,7 +229,7 @@ class TestGcpRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '65064')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_gcp_service_account_disabled(self) -> None:
@@ -240,7 +240,7 @@ class TestGcpRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '65065')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_gcp_storage_bucket_deleted(self) -> None:
@@ -251,7 +251,7 @@ class TestGcpRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '65066')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_gcp_virtual_private_cloud_vpc_network_deleted(self) -> None:
@@ -262,7 +262,7 @@ class TestGcpRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '65067')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_gcp_virtual_private_cloud_vpc_route_created(self) -> None:
@@ -273,7 +273,7 @@ class TestGcpRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '65068')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_gcp_virtual_private_cloud_vpc_route_deleted(self) -> None:
@@ -284,7 +284,7 @@ class TestGcpRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '65069')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_gcp_new_service_account_created(self) -> None:
@@ -295,7 +295,7 @@ class TestGcpRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '65070')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_gcp_new_key_is_created_for_a_service_account(self) -> None:
@@ -306,7 +306,7 @@ class TestGcpRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '65071')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_gcp_identity_and_access_management_iam_service_account_key_deleted(self) -> None:
@@ -317,7 +317,7 @@ class TestGcpRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '65072')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_gcp_identity_and_access_management_iam_custom_role_created(self) -> None:
@@ -328,7 +328,7 @@ class TestGcpRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '65073')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_gcp_usage(self) -> None:
@@ -339,7 +339,7 @@ class TestGcpRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '65074')
-        self.assertEqual(response.alert, 2)
+        self.assertEqual(response.rule_level, 2)
 
 
     def test_gcp_storage(self) -> None:
@@ -350,5 +350,5 @@ class TestGcpRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '65075')
-        self.assertEqual(response.alert, 2)
+        self.assertEqual(response.rule_level, 2)
 

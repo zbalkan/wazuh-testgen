@@ -20,7 +20,7 @@ class TestSophosRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sophos-win')
         self.assertEqual(response.rule_id, '64271')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_sophos_win_notify_ondemandthreat_infected_alert(self) -> None:
@@ -31,7 +31,7 @@ class TestSophosRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sophos-win')
         self.assertEqual(response.rule_id, '64272')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_sophos_win_scanner_died_killed_alert(self) -> None:
@@ -42,7 +42,7 @@ class TestSophosRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sophos-win')
         self.assertEqual(response.rule_id, '64273')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_sophos_win_no_updated_from_alert(self) -> None:
@@ -53,7 +53,7 @@ class TestSophosRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sophos-win')
         self.assertEqual(response.rule_id, '64275')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_sophos_cloud_scheduled_scan_started(self) -> None:
@@ -64,7 +64,7 @@ class TestSophosRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sophos')
         self.assertEqual(response.rule_id, '82101')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_sophos_cloud_scheduled_scan_completed(self) -> None:
@@ -75,7 +75,7 @@ class TestSophosRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sophos')
         self.assertEqual(response.rule_id, '82102')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_sophos_av_on_access_scanning_stopped(self) -> None:
@@ -86,7 +86,7 @@ class TestSophosRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sophos')
         self.assertEqual(response.rule_id, '82104')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_sophos_av_database_updated(self) -> None:
@@ -97,5 +97,5 @@ class TestSophosRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sophos')
         self.assertEqual(response.rule_id, '82105')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 

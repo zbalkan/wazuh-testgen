@@ -20,7 +20,7 @@ class TestPamRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'pam')
         self.assertEqual(response.rule_id, '5503')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_attempt_to_login_with_an_invalid_user(self) -> None:
@@ -31,7 +31,7 @@ class TestPamRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'pam')
         self.assertEqual(response.rule_id, '5504')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_login_session_opened(self) -> None:
@@ -42,7 +42,7 @@ class TestPamRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'pam')
         self.assertEqual(response.rule_id, '5501')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_login_session_closed(self) -> None:
@@ -53,7 +53,7 @@ class TestPamRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'pam')
         self.assertEqual(response.rule_id, '5502')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_user_missed_the_password_more_than_one_time(self) -> None:
@@ -64,5 +64,5 @@ class TestPamRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'pam')
         self.assertEqual(response.rule_id, '2502')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 

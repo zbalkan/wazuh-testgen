@@ -20,7 +20,7 @@ class TestProftpdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'proftpd')
         self.assertEqual(response.rule_id, '11222')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_ftp_authentication_success_1(self) -> None:
@@ -31,7 +31,7 @@ class TestProftpdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'proftpd')
         self.assertEqual(response.rule_id, '11205')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_ftp_authentication_success_2(self) -> None:
@@ -42,7 +42,7 @@ class TestProftpdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'proftpd')
         self.assertEqual(response.rule_id, '11205')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_ftp_authentication_success_3(self) -> None:
@@ -53,7 +53,7 @@ class TestProftpdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'proftpd')
         self.assertEqual(response.rule_id, '11205')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_connection_refused_by_tcp_wrappers(self) -> None:
@@ -64,7 +64,7 @@ class TestProftpdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'proftpd')
         self.assertEqual(response.rule_id, '11207')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_connection_denied_by_proftpd_configuration(self) -> None:
@@ -75,7 +75,7 @@ class TestProftpdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'proftpd')
         self.assertEqual(response.rule_id, '11206')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_login_failed_accessing_the_ftp_server(self) -> None:
@@ -86,5 +86,5 @@ class TestProftpdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'proftpd')
         self.assertEqual(response.rule_id, '11204')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 

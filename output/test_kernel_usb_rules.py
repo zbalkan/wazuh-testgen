@@ -20,7 +20,7 @@ class TestKernel_usbRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'kernel')
         self.assertEqual(response.rule_id, '81101')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_kernel_usb_attach_usb_with_kernel_id(self) -> None:
@@ -31,7 +31,7 @@ class TestKernel_usbRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'kernel')
         self.assertEqual(response.rule_id, '81101')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_kernel_usb_attach_usb_with_kernel_id_and_blank_spaces(self) -> None:
@@ -42,7 +42,7 @@ class TestKernel_usbRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'kernel')
         self.assertEqual(response.rule_id, '81101')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_kernel_usb_disconnect_usb(self) -> None:
@@ -53,7 +53,7 @@ class TestKernel_usbRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'kernel')
         self.assertEqual(response.rule_id, '81102')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_kernel_usb_disconnect_usb_with_kernel_id(self) -> None:
@@ -64,7 +64,7 @@ class TestKernel_usbRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'kernel')
         self.assertEqual(response.rule_id, '81102')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_kernel_usb_disconnect_usb_with_kernel_id_and_blank_spaces(self) -> None:
@@ -75,5 +75,5 @@ class TestKernel_usbRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'kernel')
         self.assertEqual(response.rule_id, '81102')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 

@@ -20,7 +20,7 @@ class TestIptablesRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'kernel')
         self.assertEqual(response.rule_id, '4100')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_iptables_custom_action_2(self) -> None:
@@ -31,7 +31,7 @@ class TestIptablesRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'kernel')
         self.assertEqual(response.rule_id, '4100')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_iptables_custom_action_3(self) -> None:
@@ -42,7 +42,7 @@ class TestIptablesRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'kernel')
         self.assertEqual(response.rule_id, '4100')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_iptables_custom_action_4(self) -> None:
@@ -53,7 +53,7 @@ class TestIptablesRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'kernel')
         self.assertEqual(response.rule_id, '4100')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_iptables_drop(self) -> None:
@@ -64,7 +64,7 @@ class TestIptablesRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'kernel')
         self.assertEqual(response.rule_id, '4101')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_iptables_drop_frecuency_1(self) -> None:
@@ -75,7 +75,7 @@ class TestIptablesRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'kernel')
         self.assertEqual(response.rule_id, '4151')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_iptables_drop_frecuency_2(self) -> None:
@@ -86,7 +86,7 @@ class TestIptablesRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'kernel')
         self.assertEqual(response.rule_id, '4151')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_iptables_drop_frecuency_3(self) -> None:
@@ -97,7 +97,7 @@ class TestIptablesRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'kernel')
         self.assertEqual(response.rule_id, '4151')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_iptables_drop_frecuency_4(self) -> None:
@@ -108,7 +108,7 @@ class TestIptablesRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'kernel')
         self.assertEqual(response.rule_id, '4151')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_iptables_drop_frecuency_5(self) -> None:
@@ -119,7 +119,7 @@ class TestIptablesRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'kernel')
         self.assertEqual(response.rule_id, '4151')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_iptables_drop_frecuency_6(self) -> None:
@@ -130,7 +130,7 @@ class TestIptablesRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'kernel')
         self.assertEqual(response.rule_id, '4151')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_iptables_drop_frecuency_7(self) -> None:
@@ -141,7 +141,7 @@ class TestIptablesRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'kernel')
         self.assertEqual(response.rule_id, '4151')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_iptables_drop_frecuency_8(self) -> None:
@@ -152,7 +152,7 @@ class TestIptablesRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'kernel')
         self.assertEqual(response.rule_id, '4151')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_iptables_drop_frecuency_9(self) -> None:
@@ -163,7 +163,7 @@ class TestIptablesRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'kernel')
         self.assertEqual(response.rule_id, '4151')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_iptables_drop_frecuency_10(self) -> None:
@@ -174,7 +174,7 @@ class TestIptablesRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'kernel')
         self.assertEqual(response.rule_id, '4151')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_iptables_drop_frecuency_11(self) -> None:
@@ -185,7 +185,7 @@ class TestIptablesRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'kernel')
         self.assertEqual(response.rule_id, '4151')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_iptables_drop_frecuency_12(self) -> None:
@@ -196,7 +196,7 @@ class TestIptablesRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'kernel')
         self.assertEqual(response.rule_id, '4151')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_iptables_drop_frecuency_13(self) -> None:
@@ -207,7 +207,7 @@ class TestIptablesRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'kernel')
         self.assertEqual(response.rule_id, '4151')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_iptables_drop_frecuency_14(self) -> None:
@@ -218,7 +218,7 @@ class TestIptablesRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'kernel')
         self.assertEqual(response.rule_id, '4151')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_iptables_drop_frecuency_15(self) -> None:
@@ -229,7 +229,7 @@ class TestIptablesRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'kernel')
         self.assertEqual(response.rule_id, '4151')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_iptables_drop_frecuency_16(self) -> None:
@@ -240,7 +240,7 @@ class TestIptablesRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'kernel')
         self.assertEqual(response.rule_id, '4151')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_iptables_drop_frecuency_17(self) -> None:
@@ -251,7 +251,7 @@ class TestIptablesRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'kernel')
         self.assertEqual(response.rule_id, '4151')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_iptables_drop_frecuency_18(self) -> None:
@@ -262,7 +262,7 @@ class TestIptablesRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'kernel')
         self.assertEqual(response.rule_id, '4151')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_iptables_openwrt_drop_frecuency_1(self) -> None:
@@ -273,7 +273,7 @@ class TestIptablesRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'kernel')
         self.assertEqual(response.rule_id, '4151')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_iptables_openwrt_drop_frecuency_2(self) -> None:
@@ -284,7 +284,7 @@ class TestIptablesRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'kernel')
         self.assertEqual(response.rule_id, '4151')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_iptables_openwrt_drop_frecuency_3(self) -> None:
@@ -295,7 +295,7 @@ class TestIptablesRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'kernel')
         self.assertEqual(response.rule_id, '4151')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_iptables_openwrt_drop_frecuency_4(self) -> None:
@@ -306,7 +306,7 @@ class TestIptablesRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'kernel')
         self.assertEqual(response.rule_id, '4151')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_iptables_openwrt_drop_frecuency_5(self) -> None:
@@ -317,7 +317,7 @@ class TestIptablesRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'kernel')
         self.assertEqual(response.rule_id, '4151')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_iptables_openwrt_drop_frecuency_6(self) -> None:
@@ -328,7 +328,7 @@ class TestIptablesRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'kernel')
         self.assertEqual(response.rule_id, '4151')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_iptables_openwrt_drop_frecuency_7(self) -> None:
@@ -339,7 +339,7 @@ class TestIptablesRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'kernel')
         self.assertEqual(response.rule_id, '4151')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_iptables_openwrt_drop_frecuency_8(self) -> None:
@@ -350,7 +350,7 @@ class TestIptablesRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'kernel')
         self.assertEqual(response.rule_id, '4151')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_iptables_openwrt_drop_frecuency_9(self) -> None:
@@ -361,7 +361,7 @@ class TestIptablesRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'kernel')
         self.assertEqual(response.rule_id, '4151')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_iptables_openwrt_drop_frecuency_10(self) -> None:
@@ -372,7 +372,7 @@ class TestIptablesRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'kernel')
         self.assertEqual(response.rule_id, '4151')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_iptables_openwrt_drop_frecuency_11(self) -> None:
@@ -383,7 +383,7 @@ class TestIptablesRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'kernel')
         self.assertEqual(response.rule_id, '4151')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_iptables_openwrt_drop_frecuency_12(self) -> None:
@@ -394,7 +394,7 @@ class TestIptablesRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'kernel')
         self.assertEqual(response.rule_id, '4151')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_iptables_openwrt_drop_frecuency_13(self) -> None:
@@ -405,7 +405,7 @@ class TestIptablesRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'kernel')
         self.assertEqual(response.rule_id, '4151')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_iptables_openwrt_drop_frecuency_14(self) -> None:
@@ -416,7 +416,7 @@ class TestIptablesRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'kernel')
         self.assertEqual(response.rule_id, '4151')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_iptables_openwrt_drop_frecuency_15(self) -> None:
@@ -427,7 +427,7 @@ class TestIptablesRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'kernel')
         self.assertEqual(response.rule_id, '4151')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_iptables_openwrt_drop_frecuency_16(self) -> None:
@@ -438,7 +438,7 @@ class TestIptablesRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'kernel')
         self.assertEqual(response.rule_id, '4151')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_iptables_openwrt_drop_frecuency_17(self) -> None:
@@ -449,7 +449,7 @@ class TestIptablesRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'kernel')
         self.assertEqual(response.rule_id, '4151')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_iptables_openwrt_drop_frecuency_18(self) -> None:
@@ -460,7 +460,7 @@ class TestIptablesRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'kernel')
         self.assertEqual(response.rule_id, '4151')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_iptables_ufw_block_1(self) -> None:
@@ -471,7 +471,7 @@ class TestIptablesRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'kernel')
         self.assertEqual(response.rule_id, '4100')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_iptables_ufw_block_2(self) -> None:
@@ -482,5 +482,5 @@ class TestIptablesRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'kernel')
         self.assertEqual(response.rule_id, '4100')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 

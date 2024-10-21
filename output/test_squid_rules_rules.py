@@ -20,7 +20,7 @@ class TestSquid_rulesRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'squid-accesslog')
         self.assertEqual(response.rule_id, '35003')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_squid_proxy_authentication_required(self) -> None:
@@ -31,5 +31,5 @@ class TestSquid_rulesRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'squid-accesslog')
         self.assertEqual(response.rule_id, '35007')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 

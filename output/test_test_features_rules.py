@@ -20,7 +20,7 @@ class TestTest_featuresRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_same')
         self.assertEqual(response.rule_id, '999206')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_same_fields_2(self) -> None:
@@ -31,7 +31,7 @@ class TestTest_featuresRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_same')
         self.assertEqual(response.rule_id, '999206')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_same_fields_3(self) -> None:
@@ -42,7 +42,7 @@ class TestTest_featuresRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_same')
         self.assertEqual(response.rule_id, '999206')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_not_same_fields_1(self) -> None:
@@ -53,7 +53,7 @@ class TestTest_featuresRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_same')
         self.assertEqual(response.rule_id, '999208')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_not_same_fields_2(self) -> None:
@@ -64,7 +64,7 @@ class TestTest_featuresRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_same')
         self.assertEqual(response.rule_id, '999208')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_not_same_fields_3(self) -> None:
@@ -75,7 +75,7 @@ class TestTest_featuresRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_same')
         self.assertEqual(response.rule_id, '999208')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_noalert_enabled(self) -> None:
@@ -93,7 +93,7 @@ class TestTest_featuresRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_noalert')
         self.assertEqual(response.rule_id, '999274')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_wrong_ifsid(self) -> None:
@@ -104,7 +104,7 @@ class TestTest_featuresRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'test_wrong_ifsid')
         self.assertEqual(response.rule_id, '999275')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_nested_if_matched_sid_1(self) -> None:
@@ -115,7 +115,7 @@ class TestTest_featuresRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sophos-fw')
         self.assertEqual(response.rule_id, '999282')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_nested_if_matched_sid_2(self) -> None:
@@ -126,7 +126,7 @@ class TestTest_featuresRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sophos-fw')
         self.assertEqual(response.rule_id, '999282')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_nested_if_matched_sid_3(self) -> None:
@@ -137,7 +137,7 @@ class TestTest_featuresRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sophos-fw')
         self.assertEqual(response.rule_id, '999282')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_nested_if_matched_group_1(self) -> None:
@@ -148,7 +148,7 @@ class TestTest_featuresRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sophos-fw')
         self.assertEqual(response.rule_id, '999285')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_nested_if_matched_group_2(self) -> None:
@@ -159,7 +159,7 @@ class TestTest_featuresRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sophos-fw')
         self.assertEqual(response.rule_id, '999285')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 
 
     def test_nested_if_matched_group_3(self) -> None:
@@ -170,5 +170,5 @@ class TestTest_featuresRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sophos-fw')
         self.assertEqual(response.rule_id, '999285')
-        self.assertEqual(response.alert, 7)
+        self.assertEqual(response.rule_level, 7)
 

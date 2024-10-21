@@ -20,7 +20,7 @@ class TestSysmon_eid_10Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92900')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_credential_dump_2(self) -> None:
@@ -31,7 +31,7 @@ class TestSysmon_eid_10Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92900')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_explorer_injection(self) -> None:
@@ -42,7 +42,7 @@ class TestSysmon_eid_10Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92910')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_windows_rdp_injection(self) -> None:
@@ -53,5 +53,5 @@ class TestSysmon_eid_10Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92920')
-        self.assertEqual(response.alert, 14)
+        self.assertEqual(response.rule_level, 14)
 

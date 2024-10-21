@@ -20,7 +20,7 @@ class TestVsftpdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'vsftpd')
         self.assertEqual(response.rule_id, '11401')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_connect_2(self) -> None:
@@ -31,7 +31,7 @@ class TestVsftpdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'vsftpd')
         self.assertEqual(response.rule_id, '11401')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_login_1(self) -> None:
@@ -42,7 +42,7 @@ class TestVsftpdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'vsftpd')
         self.assertEqual(response.rule_id, '11403')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_login_2(self) -> None:
@@ -53,5 +53,5 @@ class TestVsftpdRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'vsftpd')
         self.assertEqual(response.rule_id, '11403')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 

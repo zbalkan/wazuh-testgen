@@ -20,7 +20,7 @@ class TestOssecRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'ar_log')
         self.assertEqual(response.rule_id, '603')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_ossec_active_response_add_firewall(self) -> None:
@@ -31,7 +31,7 @@ class TestOssecRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'ar_log')
         self.assertEqual(response.rule_id, '601')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_ossec_active_response_delete_host(self) -> None:
@@ -42,7 +42,7 @@ class TestOssecRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'ar_log')
         self.assertEqual(response.rule_id, '604')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_ossec_active_response_delete_firewall(self) -> None:
@@ -53,7 +53,7 @@ class TestOssecRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'ar_log')
         self.assertEqual(response.rule_id, '602')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_ossec_logcollector_ignore_informational_messages_at_startup(self) -> None:
@@ -64,5 +64,5 @@ class TestOssecRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'ossec-logcollector')
         self.assertEqual(response.rule_id, '701')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 

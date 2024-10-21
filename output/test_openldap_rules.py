@@ -20,7 +20,7 @@ class TestOpenldapRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'openldap')
         self.assertEqual(response.rule_id, '2507')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_openldap_generic_2(self) -> None:
@@ -31,7 +31,7 @@ class TestOpenldapRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'openldap')
         self.assertEqual(response.rule_id, '2507')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_openldap_generic_3(self) -> None:
@@ -42,7 +42,7 @@ class TestOpenldapRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'openldap')
         self.assertEqual(response.rule_id, '2507')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_openldap_generic_4(self) -> None:
@@ -53,7 +53,7 @@ class TestOpenldapRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'openldap')
         self.assertEqual(response.rule_id, '2507')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_openldap_generic_5(self) -> None:
@@ -64,7 +64,7 @@ class TestOpenldapRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'openldap')
         self.assertEqual(response.rule_id, '2507')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_openldap_generic_6(self) -> None:
@@ -75,7 +75,7 @@ class TestOpenldapRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'openldap')
         self.assertEqual(response.rule_id, '2507')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_openldap_connection_open_1(self) -> None:
@@ -86,7 +86,7 @@ class TestOpenldapRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'openldap')
         self.assertEqual(response.rule_id, '2508')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_openldap_connection_open_2(self) -> None:
@@ -97,7 +97,7 @@ class TestOpenldapRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'openldap')
         self.assertEqual(response.rule_id, '2508')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_openldap_connection_open_3(self) -> None:
@@ -108,5 +108,5 @@ class TestOpenldapRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'openldap')
         self.assertEqual(response.rule_id, '2508')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 

@@ -20,7 +20,7 @@ class TestSudoRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sudo')
         self.assertEqual(response.rule_id, '5403')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_sudo_all_2(self) -> None:
@@ -31,7 +31,7 @@ class TestSudoRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sudo')
         self.assertEqual(response.rule_id, '5403')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_sudo_all_3(self) -> None:
@@ -42,7 +42,7 @@ class TestSudoRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sudo')
         self.assertEqual(response.rule_id, '5403')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_sudo_all_4(self) -> None:
@@ -53,7 +53,7 @@ class TestSudoRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sudo')
         self.assertEqual(response.rule_id, '5403')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_failed_attempt_to_run_sudo(self) -> None:
@@ -64,7 +64,7 @@ class TestSudoRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sudo')
         self.assertEqual(response.rule_id, '5401')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_first_time_user_executed_sudo(self) -> None:
@@ -75,7 +75,7 @@ class TestSudoRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sudo')
         self.assertEqual(response.rule_id, '5403')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_3_incorrect_password_attempts(self) -> None:
@@ -86,7 +86,7 @@ class TestSudoRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sudo')
         self.assertEqual(response.rule_id, '5404')
-        self.assertEqual(response.alert, 10)
+        self.assertEqual(response.rule_level, 10)
 
 
     def test_unauthorized_user(self) -> None:
@@ -97,5 +97,5 @@ class TestSudoRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'sudo')
         self.assertEqual(response.rule_id, '5405')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 

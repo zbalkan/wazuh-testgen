@@ -20,7 +20,7 @@ class TestSysmon_eid_13Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92300')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_suspicious_file_extension_detected_in_registry_asep(self) -> None:
@@ -31,7 +31,7 @@ class TestSysmon_eid_13Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92301')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_registry_entry_to_be_executed_on_next_logon_was_modified_using_command_line_application_regexe(self) -> None:
@@ -42,7 +42,7 @@ class TestSysmon_eid_13Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92302')
-        self.assertEqual(response.alert, 6)
+        self.assertEqual(response.rule_level, 6)
 
 
     def test_vnc_to_be_executed_from_currentversion\run(self) -> None:
@@ -53,7 +53,7 @@ class TestSysmon_eid_13Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92303')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_fodhelper_uac_bypass_evidence(self) -> None:
@@ -64,7 +64,7 @@ class TestSysmon_eid_13Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92305')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_powershell_adds_to_registry_uac_bypass_key(self) -> None:
@@ -75,7 +75,7 @@ class TestSysmon_eid_13Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92306')
-        self.assertEqual(response.alert, 12)
+        self.assertEqual(response.rule_level, 12)
 
 
     def test_new_service_created_in_registry(self) -> None:
@@ -86,7 +86,7 @@ class TestSysmon_eid_13Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92307')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_possible_com_hijacking_evidence_found_in_registry(self) -> None:
@@ -97,7 +97,7 @@ class TestSysmon_eid_13Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92308')
-        self.assertEqual(response.alert, 3)
+        self.assertEqual(response.rule_level, 3)
 
 
     def test_com_hijacking_evidence_found_in_registry(self) -> None:
@@ -108,5 +108,5 @@ class TestSysmon_eid_13Rules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'json')
         self.assertEqual(response.rule_id, '92309')
-        self.assertEqual(response.alert, 15)
+        self.assertEqual(response.rule_level, 15)
 

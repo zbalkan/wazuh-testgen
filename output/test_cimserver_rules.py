@@ -20,7 +20,7 @@ class TestCimserverRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'cimserver')
         self.assertEqual(response.rule_id, '9610')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_rshd_illegal_2(self) -> None:

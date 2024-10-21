@@ -27,7 +27,7 @@ class TestPixRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'pix')
         self.assertEqual(response.rule_id, '4312')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_pix1_3(self) -> None:
@@ -38,7 +38,7 @@ class TestPixRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'pix')
         self.assertEqual(response.rule_id, '4312')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_pix3_1(self) -> None:
@@ -49,7 +49,7 @@ class TestPixRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'pix')
         self.assertEqual(response.rule_id, '4300')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_pix3_2(self) -> None:
@@ -60,7 +60,7 @@ class TestPixRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'pix')
         self.assertEqual(response.rule_id, '4300')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_pix3_3(self) -> None:
@@ -71,7 +71,7 @@ class TestPixRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'pix')
         self.assertEqual(response.rule_id, '4300')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_pix3_4(self) -> None:
@@ -82,7 +82,7 @@ class TestPixRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'pix')
         self.assertEqual(response.rule_id, '4300')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_pix3_5(self) -> None:
@@ -93,7 +93,7 @@ class TestPixRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'pix')
         self.assertEqual(response.rule_id, '4300')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_pix3_6(self) -> None:
@@ -104,7 +104,7 @@ class TestPixRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'pix')
         self.assertEqual(response.rule_id, '4300')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_pix5(self) -> None:
@@ -115,7 +115,7 @@ class TestPixRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'pix')
         self.assertEqual(response.rule_id, '4313')
-        self.assertEqual(response.alert, 4)
+        self.assertEqual(response.rule_level, 4)
 
 
     def test_pix6_1(self) -> None:
@@ -126,7 +126,7 @@ class TestPixRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'pix')
         self.assertEqual(response.rule_id, '4311')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_pix6_2(self) -> None:
@@ -137,7 +137,7 @@ class TestPixRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'pix')
         self.assertEqual(response.rule_id, '4311')
-        self.assertEqual(response.alert, 5)
+        self.assertEqual(response.rule_level, 5)
 
 
     def test_pix8_1(self) -> None:
@@ -148,7 +148,7 @@ class TestPixRules(unittest.TestCase):
 
         self.assertEqual(response.decoder, 'pix')
         self.assertEqual(response.rule_id, '4314')
-        self.assertEqual(response.alert, 0)
+        self.assertEqual(response.rule_level, 0)
 
 
     def test_pix8_2(self) -> None:
