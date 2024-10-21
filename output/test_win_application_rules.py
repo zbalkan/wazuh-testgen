@@ -1,8 +1,13 @@
-    import unittest
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
-    from internal.logtest import LogtestStatus, send_log
+# These test cases are based on log data and rule descriptions used for regression testing,
+# potentially derived from or inspired by Wazuh rulesets and public log samples.
+
+import unittest
+
+from internal.logtest import LogtestStatus, send_log
 
 
-    # Converted from win_application.ini
-    class TestWin_applicationRules(unittest.TestCase):
-    
+# Converted from win_application.ini
+class TestWin_applicationRules(unittest.TestCase):

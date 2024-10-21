@@ -36,7 +36,7 @@ class TestParser:
 
     def read(self, lines:list[str]) -> list[TestCase]:
 
-        header: str = lines[0].replace('[', '').replace(']', '')
+        header: str = lines[0].replace('[', '').replace(']', '').lower()
         logs:list[tuple] = []
         rule:str
         alert:str
@@ -52,9 +52,10 @@ class TestParser:
             try:
                 delim = line.index('=')
             except:
-                print('')
-            k = line[0:delim].strip()
-            v = line[delim+1:].strip()
+                raise ValueError(f'Invalid line: {line} under {header}.')
+
+            k: str = line[0:delim].strip()
+            v: str = line[delim+1:].strip()
             pairs.append((k,v))
 
         for k,v in pairs:
