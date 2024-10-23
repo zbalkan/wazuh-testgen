@@ -13,7 +13,9 @@ from internal.logtest import LogtestStatus, send_log
 class TestTestOsmatchRegexRules(unittest.TestCase):
 
     def test_osmatch_test_osmatch_1_dynamic_field(self) -> None:
-        log = r'''Dec 19 17:20:08 ubuntu test_osmatch_1[12345]:test_field https://localhost GET format=json'''
+        log = r'''
+Dec 19 17:20:08 ubuntu test_osmatch_1[12345]:test_field https://localhost GET format=json
+'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -24,7 +26,9 @@ class TestTestOsmatchRegexRules(unittest.TestCase):
 
 
     def test_osmatch_test_osmatch_1_dynamic_field_n(self) -> None:
-        log = r'''Dec 19 17:20:08 ubuntu test_osmatch_1[12345]:test_field https://localhost GET format=raw'''
+        log = r'''
+Dec 19 17:20:08 ubuntu test_osmatch_1[12345]:test_field https://localhost GET format=raw
+'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -35,7 +39,9 @@ class TestTestOsmatchRegexRules(unittest.TestCase):
 
 
     def test_osmatch_test_osmatch_2_regex(self) -> None:
-        log = r'''test_osmatch_2 test_regex regex_example_0'''
+        log = r'''
+test_osmatch_2 test_regex regex_example_0
+'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -46,7 +52,9 @@ class TestTestOsmatchRegexRules(unittest.TestCase):
 
 
     def test_osmatch_test_osmatch_2_regex_n(self) -> None:
-        log = r'''test_osmatch_2 test_regex regex_example_1'''
+        log = r'''
+test_osmatch_2 test_regex regex_example_1
+'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -57,7 +65,9 @@ class TestTestOsmatchRegexRules(unittest.TestCase):
 
 
     def test_osmatch_test_osmatch_3_action(self) -> None:
-        log = r'''Dec 19 17:20:08 ubuntu test_osmatch_3[12345]:test_action action_example_1'''
+        log = r'''
+Dec 19 17:20:08 ubuntu test_osmatch_3[12345]:test_action action_example_1
+'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -68,7 +78,9 @@ class TestTestOsmatchRegexRules(unittest.TestCase):
 
 
     def test_osmatch_test_osmatch_3_action_n(self) -> None:
-        log = r'''Dec 19 17:20:08 ubuntu test_osmatch_3[12345]:test_action action_example_9'''
+        log = r'''
+Dec 19 17:20:08 ubuntu test_osmatch_3[12345]:test_action action_example_9
+'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)

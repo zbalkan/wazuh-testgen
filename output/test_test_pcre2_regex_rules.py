@@ -13,7 +13,9 @@ from internal.logtest import LogtestStatus, send_log
 class TestTestPcre2RegexRules(unittest.TestCase):
 
     def test_pcre2_test_pcre2_0_protocol(self) -> None:
-        log = r'''Dec 19 17:20:08 ubuntu test_pcre2_0[12345]:test_protocol HTTP root@192.168.0.2:1234 192.168.0.1:4321'''
+        log = r'''
+Dec 19 17:20:08 ubuntu test_pcre2_0[12345]:test_protocol HTTP root@192.168.0.2:1234 192.168.0.1:4321
+'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -24,7 +26,9 @@ class TestTestPcre2RegexRules(unittest.TestCase):
 
 
     def test_pcre2_test_pcre2_0_protocol_n(self) -> None:
-        log = r'''Dec 19 17:20:08 ubuntu test_pcre2_0[12345]:test_protocol QUIC root@192.168.0.2:1234 192.168.0.1:4321'''
+        log = r'''
+Dec 19 17:20:08 ubuntu test_pcre2_0[12345]:test_protocol QUIC root@192.168.0.2:1234 192.168.0.1:4321
+'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -35,7 +39,9 @@ class TestTestPcre2RegexRules(unittest.TestCase):
 
 
     def test_pcre2_test_pcre2_1_dynamic_field(self) -> None:
-        log = r'''Dec 19 17:20:08 ubuntu test_pcre2_1[12345]:test_field https://localhost GET format=json'''
+        log = r'''
+Dec 19 17:20:08 ubuntu test_pcre2_1[12345]:test_field https://localhost GET format=json
+'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -46,7 +52,9 @@ class TestTestPcre2RegexRules(unittest.TestCase):
 
 
     def test_pcre2_test_pcre2_1_dynamic_field_n(self) -> None:
-        log = r'''Dec 19 17:20:08 ubuntu test_pcre2_1[12345]:test_field https://localhost GET format=raw'''
+        log = r'''
+Dec 19 17:20:08 ubuntu test_pcre2_1[12345]:test_field https://localhost GET format=raw
+'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -57,7 +65,9 @@ class TestTestPcre2RegexRules(unittest.TestCase):
 
 
     def test_pcre2_test_pcre2_2_regex(self) -> None:
-        log = r'''test_pcre2_2 test_regex regex_example_0'''
+        log = r'''
+test_pcre2_2 test_regex regex_example_0
+'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -68,7 +78,9 @@ class TestTestPcre2RegexRules(unittest.TestCase):
 
 
     def test_pcre2_test_pcre2_2_regex_n(self) -> None:
-        log = r'''test_pcre2_2 test_regex regex_example_1'''
+        log = r'''
+test_pcre2_2 test_regex regex_example_1
+'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -79,7 +91,9 @@ class TestTestPcre2RegexRules(unittest.TestCase):
 
 
     def test_pcre2_test_pcre2_3_action(self) -> None:
-        log = r'''Dec 19 17:20:08 ubuntu test_pcre2_3[12345]:test_action action_example_1'''
+        log = r'''
+Dec 19 17:20:08 ubuntu test_pcre2_3[12345]:test_action action_example_1
+'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -90,7 +104,9 @@ class TestTestPcre2RegexRules(unittest.TestCase):
 
 
     def test_pcre2_test_pcre2_3_action_n(self) -> None:
-        log = r'''Dec 19 17:20:08 ubuntu test_pcre2_3[12345]:test_action action_example_9'''
+        log = r'''
+Dec 19 17:20:08 ubuntu test_pcre2_3[12345]:test_action action_example_9
+'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -101,7 +117,9 @@ class TestTestPcre2RegexRules(unittest.TestCase):
 
 
     def test_pcre2_test_pcre2_4_extra_data(self) -> None:
-        log = r'''Dec 19 17:20:08 ubuntu test_pcre2_4[12345]:test_extra_data extra_data_example_1'''
+        log = r'''
+Dec 19 17:20:08 ubuntu test_pcre2_4[12345]:test_extra_data extra_data_example_1
+'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -112,7 +130,9 @@ class TestTestPcre2RegexRules(unittest.TestCase):
 
 
     def test_pcre2_test_pcre2_4_extra_data_n(self) -> None:
-        log = r'''Dec 19 17:20:08 ubuntu test_pcre2_4[12345]:test_extra_data extra_data_example_9'''
+        log = r'''
+Dec 19 17:20:08 ubuntu test_pcre2_4[12345]:test_extra_data extra_data_example_9
+'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -123,7 +143,9 @@ class TestTestPcre2RegexRules(unittest.TestCase):
 
 
     def test_pcre2_test_pcre2_5_id(self) -> None:
-        log = r'''Dec 19 17:20:08 ubuntu test_pcre2_5[12345]:test_id id_example_1'''
+        log = r'''
+Dec 19 17:20:08 ubuntu test_pcre2_5[12345]:test_id id_example_1
+'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -134,7 +156,9 @@ class TestTestPcre2RegexRules(unittest.TestCase):
 
 
     def test_pcre2_test_pcre2_5_id_n(self) -> None:
-        log = r'''Dec 19 17:20:08 ubuntu test_pcre2_5[12345]:test_id id_example_9'''
+        log = r'''
+Dec 19 17:20:08 ubuntu test_pcre2_5[12345]:test_id id_example_9
+'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -145,7 +169,9 @@ class TestTestPcre2RegexRules(unittest.TestCase):
 
 
     def test_pcre2_test_pcre2_6_location(self) -> None:
-        log = r'''Dec 19 17:20:08 ubuntu test_pcre2_6[12345]:test_location'''
+        log = r'''
+Dec 19 17:20:08 ubuntu test_pcre2_6[12345]:test_location
+'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -156,7 +182,9 @@ class TestTestPcre2RegexRules(unittest.TestCase):
 
 
     def test_pcre2_test_pcre2_6_hostname(self) -> None:
-        log = r'''Dec 19 17:20:08 ubuntu test_pcre2_6[12345]:test_hostname'''
+        log = r'''
+Dec 19 17:20:08 ubuntu test_pcre2_6[12345]:test_hostname
+'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -167,7 +195,9 @@ class TestTestPcre2RegexRules(unittest.TestCase):
 
 
     def test_pcre2_test_pcre2_6_program_name(self) -> None:
-        log = r'''Dec 19 17:20:08 ubuntu test_pcre2_6[12345]:test_program_name'''
+        log = r'''
+Dec 19 17:20:08 ubuntu test_pcre2_6[12345]:test_program_name
+'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -178,7 +208,9 @@ class TestTestPcre2RegexRules(unittest.TestCase):
 
 
     def test_pcre2_test_pcre2_7_match(self) -> None:
-        log = r'''Dec 19 17:20:08 ubuntu test_pcre2_7[12345]:test_match match_example_1'''
+        log = r'''
+Dec 19 17:20:08 ubuntu test_pcre2_7[12345]:test_match match_example_1
+'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -189,7 +221,9 @@ class TestTestPcre2RegexRules(unittest.TestCase):
 
 
     def test_pcre2_test_pcre2_7_match_n(self) -> None:
-        log = r'''Dec 19 17:20:08 ubuntu test_pcre2_7[12345]:test_match match_example_9'''
+        log = r'''
+Dec 19 17:20:08 ubuntu test_pcre2_7[12345]:test_match match_example_9
+'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -200,7 +234,9 @@ class TestTestPcre2RegexRules(unittest.TestCase):
 
 
     def test_pcre2_test_pcre2_8_protocol(self) -> None:
-        log = r'''Dec 19 17:20:08 ubuntu test_pcre2_8[12345]:test_protocol protocol_example_1'''
+        log = r'''
+Dec 19 17:20:08 ubuntu test_pcre2_8[12345]:test_protocol protocol_example_1
+'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -211,7 +247,9 @@ class TestTestPcre2RegexRules(unittest.TestCase):
 
 
     def test_pcre2_test_pcre2_8_protocol_n(self) -> None:
-        log = r'''Dec 19 17:20:08 ubuntu test_pcre2_8[12345]:test_protocol protocol_example_9'''
+        log = r'''
+Dec 19 17:20:08 ubuntu test_pcre2_8[12345]:test_protocol protocol_example_9
+'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -222,7 +260,9 @@ class TestTestPcre2RegexRules(unittest.TestCase):
 
 
     def test_pcre2_test_pcre2_9_user(self) -> None:
-        log = r'''Dec 19 17:20:08 ubuntu test_pcre2_9[12345]:test_user user_example_1'''
+        log = r'''
+Dec 19 17:20:08 ubuntu test_pcre2_9[12345]:test_user user_example_1
+'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -233,7 +273,9 @@ class TestTestPcre2RegexRules(unittest.TestCase):
 
 
     def test_pcre2_test_pcre2_9_user_n(self) -> None:
-        log = r'''Dec 19 17:20:08 ubuntu test_pcre2_9[12345]:test_user user_example_9'''
+        log = r'''
+Dec 19 17:20:08 ubuntu test_pcre2_9[12345]:test_user user_example_9
+'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -244,7 +286,9 @@ class TestTestPcre2RegexRules(unittest.TestCase):
 
 
     def test_pcre2_test_pcre2_10_url(self) -> None:
-        log = r'''Dec 19 17:20:08 ubuntu test_pcre2_10[12345]:test_url url_example_1'''
+        log = r'''
+Dec 19 17:20:08 ubuntu test_pcre2_10[12345]:test_url url_example_1
+'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -255,7 +299,9 @@ class TestTestPcre2RegexRules(unittest.TestCase):
 
 
     def test_pcre2_test_pcre2_10_url_n(self) -> None:
-        log = r'''Dec 19 17:20:08 ubuntu test_pcre2_10[12345]:test_url url_example_9'''
+        log = r'''
+Dec 19 17:20:08 ubuntu test_pcre2_10[12345]:test_url url_example_9
+'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -266,7 +312,9 @@ class TestTestPcre2RegexRules(unittest.TestCase):
 
 
     def test_pcre2_test_pcre2_11_srcport(self) -> None:
-        log = r'''Dec 19 17:20:08 ubuntu test_pcre2_11[12345]:test_srcport srcport_example_1'''
+        log = r'''
+Dec 19 17:20:08 ubuntu test_pcre2_11[12345]:test_srcport srcport_example_1
+'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -277,7 +325,9 @@ class TestTestPcre2RegexRules(unittest.TestCase):
 
 
     def test_pcre2_test_pcre2_11_srcport_n(self) -> None:
-        log = r'''Dec 19 17:20:08 ubuntu test_pcre2_11[12345]:test_srcport srcport_example_9'''
+        log = r'''
+Dec 19 17:20:08 ubuntu test_pcre2_11[12345]:test_srcport srcport_example_9
+'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -288,7 +338,9 @@ class TestTestPcre2RegexRules(unittest.TestCase):
 
 
     def test_pcre2_test_pcre2_12_dstport(self) -> None:
-        log = r'''Dec 19 17:20:08 ubuntu test_pcre2_12[12345]:test_dstport dstport_example_1'''
+        log = r'''
+Dec 19 17:20:08 ubuntu test_pcre2_12[12345]:test_dstport dstport_example_1
+'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -299,7 +351,9 @@ class TestTestPcre2RegexRules(unittest.TestCase):
 
 
     def test_pcre2_test_pcre2_12_dstport_n(self) -> None:
-        log = r'''Dec 19 17:20:08 ubuntu test_pcre2_12[12345]:test_dstport dstport_example_9'''
+        log = r'''
+Dec 19 17:20:08 ubuntu test_pcre2_12[12345]:test_dstport dstport_example_9
+'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -310,7 +364,9 @@ class TestTestPcre2RegexRules(unittest.TestCase):
 
 
     def test_pcre2_test_pcre2_13_status(self) -> None:
-        log = r'''Dec 19 17:20:08 ubuntu test_pcre2_13[12345]:test_status status_example_1'''
+        log = r'''
+Dec 19 17:20:08 ubuntu test_pcre2_13[12345]:test_status status_example_1
+'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -321,7 +377,9 @@ class TestTestPcre2RegexRules(unittest.TestCase):
 
 
     def test_pcre2_test_pcre2_13_status_n(self) -> None:
-        log = r'''Dec 19 17:20:08 ubuntu test_pcre2_13[12345]:test_status status_example_9'''
+        log = r'''
+Dec 19 17:20:08 ubuntu test_pcre2_13[12345]:test_status status_example_9
+'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -332,7 +390,9 @@ class TestTestPcre2RegexRules(unittest.TestCase):
 
 
     def test_pcre2_test_pcre2_14_system_name(self) -> None:
-        log = r'''Dec 19 17:20:08 ubuntu test_pcre2_14[12345]:test_system_name system_name_example_1'''
+        log = r'''
+Dec 19 17:20:08 ubuntu test_pcre2_14[12345]:test_system_name system_name_example_1
+'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -343,7 +403,9 @@ class TestTestPcre2RegexRules(unittest.TestCase):
 
 
     def test_pcre2_test_pcre2_14_system_name_n(self) -> None:
-        log = r'''Dec 19 17:20:08 ubuntu test_pcre2_14[12345]:test_system_name system_name_example_9'''
+        log = r'''
+Dec 19 17:20:08 ubuntu test_pcre2_14[12345]:test_system_name system_name_example_9
+'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -354,7 +416,9 @@ class TestTestPcre2RegexRules(unittest.TestCase):
 
 
     def test_pcre2_test_pcre2_15_data(self) -> None:
-        log = r'''Dec 19 17:20:08 ubuntu test_pcre2_15[12345]:test_data data_example_1'''
+        log = r'''
+Dec 19 17:20:08 ubuntu test_pcre2_15[12345]:test_data data_example_1
+'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -365,7 +429,9 @@ class TestTestPcre2RegexRules(unittest.TestCase):
 
 
     def test_pcre2_test_pcre2_15_data_n(self) -> None:
-        log = r'''Dec 19 17:20:08 ubuntu test_pcre2_15[12345]:test_data data_example_9'''
+        log = r'''
+Dec 19 17:20:08 ubuntu test_pcre2_15[12345]:test_data data_example_9
+'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)

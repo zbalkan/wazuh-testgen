@@ -13,7 +13,9 @@ from internal.logtest import LogtestStatus, send_log
 class TestVulnDetectorRules(unittest.TestCase):
 
     def test_cve_removed_1(self) -> None:
-        log = r'''{"vulnerability":{"package":{"name":"ncurses","version":"5.9-14.20130511.el7_4","architecture":"x86_64"},"cve":"CVE-2019-17594", "status":"Solved", "reference":"fb783b1c771a643f81259a93248e7f61e9a4a597"}}'''
+        log = r'''
+{"vulnerability":{"package":{"name":"ncurses","version":"5.9-14.20130511.el7_4","architecture":"x86_64"},"cve":"CVE-2019-17594", "status":"Solved", "reference":"fb783b1c771a643f81259a93248e7f61e9a4a597"}}
+'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -24,7 +26,9 @@ class TestVulnDetectorRules(unittest.TestCase):
 
 
     def test_cve_removed_2(self) -> None:
-        log = r'''{"vulnerability":{"package":{"name":"ncurses","version":"5.9-14.20130511.el7_4","architecture":"x86_64"},"cve":"", "status":"Solved", "reference":"fb783b1c771a643f81259a93248e7f61e9a4a597"}}'''
+        log = r'''
+{"vulnerability":{"package":{"name":"ncurses","version":"5.9-14.20130511.el7_4","architecture":"x86_64"},"cve":"", "status":"Solved", "reference":"fb783b1c771a643f81259a93248e7f61e9a4a597"}}
+'''
         response = send_log(log)
 
         self.assertNotEqual(response.rule_id, '23502')

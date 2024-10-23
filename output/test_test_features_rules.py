@@ -13,7 +13,9 @@ from internal.logtest import LogtestStatus, send_log
 class TestTestFeaturesRules(unittest.TestCase):
 
     def test_same_fields_1(self) -> None:
-        log = r'''Dec 25 20:45:02 MyHost test_same_fields[12345]: User 'admin' logged from '192.168.1.100' 5 this is the same_fields test'''
+        log = r'''
+Dec 25 20:45:02 MyHost test_same_fields[12345]: User 'admin' logged from '192.168.1.100' 5 this is the same_fields test
+'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -24,7 +26,9 @@ class TestTestFeaturesRules(unittest.TestCase):
 
 
     def test_same_fields_2(self) -> None:
-        log = r'''Dec 25 20:45:02 MyHost test_same_fields[12345]: User 'admin' logged from '192.168.1.100' 5 this is the same_fields test'''
+        log = r'''
+Dec 25 20:45:02 MyHost test_same_fields[12345]: User 'admin' logged from '192.168.1.100' 5 this is the same_fields test
+'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -35,7 +39,9 @@ class TestTestFeaturesRules(unittest.TestCase):
 
 
     def test_same_fields_3(self) -> None:
-        log = r'''Dec 25 20:45:02 MyHost test_same_fields[12345]: User 'admin' logged from '192.168.1.100' 5 this is the same_fields test'''
+        log = r'''
+Dec 25 20:45:02 MyHost test_same_fields[12345]: User 'admin' logged from '192.168.1.100' 5 this is the same_fields test
+'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -46,7 +52,9 @@ class TestTestFeaturesRules(unittest.TestCase):
 
 
     def test_not_same_fields_1(self) -> None:
-        log = r'''Dec 25 20:45:02 MyHost test_same_fields[12345]: User 'admin' logged from '192.168.1.100' 5 this is the not_same_fields test'''
+        log = r'''
+Dec 25 20:45:02 MyHost test_same_fields[12345]: User 'admin' logged from '192.168.1.100' 5 this is the not_same_fields test
+'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -57,7 +65,9 @@ class TestTestFeaturesRules(unittest.TestCase):
 
 
     def test_not_same_fields_2(self) -> None:
-        log = r'''Dec 25 20:45:02 MyHost test_same_fields[12345]: User 'admin' logged from '192.168.1.100' 6 this is the not_same_fields test'''
+        log = r'''
+Dec 25 20:45:02 MyHost test_same_fields[12345]: User 'admin' logged from '192.168.1.100' 6 this is the not_same_fields test
+'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -68,7 +78,9 @@ class TestTestFeaturesRules(unittest.TestCase):
 
 
     def test_not_same_fields_3(self) -> None:
-        log = r'''Dec 25 20:45:02 MyHost test_same_fields[12345]: User 'admin' logged from '192.168.1.100' 7 this is the not_same_fields test'''
+        log = r'''
+Dec 25 20:45:02 MyHost test_same_fields[12345]: User 'admin' logged from '192.168.1.100' 7 this is the not_same_fields test
+'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -79,14 +91,18 @@ class TestTestFeaturesRules(unittest.TestCase):
 
 
     def test_noalert_enabled(self) -> None:
-        log = r'''Dec 19 17:20:08 User test_noalert[12345]:Test noalert=1'''
+        log = r'''
+Dec 19 17:20:08 User test_noalert[12345]:Test noalert=1
+'''
         response = send_log(log)
 
         self.assertNotEqual(response.rule_id, '')
 
 
     def test_noalert_disabled(self) -> None:
-        log = r'''Dec 19 17:20:08 User test_noalert[12345]:Test noalert=0'''
+        log = r'''
+Dec 19 17:20:08 User test_noalert[12345]:Test noalert=0
+'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -97,7 +113,9 @@ class TestTestFeaturesRules(unittest.TestCase):
 
 
     def test_wrong_ifsid(self) -> None:
-        log = r'''Sep  5 13:14:00 User test_wrong_ifsid[12345]:Test'''
+        log = r'''
+Sep  5 13:14:00 User test_wrong_ifsid[12345]:Test
+'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -108,7 +126,9 @@ class TestTestFeaturesRules(unittest.TestCase):
 
 
     def test_nested_if_matched_sid_1(self) -> None:
-        log = r'''device="SFW" date=2000-12-01 time=17:19:06 timezone="+01" device_name="XXXX" device_id=1234567 log_id=010101010101 log_type="Firewall" log_component="Firewall Rule" log_subtype="Denied" status="Deny"'''
+        log = r'''
+device="SFW" date=2000-12-01 time=17:19:06 timezone="+01" device_name="XXXX" device_id=1234567 log_id=010101010101 log_type="Firewall" log_component="Firewall Rule" log_subtype="Denied" status="Deny"
+'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -119,7 +139,9 @@ class TestTestFeaturesRules(unittest.TestCase):
 
 
     def test_nested_if_matched_sid_2(self) -> None:
-        log = r'''device="SFW" date=2000-12-01 time=17:19:06 timezone="+01" device_name="XXXX" device_id=1234567 log_id=010101010101 log_type="Firewall" log_component="Firewall Rule" log_subtype="Denied" status="Deny"'''
+        log = r'''
+device="SFW" date=2000-12-01 time=17:19:06 timezone="+01" device_name="XXXX" device_id=1234567 log_id=010101010101 log_type="Firewall" log_component="Firewall Rule" log_subtype="Denied" status="Deny"
+'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -130,7 +152,9 @@ class TestTestFeaturesRules(unittest.TestCase):
 
 
     def test_nested_if_matched_sid_3(self) -> None:
-        log = r'''device="SFW" date=2000-12-01 time=17:19:06 timezone="+01" device_name="XXXX" device_id=1234567 log_id=010101010101 log_type="Firewall" log_component="Firewall Rule" log_subtype="Denied" status="Deny"'''
+        log = r'''
+device="SFW" date=2000-12-01 time=17:19:06 timezone="+01" device_name="XXXX" device_id=1234567 log_id=010101010101 log_type="Firewall" log_component="Firewall Rule" log_subtype="Denied" status="Deny"
+'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -141,7 +165,9 @@ class TestTestFeaturesRules(unittest.TestCase):
 
 
     def test_nested_if_matched_group_1(self) -> None:
-        log = r'''device="SFW" date=2000-12-01 time=17:19:06 timezone="+01" device_name="XXXX" device_id=12345678 log_id=010101010101 log_type="Firewall" log_component="Firewall Rule" log_subtype="Denied" status="Deny"'''
+        log = r'''
+device="SFW" date=2000-12-01 time=17:19:06 timezone="+01" device_name="XXXX" device_id=12345678 log_id=010101010101 log_type="Firewall" log_component="Firewall Rule" log_subtype="Denied" status="Deny"
+'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -152,7 +178,9 @@ class TestTestFeaturesRules(unittest.TestCase):
 
 
     def test_nested_if_matched_group_2(self) -> None:
-        log = r'''device="SFW" date=2000-12-01 time=17:19:06 timezone="+01" device_name="XXXX" device_id=12345678 log_id=010101010101 log_type="Firewall" log_component="Firewall Rule" log_subtype="Denied" status="Deny"'''
+        log = r'''
+device="SFW" date=2000-12-01 time=17:19:06 timezone="+01" device_name="XXXX" device_id=12345678 log_id=010101010101 log_type="Firewall" log_component="Firewall Rule" log_subtype="Denied" status="Deny"
+'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -163,7 +191,9 @@ class TestTestFeaturesRules(unittest.TestCase):
 
 
     def test_nested_if_matched_group_3(self) -> None:
-        log = r'''device="SFW" date=2000-12-01 time=17:19:06 timezone="+01" device_name="XXXX" device_id=12345678 log_id=010101010101 log_type="Firewall" log_component="Firewall Rule" log_subtype="Denied" status="Deny"'''
+        log = r'''
+device="SFW" date=2000-12-01 time=17:19:06 timezone="+01" device_name="XXXX" device_id=12345678 log_id=010101010101 log_type="Firewall" log_component="Firewall Rule" log_subtype="Denied" status="Deny"
+'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
