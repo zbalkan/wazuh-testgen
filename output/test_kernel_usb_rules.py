@@ -13,7 +13,7 @@ from internal.logtest import LogtestStatus, send_log
 class TestKernelUsbRules(unittest.TestCase):
 
     def test_kernel_usb_attach_usb(self) -> None:
-        log = '''Mar 23 15:04:52 manager kernel: usb 1-1: New USB device found, idVendor=0930, idProduct=6544'''
+        log = r'''Mar 23 15:04:52 manager kernel: usb 1-1: New USB device found, idVendor=0930, idProduct=6544'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -24,7 +24,7 @@ class TestKernelUsbRules(unittest.TestCase):
 
 
     def test_kernel_usb_attach_usb_with_kernel_id(self) -> None:
-        log = '''Mar 23 15:04:52 manager kernel: [62828.333722] usb 1-1: New USB device found, idVendor=0930, idProduct=6544'''
+        log = r'''Mar 23 15:04:52 manager kernel: [62828.333722] usb 1-1: New USB device found, idVendor=0930, idProduct=6544'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -35,7 +35,7 @@ class TestKernelUsbRules(unittest.TestCase):
 
 
     def test_kernel_usb_attach_usb_with_kernel_id_and_blank_spaces(self) -> None:
-        log = '''Mar 15 23:14:34 manager kernel: [ 195.634715] usb 1-1: New USB device found, idVendor=0bda, idProduct=568a, bcdDevice=65.10'''
+        log = r'''Mar 15 23:14:34 manager kernel: [ 195.634715] usb 1-1: New USB device found, idVendor=0bda, idProduct=568a, bcdDevice=65.10'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -46,7 +46,7 @@ class TestKernelUsbRules(unittest.TestCase):
 
 
     def test_kernel_usb_disconnect_usb(self) -> None:
-        log = '''Mar 23 15:05:23 manager kernel: usb 1-1: USB disconnect, device number 2'''
+        log = r'''Mar 23 15:05:23 manager kernel: usb 1-1: USB disconnect, device number 2'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -57,7 +57,7 @@ class TestKernelUsbRules(unittest.TestCase):
 
 
     def test_kernel_usb_disconnect_usb_with_kernel_id(self) -> None:
-        log = '''Mar 23 15:05:23 manager kernel: [62859.373865] usb 1-1: USB disconnect, device number 2'''
+        log = r'''Mar 23 15:05:23 manager kernel: [62859.373865] usb 1-1: USB disconnect, device number 2'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -68,7 +68,7 @@ class TestKernelUsbRules(unittest.TestCase):
 
 
     def test_kernel_usb_disconnect_usb_with_kernel_id_and_blank_spaces(self) -> None:
-        log = '''Mar 23 15:05:23 manager kernel: [  259.373865] usb 1-1: USB disconnect, device number 2'''
+        log = r'''Mar 23 15:05:23 manager kernel: [  259.373865] usb 1-1: USB disconnect, device number 2'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)

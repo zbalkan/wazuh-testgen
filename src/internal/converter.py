@@ -29,7 +29,7 @@ class Test{class_name}Rules(unittest.TestCase):
     test_method_template_pass = """\
 
     def test_{section}(self) -> None:
-        log = '''{log_content}'''
+        log = r'''{log_content}'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -43,7 +43,7 @@ class Test{class_name}Rules(unittest.TestCase):
     test_method_template_fail = """\
 
     def test_{section}(self) -> None:
-        log = '''{log_content}'''
+        log = r'''{log_content}'''
         response = send_log(log)
 
         self.assertNotEqual(response.status, LogtestStatus.RuleMatch)

@@ -13,7 +13,7 @@ from internal.logtest import LogtestStatus, send_log
 class TestTestOsregexRegexGeoipRules(unittest.TestCase):
 
     def test_osregex_test_osregex_16_srcgeoip(self) -> None:
-        log = '''Dec 19 17:20:08 ubuntu test_osregex_16[12345]:test_srcgeoip 41.78.120.9'''
+        log = r'''Dec 19 17:20:08 ubuntu test_osregex_16[12345]:test_srcgeoip 41.78.120.9'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -24,7 +24,7 @@ class TestTestOsregexRegexGeoipRules(unittest.TestCase):
 
 
     def test_osregex_test_osregex_16_srcgeoip_n(self) -> None:
-        log = '''Dec 19 17:20:08 ubuntu test_osregex_16[12345]:test_srcgeoip 194.69.224.10'''
+        log = r'''Dec 19 17:20:08 ubuntu test_osregex_16[12345]:test_srcgeoip 194.69.224.10'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -35,7 +35,7 @@ class TestTestOsregexRegexGeoipRules(unittest.TestCase):
 
 
     def test_osregex_test_osregex_17_dstgeoip(self) -> None:
-        log = '''Dec 19 17:20:08 ubuntu test_osregex_17[12345]:test_dstgeoip 41.78.120.9'''
+        log = r'''Dec 19 17:20:08 ubuntu test_osregex_17[12345]:test_dstgeoip 41.78.120.9'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
@@ -46,7 +46,7 @@ class TestTestOsregexRegexGeoipRules(unittest.TestCase):
 
 
     def test_osregex_test_osregex_17_dstgeoip_n(self) -> None:
-        log = '''Dec 19 17:20:08 ubuntu test_osregex_17[12345]:test_dstgeoip 194.69.224.10'''
+        log = r'''Dec 19 17:20:08 ubuntu test_osregex_17[12345]:test_dstgeoip 194.69.224.10'''
         response = send_log(log)
 
         self.assertEqual(response.status, LogtestStatus.RuleMatch)
