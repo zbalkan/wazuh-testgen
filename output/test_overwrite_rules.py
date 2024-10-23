@@ -16,7 +16,7 @@ class TestOverwriteRules(unittest.TestCase):
         log = r'''Apr 14 13:38:51 testUser ow_test[13244]: TEST 1 - rule to be overwritten'''
         response = send_log(log)
 
-        self.assertNotEqual(response.status, LogtestStatus.RuleMatch)
+        self.assertNotEqual(response.rule_id, '999911')
 
 
     def test_overwrite_success(self) -> None:

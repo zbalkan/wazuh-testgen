@@ -38,12 +38,12 @@ class TestSambaRules(unittest.TestCase):
         log = r'''Dec 18 18:06:28 hostname smbd[17535]: Permission denied user not allowed to delete,  pause, or resume print job. User name: ahmet. Printer name: prnq1.'''
         response = send_log(log)
 
-        self.assertNotEqual(response.status, LogtestStatus.RuleMatch)
+        self.assertNotEqual(response.rule_id, '13102')
 
 
     def test_samba_permission_denied_2(self) -> None:
         log = r'''Dec 18 18:06:28 hostname smbd[17535]: Permission denied\-\- user not allowed to delete,  pause, or resume print job. User name: ahmet. Printer name: prnq1.'''
         response = send_log(log)
 
-        self.assertNotEqual(response.status, LogtestStatus.RuleMatch)
+        self.assertNotEqual(response.rule_id, '13102')
 

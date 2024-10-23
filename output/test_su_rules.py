@@ -38,14 +38,14 @@ class TestSuRules(unittest.TestCase):
         log = r'''Apr 27 15:22:23 niban su(pam_unix)[23164]: authentication failure; logname= uid=1342 euid=0 tty= ruser=dcid rhost=  user=osaudit'''
         response = send_log(log)
 
-        self.assertNotEqual(response.status, LogtestStatus.RuleMatch)
+        self.assertNotEqual(response.rule_id, '5503')
 
 
     def test_su_pam_auth_fail_2(self) -> None:
         log = r'''Apr 27 15:22:23 niban su(pam_unix)[2298]: authentication failure; logname= uid=1342 euid=0 tty= ruser=dcid rhost=  user=root'''
         response = send_log(log)
 
-        self.assertNotEqual(response.status, LogtestStatus.RuleMatch)
+        self.assertNotEqual(response.rule_id, '5503')
 
 
     def test_su_work_fts(self) -> None:

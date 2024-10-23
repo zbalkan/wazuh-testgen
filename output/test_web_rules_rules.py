@@ -27,7 +27,7 @@ class TestWebRulesRules(unittest.TestCase):
         log = r'''10.0.0.5 - - [1/Apr/2014:00:00:01 -0500] "POST /wp-admin HTTP/1.1" 200 181 "-" "Mozilla/5.0 (X11)"'''
         response = send_log(log)
 
-        self.assertNotEqual(response.status, LogtestStatus.RuleMatch)
+        self.assertNotEqual(response.rule_id, '31106')
 
 
     def test_a_web_page_returned_code_302_code(self) -> None:

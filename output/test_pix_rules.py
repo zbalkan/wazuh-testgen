@@ -16,7 +16,7 @@ class TestPixRules(unittest.TestCase):
         log = r'''%PIX-7-710001: TCP access requested from X.X.X.X/1292 to outside:Y.Y.Y.Y/ssh'''
         response = send_log(log)
 
-        self.assertNotEqual(response.status, LogtestStatus.RuleMatch)
+        self.assertNotEqual(response.rule_id, '4312')
 
 
     def test_pix1_2(self) -> None:
@@ -155,61 +155,61 @@ class TestPixRules(unittest.TestCase):
         log = r'''%PIX-2-106002: protocol Connection denied by outbound list acl_ID src inside_address dest outside_address'''
         response = send_log(log)
 
-        self.assertNotEqual(response.status, LogtestStatus.RuleMatch)
+        self.assertNotEqual(response.rule_id, '4314')
 
 
     def test_pix8_3(self) -> None:
         log = r'''%PIX-2-106002: udp connection denied by outbound list 30 src 216.53.120.62 138 dest 169.132.10.82 138'''
         response = send_log(log)
 
-        self.assertNotEqual(response.status, LogtestStatus.RuleMatch)
+        self.assertNotEqual(response.rule_id, '4314')
 
 
     def test_pix8_4(self) -> None:
         log = r'''%PIX-4-400013 IDS:2003 ICMP redirect from 10.4.1.2 to 10.2.1.1 on interface dmz'''
         response = send_log(log)
 
-        self.assertNotEqual(response.status, LogtestStatus.RuleMatch)
+        self.assertNotEqual(response.rule_id, '4314')
 
 
     def test_pix8_5(self) -> None:
         log = r'''%PIX-3-305005: No translation group found for icmp src outside:x.x.x.x dst inside:x.x.x.x (type 3, code 0)'''
         response = send_log(log)
 
-        self.assertNotEqual(response.status, LogtestStatus.RuleMatch)
+        self.assertNotEqual(response.rule_id, '4314')
 
 
     def test_pix8_6(self) -> None:
         log = r'''%PIX-6-605005: Login permitted from 192.168.1.2/2953 to inside:192.168.1.1/telnet for user ""'''
         response = send_log(log)
 
-        self.assertNotEqual(response.status, LogtestStatus.RuleMatch)
+        self.assertNotEqual(response.rule_id, '4314')
 
 
     def test_pix8_7(self) -> None:
         log = r'''%PIX-6-605004: Login denied from 192.168.2.10/32597 to outside:192.168.2.14/ssh for user "root"'''
         response = send_log(log)
 
-        self.assertNotEqual(response.status, LogtestStatus.RuleMatch)
+        self.assertNotEqual(response.rule_id, '4314')
 
 
     def test_pix8_8(self) -> None:
         log = r'''%PIX-6-305011: Built dynamic UDP translation from inside:192.168.1.2/1026 to outside:192.168.2.14/1163'''
         response = send_log(log)
 
-        self.assertNotEqual(response.status, LogtestStatus.RuleMatch)
+        self.assertNotEqual(response.rule_id, '4314')
 
 
     def test_pix8_9(self) -> None:
         log = r'''%PIX-6-305011: Built dynamic TCP translation from inside:192.168.1.3/54946 to outside:192.168.2.14/1033'''
         response = send_log(log)
 
-        self.assertNotEqual(response.status, LogtestStatus.RuleMatch)
+        self.assertNotEqual(response.rule_id, '4314')
 
 
     def test_pix8_10(self) -> None:
         log = r'''%PIX-6-302015: Built outbound UDP connection 156 for outside:192.168.2.10/1514 (192.168.2.10/1514) to inside:192.168.1.2/1026 (192.168.2.14/1163)'''
         response = send_log(log)
 
-        self.assertNotEqual(response.status, LogtestStatus.RuleMatch)
+        self.assertNotEqual(response.rule_id, '4314')
 

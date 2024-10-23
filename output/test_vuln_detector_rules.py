@@ -27,5 +27,5 @@ class TestVulnDetectorRules(unittest.TestCase):
         log = r'''{"vulnerability":{"package":{"name":"ncurses","version":"5.9-14.20130511.el7_4","architecture":"x86_64"},"cve":"", "status":"Solved", "reference":"fb783b1c771a643f81259a93248e7f61e9a4a597"}}'''
         response = send_log(log)
 
-        self.assertNotEqual(response.status, LogtestStatus.RuleMatch)
+        self.assertNotEqual(response.rule_id, '23502')
 

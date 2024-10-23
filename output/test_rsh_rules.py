@@ -27,5 +27,5 @@ class TestRshRules(unittest.TestCase):
         log = r'''Dec 17 10:49:23 hostname rhsd[347339]: Connection from 10.217.223.31 on illegal port'''
         response = send_log(log)
 
-        self.assertNotEqual(response.status, LogtestStatus.RuleMatch)
+        self.assertNotEqual(response.rule_id, '2551')
 

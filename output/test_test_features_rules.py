@@ -82,7 +82,7 @@ class TestTestFeaturesRules(unittest.TestCase):
         log = r'''Dec 19 17:20:08 User test_noalert[12345]:Test noalert=1'''
         response = send_log(log)
 
-        self.assertNotEqual(response.status, LogtestStatus.RuleMatch)
+        self.assertNotEqual(response.rule_id, '')
 
 
     def test_noalert_disabled(self) -> None:

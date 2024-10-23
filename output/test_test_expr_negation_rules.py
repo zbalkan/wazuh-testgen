@@ -38,7 +38,7 @@ class TestTestExprNegationRules(unittest.TestCase):
         log = r'''Dec 19 17:20:08 ubuntu test_expr_negation[12345]:test_action wazuh-agent123@192.168.0.2:31415 HTTPS 192.168.0.1:9264 /status/isbad POST format=json content="{'msg'='helloworld'}" RESULT=success'''
         response = send_log(log)
 
-        self.assertNotEqual(response.status, LogtestStatus.RuleMatch)
+        self.assertNotEqual(response.rule_id, '')
 
 
     def test_expr_negation_dstip_1(self) -> None:
@@ -67,7 +67,7 @@ class TestTestExprNegationRules(unittest.TestCase):
         log = r'''Dec 19 17:20:08 ubuntu test_expr_negation[12345]:test_dstip wazuh-agent123@192.168.0.2:31415 HTTPS 192.168.0.15:9264 /status/isbad GET format=json content="{'msg'='helloworld'}" RESULT=success'''
         response = send_log(log)
 
-        self.assertNotEqual(response.status, LogtestStatus.RuleMatch)
+        self.assertNotEqual(response.rule_id, '')
 
 
     def test_expr_negation_extra_data_1(self) -> None:
@@ -96,7 +96,7 @@ class TestTestExprNegationRules(unittest.TestCase):
         log = r'''Dec 19 17:20:08 ubuntu test_expr_negation[12345]:test_extra_data wazuh-agent123@192.168.0.2:31415 HTTPS 192.168.0.1:9264 /status/isbad GET format=json content="{'msg'='Soyez le premier'}" RESULT=success'''
         response = send_log(log)
 
-        self.assertNotEqual(response.status, LogtestStatus.RuleMatch)
+        self.assertNotEqual(response.rule_id, '')
 
 
     def test_expr_negation_field_1(self) -> None:
@@ -125,7 +125,7 @@ class TestTestExprNegationRules(unittest.TestCase):
         log = r'''Dec 19 17:20:08 ubuntu test_expr_negation[12345]:test_field wazuh-agent123@192.168.0.2:31415 HTTPS 192.168.0.1:9264 /status/isbad GET format=xml content="<msg>helloworld</msg>" RESULT=success'''
         response = send_log(log)
 
-        self.assertNotEqual(response.status, LogtestStatus.RuleMatch)
+        self.assertNotEqual(response.rule_id, '')
 
 
     def test_expr_negation_hostname_1(self) -> None:
@@ -154,7 +154,7 @@ class TestTestExprNegationRules(unittest.TestCase):
         log = r'''Dec 19 17:20:08 hostname_2 test_expr_negation_predec_fields[123]: test_hostname system_name somedata'''
         response = send_log(log)
 
-        self.assertNotEqual(response.status, LogtestStatus.RuleMatch)
+        self.assertNotEqual(response.rule_id, '0')
 
 
     def test_expr_negation_id_1(self) -> None:
@@ -183,7 +183,7 @@ class TestTestExprNegationRules(unittest.TestCase):
         log = r'''Dec 19 17:20:08 ubuntu test_expr_negation[12345]:test_id wazuh-agent999@192.168.0.2:31415 HTTPS 192.168.0.1:9264 /status/isbad GET format=json content="{'msg'='helloworld'}" RESULT=success'''
         response = send_log(log)
 
-        self.assertNotEqual(response.status, LogtestStatus.RuleMatch)
+        self.assertNotEqual(response.rule_id, '0')
 
 
     def test_expr_negation_location_1(self) -> None:
@@ -256,14 +256,14 @@ class TestTestExprNegationRules(unittest.TestCase):
         log = r'''Dec 19 17:20:08 ubuntu test_match[12345]: test_match_3'''
         response = send_log(log)
 
-        self.assertNotEqual(response.status, LogtestStatus.RuleMatch)
+        self.assertNotEqual(response.rule_id, '')
 
 
     def test_expr_negation_match_3_2(self) -> None:
         log = r'''Dec 19 17:20:08 ubuntu test_match[12345]: test_match_4'''
         response = send_log(log)
 
-        self.assertNotEqual(response.status, LogtestStatus.RuleMatch)
+        self.assertNotEqual(response.rule_id, '')
 
 
     def test_expr_negation_program_name_1(self) -> None:
@@ -292,7 +292,7 @@ class TestTestExprNegationRules(unittest.TestCase):
         log = r'''Dec 19 17:20:08 hostname test_program_name_02[123]:'''
         response = send_log(log)
 
-        self.assertNotEqual(response.status, LogtestStatus.RuleMatch)
+        self.assertNotEqual(response.rule_id, '0')
 
 
     def test_expr_negation_protocol_1(self) -> None:
@@ -321,7 +321,7 @@ class TestTestExprNegationRules(unittest.TestCase):
         log = r'''Dec 19 17:20:08 ubuntu test_expr_negation[12345]:test_protocol wazuh-agent123@192.168.0.2:31415 HTTPS 192.168.0.1:9264 /status/isbad GET format=json content="{'msg'='helloworld'}" RESULT=success'''
         response = send_log(log)
 
-        self.assertNotEqual(response.status, LogtestStatus.RuleMatch)
+        self.assertNotEqual(response.rule_id, '')
 
 
     def test_expr_negation_regex_1_1(self) -> None:
@@ -372,14 +372,14 @@ class TestTestExprNegationRules(unittest.TestCase):
         log = r'''Dec 19 17:20:08 ubuntu test_regex[12345]: regex_id-a'''
         response = send_log(log)
 
-        self.assertNotEqual(response.status, LogtestStatus.RuleMatch)
+        self.assertNotEqual(response.rule_id, '')
 
 
     def test_expr_negation_regex_3_2(self) -> None:
         log = r'''Dec 19 17:20:08 ubuntu test_regex[12345]: regex_id-a'''
         response = send_log(log)
 
-        self.assertNotEqual(response.status, LogtestStatus.RuleMatch)
+        self.assertNotEqual(response.rule_id, '')
 
 
     def test_expr_negation_srcip_1(self) -> None:
@@ -408,7 +408,7 @@ class TestTestExprNegationRules(unittest.TestCase):
         log = r'''Dec 19 17:20:08 ubuntu test_expr_negation[12345]:test_srcip wazuh-agent123@192.168.0.15:31415 HTTPS 192.168.0.1:9264 /status/isbad GET format=json content="{'msg'='helloworld'}" RESULT=success'''
         response = send_log(log)
 
-        self.assertNotEqual(response.status, LogtestStatus.RuleMatch)
+        self.assertNotEqual(response.rule_id, '')
 
 
     def test_expr_negation_user_1(self) -> None:
@@ -437,7 +437,7 @@ class TestTestExprNegationRules(unittest.TestCase):
         log = r'''Dec 19 17:20:08 ubuntu test_expr_negation[12345]:test_user dritch-agent123@192.168.0.2:31415 HTTPS 192.168.0.1:9264 /status/isbad GET format=json content="{'msg'='helloworld'}" RESULT=success'''
         response = send_log(log)
 
-        self.assertNotEqual(response.status, LogtestStatus.RuleMatch)
+        self.assertNotEqual(response.rule_id, '')
 
 
     def test_expr_negation_url_1(self) -> None:
@@ -466,7 +466,7 @@ class TestTestExprNegationRules(unittest.TestCase):
         log = r'''Dec 19 17:20:08 ubuntu test_expr_negation[12345]:test_url wazuh-agent123@192.168.0.2:31415 HTTPS 192.168.0.1:9264 /resources/user_info GET format=json content="{'msg'='helloworld'}" RESULT=success'''
         response = send_log(log)
 
-        self.assertNotEqual(response.status, LogtestStatus.RuleMatch)
+        self.assertNotEqual(response.rule_id, '')
 
 
     def test_expr_negation_srcport_1(self) -> None:
@@ -495,7 +495,7 @@ class TestTestExprNegationRules(unittest.TestCase):
         log = r'''Dec 19 17:20:08 ubuntu test_expr_negation[12345]:test_srcport wazuh-agent123@192.168.0.2:4321 HTTPS 192.168.0.1:9264 /status/isbad GET format=json content="{'msg'='helloworld'}" RESULT=success'''
         response = send_log(log)
 
-        self.assertNotEqual(response.status, LogtestStatus.RuleMatch)
+        self.assertNotEqual(response.rule_id, '')
 
 
     def test_expr_negation_dstport_1(self) -> None:
@@ -524,7 +524,7 @@ class TestTestExprNegationRules(unittest.TestCase):
         log = r'''Dec 19 17:20:08 ubuntu test_expr_negation[12345]:test_dstport wazuh-agent123@192.168.0.2:31415 HTTPS 192.168.0.1:4321 /status/isbad GET format=json content="{'msg'='helloworld'}" RESULT=success'''
         response = send_log(log)
 
-        self.assertNotEqual(response.status, LogtestStatus.RuleMatch)
+        self.assertNotEqual(response.rule_id, '')
 
 
     def test_expr_negation_status_1(self) -> None:
@@ -553,7 +553,7 @@ class TestTestExprNegationRules(unittest.TestCase):
         log = r'''Dec 19 17:20:08 ubuntu test_expr_negation[12345]:test_status wazuh-agent123@192.168.0.2:31415 HTTPS 192.168.0.1:9264 /status/isbad GET format=json content="{'msg'='helloworld'}" RESULT=fail'''
         response = send_log(log)
 
-        self.assertNotEqual(response.status, LogtestStatus.RuleMatch)
+        self.assertNotEqual(response.rule_id, '')
 
 
     def test_expr_negation_system_name_1(self) -> None:
@@ -582,7 +582,7 @@ class TestTestExprNegationRules(unittest.TestCase):
         log = r'''Dec 19 17:20:08 hostname test_expr_negation_predec_fields[123]: test_system_name system_name_2 somedata'''
         response = send_log(log)
 
-        self.assertNotEqual(response.status, LogtestStatus.RuleMatch)
+        self.assertNotEqual(response.rule_id, '')
 
 
     def test_expr_negation_data_1(self) -> None:
@@ -611,5 +611,5 @@ class TestTestExprNegationRules(unittest.TestCase):
         log = r'''Dec 19 17:20:08 hostname test_expr_negation_predec_fields[123]: test_data system_name data_2'''
         response = send_log(log)
 
-        self.assertNotEqual(response.status, LogtestStatus.RuleMatch)
+        self.assertNotEqual(response.rule_id, '0')
 

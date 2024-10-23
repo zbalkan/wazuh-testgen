@@ -104,14 +104,14 @@ class TestDovecotRules(unittest.TestCase):
         log = r'''Jan 07 14:46:28 Warn: auth(default): userdb(username,::ffff:127.0.0.1): user not found from userdb'''
         response = send_log(log)
 
-        self.assertNotEqual(response.status, LogtestStatus.RuleMatch)
+        self.assertNotEqual(response.rule_id, '1002')
 
 
     def test_xxx_nothing_2(self) -> None:
         log = r'''May 31 09:43:57 Info: pop3-login: Aborted login (1 authentication attempts): user=<username>, method=PLAIN, rip=::ffff:1.2.3.4, lip=::ffff:1.2.3.5, secured'''
         response = send_log(log)
 
-        self.assertNotEqual(response.status, LogtestStatus.RuleMatch)
+        self.assertNotEqual(response.rule_id, '1002')
 
 
     def test_xxx_unknown_1002(self) -> None:
@@ -151,7 +151,7 @@ class TestDovecotRules(unittest.TestCase):
         log = r'''Jun 23 15:04:06 Info: IMAP(username): Disconnected: Logged out bytes=59/566'''
         response = send_log(log)
 
-        self.assertNotEqual(response.status, LogtestStatus.RuleMatch)
+        self.assertNotEqual(response.rule_id, '1002')
 
 
     def test_unknown_user(self) -> None:

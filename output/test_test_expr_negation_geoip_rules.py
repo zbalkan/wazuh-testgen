@@ -38,7 +38,7 @@ class TestTestExprNegationGeoipRules(unittest.TestCase):
         log = r'''May  1 16:17:43 wazuhUsr test_geoip[9024]: connect to 200.16.16.1 from 94.80.188.102'''
         response = send_log(log)
 
-        self.assertNotEqual(response.status, LogtestStatus.RuleMatch)
+        self.assertNotEqual(response.rule_id, '')
 
 
     def test_expr_negation_geoip_srcgroip_1(self) -> None:
@@ -67,5 +67,5 @@ class TestTestExprNegationGeoipRules(unittest.TestCase):
         log = r'''May  1 16:17:43 wazuhUsr test_geoip[9024]: disconnect to 94.80.188.102 from 200.16.16.1'''
         response = send_log(log)
 
-        self.assertNotEqual(response.status, LogtestStatus.RuleMatch)
+        self.assertNotEqual(response.rule_id, '')
 

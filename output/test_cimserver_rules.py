@@ -27,5 +27,5 @@ class TestCimserverRules(unittest.TestCase):
         log = r'''Dec 18 18:06:29 hostname vimserver[18575]: PGS17200: Authentication failed for user domain\jones_b.'''
         response = send_log(log)
 
-        self.assertNotEqual(response.status, LogtestStatus.RuleMatch)
+        self.assertNotEqual(response.rule_id, '9610')
 

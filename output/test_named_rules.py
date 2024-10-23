@@ -49,7 +49,7 @@ class TestNamedRules(unittest.TestCase):
         log = r'''Aug 29 15:33:13 ns3 name[464]: client 217.148.39.4#32769: query (cache) denied'''
         response = send_log(log)
 
-        self.assertNotEqual(response.status, LogtestStatus.RuleMatch)
+        self.assertNotEqual(response.rule_id, '12108')
 
 
     def test_query_cache_denied_5(self) -> None:

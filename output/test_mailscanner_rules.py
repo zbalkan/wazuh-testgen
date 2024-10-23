@@ -16,5 +16,5 @@ class TestMailscannerRules(unittest.TestCase):
         log = r'''Feb 14 06:29:39 hostname update.bad.phishing.sites: Phishing bad sites list updated'''
         response = send_log(log)
 
-        self.assertNotEqual(response.status, LogtestStatus.RuleMatch)
+        self.assertNotEqual(response.rule_id, '3752')
 

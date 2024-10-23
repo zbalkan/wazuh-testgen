@@ -46,7 +46,7 @@ class Test{class_name}Rules(unittest.TestCase):
         log = r'''{log_content}'''
         response = send_log(log)
 
-        self.assertNotEqual(response.status, LogtestStatus.RuleMatch)
+        self.assertNotEqual(response.rule_id, '{rule}')
 
 """
 

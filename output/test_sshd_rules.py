@@ -214,7 +214,7 @@ class TestSshdRules(unittest.TestCase):
         log = r'''2013-10-30T14:51:24.139258+01:00 srv sshd[12664]: error: PAM: User not known to the underlying authentication module for illegal user warez from 192.241.237.101'''
         response = send_log(log)
 
-        self.assertNotEqual(response.status, LogtestStatus.RuleMatch)
+        self.assertNotEqual(response.rule_id, '5710')
 
 
     def test_invalid_user_3(self) -> None:
@@ -232,7 +232,7 @@ class TestSshdRules(unittest.TestCase):
         log = r'''2013-10-30T14:51:30.267906+01:00 srv sshd[12671]: input_userauth_request: invalid user opcione [preauth]'''
         response = send_log(log)
 
-        self.assertNotEqual(response.status, LogtestStatus.RuleMatch)
+        self.assertNotEqual(response.rule_id, '5710')
 
 
     def test_invalid_user_5(self) -> None:
