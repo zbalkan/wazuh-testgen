@@ -10,7 +10,7 @@ from internal.logtest import LogtestStatus, send_log
 
 
 # Converted from panda_paps.ini
-class TestPanda_papsRules(unittest.TestCase):
+class TestPandaPapsRules(unittest.TestCase):
 
     def test_panda_paps_alert_message_received(self) -> None:
         log = '''LEEF:1.0|Panda Security|paps|02.47.00.0000|registrym|sev=1	devTime=2019-05-09 22:03:58.692466	devTimeFormat=yyyy-MM-dd HH:mm:ss.SSS	usrName=SYSTEM	domain=NT AUTHORITY	src=192.168.0.8	identSrc=192.168.0.8	identHostName=13_2595_43	HostName=13_2595_43	MUID=6C6A0D57714FE5B6D72BA0EC0E46D71B	Op=ModifyExeKey	Hash=E60A27AAEB184AABD9C92C513B27F98A	DriveType=Fixed	Path=PROGRAM_FILES_COMMONX86|\Quest\Privilege Manager\Client\CSEHost.exe	ValidSig=true	Company=Quest Software Inc.	Broken=false	ImageType=EXE 32	ExeType=Unknown	Prevalence=Medium	PrevLastDay=Low	Cat=Goodware	MWName=	TargetPath=3|PROGRAM_FILES_COMMONX86|\Quest\Privilege Manager\Client\GPEEventMsgFile.dll	RegKey=\REGISTRY\MACHINE\SYSTEM\ControlSet001\services\eventlog\Application\GPE Alert?EventMessageFile'''

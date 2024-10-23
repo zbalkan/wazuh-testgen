@@ -1,5 +1,5 @@
 import re
-from typing import Any
+from typing import Any, Optional
 
 
 class TestCase:
@@ -29,12 +29,14 @@ class TestParser:
         section = self.__split(path)
         test_cases: list[TestCase] = []
         for section in section:
-            test_cases.extend(self.read(section))
+            lines = self.__read(section)
+            if lines:
+                test_cases.extend(lines)
 
         return test_cases
 
 
-    def read(self, lines:list[str]) -> list[TestCase]:
+    def __read(self, lines:list[str]) -> Optional[list[TestCase]]:
 
         header: str = lines[0].replace('[', '').replace(']', '').lower()
         logs:list[tuple] = []
@@ -58,6 +60,9 @@ class TestParser:
             v: str = line[delim+1:].strip()
             pairs.append((k,v))
 
+        if len(pairs) == 0:
+            return None
+
         for k,v in pairs:
             if (k.startswith('log')):
                 condition = k.split(' ')[2]
@@ -71,12 +76,13 @@ class TestParser:
                 decoder = v
 
         if len(logs) == 1:
-            result.append(TestCase(header,logs[0][0],logs[0][1],rule,alert,decoder))
+            result.append(TestCase(header, logs[0][0],
+                          logs[0][1], rule, alert, decoder))
             return result
         else:
             for i, t in enumerate(logs):
                 result.append(TestCase(header + ' - ' + str(i + 1),
-                            t[0], t[1], rule, alert, decoder))
+                                       t[0], t[1], rule, alert, decoder))
 
         return result
 

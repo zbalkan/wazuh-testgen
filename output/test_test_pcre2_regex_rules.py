@@ -10,7 +10,7 @@ from internal.logtest import LogtestStatus, send_log
 
 
 # Converted from test_pcre2_regex.ini
-class TestTest_pcre2_regexRules(unittest.TestCase):
+class TestTestPcre2RegexRules(unittest.TestCase):
 
     def test_pcre2_test_pcre2_0_protocol(self) -> None:
         log = '''Dec 19 17:20:08 ubuntu test_pcre2_0[12345]:test_protocol HTTP root@192.168.0.2:1234 192.168.0.1:4321'''

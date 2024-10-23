@@ -10,7 +10,7 @@ from internal.logtest import LogtestStatus, send_log
 
 
 # Converted from test_features.ini
-class TestTest_featuresRules(unittest.TestCase):
+class TestTestFeaturesRules(unittest.TestCase):
 
     def test_same_fields_1(self) -> None:
         log = '''Dec 25 20:45:02 MyHost test_same_fields[12345]: User 'admin' logged from '192.168.1.100' 5 this is the same_fields test'''

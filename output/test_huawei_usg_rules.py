@@ -10,7 +10,7 @@ from internal.logtest import LogtestStatus, send_log
 
 
 # Converted from huawei_usg.ini
-class TestHuawei_usgRules(unittest.TestCase):
+class TestHuaweiUsgRules(unittest.TestCase):
 
     def test_huawei_usg_filter(self) -> None:
         log = '''2018/10/05 09:52:14 USG6300 %%01URL/4/FILTER(l): The URL filtering policy was matched. (SyslogId=1906054, VSys="public", Policy="Internet Access", SrcIp=1.1.1.1, DstIp=2.2.2.2, SrcPort=5702, DstPort=80, SrcZone=dmz, DstZone=untrust, User="unknown", Protocol=TCP, Application="google", Profile="prof1", Type=Pre-defined, EventNum=1, Category="Search Engines/Portals", SubCategory="Search Engines", Page="*", Host="www.google.com", Item="none", Action=Alert)'''

@@ -10,7 +10,7 @@ from internal.logtest import LogtestStatus, send_log
 
 
 # Converted from cisco_ios.ini
-class TestCisco_iosRules(unittest.TestCase):
+class TestCiscoIosRules(unittest.TestCase):
 
     def test_cisco_ios_ids_sig_1(self) -> None:
         log = '''Sep  1 10:25:29 10.10.10.1 %IPS-4-SIGNATURE: Sig:3051 Subsig:1 Sev:4 TCP Connection Window Size DoS [192.168.100.11:51654 -> 10.10.10.10:4444]'''

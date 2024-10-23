@@ -10,7 +10,7 @@ from internal.logtest import LogtestStatus, send_log
 
 
 # Converted from kernel_usb.ini
-class TestKernel_usbRules(unittest.TestCase):
+class TestKernelUsbRules(unittest.TestCase):
 
     def test_kernel_usb_attach_usb(self) -> None:
         log = '''Mar 23 15:04:52 manager kernel: usb 1-1: New USB device found, idVendor=0930, idProduct=6544'''

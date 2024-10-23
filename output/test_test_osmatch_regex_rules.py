@@ -10,7 +10,7 @@ from internal.logtest import LogtestStatus, send_log
 
 
 # Converted from test_osmatch_regex.ini
-class TestTest_osmatch_regexRules(unittest.TestCase):
+class TestTestOsmatchRegexRules(unittest.TestCase):
 
     def test_osmatch_test_osmatch_1_dynamic_field(self) -> None:
         log = '''Dec 19 17:20:08 ubuntu test_osmatch_1[12345]:test_field https://localhost GET format=json'''

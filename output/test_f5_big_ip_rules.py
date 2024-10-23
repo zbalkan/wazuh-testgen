@@ -10,7 +10,7 @@ from internal.logtest import LogtestStatus, send_log
 
 
 # Converted from f5_big_ip.ini
-class TestF5_big_ipRules(unittest.TestCase):
+class TestF5BigIpRules(unittest.TestCase):
 
     def test_high_demand_traffic(self) -> None:
         log = '''May  5 04:26:19 hostname type process[20175]: 01010251:0: Virtual componentName exceeded configured rate limit.'''

@@ -10,7 +10,7 @@ from internal.logtest import LogtestStatus, send_log
 
 
 # Converted from checkpoint_smart1.ini
-class TestCheckpoint_smart1Rules(unittest.TestCase):
+class TestCheckpointSmart1Rules(unittest.TestCase):
 
     def test_checkpoint_smart1_drop_prohibit_a_packet_from_passing_send_no_response(self) -> None:
         log = '''1 2019-05-15T16:25:50Z HOSTNAME CheckPoint 19710 - [action:"Drop"; flags:"400644"; ifdir:"inbound"; ifname:"eth2"; logid:"0"; loguid:"{0x0,0x0,0x0,0x0}"; origin:"11.22.33.44"; originsicname:"CN=TR-DC-FW-INT-B-5600,O=Internet-QRO..g7hgcu"; sequencenum:"11"; time:"1557937550"; version:"5"; __policy_id_tag:"product=VPN-1 & FireWall-1[db_tag={C12F833B-77C9-3941-9B06-075E9D2A86A2};mgmt=TR-DC-VCON-2-INT;date=1557764162;policy_name=FW-INT-TR\]"; dst:"11.22.33.55"; inzone:"Internal"; layer_name:"FW-INT-TR Security"; layer_uuid:"75569106-7e80-4c4e-ab23-b0848f2cb41b"; match_id:"244"; parent_rule:"0"; rule_action:"Drop"; rule_name:"CleanUp Rule"; rule_uid:"b9d9605b-a71e-4664-a042-3fbd041b0b41"; outzone:"Internal"; product:"VPN-1 & FireWall-1"; proto:"17"; s_port:"55036"; service:"1514"; service_id:"ptos_avaya"; src:"11.22.33.77"; ]'''
@@ -67,7 +67,7 @@ class TestCheckpoint_smart1Rules(unittest.TestCase):
         self.assertEqual(response.rule_level, 2)
 
 
-    def test_checkpoint_smart1_monitored_a_security_event_was_monitored;_however_it_was_not_blocked_due_to_the_current_configuration(self) -> None:
+    def test_checkpoint_smart1_monitored_a_security_event_was_monitored_however_it_was_not_blocked_due_to_the_current_configuration(self) -> None:
         log = '''1 2019-05-15T16:27:08Z HOSTNAME CheckPoint 19710 - [action:"Monitored";...'''
         response = send_log(log)
 

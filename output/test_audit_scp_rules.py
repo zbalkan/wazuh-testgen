@@ -10,7 +10,7 @@ from internal.logtest import LogtestStatus, send_log
 
 
 # Converted from audit_scp.ini
-class TestAudit_scpRules(unittest.TestCase):
+class TestAuditScpRules(unittest.TestCase):
 
     def test_executed_python_script(self) -> None:
         log = '''type=SYSCALL msg=audit(1624643172.076:11843): arch=c000003e syscall=59 success=yes exit=0 a0=25c81f0 a1=255f000 a2=255df40 a3=7ffc66d5c8e0 items=3 ppid=4353 pid=13331 auid=1198400500 uid=1198400500 gid=1198400513 euid=1198400500 suid=1198400500 fsuid=1198400500 egid=1198400513 sgid=1198400513 fsgid=1198400513 tty=pts0 ses=48 comm="runtime" exe="/usr/bin/python3.6" subj=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 key="wazuh_execution"\u001DARCH=x86_64 SYSCALL=execve AUID="administrator@ExchangeTest.com" UID="administrator@ExchangeTest.com" GID=646F6D61696E2075736572734045786368616E6765546573742E636F6D EUID="administrator@ExchangeTest.com" SUID="administrator@ExchangeTest.com" FSUID="administrator@ExchangeTest.com" EGID=646F6D61696E2075736572734045786368616E6765546573742E636F6D SGID=646F6D61696E2075736572734045786368616E6765546573742E636F6D FSGID=646F6D61696E2075736572734045786368616E6765546573742E636F6D type=EXECVE msg=audit(1624643172.076:11843): argc=6 a0="/usr/bin/python3" a1="./runtime" a2="psexec.py" a3="exchangetest.com/administrator@192.168.0.57"'''

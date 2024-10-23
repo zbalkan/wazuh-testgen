@@ -10,7 +10,7 @@ from internal.logtest import LogtestStatus, send_log
 
 
 # Converted from cloudflare-waf.ini
-class TestCloudflare-wafRules(unittest.TestCase):
+class TestCloudflareWafRules(unittest.TestCase):
 
     def test_cloudflare_waf_get_method_event(self) -> None:
         log = '''{"ClientIP":"54.76.123.133","ClientRequestHost":"ae-preprod.yap.com","ClientRequestMethod":"GET","ClientRequestURI":"/messages/actuator/health","EdgeEndTimestamp":"2021-07-27T21:26:42Z","EdgeResponseBytes":845,"EdgeResponseStatus":200,"EdgeStartTimestamp":"2021-07-27T21:26:42Z","RayID":"6758f291eb0b60df","FirewallMatchesActions":[],"FirewallMatchesRuleIDs":[],"FirewallMatchesSources":[],"OriginIP":"99.83.222.19","OriginSSLProtocol":"TLSv1.2","OriginResponseBytes":0,"OriginResponseHTTPExpires":"","OriginResponseHTTPLastModified":"","OriginResponseStatus":200,"OriginResponseTime":20000000,"WAFAction":"unknown","WAFFlags":"0","WAFMatchedVar":"","WAFProfile":"unknown","WAFRuleID":"","WAFRuleMessage":"","WorkerCPUTime":0,"WorkerStatus":"unknown","WorkerSubrequest":false,"WorkerSubrequestCount":0,"CacheCacheStatus":"unknown","CacheTieredFill":false,"CacheResponseBytes":1981,"CacheResponseStatus":200,"ClientCountry":"ie","ClientDeviceType":"desktop","ClientIPClass":"noRecord","ZoneID":276192118,"ZoneName":"yap.com","SecurityLevel":"unk"}'''

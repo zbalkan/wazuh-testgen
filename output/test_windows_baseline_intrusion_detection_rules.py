@@ -10,7 +10,7 @@ from internal.logtest import LogtestStatus, send_log
 
 
 # Converted from windows_baseline_intrusion_detection.ini
-class TestWindows_baseline_intrusion_detectionRules(unittest.TestCase):
+class TestWindowsBaselineIntrusionDetectionRules(unittest.TestCase):
 
     def test_app_locker_allowed_exe_execution(self) -> None:
         log = '''{"win":{"system":{"eventID":"8002","keywords":"0x8000000000000000","providerGuid":"{cbda4dbf-8d5d-4f69-9578-be14aa540d22}","level":"4","channel":"Microsoft-Windows-AppLocker/EXE and DLL","opcode":"0","message":"\"%SYSTEM32%\\TASKHOSTW.EXE was allowed to run.\"","version":"0","systemTime":"2022-08-10T23:40:50.0608494Z","eventRecordID":"48","threadID":"5880","computer":"hrmanager.ExchangeTest.com","task":"0","processID":"1260","severityValue":"INFORMATION","providerName":"Microsoft-Windows-AppLocker"},"ruleAndFileData":{"targetProcessId":"3736","ruleNameLength":"54","policyName":"Exe","policyNameLength":"3","filePath":"%SYSTEM32%\\\\TASKHOSTW.EXE","fullFilePathLength":"33","filePathLength":"24","fileHashLength":"0","targetLogonId":"0x35718c","ruleSddl":"D:(XA;;FX;;;S-1-1-0;(APPID://PATH Contains \\\"%WINDIR%\\\\*\\\"))","fqbnLength":"1","ruleName":"(Default Rule) All files located in the Windows folder","fullFilePath":"C:\\\\Windows\\\\system32\\\\taskhostw.exe","ruleId":"{a61c8b2c-a319-4cd0-9690-d2177cad7b51}","ruleSddlLength":"57","targetUser":"S-1-5-21-887924094-598891991-956377308-1146"}}}'''
@@ -111,7 +111,7 @@ class TestWindows_baseline_intrusion_detectionRules(unittest.TestCase):
         self.assertEqual(response.rule_level, 3)
 
 
-    def test_network_share_object_access_without_ipc$_and_netlogon_shares(self) -> None:
+    def test_network_share_object_access_without_ipc_and_netlogon_shares(self) -> None:
         log = '''{"win":{"eventdata":{"subjectLogonId":"0x17880fe","subjectUserSid":"S-1-5-21-887924094-598891991-956377308-1146","ipPort":"60366","subjectDomainName":"EXCHANGETEST","shareLocalPath":"\\\\??\\\\C:\\\\Users\\\\AtomicRed\\\\Documents","ipAddress":"192.168.0.115","accessList":"%%4416","accessMask":"0x1","shareName":"\\\\\\\\*\\\\Documents","subjectUserName":"AtomicRed","objectType":"File"},"system":{"eventID":"5140","keywords":"0x8020000000000000","providerGuid":"{54849625-5478-4994-a5ba-3e3b0328c30d}","level":"0","channel":"Security","opcode":"0","message":"\"A network share object was accessed.\r\n\t\r\nSubject:\r\n\tSecurity ID:\t\tS-1-5-21-887924094-598891991-956377308-1146\r\n\tAccount Name:\t\tAtomicRed\r\n\tAccount Domain:\t\tEXCHANGETEST\r\n\tLogon ID:\t\t0x17880FE\r\n\r\nNetwork Information:\t\r\n\tObject Type:\t\tFile\r\n\tSource Address:\t\t192.168.0.115\r\n\tSource Port:\t\t60366\r\n\t\r\nShare Information:\r\n\tShare Name:\t\t\\\\*\\Documents\r\n\tShare Path:\t\t\\??\\C:\\Users\\AtomicRed\\Documents\r\n\r\nAccess Request Information:\r\n\tAccess Mask:\t\t0x1\r\n\tAccesses:\t\tReadData (or ListDirectory)\r\n\t\t\t\t\r\n\"","version":"1","systemTime":"2022-08-12T19:43:57.7974347Z","eventRecordID":"1280841","threadID":"6540","computer":"hrmanager.ExchangeTest.com","task":"12808","processID":"4","severityValue":"AUDIT_SUCCESS","providerName":"Microsoft-Windows-Security-Auditing"}}}'''
         response = send_log(log)
 
@@ -122,7 +122,7 @@ class TestWindows_baseline_intrusion_detectionRules(unittest.TestCase):
         self.assertEqual(response.rule_level, 3)
 
 
-    def test_network_share_object_access_with_ipc$_and_netlogon_shares(self) -> None:
+    def test_network_share_object_access_with_ipc_and_netlogon_shares(self) -> None:
         log = '''{"win":{"eventdata":{"subjectLogonId":"0x17880fe","subjectUserSid":"S-1-5-21-887924094-598891991-956377308-1146","ipPort":"60366","subjectDomainName":"EXCHANGETEST","ipAddress":"192.168.0.115","accessList":"%%4416","accessMask":"0x1","shareName":"\\\\\\\\*\\\\IPC$","subjectUserName":"AtomicRed","objectType":"File"},"system":{"eventID":"5140","keywords":"0x8020000000000000","providerGuid":"{54849625-5478-4994-a5ba-3e3b0328c30d}","level":"0","channel":"Security","opcode":"0","message":"\"A network share object was accessed.\r\n\t\r\nSubject:\r\n\tSecurity ID:\t\tS-1-5-21-887924094-598891991-956377308-1146\r\n\tAccount Name:\t\tAtomicRed\r\n\tAccount Domain:\t\tEXCHANGETEST\r\n\tLogon ID:\t\t0x17880FE\r\n\r\nNetwork Information:\t\r\n\tObject Type:\t\tFile\r\n\tSource Address:\t\t192.168.0.115\r\n\tSource Port:\t\t60366\r\n\t\r\nShare Information:\r\n\tShare Name:\t\t\\\\*\\IPC$\r\n\tShare Path:\t\t\r\n\r\nAccess Request Information:\r\n\tAccess Mask:\t\t0x1\r\n\tAccesses:\t\tReadData (or ListDirectory)\r\n\t\t\t\t\r\n\"","version":"1","systemTime":"2022-08-12T19:43:57.7965891Z","eventRecordID":"1280840","threadID":"6540","computer":"hrmanager.ExchangeTest.com","task":"12808","processID":"4","severityValue":"AUDIT_SUCCESS","providerName":"Microsoft-Windows-Security-Auditing"}}}'''
         response = send_log(log)
 

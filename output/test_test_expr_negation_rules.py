@@ -10,7 +10,7 @@ from internal.logtest import LogtestStatus, send_log
 
 
 # Converted from test_expr_negation.ini
-class TestTest_expr_negationRules(unittest.TestCase):
+class TestTestExprNegationRules(unittest.TestCase):
 
     def test_expr_negation_action_1(self) -> None:
         log = '''Dec 19 17:20:08 ubuntu test_expr_negation[12345]:test_action wazuh-agent123@192.168.0.2:31415 HTTPS 192.168.0.1:9264 /status/isbad GET format=json content="{'msg'='helloworld'}" RESULT=success'''

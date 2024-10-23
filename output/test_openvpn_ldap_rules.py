@@ -10,7 +10,7 @@ from internal.logtest import LogtestStatus, send_log
 
 
 # Converted from openvpn_ldap.ini
-class TestOpenvpn_ldapRules(unittest.TestCase):
+class TestOpenvpnLdapRules(unittest.TestCase):
 
     def test_openvpn_ldap_bind_failed(self) -> None:
         log = '''Jan 28 14:25:49 VPN-SERVER-05892 openvpn: LDAP bind failed: Invalid credentials (80090308: LdapErr: DSID-55555555, comment: AcceptSecurityContext error, data 775, v3839)'''

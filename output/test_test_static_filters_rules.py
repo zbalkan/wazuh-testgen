@@ -10,7 +10,7 @@ from internal.logtest import LogtestStatus, send_log
 
 
 # Converted from test_static_filters.ini
-class TestTest_static_filtersRules(unittest.TestCase):
+class TestTestStaticFiltersRules(unittest.TestCase):
 
     def test_same_fields_same_srcip_1(self) -> None:
         log = '''Dec 19 17:20:08 User test_same_filters[12345]:Test same_srcip 'Srcuser' 'User' logged from 192.168.1.100:8 to 192.168.5.4:20 pro:ftp act:remove id:1 url:ossec dat:huzaw e_data:hwazu sta:rejected systemname:system1'''

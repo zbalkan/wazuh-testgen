@@ -10,7 +10,7 @@ from internal.logtest import LogtestStatus, send_log
 
 
 # Converted from test_expr_negation_geoip.ini
-class TestTest_expr_negation_geoipRules(unittest.TestCase):
+class TestTestExprNegationGeoipRules(unittest.TestCase):
 
     def test_expr_negation_geoip_dstgroip_1(self) -> None:
         log = '''May  1 16:17:43 wazuhUsr test_geoip[9024]: connect to 8.8.8.8 from 94.80.188.102'''

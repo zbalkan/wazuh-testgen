@@ -10,7 +10,7 @@ from internal.logtest import LogtestStatus, send_log
 
 
 # Converted from test_osregex_regex_geoip.ini
-class TestTest_osregex_regex_geoipRules(unittest.TestCase):
+class TestTestOsregexRegexGeoipRules(unittest.TestCase):
 
     def test_osregex_test_osregex_16_srcgeoip(self) -> None:
         log = '''Dec 19 17:20:08 ubuntu test_osregex_16[12345]:test_srcgeoip 41.78.120.9'''

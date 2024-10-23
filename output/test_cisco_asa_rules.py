@@ -10,7 +10,7 @@ from internal.logtest import LogtestStatus, send_log
 
 
 # Converted from cisco_asa.ini
-class TestCisco_asaRules(unittest.TestCase):
+class TestCiscoAsaRules(unittest.TestCase):
 
     def test_cisco_asa_alert_message_1(self) -> None:
         log = '''%ASA-1-505015: Module ips, application up "IPS", version "7.2(2)E4" Normal Operation'''

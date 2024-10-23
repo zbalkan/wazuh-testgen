@@ -10,7 +10,7 @@ from internal.logtest import LogtestStatus, send_log
 
 
 # Converted from test_pcre2_regex_geoip.ini
-class TestTest_pcre2_regex_geoipRules(unittest.TestCase):
+class TestTestPcre2RegexGeoipRules(unittest.TestCase):
 
     def test_pcre2_test_pcre2_16_srcgeoip(self) -> None:
         log = '''Dec 19 17:20:08 ubuntu test_pcre2_16[12345]:test_srcgeoip 8.8.8.8'''

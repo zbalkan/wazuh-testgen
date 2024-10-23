@@ -10,7 +10,7 @@ from internal.logtest import LogtestStatus, send_log
 
 
 # Converted from win_security.ini
-class TestWin_securityRules(unittest.TestCase):
+class TestWinSecurityRules(unittest.TestCase):
 
     def test_user_account_enabled_or_created(self) -> None:
         log = '''{ "win": { "eventdata": { "subjectLogonId": "0x1f6f29", "targetUserName": "toby", "subjectUserSid": "S-1-5-21-3002370232-1004552484-2337450515-1103", "subjectDomainName": "XRISBARNEY", "targetDomainName": "APT29W1", "targetSid": "S-1-5-21-184966080-802066075-2268707989-1002", "subjectUserName": "itadmin" }, "system": { "eventID": "4722", "keywords": "0x8020000000000000", "providerGuid": "{54849625-5478-4994-a5ba-3e3b0328c30d}", "level": "0", "channel": "Security", "opcode": "0", "message": "\"A user account was enabled.\r\n\r\nSubject:\r\n\tSecurity ID:\t\tS-1-5-21-3002370232-1004552484-2337450515-1103\r\n\tAccount Name:\t\titadmin\r\n\tAccount Domain:\t\tXRISBARNEY\r\n\tLogon ID:\t\t0x1F6F29\r\n\r\nTarget Account:\r\n\tSecurity ID:\t\tS-1-5-21-184966080-802066075-2268707989-1002\r\n\tAccount Name:\t\ttoby\r\n\tAccount Domain:\t\tAPT29W1\"", "version": "0", "systemTime": "2021-11-08T18:09:47.4367951Z", "eventRecordID": "15217", "threadID": "2256", "computer": "apt29w1.xrisbarney.local", "task": "13824", "processID": "620", "severityValue": "AUDIT_SUCCESS", "providerName": "Microsoft-Windows-Security-Auditing" } } }'''

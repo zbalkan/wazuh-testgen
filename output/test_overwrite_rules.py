@@ -129,7 +129,7 @@ class TestOverwriteRules(unittest.TestCase):
         self.assertEqual(response.rule_level, 12)
 
 
-    def test_overwrite_&_list(self) -> None:
+    def test_overwrite__list(self) -> None:
         log = '''May 27 14:49:04 testUser ow_test[13244]: TEST 4 - Overwrite and list test'''
         response = send_log(log)
 
@@ -140,7 +140,7 @@ class TestOverwriteRules(unittest.TestCase):
         self.assertEqual(response.rule_level, 5)
 
 
-    def test_overwrite_&_field(self) -> None:
+    def test_overwrite__field(self) -> None:
         log = '''Apr 14 13:38:51 testUser test_overwrite_field[13244]: Test example 'TEST5' field'''
         response = send_log(log)
 

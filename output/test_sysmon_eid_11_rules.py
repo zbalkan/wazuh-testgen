@@ -10,7 +10,7 @@ from internal.logtest import LogtestStatus, send_log
 
 
 # Converted from sysmon_eid_11.ini
-class TestSysmon_eid_11Rules(unittest.TestCase):
+class TestSysmonEid11Rules(unittest.TestCase):
 
     def test_scripting_file_created_under_system_or_user_folder(self) -> None:
         log = '''{ "win": { "eventdata": { "image": "C:\\\\Users\\\\st9\\\\AppData\\\\Local\\\\adb156.exe", "processGuid": "{50263ab4-3306-6154-5101-000000000d00}", "processId": "6988", "utcTime": "2021-09-29 10:09:46.298", "targetFilename": "C:\\\\Users\\\\st9\\\\AppData\\\\Local\\\\stager.ps1", "ruleName": "technique_id=T1059.001,technique_name=PowerShell", "creationUtcTime": "2021-09-29 10:09:46.298" }, "system": { "eventID": "11", "keywords": "0x8000000000000000", "providerGuid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}", "level": "4", "channel": "Microsoft-Windows-Sysmon/Operational", "opcode": "0", "message": "\"File created:\r\nRuleName: technique_id=T1059.001,technique_name=PowerShell\r\nUtcTime: 2021-09-29 10:09:46.298\r\nProcessGuid: {50263ab4-3306-6154-5101-000000000d00}\r\nProcessId: 6988\r\nImage: C:\\Users\\st9\\AppData\\Local\\adb156.exe\r\nTargetFilename: C:\\Users\\st9\\AppData\\Local\\stager.ps1\r\nCreationUtcTime: 2021-09-29 10:09:46.298\"", "version": "2", "systemTime": "2021-09-29T10:09:46.3002205Z", "eventRecordID": "18277", "threadID": "3400", "computer": "DESKTOP-P45R1DM", "task": "11", "processID": "2384", "severityValue": "INFORMATION", "providerName": "Microsoft-Windows-Sysmon" } } }'''
@@ -67,7 +67,7 @@ class TestSysmon_eid_11Rules(unittest.TestCase):
         self.assertEqual(response.rule_level, 12)
 
 
-    def test_binary_file_dropped_in_users\public_folder(self) -> None:
+    def test_binary_file_dropped_in_userspublic_folder(self) -> None:
         log = '''{"win":{"eventdata":{"image":"C:\\\\Windows\\\\system32\\\\cmd.exe","processGuid":"{4dc16835-41b5-60ef-7a00-000000001100}","processId":"2860","utcTime":"2021-07-14 20:21:04.678","targetFilename":"C:\\\\Users\\\\Public\\\\Java-Update.vbs","creationUtcTime":"2021-07-14 20:21:04.678"},"system":{"eventID":"11","keywords":"0x8000000000000000","providerGuid":"{5770385f-c22a-43e0-bf4c-06f5698ffbd9}","level":"4","channel":"Microsoft-Windows-Sysmon/Operational","opcode":"0","message":"\"File created:\r\nRuleName: -\r\nUtcTime: 2021-07-14 20:21:04.678\r\nProcessGuid: {4dc16835-41b5-60ef-7a00-000000001100}\r\nProcessId: 2860\r\nImage: C:\\Windows\\system32\\cmd.exe\r\nTargetFilename: C:\\Users\\Public\\Java-Update.vbs\r\nCreationUtcTime: 2021-07-14 20:21:04.678\"","version":"2","systemTime":"2021-07-14T20:21:04.6849507Z","eventRecordID":"28558","threadID":"1272","computer":"cfo.ExchangeTest.com","task":"11","processID":"5364","severityValue":"INFORMATION","providerName":"Microsoft-Windows-Sysmon"}}}'''
         response = send_log(log)
 
@@ -78,7 +78,7 @@ class TestSysmon_eid_11Rules(unittest.TestCase):
         self.assertEqual(response.rule_level, 12)
 
 
-    def test_binary_file_dropped_in_users\public_folder_via_ssh(self) -> None:
+    def test_binary_file_dropped_in_userspublic_folder_via_ssh(self) -> None:
         log = '''{"win":{"eventdata":{"image":"C:\\\\Windows\\\\System32\\\\OpenSSH\\\\scp.exe","processGuid":"{4dc16835-44ed-60ef-bdc3-4d0000000000}","processId":"3144","utcTime":"2021-07-14 20:11:27.810","targetFilename":"C:\\\\Users\\\\Public\\\\Java-Update.exe","creationUtcTime":"2021-07-14 20:03:07.766"},"system":{"eventID":"11","keywords":"0x8000000000000000","providerGuid":"{5770385f-c22a-43e0-bf4c-06f5698ffbd9}","level":"4","channel":"Microsoft-Windows-Sysmon/Operational","opcode":"0","message":"\"File created:\r\nRuleName: -\r\nUtcTime: 2021-07-14 20:11:27.810\r\nProcessGuid: {4dc16835-44ed-60ef-bdc3-4d0000000000}\r\nProcessId: 3144\r\nImage: C:\\Windows\\System32\\OpenSSH\\scp.exe\r\nTargetFilename: C:\\Users\\Public\\Java-Update.exe\r\nCreationUtcTime: 2021-07-14 20:03:07.766\"","version":"2","systemTime":"2021-07-14T20:11:27.8528377Z","eventRecordID":"28453","threadID":"1272","computer":"cfo.ExchangeTest.com","task":"11","processID":"5364","severityValue":"INFORMATION","providerName":"Microsoft-Windows-Sysmon"}}}'''
         response = send_log(log)
 
@@ -177,7 +177,7 @@ class TestSysmon_eid_11Rules(unittest.TestCase):
         self.assertEqual(response.rule_level, 0)
 
 
-    def test_$wineventdataimage_created_a_new_scripting_file_under_user_data_folder(self) -> None:
+    def test_wineventdataimage_created_a_new_scripting_file_under_user_data_folder(self) -> None:
         log = '''{"win":{"system":{"providerName":"Microsoft-Windows-Sysmon","providerGuid":"{5770385f-c22a-43e0-bf4c-06f5698ffbd9}","eventID":"11","version":"2","level":"4","task":"11","opcode":"0","keywords":"0x8000000000000000","systemTime":"2021-04-28T20:11:55.0310966Z","eventRecordID":"144500","processID":"2204","threadID":"3300","channel":"Microsoft-Windows-Sysmon/Operational","computer":"DESKTOP-2QKFOBA","severityValue":"INFORMATION","message":"\"File created:\r\nRuleName: -\r\nUtcTime: 2021-04-28 20:11:55.021\r\nProcessGuid: {4dc16835-c189-6089-a003-000000002e00}\r\nProcessId: 6876\r\nImage: C:\\Windows\\system32\\cscript.exe\r\nTargetFilename: C:\\Users\\AtomicRedTeamTest\\AppData\\Roaming\\TransbaseOdbcDriver\\starter.vbs\r\nCreationUtcTime: 2021-04-28 20:11:55.021\""},"eventdata":{"utcTime":"2021-04-28 20:11:55.021","processGuid":"{4dc16835-c189-6089-a003-000000002e00}","processId":"6876","image":"C:\\\\Windows\\\\system32\\\\cscript.exe","targetFilename":"C:\\\\Users\\\\AtomicRedTeamTest\\\\AppData\\\\Roaming\\\\TransbaseOdbcDriver\\\\starter.vbs","creationUtcTime":"2021-04-28 20:11:55.021"}}}'''
         response = send_log(log)
 
@@ -188,7 +188,7 @@ class TestSysmon_eid_11Rules(unittest.TestCase):
         self.assertEqual(response.rule_level, 9)
 
 
-    def test_binary_dropped_in_windows_root_folder_by_$wineventdataimage_process_possible_abuse_of_windows_admin_shares(self) -> None:
+    def test_binary_dropped_in_windows_root_folder_by_wineventdataimage_process_possible_abuse_of_windows_admin_shares(self) -> None:
         log = '''{ "win": { "eventdata": { "image": "C:\\\\Windows\\\\PAExec-5544-HOTELMANAGER.exe", "processGuid": "{94f48244-9c1f-6164-7000-000000001f00}", "processId": "5928", "utcTime": "2021-10-11 20:18:41.400", "targetFilename": "C:\\\\Windows\\\\hollow.exe", "creationUtcTime": "2021-10-11 20:18:41.400" }, "system": { "eventID": "11", "keywords": "0x8000000000000000", "providerGuid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}", "level": "4", "channel": "Microsoft-Windows-Sysmon/Operational", "opcode": "0", "message": "\"File created:\r\nRuleName: -\r\nUtcTime: 2021-10-11 20:18:41.400\r\nProcessGuid: {94f48244-9c1f-6164-7000-000000001f00}\r\nProcessId: 5928\r\nImage: C:\\Windows\\PAExec-5544-HOTELMANAGER.exe\r\nTargetFilename: C:\\Windows\\hollow.exe\r\nCreationUtcTime: 2021-10-11 20:18:41.400\"", "version": "2", "systemTime": "2021-10-11T20:18:41.4882783Z", "eventRecordID": "48671", "threadID": "3248", "computer": "itadmin.xrisbarney.local", "task": "11", "processID": "2284", "severityValue": "INFORMATION", "providerName": "Microsoft-Windows-Sysmon" } } }'''
         response = send_log(log)
 
@@ -210,7 +210,7 @@ class TestSysmon_eid_11Rules(unittest.TestCase):
         self.assertEqual(response.rule_level, 6)
 
 
-    def test_suspicious_file_compression_activity_in_users\public_folder(self) -> None:
+    def test_suspicious_file_compression_activity_in_userspublic_folder(self) -> None:
         log = '''{ "win": { "eventdata": { "image": "C:\\\\Users\\\\Public\\\\7za.exe", "processGuid": "{94f48244-7a43-6169-d200-000000001b00}", "processId": "6124", "utcTime": "2021-10-15 12:56:05.057", "targetFilename": "C:\\\\Users\\\\Public\\\\log.7z", "ruleName": "technique_id=T1047,technique_name=File System Permissions Weakness", "creationUtcTime": "2021-10-15 12:56:05.025" }, "system": { "eventID": "11", "keywords": "0x8000000000000000", "providerGuid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}", "level": "4", "channel": "Microsoft-Windows-Sysmon/Operational", "opcode": "0", "message": "\"File created:\r\nRuleName: technique_id=T1047,technique_name=File System Permissions Weakness\r\nUtcTime: 2021-10-15 12:56:05.057\r\nProcessGuid: {94f48244-7a43-6169-d200-000000001b00}\r\nProcessId: 6124\r\nImage: C:\\Users\\Public\\7za.exe\r\nTargetFilename: C:\\Users\\Public\\log.7z\r\nCreationUtcTime: 2021-10-15 12:56:05.025\"", "version": "2", "systemTime": "2021-10-15T12:56:05.0584806Z", "eventRecordID": "56626", "threadID": "3584", "computer": "accounting.xrisbarney.local", "task": "11", "processID": "2192", "severityValue": "INFORMATION", "providerName": "Microsoft-Windows-Sysmon" } } }'''
         response = send_log(log)
 
@@ -221,7 +221,7 @@ class TestSysmon_eid_11Rules(unittest.TestCase):
         self.assertEqual(response.rule_level, 6)
 
 
-    def test_suspicious_executable_file_creation_by_rundll32_$wineventdatatargetfilename(self) -> None:
+    def test_suspicious_executable_file_creation_by_rundll32_wineventdatatargetfilename(self) -> None:
         log = '''{ "win": { "eventdata": { "image": "C:\\\\Windows\\\\SysWOW64\\\\rundll32.exe", "processGuid": "{94f48244-7831-6169-8d00-000000001b00}", "processId": "5532", "utcTime": "2021-10-15 12:54:47.338", "targetFilename": "C:\\\\Users\\\\Public\\\\7za.exe", "creationUtcTime": "2021-10-15 12:54:47.338" }, "system": { "eventID": "11", "keywords": "0x8000000000000000", "providerGuid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}", "level": "4", "channel": "Microsoft-Windows-Sysmon/Operational", "opcode": "0", "message": "\"File created:\r\nRuleName: -\r\nUtcTime: 2021-10-15 12:54:47.338\r\nProcessGuid: {94f48244-7831-6169-8d00-000000001b00}\r\nProcessId: 5532\r\nImage: C:\\Windows\\SysWOW64\\rundll32.exe\r\nTargetFilename: C:\\Users\\Public\\7za.exe\r\nCreationUtcTime: 2021-10-15 12:54:47.338\"", "version": "2", "systemTime": "2021-10-15T12:54:47.3395921Z", "eventRecordID": "56604", "threadID": "3584", "computer": "accounting.xrisbarney.local", "task": "11", "processID": "2192", "severityValue": "INFORMATION", "providerName": "Microsoft-Windows-Sysmon" } } }'''
         response = send_log(log)
 
@@ -243,7 +243,7 @@ class TestSysmon_eid_11Rules(unittest.TestCase):
         self.assertEqual(response.rule_level, 3)
 
 
-    def test_suspicious_file_compression_activity_by_powershell_$wineventdatatargetfilename(self) -> None:
+    def test_suspicious_file_compression_activity_by_powershell_wineventdatatargetfilename(self) -> None:
         log = '''{ "win": { "eventdata": { "image": "C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe", "processGuid": "{1f43d37e-6816-6170-cf00-000000001300}", "processId": "1040", "utcTime": "2021-10-20 19:18:11.149", "targetFilename": "C:\\\\Users\\\\adminuser\\\\Downloads\\\\SysinternalsSuite.zip", "creationUtcTime": "2021-10-20 19:18:11.149" }, "system": { "eventID": "11", "keywords": "0x8000000000000000", "providerGuid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}", "level": "4", "channel": "Microsoft-Windows-Sysmon/Operational", "opcode": "0", "message": "\"File created:\r\nRuleName: -\r\nUtcTime: 2021-10-20 19:18:11.149\r\nProcessGuid: {1f43d37e-6816-6170-cf00-000000001300}\r\nProcessId: 1040\r\nImage: C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\r\nTargetFilename: C:\\Users\\adminuser\\Downloads\\SysinternalsSuite.zip\r\nCreationUtcTime: 2021-10-20 19:18:11.149\"", "version": "2", "systemTime": "2021-10-20T19:18:11.1682906Z", "eventRecordID": "37037", "threadID": "1096", "computer": "Workstation1.dc.local", "task": "11", "processID": "2352", "severityValue": "INFORMATION", "providerName": "Microsoft-Windows-Sysmon" } } }'''
         response = send_log(log)
 

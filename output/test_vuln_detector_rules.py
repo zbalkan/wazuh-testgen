@@ -10,7 +10,7 @@ from internal.logtest import LogtestStatus, send_log
 
 
 # Converted from vuln_detector.ini
-class TestVuln_detectorRules(unittest.TestCase):
+class TestVulnDetectorRules(unittest.TestCase):
 
     def test_cve_removed_1(self) -> None:
         log = '''{"vulnerability":{"package":{"name":"ncurses","version":"5.9-14.20130511.el7_4","architecture":"x86_64"},"cve":"CVE-2019-17594", "status":"Solved", "reference":"fb783b1c771a643f81259a93248e7f61e9a4a597"}}'''

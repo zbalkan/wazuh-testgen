@@ -10,7 +10,7 @@ from internal.logtest import LogtestStatus, send_log
 
 
 # Converted from cisco_ftd.ini
-class TestCisco_ftdRules(unittest.TestCase):
+class TestCiscoFtdRules(unittest.TestCase):
 
     def test_cisco_ftd_high_severity_alert_1(self) -> None:
         log = '''%FTD-1-101001: (Primary) Failover cable OK.'''

@@ -10,7 +10,7 @@ from internal.logtest import LogtestStatus, send_log
 
 
 # Converted from test_osregex_regex.ini
-class TestTest_osregex_regexRules(unittest.TestCase):
+class TestTestOsregexRegexRules(unittest.TestCase):
 
     def test_osregex_test_osregex_realloc(self) -> None:
         log = '''Dec 25 20:45:02 MyHost osregex_realloc_test[12345]: fieldx=0 field1=1 field2=2 field3=3 field4=4 field5=5 field5=5 field6=6 field7=7 field8=8 field9=9 field10=10'''

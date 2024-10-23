@@ -10,7 +10,7 @@ from internal.logtest import LogtestStatus, send_log
 
 
 # Converted from web_appsec.ini
-class TestWeb_appsecRules(unittest.TestCase):
+class TestWebAppsecRules(unittest.TestCase):
 
     def test_wordpress_comment_spam_coming_from_a_fake_search_engine_ua_1(self) -> None:
         log = '''10.0.0.5 - - [1/Apr/2014:00:00:01 -0500] "POST /wp-comments-post.php HTTP/1.1" 403 181 "-" "Googlebot/1'''
