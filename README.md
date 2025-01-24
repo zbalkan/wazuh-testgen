@@ -16,16 +16,19 @@ python3 src/wazuh-converter.py [args]
     --output_directory: Directory where the Python test files will be saved."
     --config_file: Path to the configuration INI file. (default='config.ini')
 ```
+
 ## Note
 
-The `oscap.ini` file has a broken test case. Fix that manually before running the converter.
+The `oscap.ini` file has a broken test case. Fix that manually before running the converter. This may be the case that it should fail.
 
 The original case is below:
+
 ```ini
 [OpenSCAP rule notapplicable]
 
 oscap: msg: "xccdf-result", scan-id: "0011477050403", content: "ssg-centos-7-ds.xml", title: "Ensure /tmp Located On Separate Partition", ...
 ```
+
 Add `log 1 pass =` before the log:
 
 ```ini
