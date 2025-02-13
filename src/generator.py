@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 
 import argparse
 import configparser
@@ -8,15 +7,15 @@ import os
 import sys
 from typing import Final
 
-from internal.converter import Converter
+from internal.ini import IniConverter
 
-APP_NAME: Final[str] = 'wazuh-converter'
-APP_VERSION: Final[str] = '0.1'
-DESCRIPTION: Final[str] = f"{APP_NAME} ({APP_VERSION}) is a CLI tool to  convert Wazuh rule tests written as INI files to Python's `unittest` tests. It is designed to accompany `wazuh-devenv` project."
+APP_NAME: Final[str] = 'wazuh_test_generator'
+APP_VERSION: Final[str] = '0.2'
+DESCRIPTION: Final[str] = f"{APP_NAME} ({APP_VERSION}) is a CLI tool to generate Wazuh rule tests from original INI files or EVTX files to Python's `unittest` tests. It is designed to accompany `wazuh-devenv` project."
 ENCODING: Final[str] = "utf-8"
 
 
-def load_config_file(config_file_path:str) -> tuple[str, str]:
+def load_config_file(config_file_path: str) -> tuple[str, str]:
     """Loads configuration from an INI file."""
     config = configparser.ConfigParser()
     config.read(os.path.abspath(config_file_path))
@@ -41,16 +40,28 @@ def get_root_dir() -> str:
         return './'
 
 
-
 def main() -> None:
     """Main function to start the application."""
     logging.info(f"Starting {APP_NAME} {APP_VERSION}")
     logging.info(DESCRIPTION)
 
-    parser = argparse.ArgumentParser(description="Convert INI files to Python unittest tests.")
-    parser.add_argument('--input_directory', help="Directory where INI files are located.")
-    parser.add_argument('--output_directory', help="Directory where the Python test files will be saved.")
-    parser.add_argument('--config_file', help="Path to the configuration INI file.", default='config.ini')
+    parser = argparse.ArgumentParser(description="Generate Python unittest tests for Wazuh rules.")
+
+    subparsers = parser.add_subparsers(dest='command')
+    ini_parser = subparsers.add_parser('ini', help="Generate Python unittest tests from INI files.")
+    ini_parser.add_argument(
+        '--config_file', '-c', help="Path to the configuration INI file.")
+    ini_parser.add_argument('--input_directory', '-i', help="Directory where input files are located.")
+    ini_parser.add_argument('--output_directory', '-o', help="Directory where the Python test files will be saved.")
+
+    evtx_parser = subparsers.add_parser(
+        'evtx', help="Generate Python unittest tests from EVTX files.")
+    evtx_parser.add_argument('--scenario', help="Name for the tests to use for the generated tests.")
+    evtx_parser.add_argument(
+        '--config_file', '-c', help="Path to the configuration INI file.")
+    evtx_parser.add_argument('--input_directory', '-i', help="Directory where input files are located.")
+    evtx_parser.add_argument('--output_directory', '-o', help="Directory where the Python test files will be saved.")
+
     args = parser.parse_args()
 
     # If input_directory or output_directory are not provided, load from config file
@@ -66,7 +77,6 @@ def main() -> None:
         if not os.path.exists(conf):
             raise Exception(f"Configuration file '{conf}' not found.")
 
-
         input_directory, output_directory = load_config_file(conf)
 
     # Ensure the output directory exists
@@ -77,15 +87,32 @@ def main() -> None:
         print(f"Error: Input directory '{input_directory}' not found.")
         sys.exit(1)
 
-    converter = Converter()
-    for wazuh_test_ini in os.listdir(input_directory):
-        if wazuh_test_ini.endswith('.ini'):
+    command = str(args.command)
+    if command == 'ini':
+        converter = IniConverter()
+        wazuh_test_inis = [f for f in os.listdir(
+            input_directory) if f.endswith('.ini')]
+        if len(wazuh_test_inis) == 0:
+            raise FileNotFoundError(f"No INI files found in {input_directory}")
+        for wazuh_test_ini in wazuh_test_inis:
             logging.info(f"Processing INI file: {wazuh_test_ini}")
             ini_file_path = os.path.join(input_directory, wazuh_test_ini)
             # try:
             converter.convert(ini_file_path, output_directory)
             # except Exception as ex:
             #     print(f"Error processing INI file: {wazuh_test_ini} - {ex}")
+    elif command == 'evtx':
+        print("EVTX command not implemented yet.")
+    else:
+        print("Error: No command specified.")
+        parser.print_help()
+
+
+def exception_handler(exc_type, exc_value, exc_traceback) -> None:
+    if logging.root.level == logging.DEBUG:
+        logging.error("Unhandled exception", exc_info=(exc_type, exc_value, exc_traceback))
+    else:
+        logging.error(f"({exc_type.__name__}): {exc_value}")
 
 
 def setup_logging() -> None:
@@ -97,9 +124,7 @@ def setup_logging() -> None:
         datefmt="%Y-%m-%dT%H:%M:%S%z",
         level=logging.INFO
     )
-
-    sys.excepthook = lambda exc_type, exc_value, exc_traceback: logging.error(
-        "Unhandled exception", exc_info=(exc_type, exc_value, exc_traceback))
+    sys.excepthook = exception_handler
 
 
 if __name__ == "__main__":
@@ -118,7 +143,7 @@ if __name__ == "__main__":
             os._exit(0)
     except Exception as ex:
         print('ERROR: ' + str(ex))
-        logging.exception('Unhandled exception')
+        exception_handler(type(ex), ex, ex.__traceback__)
         try:
             sys.exit(1)
         except SystemExit:

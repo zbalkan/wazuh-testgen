@@ -1,17 +1,15 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 
 import os
 
 from internal.parser import TestParser
 
 
-class Converter:
+class IniConverter:
 
     # Class template for the test file header
     class_template = '''\
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 
 # These test cases are based on log data and rule descriptions used for regression testing,
 # potentially derived from or inspired by Wazuh rulesets and public log samples.
@@ -54,7 +52,6 @@ class Test{class_name}Rules(unittest.TestCase):
 
 """
 
-
     def convert(self, wazuh_ini_test: str, output_directory: str) -> None:
         """Converts an INI file to a Python unittest file."""
 
@@ -76,24 +73,22 @@ class Test{class_name}Rules(unittest.TestCase):
 
         with open(test_file_name, 'w') as test_file:
             test_file.write(self.class_template.format(
-                    class_name=class_name, ini_file_name=os.path.basename(wazuh_ini_test)))
+                class_name=class_name, ini_file_name=os.path.basename(wazuh_ini_test)))
 
             for test_case in test_cases:
                 test_function: str = self.test_method_template_pass if test_case.condition == 'pass' else self.test_method_template_fail
 
                 test_file.write(test_function.format(
-                                    section=self.sanitize(test_case.header),
-                                    log_content=test_case.log,
-                                    decoder=test_case.decoder,
-                                    rule=test_case.rule,
-                                    alert=test_case.alert,
-                                    ))
+                                section=self.sanitize(test_case.header),
+                                log_content=test_case.log,
+                                decoder=test_case.decoder,
+                                rule=test_case.rule,
+                                alert=test_case.alert))
 
         print(f"Test file {test_file_name} created successfully.")
 
     def sanitize(self, text: str) -> str:
         return text.replace(' ', '_').replace('#', '').replace(':', '_').replace('/', '_').replace('-', '_').replace('___', '_').replace('__', '_').replace('.', '').replace(',', '').replace('(', '').replace(')', '').replace("'", '').replace('"', '').replace('=', '').replace('?', '').replace('!', '').replace(';', '').replace('&', '').replace('@', '').replace('$', '').replace('%', '').replace('^', '').replace('*', '').replace('+', '').replace('~', '').replace('`', '').replace('[', '').replace(']', '').replace('{', '').replace('}', '').replace('\\', '').replace('|', '').replace('<', '').replace('>', '').lower()
 
-
-    def snake_to_pascal(self, snake_str:str) -> str:
+    def snake_to_pascal(self, snake_str: str) -> str:
         return ''.join(word.capitalize() for word in snake_str.split('_'))
