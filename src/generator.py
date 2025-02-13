@@ -33,7 +33,7 @@ def main() -> None:
 
     subparsers = parser.add_subparsers(dest='command')
     ini_parser = subparsers.add_parser(
-        'ini', required=True, help="Generate Python unittest tests from INI files.")
+        'ini', help="Generate Python unittest tests from INI files.")
     ini_parser.add_argument('--input_dir', '-i', required=True,
                             help="Directory where input files are located.")
     ini_parser.add_argument('--output_dir', '-o', required=True,
