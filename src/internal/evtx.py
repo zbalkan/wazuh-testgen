@@ -1,3 +1,4 @@
+import logging
 import os
 import pathlib
 
@@ -14,25 +15,26 @@ class EvtxConverter:
 
         # Walk through all files and subdirectories
         for root, _, files in os.walk(input_directory):
-            for filename in files:
-                if filename.endswith(".evtx"):
-                    file_path = pathlib.Path(root, filename)
+            for filename in [f for f in files if f.endswith(".evtx")]:
+                file_path = pathlib.Path(root, filename)
 
-                    # Generate relative path (excluding base directory)
-                    rel_path = os.path.relpath(file_path, input_directory)
-                    function_name = f"test_{self.sanitize(rel_path)}"
+                # Generate relative path (excluding base directory)
+                rel_path = str(file_path.relative_to(input_directory))
+                logging.info(f"Processing EVTX file: {rel_path}")
 
-                    # Convert EVTX to JSON logs
-                    json_logs: list[str] = list(converter.to_json(file_path))
-                    formatted_logs = ''
-                    for i, log in enumerate(json_logs):
-                        if i == len(json_logs) - 1:
-                            formatted_logs += f"            '{log}'"
-                        else:
-                            formatted_logs += f"            '{log}',\n"
+                function_name = f"test_{self.sanitize(rel_path)}"
 
-                    # Create test function with placeholders for assertions
-                    test_function = f"""
+                # Convert EVTX to JSON logs
+                json_logs: list[str] = list(converter.to_json(file_path))
+                formatted_logs = ''
+                for i, log in enumerate(json_logs):
+                    if i == len(json_logs) - 1:
+                        formatted_logs += f"            '{log}'"
+                    else:
+                        formatted_logs += f"            '{log}',\n"
+
+                # Create test function with placeholders for assertions
+                test_function = f"""
     def {function_name}(self):
         # Logs extracted from EVTX file
         logs = [
@@ -57,7 +59,7 @@ class EvtxConverter:
 
         # TODO: Write the expected result as test cases when the logs are analyzed by Wazuh.
         self.fail("Test not implemented yet. Define expected results.")"""
-                    test_functions.append(test_function)
+                test_functions.append(test_function)
 
         # Generate test class
         test_class_code = f"""\
@@ -81,4 +83,4 @@ class {test_class_name}(unittest.TestCase):
         print(f"Unit test file '{test_file_path}' generated successfully!")
 
     def sanitize(self, text: str) -> str:
-        return text.replace(' ', '_').replace('#', '').replace(':', '_').replace('/', '_').replace('-', '_').replace('___', '_').replace('__', '_').replace('.', '').replace(',', '').replace('(', '').replace(')', '').replace("'", '').replace('"', '').replace('=', '').replace('?', '').replace('!', '').replace(';', '').replace('&', '').replace('@', '').replace('$', '').replace('%', '').replace('^', '').replace('*', '').replace('+', '').replace('~', '').replace('`', '').replace('[', '').replace(']', '').replace('{', '').replace('}', '').replace('\\', '').replace('|', '').replace('<', '').replace('>', '').lower()
+        return text.replace('.evtx', '').replace('\\', '_').replace(' ', '_').replace('#', '').replace(':', '_').replace('/', '_').replace('-', '_').replace('___', '_').replace('__', '_').replace('.', '').replace(',', '').replace('(', '').replace(')', '').replace("'", '').replace('"', '').replace('=', '').replace('?', '').replace('!', '').replace(';', '').replace('&', '').replace('@', '').replace('$', '').replace('%', '').replace('^', '').replace('*', '').replace('+', '').replace('~', '').replace('`', '').replace('[', '').replace(']', '').replace('{', '').replace('}', '').replace('\\', '').replace('|', '').replace('<', '').replace('>', '').lower()
