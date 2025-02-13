@@ -4,13 +4,13 @@ from typing import Any, Optional
 
 class TestCase:
     header: str
-    log:str
-    condition:str
-    rule:str
-    alert:str
-    decoder:str
+    log: str
+    condition: str
+    rule: str
+    alert: str
+    decoder: str
 
-    def __init__(self, header:str, log:str,condition:str,rule:str,alert:str,decoder:str) -> None:
+    def __init__(self, header: str, log: str, condition: str, rule: str, alert: str, decoder: str) -> None:
         self.header = header
         self.log = log
         self.condition = condition
@@ -22,48 +22,46 @@ class TestCase:
         return f'Test Case: {self.header}\nLog: {self.log}\nCondition: {self.condition}\nRule ID: {self.rule}\nAlert level: {self.alert}\nDecoder: {self.decoder}'
 
 
+class IniParser:
 
-class TestParser:
-
-    def parse(self, path:str) -> list[TestCase]:
-        section = self.__split(path)
+    def parse(self, path: str) -> list[TestCase]:
+        sections = self.__split(path)
         test_cases: list[TestCase] = []
-        for section in section:
+        for section in sections:
             lines = self.__read(section)
             if lines:
                 test_cases.extend(lines)
 
         return test_cases
 
-
-    def __read(self, lines:list[str]) -> Optional[list[TestCase]]:
+    def __read(self, lines: list[str]) -> Optional[list[TestCase]]:
 
         header: str = lines[0].replace('[', '').replace(']', '').lower()
-        logs:list[tuple] = []
-        rule:str
-        alert:str
-        decoder:str
-        condition:str
+        logs: list[tuple] = []
+        rule: str
+        alert: str
+        decoder: str
+        condition: str
 
-        result:list[TestCase] = []
+        result: list[TestCase] = []
 
-        pairs: list[tuple[str,Any]] = []
+        pairs: list[tuple[str, Any]] = []
         for line in lines[1:]:
             if not line or line.startswith('#') or line.startswith(';') or line == '':
                 continue
             try:
                 delim = line.index('=')
-            except:
+            except Exception:
                 raise ValueError(f'Invalid line: {line} under {header}.')
 
             k: str = line[0:delim].strip()
-            v: str = line[delim+1:].strip()
-            pairs.append((k,v))
+            v: str = line[delim + 1:].strip()
+            pairs.append((k, v))
 
         if len(pairs) == 0:
             return None
 
-        for k,v in pairs:
+        for k, v in pairs:
             if (k.startswith('log')):
                 condition = k.split(' ')[2]
                 logs.append((v, condition))
@@ -86,8 +84,7 @@ class TestParser:
 
         return result
 
-
-    def __split(self, path:str) -> list[list[str]]:
+    def __split(self, path: str) -> list[list[str]]:
         sections: list[list[str]] = []  # List to hold each section as a block
         current_section: list[str] = []  # List to hold lines of the current section
         # Pattern to match section headers
