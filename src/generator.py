@@ -7,6 +7,7 @@ import os
 import sys
 from typing import Final
 
+from internal.evtx import EvtxConverter
 from internal.ini import IniConverter
 
 APP_NAME: Final[str] = 'wazuh_test_generator'
@@ -56,7 +57,7 @@ def main() -> None:
 
     evtx_parser = subparsers.add_parser(
         'evtx', help="Generate Python unittest tests from EVTX files.")
-    evtx_parser.add_argument('--scenario', help="Name for the tests to use for the generated tests.")
+    evtx_parser.add_argument('--scenario', '-s', required=True, help="Name for the tests to use for the generated tests.")
     evtx_parser.add_argument(
         '--config_file', '-c', help="Path to the configuration INI file.")
     evtx_parser.add_argument('--input_directory', '-i', help="Directory where input files are located.")
@@ -89,7 +90,7 @@ def main() -> None:
 
     command = str(args.command)
     if command == 'ini':
-        converter = IniConverter()
+        ini_converter = IniConverter()
         wazuh_test_inis = [f for f in os.listdir(
             input_directory) if f.endswith('.ini')]
         if len(wazuh_test_inis) == 0:
@@ -98,11 +99,12 @@ def main() -> None:
             logging.info(f"Processing INI file: {wazuh_test_ini}")
             ini_file_path = os.path.join(input_directory, wazuh_test_ini)
             # try:
-            converter.convert(ini_file_path, output_directory)
+            ini_converter.convert(ini_file_path, output_directory)
             # except Exception as ex:
             #     print(f"Error processing INI file: {wazuh_test_ini} - {ex}")
     elif command == 'evtx':
-        print("EVTX command not implemented yet.")
+        evtx_converter = EvtxConverter()
+        evtx_converter.convert(args.scenario, input_directory, output_directory)
     else:
         print("Error: No command specified.")
         parser.print_help()

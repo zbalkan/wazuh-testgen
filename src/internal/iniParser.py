@@ -22,7 +22,7 @@ class TestCase:
         return f'Test Case: {self.header}\nLog: {self.log}\nCondition: {self.condition}\nRule ID: {self.rule}\nAlert level: {self.alert}\nDecoder: {self.decoder}'
 
 
-class TestParser:
+class IniParser:
 
     def parse(self, path: str) -> list[TestCase]:
         sections = self.__split(path)

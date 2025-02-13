@@ -2,7 +2,7 @@
 
 import os
 
-from internal.parser import TestParser
+from internal.iniParser import IniParser
 
 
 class IniConverter:
@@ -55,7 +55,7 @@ class Test{class_name}Rules(unittest.TestCase):
     def convert(self, wazuh_ini_test: str, output_directory: str) -> None:
         """Converts an INI file to a Python unittest file."""
 
-        parser = TestParser()
+        parser = IniParser()
         test_cases = parser.parse(wazuh_ini_test)
 
         if len(test_cases) == 0:
