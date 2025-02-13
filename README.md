@@ -1,4 +1,4 @@
-# wazuh-converter
+# wazuh_test_generator
 
 A tool to help detection engineers generate Wazuh rule tests either derived from INI files or Windows Event Log (EVTX) files. The test format uses Python's `unittest`. It is designed to accompany `wazuh-devenv` project.
 
