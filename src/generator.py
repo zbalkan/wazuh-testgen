@@ -30,6 +30,7 @@ def main() -> None:
     logging.info(DESCRIPTION)
 
     parser = argparse.ArgumentParser(description="Generate Python unittest tests for Wazuh rules.")
+    parser.add_argument('--debug', '-d', action='store_true', help="Enable debug logging.")
 
     subparsers = parser.add_subparsers(dest='command')
     ini_parser = subparsers.add_parser(
@@ -48,6 +49,9 @@ def main() -> None:
                              help="Directory where the Python test files will be saved.")
 
     args = parser.parse_args()
+
+    if args.debug:
+        logging.getLogger().setLevel(logging.DEBUG)
 
     input_directory = args.input_dir
     output_directory = args.output_dir
