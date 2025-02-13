@@ -13,6 +13,10 @@ class EvtxConverter:
         test_functions = []
         converter = EvtxToJson()
 
+        # Sanitize test class name
+        test_class_name = self.snake_to_pascal(self.sanitize(test_class_name))
+        logging.info(f"Generating unit test class: {test_class_name}")
+
         # Walk through all files and subdirectories
         for root, _, files in os.walk(input_directory):
             for filename in [f for f in files if f.endswith(".evtx")]:
@@ -68,7 +72,7 @@ import unittest
 from internal.logtest import LogtestStatus, send_multiple_logs  # type: ignore
 
 
-class {test_class_name}(unittest.TestCase):
+class Test{test_class_name}(unittest.TestCase):
 {''.join(test_functions)}
 """
 
@@ -84,3 +88,6 @@ class {test_class_name}(unittest.TestCase):
 
     def sanitize(self, text: str) -> str:
         return text.replace('.evtx', '').replace('\\', '_').replace(' ', '_').replace('#', '').replace(':', '_').replace('/', '_').replace('-', '_').replace('___', '_').replace('__', '_').replace('.', '').replace(',', '').replace('(', '').replace(')', '').replace("'", '').replace('"', '').replace('=', '').replace('?', '').replace('!', '').replace(';', '').replace('&', '').replace('@', '').replace('$', '').replace('%', '').replace('^', '').replace('*', '').replace('+', '').replace('~', '').replace('`', '').replace('[', '').replace(']', '').replace('{', '').replace('}', '').replace('\\', '').replace('|', '').replace('<', '').replace('>', '').lower()
+
+    def snake_to_pascal(self, snake_str: str) -> str:
+        return ''.join(word.capitalize() for word in snake_str.split('_'))
