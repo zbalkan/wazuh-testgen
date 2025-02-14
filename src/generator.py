@@ -29,8 +29,10 @@ def main() -> None:
     logging.info(f"Starting {APP_NAME} {APP_VERSION}")
     logging.info(DESCRIPTION)
 
-    parser = argparse.ArgumentParser(description="Generate Python unittest tests for Wazuh rules.")
-    parser.add_argument('--debug', '-d', action='store_true', help="Enable debug logging.")
+    parser = argparse.ArgumentParser(
+        description="Generate Python unittest tests for Wazuh rules.")
+    parser.add_argument('--debug', '-d', action='store_true',
+                        help="Enable debug logging.")
 
     subparsers = parser.add_subparsers(dest='command')
     ini_parser = subparsers.add_parser(
@@ -42,7 +44,6 @@ def main() -> None:
 
     evtx_parser = subparsers.add_parser(
         'evtx', help="Generate Python unittest tests from EVTX files.")
-    evtx_parser.add_argument('--scenario', '-s', required=True, help="Name for the tests to use for the generated tests.")
     evtx_parser.add_argument('--input_dir', '-i', required=True,
                              help="Directory where input files are located.")
     evtx_parser.add_argument('--output_dir', '-o', required=True,
@@ -78,7 +79,7 @@ def main() -> None:
 
     elif command == 'evtx':
         evtx_converter = EvtxConverter()
-        evtx_converter.convert(args.scenario, input_directory, output_directory)
+        evtx_converter.convert(input_directory, output_directory)
     else:
         print("Error: No valid command specified.")
         parser.print_help()
@@ -86,7 +87,8 @@ def main() -> None:
 
 def exception_handler(exc_type, exc_value, exc_traceback) -> None:
     if logging.root.level == logging.DEBUG:
-        logging.error("Unhandled exception", exc_info=(exc_type, exc_value, exc_traceback))
+        logging.error("Unhandled exception", exc_info=(
+            exc_type, exc_value, exc_traceback))
     else:
         logging.error(f"({exc_type.__name__}): {exc_value}")
 

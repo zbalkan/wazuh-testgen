@@ -29,12 +29,10 @@ options:
 INI parameters (`generator.py ini --help`):
 
 ```plaintext
-usage: generator.py ini [-h] [--config_file CONFIG_FILE] [--input_directory INPUT_DIRECTORY] [--output_directory OUTPUT_DIRECTORY]
+usage: generator.py ini [-h] [--input_directory INPUT_DIRECTORY] [--output_directory OUTPUT_DIRECTORY]
 
 options:
   -h, --help            show this help message and exit
-  --config_file CONFIG_FILE, -c CONFIG_FILE
-                        Path to the configuration INI file.
   --input_directory INPUT_DIRECTORY, -i INPUT_DIRECTORY
                         Directory where input files are located.
   --output_directory OUTPUT_DIRECTORY, -o OUTPUT_DIRECTORY
@@ -44,17 +42,13 @@ options:
 EVTX parameters (`generator.py evtx --help`):
 
 ```plaintext
-usage: generator.py evtx [-h] --scenario SCENARIO [--config_file CONFIG_FILE] [--input_directory INPUT_DIRECTORY] [--output_directory OUTPUT_DIRECTORY]
+usage: generator.py evtx [-h] --input_dir INPUT_DIR --output_dir OUTPUT_DIR
 
 options:
   -h, --help            show this help message and exit
-  --scenario SCENARIO, -s SCENARIO
-                        Name for the tests to use for the generated tests.
-  --config_file CONFIG_FILE, -c CONFIG_FILE
-                        Path to the configuration INI file.
-  --input_directory INPUT_DIRECTORY, -i INPUT_DIRECTORY
+  --input_dir INPUT_DIR, -i INPUT_DIR
                         Directory where input files are located.
-  --output_directory OUTPUT_DIRECTORY, -o OUTPUT_DIRECTORY
+  --output_dir OUTPUT_DIR, -o OUTPUT_DIR
                         Directory where the Python test files will be saved.
 ```
 
