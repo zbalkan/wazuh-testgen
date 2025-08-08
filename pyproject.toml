@@ -36,4 +36,4 @@ dependencies = []
 homepage = "https://github.com/zbalkan/wazuh-testgen"
 
 [project.scripts]
-wazuh-testgen = "wazuh-testgen.generator:main"
+wazuh_testgen = "wazuh-testgen.generator:main"
