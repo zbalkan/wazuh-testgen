@@ -37,3 +37,9 @@ homepage = "https://github.com/zbalkan/wazuh-testgen"
 
 [project.scripts]
 wazuhtestgen = "wazuhtestgen.generator:main"
+
+[tool.setuptools.packages.find]
+where = ["."]  # list of folders that contain the packages (["."] by default)
+include = ["wazuhtestgen"]  # package names should match these glob patterns (["*"] by default)
+exclude = ["output", "input"]  # exclude packages matching these glob patterns (empty by default)
+namespaces = false  # to disable scanning PEP 420 namespaces (true by default)
