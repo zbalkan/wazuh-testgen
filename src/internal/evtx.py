@@ -1,17 +1,24 @@
 import logging
 import os
 import pathlib
-
-from wazuhevtx.evtx2json import EvtxToJson
+import platform
 
 
 class EvtxConverter:
+
+    def __init__(self) -> None:
+        if platform.system() != "Windows":
+            raise Exception("Error: EVTX parsing works only on Windows platforms.")
+        try:
+            from wazuhevtx.evtx2json import EvtxToJson
+            self.converter = EvtxToJson()
+        except ImportError:
+            raise Exception("Error: You cannot use this command if you don't have wazuhevtx package.")
 
     def convert(self, test_class_name: str, input_directory: str, output_directory: str) -> None:
         """Converts an EVTX file to a Python unittest file."""
 
         test_functions = []
-        converter = EvtxToJson()
 
         # Sanitize test class name
         test_class_name = self.__snake_to_pascal(self.__sanitize(test_class_name))
@@ -29,7 +36,7 @@ class EvtxConverter:
                 function_name = f"test_{self.__sanitize(rel_path)}"
 
                 # Convert EVTX to JSON logs
-                json_logs: list[str] = list(converter.to_json(file_path))
+                json_logs: list[str] = list(self.converter.to_json(file_path))
                 formatted_logs = ''
                 for i, log in enumerate(json_logs):
                     if i == len(json_logs) - 1:

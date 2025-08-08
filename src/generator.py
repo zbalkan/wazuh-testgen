@@ -11,8 +11,8 @@ from internal.ini import IniConverter
 from internal.rule import RuleConverter
 
 APP_NAME: Final[str] = 'wazuh-testgen'
-APP_VERSION: Final[str] = '0.2'
-DESCRIPTION: Final[str] = f"{APP_NAME} ({APP_VERSION}) is a CLI tool to generate Wazuh rule tests from original INI test files or EVTX files to Python's `unittest` tests. It is designed to accompany `wazuh-devenv` project."
+APP_VERSION: Final[str] = '0.3'
+DESCRIPTION: Final[str] = f"{APP_NAME} ({APP_VERSION}) is a tool help detection engineers generate Wazuh rule tests either derived from INI test files from Wazuh repository, Windows Event Log (EVTX) files, or Wazuh rule files."
 ENCODING: Final[str] = "utf-8"
 
 
