@@ -1,4 +1,4 @@
-# wazuh_test_generator
+# wazuh-testgen
 
 A tool to help detection engineers generate Wazuh rule tests either derived from INI test files from Wazuh repository, Windows Event Log (EVTX) files, or Wazuh rule files. The test format uses Python's `unittest`. It is designed to accompany `wazuh-devenv` project.
 
