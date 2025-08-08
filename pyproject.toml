@@ -1,0 +1,39 @@
+[build-system]
+requires = [
+    "setuptools>=75.8.0",
+    "wheel"
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "wazuh-testgen"
+version = "v0.3.0"
+description = "A tool to help detection engineers generate Wazuh rule tests either derived from INI test files from Wazuh repository, Windows Event Log (EVTX) files, or Wazuh rule files."
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [
+    { name = "Zafer Balkan", email = "zafer@zaferbalkan.com" }
+]
+license = { text = "MIT" }
+keywords = ["wazuh", "evtx", "windows", "eventlog", "security", "monitoring", "logging", "siem", "testing"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Information Technology",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Microsoft :: Windows",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14"
+]
+
+dependencies = []
+
+[project.urls]
+homepage = "https://github.com/zbalkan/wazuh-testgen"
+
+[project.scripts]
+wazuhevtx = "wazuh-testgen.generator:main"
