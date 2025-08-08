@@ -8,6 +8,7 @@ from typing import Final
 
 from internal.evtx import EvtxConverter
 from internal.ini import IniConverter
+from internal.rule import RuleConverter
 
 APP_NAME: Final[str] = 'wazuh_test_generator'
 APP_VERSION: Final[str] = '0.2'
@@ -48,6 +49,13 @@ def main() -> None:
     evtx_parser.add_argument('--output_dir', '-o', required=True,
                              help="Directory where the Python test files will be saved.")
 
+    rule_parser = subparsers.add_parser(
+        'rule', help="Generate Python unittest tests from Wazuh rule files.")
+    rule_parser.add_argument('--input_dir', '-i', required=True,
+                             help="Directory where input files are located.")
+    rule_parser.add_argument('--output_dir', '-o', required=True,
+                             help="Directory where the Python test files will be saved.")
+    
     args = parser.parse_args()
 
     if args.debug:
@@ -59,7 +67,7 @@ def main() -> None:
     # Ensure the output directory exists
     os.makedirs(output_directory, exist_ok=True)
 
-    # Process all INI files in the input directory
+    # Process all files in the input directory
     if not os.path.exists(input_directory):
         print(f"Error: Input directory '{input_directory}' not found.")
         sys.exit(1)
@@ -79,6 +87,9 @@ def main() -> None:
     elif command == 'evtx':
         evtx_converter = EvtxConverter()
         evtx_converter.convert(args.scenario, input_directory, output_directory)
+    elif command == 'rule':
+        rule_converter = RuleConverter()
+        rule_converter.convert(input_directory, output_directory)
     else:
         print("Error: No valid command specified.")
         parser.print_help()

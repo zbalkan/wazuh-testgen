@@ -1,6 +1,6 @@
 # wazuh_test_generator
 
-A tool to help detection engineers generate Wazuh rule tests either derived from INI files or Windows Event Log (EVTX) files. The test format uses Python's `unittest`. It is designed to accompany `wazuh-devenv` project.
+A tool to help detection engineers generate Wazuh rule tests either derived from INI test files from Wazuh repository, Windows Event Log (EVTX) files, or Wazuh rule files. The test format uses Python's `unittest`. It is designed to accompany `wazuh-devenv` project.
 
 ## Rationale
 
@@ -8,59 +8,72 @@ Wazuh uses an INI based rule testing solution. In order to get more flexibility,
 
 In time, I added EVTX capability thanks to another project of mine, [wazuhevtx](https://github.com/zbalkan/wazuhevtx). I generate test templates using the data in EVTX files so that detection engineers can make use of behavioral patterns based on attacks.
 
+Finally, I added Wazuh rule to unit test converter for providing a template. The generated tests are not ready to use, but drafts to work on. You need to provide the log in the original format for proper testing.
+
 ## Usage
 
 Top level (`generator.py --help`):
 
 ```plaintext
-usage: generator.py [-h] {ini,evtx} ...
+usage: generator.py [-h] [--debug] {ini,evtx,rule} ...
 
 Generate Python unittest tests for Wazuh rules.
 
 positional arguments:
-  {ini,evtx}
-    ini       Generate Python unittest tests from INI files.
-    evtx      Generate Python unittest tests from EVTX files.
+  {ini,evtx,rule}
+    ini            Generate Python unittest tests from INI files.
+    evtx           Generate Python unittest tests from EVTX files.
+    rule           Generate Python unittest tests from Wazuh rule files.
 
 options:
-  -h, --help  show this help message and exit
+  -h, --help       show this help message and exit
+  --debug, -d      Enable debug logging.
 ```
 
 INI parameters (`generator.py ini --help`):
 
 ```plaintext
-usage: generator.py ini [-h] [--config_file CONFIG_FILE] [--input_dir INPUT_DIRECTORY] [--output_dir OUTPUT_DIRECTORY]
+usage: generator.py ini [-h] --input_dir INPUT_DIR --output_dir OUTPUT_DIR
 
 options:
   -h, --help            show this help message and exit
-  --config_file CONFIG_FILE, -c CONFIG_FILE
-                        Path to the configuration INI file.
-  --input_dir INPUT_DIRECTORY, -i INPUT_DIRECTORY
+  --input_dir, -i INPUT_DIR
                         Directory where input files are located.
-  --output_dir OUTPUT_DIRECTORY, -o OUTPUT_DIRECTORY
+  --output_dir, -o OUTPUT_DIR
                         Directory where the Python test files will be saved.
 ```
 
 EVTX parameters (`generator.py evtx --help`):
 
 ```plaintext
-usage: generator.py evtx [-h] --scenario SCENARIO [--config_file CONFIG_FILE] [--input_dir INPUT_DIRECTORY] [--output_dir OUTPUT_DIRECTORY]
+usage: generator.py evtx [-h] --scenario SCENARIO --input_dir INPUT_DIR --output_dir OUTPUT_DIR
 
 options:
   -h, --help            show this help message and exit
-  --scenario SCENARIO, -s SCENARIO
+  --scenario, -s SCENARIO
                         Name for the tests to use for the generated tests.
-  --config_file CONFIG_FILE, -c CONFIG_FILE
-                        Path to the configuration INI file.
-  --input_dir INPUT_DIRECTORY, -i INPUT_DIRECTORY
+  --input_dir, -i INPUT_DIR
                         Directory where input files are located.
-  --output_dir OUTPUT_DIRECTORY, -o OUTPUT_DIRECTORY
+  --output_dir, -o OUTPUT_DIR
+                        Directory where the Python test files will be saved.
+```
+
+Wazuh rule parameters (`generator.py rule --help`):
+
+```plaintext
+usage: generator.py rule [-h] --input_dir INPUT_DIR --output_dir OUTPUT_DIR
+
+options:
+  -h, --help            show this help message and exit
+  --input_dir, -i INPUT_DIR
+                        Directory where input files are located.
+  --output_dir, -o OUTPUT_DIR
                         Directory where the Python test files will be saved.
 ```
 
 ## Note
 
-The `oscap.ini` file has a weird test case. The intention may have been to test failure, I am not sure. You need to fix that manually before running the converter.
+The `oscap.ini` file has a weird test case. The intention may have been to test a failure case, I am not sure. You need to fix that manually before running the INI converter.
 
 The original case:
 
