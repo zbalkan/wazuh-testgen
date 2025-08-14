@@ -55,7 +55,7 @@ def main() -> None:
                              help="Directory where input files are located.")
     rule_parser.add_argument('--output_dir', '-o', required=True,
                              help="Directory where the Python test files will be saved.")
-    
+
     args = parser.parse_args()
 
     if args.debug:

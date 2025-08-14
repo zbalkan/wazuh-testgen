@@ -52,7 +52,7 @@ class EvtxConverter:
 {formatted_logs}
         ]
 
-        responses: list[LogtestResponse] = send_multiple_logs(
+        responses: list[lt.LogtestResponse] = lt.send_multiple_logs(
             logs, log_format="json")
 
         # Ensure we receive a response for each log sent
@@ -60,7 +60,7 @@ class EvtxConverter:
 
         # If you want to check every log, simply use a for loop
         # for _, response in enumerate(responses):
-        #     self.assertEqual(response.status, LogtestStatus.RuleMatch)
+        #     self.assertEqual(response.status, lt.LogtestStatus.RuleMatch)
         #     self.assertEqual(response.decoder, 'json')
 
         #     Example: Set expected Wazuh rule ID and level when analyzing logs
@@ -86,7 +86,7 @@ class EvtxConverter:
         test_class_code = f"""\
 import unittest
 
-from internal.logtest import LogtestResponse, LogtestStatus, send_multiple_logs  # type: ignore
+import internal.logtest as lt  # type: ignore
 
 
 class Test{test_class_name}(unittest.TestCase):
@@ -103,7 +103,7 @@ class Test{test_class_name}(unittest.TestCase):
         print(f"Unit test file '{test_file_path}' generated successfully!")
 
     def __sanitize(self, text: str) -> str:
-        return text.replace('.evtx', '').replace('\\', '_').replace(' ', '_').replace('#', '').replace(':', '_').replace('/', '_').replace('-', '_').replace('___', '_').replace('__', '_').replace(',', '_').replace('.', '').replace('(', '').replace(')', '').replace("'", '').replace('"', '').replace('=', '').replace('?', '').replace('!', '').replace(';', '').replace('&', '').replace('@', '').replace('$', '').replace('%', '').replace('^', '').replace('*', '').replace('+', '').replace('~', '').replace('`', '').replace('[', '').replace(']', '').replace('{', '').replace('}', '').replace('\\', '').replace('|', '').replace('<', '').replace('>', '').lower()
+        return text.replace('.evtx', '').replace('\\', '_').replace(' ', '_').replace('#', '').replace(':', '_').replace('/', '_').replace('-', '_').replace('___', '_').replace('__', '_').replace(',', '_').replace('.', '_').replace('(', '').replace(')', '').replace("'", '').replace('"', '').replace('=', '').replace('?', '').replace('!', '').replace(';', '').replace('&', '').replace('@', '').replace('$', '').replace('%', '').replace('^', '').replace('*', '').replace('+', '').replace('~', '').replace('`', '').replace('[', '').replace(']', '').replace('{', '').replace('}', '').replace('\\', '').replace('|', '').replace('<', '').replace('>', '').lower()
 
     def __snake_to_pascal(self, snake_str: str) -> str:
         return ''.join(word.capitalize() for word in snake_str.split('_'))
