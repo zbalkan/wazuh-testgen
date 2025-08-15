@@ -57,8 +57,7 @@ class RuleConverter:
                     rule_id = element.get("id")
                     level = element.get("level")
                     # Description (may be multiple <description> children)
-                    descs = [d.text.strip()
-                            for d in element.findall("description") if d.text]
+                    descs = [d.text.strip() for d in element.findall("description") if d.text]
                     description = " ".join(descs) if descs else ""
 
                     # Start with any inherited groups
@@ -67,8 +66,7 @@ class RuleConverter:
                     # Inline <groups>…</groups>
                     grp_el = element.find("groups")
                     if grp_el is not None and grp_el.text:
-                        groups += [g.strip()
-                                for g in grp_el.text.split(",") if g.strip()]
+                        groups += [g.strip() for g in grp_el.text.split(",") if g.strip()]
 
                     rules.append({
                         "id": rule_id,
@@ -91,7 +89,7 @@ class RuleConverter:
     def __generate_unit_test_code(self, test_class_name: str, rules: list[dict]) -> str:
         lines = [
             "import unittest", "",
-            "from internal.logtest import LogtestStatus, send_log",
+            "import internal.logtest as lt",
             "", "",
             "# TODO: Rename the class",
             f"class {test_class_name}(unittest.TestCase):",
@@ -106,10 +104,10 @@ class RuleConverter:
 
             lines.append(f"    def test_rule_{rule_id}(self) -> None:")
             lines.append(f"        log = r'''{PLACEHOLDER_LOG}'''")
-            lines.append("        response = send_log(log)")
+            lines.append("        response = lt.send_log(log)")
             lines.append("")
             lines.append(
-                "        self.assertEqual(response.status, LogtestStatus.RuleMatch)")
+                "        self.assertEqual(response.status, lt.LogtestStatus.RuleMatch)")
             lines.append(
                 f"        self.assertEqual(response.rule_id, '{rule_id}')")
             lines.append(f"        self.assertEqual(response.rule_level, {level})")
@@ -117,7 +115,7 @@ class RuleConverter:
                 f"        self.assertEqual(response.rule_description, \"{description}\")")
             for group in groups:
                 lines.append(
-                    f"        self.assertIn('{group}', response.rule_groups)")
+                    f"        self.assertIn('{group}', response.rule_groups)  # type: ignore")
             lines.append("")
 
         return "\n".join(lines)
