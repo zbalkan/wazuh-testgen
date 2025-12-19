@@ -8,10 +8,11 @@ from typing import Final
 
 from internal.evtx import EvtxConverter
 from internal.ini import IniConverter
+from internal.rule import RuleConverter
 
-APP_NAME: Final[str] = 'wazuh_test_generator'
-APP_VERSION: Final[str] = '0.2'
-DESCRIPTION: Final[str] = f"{APP_NAME} ({APP_VERSION}) is a CLI tool to generate Wazuh rule tests from original INI test files or EVTX files to Python's `unittest` tests. It is designed to accompany `wazuh-devenv` project."
+APP_NAME: Final[str] = 'wazuh-testgen'
+APP_VERSION: Final[str] = '0.3'
+DESCRIPTION: Final[str] = f"{APP_NAME} ({APP_VERSION}) is a tool help detection engineers generate Wazuh rule tests either derived from INI test files from Wazuh repository, Windows Event Log (EVTX) files, or Wazuh rule files."
 ENCODING: Final[str] = "utf-8"
 
 
@@ -49,6 +50,13 @@ def main() -> None:
     evtx_parser.add_argument('--output_dir', '-o', required=True,
                              help="Directory where the Python test files will be saved.")
 
+    rule_parser = subparsers.add_parser(
+        'rule', help="Generate Python unittest tests from Wazuh rule files.")
+    rule_parser.add_argument('--input_dir', '-i', required=True,
+                             help="Directory where input files are located.")
+    rule_parser.add_argument('--output_dir', '-o', required=True,
+                             help="Directory where the Python test files will be saved.")
+
     args = parser.parse_args()
 
     if args.debug:
@@ -60,7 +68,7 @@ def main() -> None:
     # Ensure the output directory exists
     os.makedirs(output_directory, exist_ok=True)
 
-    # Process all INI files in the input directory
+    # Process all files in the input directory
     if not os.path.exists(input_directory):
         print(f"Error: Input directory '{input_directory}' not found.")
         sys.exit(1)
@@ -79,7 +87,10 @@ def main() -> None:
 
     elif command == 'evtx':
         evtx_converter = EvtxConverter()
-        evtx_converter.convert(input_directory, output_directory)
+        evtx_converter.convert(args.scenario, input_directory, output_directory)
+    elif command == 'rule':
+        rule_converter = RuleConverter()
+        rule_converter.convert(input_directory, output_directory)
     else:
         print("Error: No valid command specified.")
         parser.print_help()

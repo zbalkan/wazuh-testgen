@@ -1,16 +1,28 @@
 import logging
 import os
 import pathlib
-
-from wazuhevtx.evtx2json import EvtxToJson
+import platform
 
 
 class EvtxConverter:
 
-    def convert(self, input_directory: str, output_directory: str) -> None:
-        """Converts logs in EVTX to a Python unittest tests."""
+    def __init__(self) -> None:
+        if platform.system() != "Windows":
+            raise Exception("Error: EVTX parsing works only on Windows platforms.")
+        try:
+            from wazuhevtx.evtx2json import EvtxToJson
+            self.converter = EvtxToJson()
+        except ImportError:
+            raise Exception("Error: You cannot use this command if you don't have wazuhevtx package.")
 
-        converter = EvtxToJson()
+    def convert(self, test_class_name: str, input_directory: str, output_directory: str) -> None:
+        """Converts an EVTX file to a Python unittest file."""
+
+        test_functions = []
+
+        # Sanitize test class name
+        test_class_name = self.__snake_to_pascal(self.__sanitize(test_class_name))
+        logging.info(f"Generating unit test class: {test_class_name}")
 
         # Walk through all files and subdirectories
         for root, _, files in os.walk(input_directory):
@@ -31,10 +43,14 @@ class EvtxConverter:
                 file_path = pathlib.Path(root, filename)
                 logging.info(f"Processing EVTX file: {file_path}")
 
-                function_name = f"test_{self.sanitize(file_path.stem)}"
+                # Generate relative path (excluding base directory)
+                rel_path = str(file_path.relative_to(input_directory))
+                logging.info(f"Processing EVTX file: {rel_path}")
+
+                function_name = f"test_{self.__sanitize(rel_path)}"
 
                 # Convert EVTX to JSON logs
-                json_logs: list[str] = list(converter.to_json(file_path))
+                json_logs: list[str] = list(self.converter.to_json(file_path))
                 formatted_logs = ''
                 for i, log in enumerate(json_logs):
                     if i == len(json_logs) - 1:
@@ -46,25 +62,34 @@ class EvtxConverter:
                 test_function = f"""
     def {function_name}(self) -> None:
         # Logs extracted from EVTX file
-        logs = [
+        logs: list[str] = [
 {formatted_logs}
         ]
 
-        responses = send_multiple_logs(logs, location="stdin", log_format="json")
+        responses: list[lt.LogtestResponse] = lt.send_multiple_logs(
+            logs, log_format="json")
 
         # Ensure we receive a response for each log sent
         self.assertEqual(len(responses), len(logs))
 
-        for _, response in enumerate(responses):
-            self.assertEqual(response.status, LogtestStatus.RuleMatch)
-            self.assertEqual(response.decoder, 'json')
+        # If you want to check every log, simply use a for loop
+        # for _, response in enumerate(responses):
+        #     self.assertEqual(response.status, lt.LogtestStatus.RuleMatch)
+        #     self.assertEqual(response.decoder, 'json')
 
-            # Example: Set expected Wazuh rule ID and level when analyzing logs
-            # expected_rule_id = None  # Replace with actual rule ID
-            # expected_rule_level = None  # Replace with actual rule level
+        #     Example: Set expected Wazuh rule ID and level when analyzing logs
+        #     expected_rule_id = None  # Replace with actual rule ID
+        #     expected_rule_level = None  # Replace with actual rule level
 
-            # self.assertEqual(response.rule_id, expected_rule_id)
-            # self.assertEqual(response.rule_level, expected_rule_level)
+        #     self.assertEqual(response.rule_id, expected_rule_id)
+        #       self.assertEqual(response.rule_level, expected_rule_level)
+
+        # If you want a simple result after a series of logs, you can use an "at least one" control. For instance:
+
+        # Ensure there is at least one alert gets triggered with T1021.001 - Remote Services: Remote Desktop Protocol
+        expected_mitre_id: set[str] = {{'T1021.001'}}
+        self.assertTrue(expr=any(expected_mitre_id & r.rule_mitre_ids for r in responses if r.rule_mitre_ids),
+                        msg='T1021.001 not found in MITRE ATT&CK IDs')
 
         # TODO: Write the expected result as test cases when the logs are analyzed by Wazuh.
         self.fail("Test not implemented yet. Define expected results.")
@@ -75,7 +100,7 @@ class EvtxConverter:
             test_class_code = f"""\
 import unittest
 
-from internal.logtest import LogtestStatus, send_multiple_logs  # type: ignore
+import internal.logtest as lt  # type: ignore
 
 
 class Test{test_class_name}(unittest.TestCase):
@@ -91,8 +116,8 @@ class Test{test_class_name}(unittest.TestCase):
 
             print(f"Unit test file '{test_file_path}' generated successfully!")
 
-    def sanitize(self, text: str) -> str:
-        return text.replace('.evtx', '').replace('\\', '_').replace(' ', '_').replace('#', '').replace(':', '_').replace('/', '_').replace('-', '_').replace('___', '_').replace('__', '_').replace('.', '').replace(',', '').replace('(', '').replace(')', '').replace("'", '').replace('"', '').replace('=', '').replace('?', '').replace('!', '').replace(';', '').replace('&', '').replace('@', '').replace('$', '').replace('%', '').replace('^', '').replace('*', '').replace('+', '').replace('~', '').replace('`', '').replace('[', '').replace(']', '').replace('{', '').replace('}', '').replace('\\', '').replace('|', '').replace('<', '').replace('>', '').lower()
+    def __sanitize(self, text: str) -> str:
+        return text.replace('.evtx', '').replace('\\', '_').replace(' ', '_').replace('#', '').replace(':', '_').replace('/', '_').replace('-', '_').replace('___', '_').replace('__', '_').replace(',', '_').replace('.', '_').replace('(', '').replace(')', '').replace("'", '').replace('"', '').replace('=', '').replace('?', '').replace('!', '').replace(';', '').replace('&', '').replace('@', '').replace('$', '').replace('%', '').replace('^', '').replace('*', '').replace('+', '').replace('~', '').replace('`', '').replace('[', '').replace(']', '').replace('{', '').replace('}', '').replace('\\', '').replace('|', '').replace('<', '').replace('>', '').lower()
 
-    def snake_to_pascal(self, snake_str: str) -> str:
+    def __snake_to_pascal(self, snake_str: str) -> str:
         return ''.join(word.capitalize() for word in snake_str.split('_'))
