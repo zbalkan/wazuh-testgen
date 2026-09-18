@@ -207,3 +207,7 @@ Add a condition before converting it:
 
 log 1 pass = oscap: msg: "xccdf-result", scan-id: "0011477050403", content: "ssg-centos-7-ds.xml", title: "Ensure /tmp Located On Separate Partition", ...
 ```
+
+## License
+
+GNU General Public License version 2 only. See [LICENSE](LICENSE).
