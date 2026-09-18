@@ -29,9 +29,9 @@ def claim_unique_name(
     *,
     kind: str,
 ) -> str:
-    """Claim a generated name or fail if another source already claimed it."""
+    """Claim a generated name or fail if it has already been claimed."""
     previous = seen.get(name)
-    if previous is not None and previous != source:
+    if previous is not None:
         raise ValueError(
             f"{kind} name collision: {previous!r} and {source!r} "
             f"both generate {name!r}."
