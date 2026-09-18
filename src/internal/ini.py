@@ -52,16 +52,29 @@ def test_rule_match(
 
     negative_test_template = """\
 @pytest.mark.parametrize(
-    ("log", "rule_id"),
+    ("log", "decoder", "rule_id", "rule_level"),
     [
 {parameters}
     ],
 )
-def test_rule_does_not_match(log: str, rule_id: str) -> None:
+def test_rule_does_not_match(
+    log: str,
+    decoder: str,
+    rule_id: str,
+    rule_level: int,
+) -> None:
     response = send_log(log)
 
     assert response.status is not LogtestStatus.Error
-    assert response.rule_id != rule_id
+    assert (
+        response.decoder,
+        response.rule_id,
+        response.rule_level,
+    ) != (
+        decoder,
+        rule_id,
+        rule_level,
+    )
 
 
 """
@@ -128,7 +141,9 @@ def test_rule_does_not_match(log: str, rule_id: str) -> None:
             (
                 "        pytest.param(\n"
                 f"            {case.log!r},\n"
+                f"            {case.decoder!r},\n"
                 f"            {case.rule!r},\n"
+                f"            {case.alert},\n"
                 f"            id={identifier(case.header)!r},\n"
                 "        ),"
             )
