@@ -166,6 +166,10 @@ def test_scenario() -> None:
 
 The generator deliberately does not invent a rule ID, MITRE ATT&CK technique, or other expected detection from the EVTX contents.
 
+## Generated output directory
+
+Files under `output/` are generated artifacts rather than generator source. A checked-in snapshot can therefore reflect an older generator version. Regenerate output from the authoritative INI, EVTX, or rule inputs when validating the current generator behavior.
+
 ## Note about oscap.ini
 
 The upstream `oscap.ini` file contains a test case without the normal `log <number> <condition> =` prefix.
