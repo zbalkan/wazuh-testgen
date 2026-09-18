@@ -1,94 +1,136 @@
 #!/usr/bin/env python3
 
+from __future__ import annotations
+
 import os
 
-from internal.iniParser import IniParser
+from internal.iniParser import IniParser, TestCase
+from internal.naming import identifier
 
 
 class IniConverter:
 
-    # Class template for the test file header
-    class_template = '''\
+    header_template = """\
 #!/usr/bin/env python3
 
 # These test cases are based on log data and rule descriptions used for regression testing,
 # potentially derived from or inspired by Wazuh rulesets and public log samples.
 
-import unittest
+import pytest
 
-from internal.logtest import LogtestStatus, send_log
+from wazuhtester import LogtestStatus, send_log
+
+
+pytestmark = pytest.mark.wazuh_logtest
 
 
 # Converted from {ini_file_name}
-class Test{class_name}Rules(unittest.TestCase):
-'''
+"""
 
-    # Test method template for each log entry
-    test_method_template_pass = """\
+    positive_test_template = """\
+@pytest.mark.parametrize(
+    ("log", "decoder", "rule_id", "rule_level"),
+    [
+{parameters}
+    ],
+)
+def test_rule_match(
+    log: str,
+    decoder: str,
+    rule_id: str,
+    rule_level: int,
+) -> None:
+    response = send_log(log)
 
-    def test_{section}(self) -> None:
-        log = r'''
-{log_content}
-'''
-        response = send_log(log)
+    assert response.status is LogtestStatus.RuleMatch
+    assert response.decoder == decoder
+    assert response.rule_id == rule_id
+    assert response.rule_level == rule_level
 
-        self.assertEqual(response.status, LogtestStatus.RuleMatch)
-
-        self.assertEqual(response.decoder, '{decoder}')
-        self.assertEqual(response.rule_id, '{rule}')
-        self.assertEqual(response.rule_level, {alert})
 
 """
 
-    test_method_template_fail = """\
+    negative_test_template = """\
+@pytest.mark.parametrize(
+    ("log", "rule_id"),
+    [
+{parameters}
+    ],
+)
+def test_rule_does_not_match(log: str, rule_id: str) -> None:
+    response = send_log(log)
 
-    def test_{section}(self) -> None:
-        log = r'''
-{log_content}
-'''
-        response = send_log(log)
+    assert response.status is not LogtestStatus.Error
+    assert response.rule_id != rule_id
 
-        self.assertNotEqual(response.rule_id, '{rule}')
 
 """
 
     def convert(self, wazuh_ini_test: str, output_directory: str) -> None:
-        """Converts an INI file to a Python unittest file."""
+        """Convert a Wazuh INI regression-test file to native pytest tests."""
 
         parser = IniParser()
         test_cases = parser.parse(wazuh_ini_test)
 
-        if len(test_cases) == 0:
+        if not test_cases:
             print(f"No test cases found in {wazuh_ini_test}")
             return
 
         ini_base_name = os.path.splitext(
-            os.path.basename(wazuh_ini_test))[0].lower()
-
-        sanitized = self.sanitize(ini_base_name)
-        class_name = self.snake_to_pascal(sanitized)
-
+            os.path.basename(wazuh_ini_test)
+        )[0].lower()
+        sanitized = identifier(ini_base_name)
         test_file_name = os.path.join(
-            output_directory, f"test_{sanitized}_rules.py")
+            output_directory,
+            f"test_{sanitized}_rules.py",
+        )
 
-        with open(test_file_name, 'w') as test_file:
-            test_file.write(self.class_template.format(
-                class_name=class_name, ini_file_name=os.path.basename(wazuh_ini_test)))
+        positive = [case for case in test_cases if case.condition == "pass"]
+        negative = [case for case in test_cases if case.condition == "fail"]
 
-            for test_case in test_cases:
-                test_function: str = self.test_method_template_pass if test_case.condition == 'pass' else self.test_method_template_fail
+        generated = self.header_template.format(
+            ini_file_name=os.path.basename(wazuh_ini_test)
+        )
 
-                test_file.write(test_function.format(
-                                section=self.sanitize(test_case.header),
-                                log_content=test_case.log,
-                                decoder=test_case.decoder,
-                                rule=test_case.rule,
-                                alert=test_case.alert))
+        if positive:
+            generated += self.positive_test_template.format(
+                parameters=self._render_positive_parameters(positive)
+            )
+
+        if negative:
+            generated += self.negative_test_template.format(
+                parameters=self._render_negative_parameters(negative)
+            )
+
+        with open(test_file_name, "w", encoding="utf-8") as test_file:
+            test_file.write(generated)
 
         print(f"Test file {test_file_name} created successfully.")
 
-    def sanitize(self, text: str) -> str:
-        return text.replace(' ', '_').replace('#', '').replace(':', '_').replace('/', '_').replace('-', '_').replace('___', '_').replace('__', '_').replace('.', '').replace(',', '').replace('(', '').replace(')', '').replace("'", '').replace('"', '').replace('=', '').replace('?', '').replace('!', '').replace(';', '').replace('&', '').replace('@', '').replace('$', '').replace('%', '').replace('^', '').replace('*', '').replace('+', '').replace('~', '').replace('`', '').replace('[', '').replace(']', '').replace('{', '').replace('}', '').replace('\\', '').replace('|', '').replace('<', '').replace('>', '').lower()
+    @staticmethod
+    def _render_positive_parameters(test_cases: list[TestCase]) -> str:
+        return "\n".join(
+            (
+                "        pytest.param(\n"
+                f"            {case.log!r},\n"
+                f"            {case.decoder!r},\n"
+                f"            {case.rule!r},\n"
+                f"            {case.alert},\n"
+                f"            id={identifier(case.header)!r},\n"
+                "        ),"
+            )
+            for case in test_cases
+        )
 
-    def snake_to_pascal(self, snake_str: str) -> str:
-        return ''.join(word.capitalize() for word in snake_str.split('_'))
+    @staticmethod
+    def _render_negative_parameters(test_cases: list[TestCase]) -> str:
+        return "\n".join(
+            (
+                "        pytest.param(\n"
+                f"            {case.log!r},\n"
+                f"            {case.rule!r},\n"
+                f"            id={identifier(case.header)!r},\n"
+                "        ),"
+            )
+            for case in test_cases
+        )
