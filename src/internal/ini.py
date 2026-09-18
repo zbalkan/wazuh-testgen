@@ -17,9 +17,7 @@ class IniConverter:
 # potentially derived from or inspired by Wazuh rulesets and public log samples.
 
 import pytest
-
 from wazuhtester import LogtestStatus, send_log
-
 
 pytestmark = pytest.mark.wazuh_logtest
 

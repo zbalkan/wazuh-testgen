@@ -91,9 +91,7 @@ def test_{function_name}() -> None:
 
             test_code = """\
 import pytest
-
 from wazuhtester import send_multiple_logs
-
 
 pytestmark = pytest.mark.wazuh_logtest
 

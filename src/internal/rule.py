@@ -96,9 +96,7 @@ class RuleConverter:
     def __generate_pytest_code(self, rules: list[dict[str, Any]]) -> str:
         lines = [
             "import pytest",
-            "",
             "from wazuhtester import LogtestStatus, send_log",
-            "",
             "",
             "pytestmark = pytest.mark.wazuh_logtest",
             "",
