@@ -1,81 +1,176 @@
 # wazuh-testgen
 
-A tool to help detection engineers generate Wazuh rule tests either derived from INI test files from Wazuh repository, Windows Event Log (EVTX) files, or Wazuh rule files. The test format uses Python's `unittest`. It is designed to accompany `wazuh-devenv` project.
+A small generator for creating pytest-formatted Wazuh rule tests from Wazuh INI regression tests, Windows Event Log (EVTX) files, or Wazuh rule XML.
+
+The generated tests target the public `wazuhtester` API instead of the old `wazuh-devenv/internal.logtest` module. This keeps test content independent from the development environment and allows the generated tests to run anywhere `wazuhtester`, pytest, and a reachable Wazuh logtest daemon are available.
 
 ## Rationale
 
-Wazuh uses an INI based rule testing solution. In order to get more flexibility, I used Python `unittest` package-based tests with `wazuh-devenv` project. This is a glue solution to convert INI files to Python unit test cases.
+Wazuh ships regression-test content in an INI format. `wazuh-testgen` converts that content into ordinary pytest modules so detection engineers can extend the tests with Python assertions, fixtures, parametrization, and other pytest features.
 
-In time, I added EVTX capability thanks to another project of mine, [wazuhevtx](https://github.com/zbalkan/wazuhevtx). I generate test templates using the data in EVTX files so that detection engineers can make use of behavioral patterns based on attacks.
+INI files contain complete expected outcomes, so the converter emits runnable parameterized tests. Positive and negative cases are generated separately. Negative cases also verify that Wazuh did not return an error before accepting that a particular rule did not match.
 
-Finally, I added Wazuh rule to unit test converter for providing a template. The generated tests are not ready to use, but drafts to work on. You need to provide the log in the original format for proper testing.
+EVTX and rule XML are different. They provide source material but do not contain enough information to infer the intended detection outcome. Those converters therefore generate editable pytest templates marked as skipped. The detection engineer supplies the expected rule IDs, levels, groups, MITRE ATT&CK techniques, or other assertions and then removes the skip marker.
+
+## Generated test dependencies
+
+Generated tests use:
+
+```python
+import pytest
+
+from wazuhtester import LogtestStatus, send_log
+```
+
+The generated modules are marked with:
+
+```python
+pytestmark = pytest.mark.wazuh_logtest
+```
+
+The `wazuhtester` pytest plugin can therefore skip tests that require Wazuh when the logtest daemon is unavailable, or fail the session when configured to require it.
+
+EVTX conversion additionally requires the `wazuhevtx` package and runs only on Windows.
 
 ## Usage
 
-Top level (`generator.py --help`):
+Top level:
 
-```plaintext
+```text
 usage: generator.py [-h] [--debug] {ini,evtx,rule} ...
 
-Generate Python unittest tests for Wazuh rules.
+wazuh-testgen (0.4) generates pytest-formatted Wazuh rule tests from Wazuh
+INI regression tests, Windows EVTX files, or Wazuh rule XML.
 
 positional arguments:
   {ini,evtx,rule}
-    ini            Generate Python unittest tests from INI files.
-    evtx           Generate Python unittest tests from EVTX files.
-    rule           Generate Python unittest tests from Wazuh rule files.
+    ini             Generate pytest tests from Wazuh INI regression tests.
+    evtx            Generate editable pytest templates from EVTX files.
+    rule            Generate editable pytest templates from Wazuh rule XML files.
 
 options:
-  -h, --help       show this help message and exit
-  --debug, -d      Enable debug logging.
+  -h, --help        show this help message and exit
+  --debug, -d       Enable debug logging.
 ```
 
-INI parameters (`generator.py ini --help`):
+INI:
 
-```plaintext
-usage: generator.py ini [-h] --input_dir INPUT_DIR --output_dir OUTPUT_DIR
-
-options:
-  -h, --help            show this help message and exit
-  --input_dir, -i INPUT_DIR
-                        Directory where input files are located.
-  --output_dir, -o OUTPUT_DIR
-                        Directory where the Python test files will be saved.
+```text
+generator.py ini --input_dir INPUT_DIR --output_dir OUTPUT_DIR
 ```
 
-EVTX parameters (`generator.py evtx --help`):
+EVTX:
 
-```plaintext
-usage: generator.py evtx [-h] --scenario SCENARIO --input_dir INPUT_DIR --output_dir OUTPUT_DIR
-
-options:
-  -h, --help            show this help message and exit
-  --scenario, -s SCENARIO
-                        Name for the tests to use for the generated tests.
-  --input_dir, -i INPUT_DIR
-                        Directory where input files are located.
-  --output_dir, -o OUTPUT_DIR
-                        Directory where the Python test files will be saved.
+```text
+generator.py evtx --input_dir INPUT_DIR --output_dir OUTPUT_DIR
 ```
 
-Wazuh rule parameters (`generator.py rule --help`):
+Wazuh rules:
 
-```plaintext
-usage: generator.py rule [-h] --input_dir INPUT_DIR --output_dir OUTPUT_DIR
-
-options:
-  -h, --help            show this help message and exit
-  --input_dir, -i INPUT_DIR
-                        Directory where input files are located.
-  --output_dir, -o OUTPUT_DIR
-                        Directory where the Python test files will be saved.
+```text
+generator.py rule --input_dir INPUT_DIR --output_dir OUTPUT_DIR
 ```
 
-## Note
+## INI output
 
-The `oscap.ini` file has a weird test case. The intention may have been to test a failure case, I am not sure. You need to fix that manually before running the INI converter.
+A Wazuh INI file is converted into parameterized pytest tests. For example:
 
-The original case:
+```python
+import pytest
+
+from wazuhtester import LogtestStatus, send_log
+
+
+pytestmark = pytest.mark.wazuh_logtest
+
+
+@pytest.mark.parametrize(
+    ("log", "decoder", "rule_id", "rule_level"),
+    [
+        pytest.param(
+            "Apr 27 15:22:23 host su[123]: failed: changing from user to root",
+            "su",
+            "5302",
+            9,
+            id="su_failed",
+        ),
+    ],
+)
+def test_rule_match(
+    log: str,
+    decoder: str,
+    rule_id: str,
+    rule_level: int,
+) -> None:
+    response = send_log(log)
+
+    assert response.status is LogtestStatus.RuleMatch
+    assert response.decoder == decoder
+    assert response.rule_id == rule_id
+    assert response.rule_level == rule_level
+```
+
+Fail cases are emitted separately:
+
+```python
+@pytest.mark.parametrize(
+    ("log", "rule_id"),
+    [
+        pytest.param(
+            "example log",
+            "5503",
+            id="rule_must_not_match",
+        ),
+    ],
+)
+def test_rule_does_not_match(log: str, rule_id: str) -> None:
+    response = send_log(log)
+
+    assert response.status is not LogtestStatus.Error
+    assert response.rule_id != rule_id
+```
+
+## Rule XML output
+
+Each rule becomes an editable skipped test:
+
+```python
+@pytest.mark.skip(reason="Provide a log matching rule 100001")
+def test_rule_100001() -> None:
+    log = "TODO: provide a matching log here"
+    response = send_log(log)
+
+    assert response.status is LogtestStatus.RuleMatch
+    assert response.rule_id == "100001"
+```
+
+Supply an original matching log, review the generated expectations, and remove the skip marker.
+
+## EVTX output
+
+Each EVTX file becomes a skipped scenario test containing the JSON events extracted from that file:
+
+```python
+@pytest.mark.skip(reason="Define expected detections for scenario.evtx")
+def test_scenario() -> None:
+    logs = [
+        '{"win": {"system": {"eventID": "1"}}}',
+    ]
+
+    responses = send_multiple_logs(logs, log_format="json")
+
+    assert len(responses) == len(logs)
+
+    # TODO: Add scenario-specific assertions.
+```
+
+The generator deliberately does not invent a rule ID, MITRE ATT&CK technique, or other expected detection from the EVTX contents.
+
+## Note about oscap.ini
+
+The upstream `oscap.ini` file contains a test case without the normal `log <number> <condition> =` prefix.
+
+Original:
 
 ```ini
 [OpenSCAP rule notapplicable]
@@ -83,7 +178,7 @@ The original case:
 oscap: msg: "xccdf-result", scan-id: "0011477050403", content: "ssg-centos-7-ds.xml", title: "Ensure /tmp Located On Separate Partition", ...
 ```
 
-Add `log 1 pass =` before the log:
+Add a condition before converting it:
 
 ```ini
 [OpenSCAP rule notapplicable]
