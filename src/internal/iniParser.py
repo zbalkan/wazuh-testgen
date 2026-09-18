@@ -1,25 +1,28 @@
+from __future__ import annotations
+
 import re
-from typing import Any, Optional
+from dataclasses import dataclass
+from typing import Literal
 
 
+@dataclass(frozen=True, slots=True)
 class TestCase:
     header: str
     log: str
-    condition: str
+    condition: Literal["pass", "fail"]
     rule: str
-    alert: str
+    alert: int
     decoder: str
 
-    def __init__(self, header: str, log: str, condition: str, rule: str, alert: str, decoder: str) -> None:
-        self.header = header
-        self.log = log
-        self.condition = condition
-        self.rule = rule
-        self.alert = alert
-        self.decoder = decoder
-
     def __str__(self) -> str:
-        return f'Test Case: {self.header}\nLog: {self.log}\nCondition: {self.condition}\nRule ID: {self.rule}\nAlert level: {self.alert}\nDecoder: {self.decoder}'
+        return (
+            f"Test Case: {self.header}\n"
+            f"Log: {self.log}\n"
+            f"Condition: {self.condition}\n"
+            f"Rule ID: {self.rule}\n"
+            f"Alert level: {self.alert}\n"
+            f"Decoder: {self.decoder}"
+        )
 
 
 class IniParser:
@@ -34,82 +37,106 @@ class IniParser:
 
         return test_cases
 
-    def __read(self, lines: list[str]) -> Optional[list[TestCase]]:
+    def __read(self, lines: list[str]) -> list[TestCase] | None:
+        header = lines[0].replace("[", "").replace("]", "").lower()
+        logs: list[tuple[str, Literal["pass", "fail"]]] = []
+        rule: str | None = None
+        alert: int | None = None
+        decoder: str | None = None
 
-        header: str = lines[0].replace('[', '').replace(']', '').lower()
-        logs: list[tuple] = []
-        rule: str
-        alert: str
-        decoder: str
-        condition: str
-
-        result: list[TestCase] = []
-
-        pairs: list[tuple[str, Any]] = []
+        pairs: list[tuple[str, str]] = []
         for line in lines[1:]:
-            if not line or line.startswith('#') or line.startswith(';') or line == '':
+            if not line or line.startswith("#") or line.startswith(";"):
                 continue
+
             try:
-                delim = line.index('=')
-            except Exception:
-                raise ValueError(f'Invalid line: {line} under {header}.')
+                delim = line.index("=")
+            except ValueError as exc:
+                raise ValueError(f"Invalid line: {line} under {header}.") from exc
 
-            k: str = line[0:delim].strip()
-            v: str = line[delim + 1:].strip()
-            pairs.append((k, v))
+            key = line[:delim].strip()
+            value = line[delim + 1:].strip()
+            pairs.append((key, value))
 
-        if len(pairs) == 0:
+        if not pairs:
             return None
 
-        for k, v in pairs:
-            if (k.startswith('log')):
-                condition = k.split(' ')[2]
-                logs.append((v, condition))
+        for key, value in pairs:
+            if key.startswith("log"):
+                parts = key.split()
+                if len(parts) < 3 or parts[2] not in {"pass", "fail"}:
+                    raise ValueError(
+                        f"Invalid log condition '{key}' under {header}. "
+                        "Expected 'log <number> pass' or 'log <number> fail'."
+                    )
+                logs.append((value, parts[2]))  # type: ignore[arg-type]
+            elif key.startswith("rule"):
+                rule = value
+            elif key.startswith("alert"):
+                try:
+                    alert = int(value)
+                except ValueError as exc:
+                    raise ValueError(
+                        f"Invalid alert level '{value}' under {header}."
+                    ) from exc
+            elif key.startswith("decoder"):
+                decoder = value
 
-            if (k.startswith('rule')):
-                rule = str(v)
-            if (k.startswith('alert')):
-                alert = str(v)
-            if (k.startswith('decoder')):
-                decoder = v
+        if not logs:
+            return None
+
+        missing = [
+            name
+            for name, value in (
+                ("rule", rule),
+                ("alert", alert),
+                ("decoder", decoder),
+            )
+            if value is None
+        ]
+        if missing:
+            raise ValueError(
+                f"Missing {', '.join(missing)} under {header}."
+            )
+
+        assert rule is not None
+        assert alert is not None
+        assert decoder is not None
 
         if len(logs) == 1:
-            result.append(TestCase(header, logs[0][0],
-                          logs[0][1], rule, alert, decoder))
-            return result
-        else:
-            for i, t in enumerate(logs):
-                result.append(TestCase(header + ' - ' + str(i + 1),
-                                       t[0], t[1], rule, alert, decoder))
+            log, condition = logs[0]
+            return [TestCase(header, log, condition, rule, alert, decoder)]
 
-        return result
+        return [
+            TestCase(
+                f"{header} - {index}",
+                log,
+                condition,
+                rule,
+                alert,
+                decoder,
+            )
+            for index, (log, condition) in enumerate(logs, start=1)
+        ]
 
     def __split(self, path: str) -> list[list[str]]:
-        sections: list[list[str]] = []  # List to hold each section as a block
-        current_section: list[str] = []  # List to hold lines of the current section
-        # Pattern to match section headers
-        section_header_pattern = re.compile(r'^\[(.*?)\]$')
+        sections: list[list[str]] = []
+        current_section: list[str] = []
+        section_header_pattern = re.compile(r"^\[(.*?)\]$")
 
-        with open(path, 'r') as infile:
+        with open(path, "r", encoding="utf-8") as infile:
             for line in infile:
                 line = line.strip()
 
-                # Match a section header
-                section_match = section_header_pattern.match(line)
-                if section_match:
-                    # If we encounter a new section header, save the current section if it's not empty
+                if section_header_pattern.match(line):
                     if current_section:
                         sections.append(current_section)
-                        current_section = []  # Reset for the new section
+                        current_section = []
 
-                    # Start a new section with the header
                     current_section.append(line)
-                else:
-                    # Add the key-value pair to the current section
-                    if current_section:
-                        current_section.append(line)
+                elif current_section:
+                    current_section.append(line)
 
-            # Append the last section
             if current_section:
                 sections.append(current_section)
 
