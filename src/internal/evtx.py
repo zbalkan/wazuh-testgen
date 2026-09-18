@@ -5,7 +5,7 @@ import os
 import pathlib
 import platform
 
-from internal.naming import identifier
+from internal.naming import claim_unique_name, identifier
 
 
 class EvtxConverter:
@@ -26,28 +26,42 @@ class EvtxConverter:
     def convert(self, input_directory: str, output_directory: str) -> None:
         """Convert EVTX files to editable pytest templates."""
 
+        output_names: dict[str, str] = {}
+
         for root, _, files in os.walk(input_directory):
             evtx_files = [name for name in files if name.endswith(".evtx")]
             if not evtx_files:
                 continue
 
             subdirs = pathlib.Path(root).relative_to(input_directory).parts
-            directory_name = identifier("_".join(subdirs), fallback="root")
+            directory_source = str(pathlib.Path(*subdirs)) if subdirs else "."
+            directory_name = claim_unique_name(
+                identifier("_".join(subdirs), fallback="root"),
+                directory_source,
+                output_names,
+                kind="EVTX output module",
+            )
             logging.info(
                 "Generating EVTX pytest module for directory: %s",
                 directory_name,
             )
 
             test_functions: list[str] = []
+            function_names: dict[str, str] = {}
 
             for filename in evtx_files:
                 file_path = pathlib.Path(root, filename)
                 rel_path = str(file_path.relative_to(input_directory))
                 logging.info("Processing EVTX file: %s", rel_path)
 
-                function_name = identifier(
-                    rel_path.removesuffix(".evtx"),
-                    fallback="evtx",
+                function_name = claim_unique_name(
+                    identifier(
+                        rel_path.removesuffix(".evtx"),
+                        fallback="evtx",
+                    ),
+                    rel_path,
+                    function_names,
+                    kind="EVTX test function",
                 )
 
                 json_logs = list(self.converter.to_json(file_path))
