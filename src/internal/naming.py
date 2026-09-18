@@ -1,4 +1,4 @@
-"""Helpers for producing safe Python names in generated tests."""
+"""Helpers for producing safe, collision-free Python names."""
 
 from __future__ import annotations
 
@@ -20,3 +20,22 @@ def identifier(value: str, *, fallback: str = "case") -> str:
         return f"{fallback}_{value}"
 
     return value
+
+
+def claim_unique_name(
+    name: str,
+    source: str,
+    seen: dict[str, str],
+    *,
+    kind: str,
+) -> str:
+    """Claim a generated name or fail if another source already claimed it."""
+    previous = seen.get(name)
+    if previous is not None and previous != source:
+        raise ValueError(
+            f"{kind} name collision: {previous!r} and {source!r} "
+            f"both generate {name!r}."
+        )
+
+    seen[name] = source
+    return name
