@@ -1,123 +1,97 @@
+from __future__ import annotations
+
 import logging
 import os
 import pathlib
 import platform
+
+from internal.naming import identifier
 
 
 class EvtxConverter:
 
     def __init__(self) -> None:
         if platform.system() != "Windows":
-            raise Exception("Error: EVTX parsing works only on Windows platforms.")
+            raise RuntimeError("EVTX parsing works only on Windows platforms.")
+
         try:
             from wazuhevtx.evtx2json import EvtxToJson
-            self.converter = EvtxToJson()
-        except ImportError:
-            raise Exception("Error: You cannot use this command if you don't have wazuhevtx package.")
+        except ImportError as exc:
+            raise RuntimeError(
+                "The EVTX command requires the wazuhevtx package."
+            ) from exc
 
-    def convert(self, test_class_name: str, input_directory: str, output_directory: str) -> None:
-        """Converts an EVTX file to a Python unittest file."""
+        self.converter = EvtxToJson()
 
-        test_functions = []
+    def convert(self, input_directory: str, output_directory: str) -> None:
+        """Convert EVTX files to editable pytest templates."""
 
-        # Sanitize test class name
-        test_class_name = self.__snake_to_pascal(self.__sanitize(test_class_name))
-        logging.info(f"Generating unit test class: {test_class_name}")
-
-        # Walk through all files and subdirectories
         for root, _, files in os.walk(input_directory):
-            evtx_files = [f for f in files if f.endswith(".evtx")]
+            evtx_files = [name for name in files if name.endswith(".evtx")]
             if not evtx_files:
                 continue
-            # Generate class name based on subdirectories
+
             subdirs = pathlib.Path(root).relative_to(input_directory).parts
-            sanitized_class_name = self.sanitize(
-                "_".join(subdirs)) if subdirs else "root"
-            test_class_name = self.snake_to_pascal(sanitized_class_name)
+            directory_name = identifier("_".join(subdirs), fallback="root")
+            logging.info(
+                "Generating EVTX pytest module for directory: %s",
+                directory_name,
+            )
 
-            logging.info(f"Generating test class: {test_class_name}")
-
-            test_functions = []
+            test_functions: list[str] = []
 
             for filename in evtx_files:
                 file_path = pathlib.Path(root, filename)
-                logging.info(f"Processing EVTX file: {file_path}")
-
-                # Generate relative path (excluding base directory)
                 rel_path = str(file_path.relative_to(input_directory))
-                logging.info(f"Processing EVTX file: {rel_path}")
+                logging.info("Processing EVTX file: %s", rel_path)
 
-                function_name = f"test_{self.__sanitize(rel_path)}"
+                function_name = identifier(
+                    rel_path.removesuffix(".evtx"),
+                    fallback="evtx",
+                )
 
-                # Convert EVTX to JSON logs
-                json_logs: list[str] = list(self.converter.to_json(file_path))
-                formatted_logs = ''
-                for i, log in enumerate(json_logs):
-                    if i == len(json_logs) - 1:
-                        formatted_logs += f"            r'''{log}'''"
-                    else:
-                        formatted_logs += f"            r'''{log}''',\n"
+                json_logs = list(self.converter.to_json(file_path))
+                formatted_logs = "\n".join(
+                    f"        {log!r},"
+                    for log in json_logs
+                )
 
-                # Create test function with placeholders for assertions
-                test_function = f"""
-    def {function_name}(self) -> None:
-        # Logs extracted from EVTX file
-        logs: list[str] = [
+                test_functions.append(
+                    f"""\
+@pytest.mark.skip(reason={"Define expected detections for " + rel_path!r})
+def test_{function_name}() -> None:
+    logs: list[str] = [
 {formatted_logs}
-        ]
+    ]
 
-        responses: list[lt.LogtestResponse] = lt.send_multiple_logs(
-            logs, log_format="json")
+    responses = send_multiple_logs(logs, log_format="json")
 
-        # Ensure we receive a response for each log sent
-        self.assertEqual(len(responses), len(logs))
+    assert len(responses) == len(logs)
 
-        # If you want to check every log, simply use a for loop
-        # for _, response in enumerate(responses):
-        #     self.assertEqual(response.status, lt.LogtestStatus.RuleMatch)
-        #     self.assertEqual(response.decoder, 'json')
+    # TODO: Add scenario-specific assertions for rule IDs, levels,
+    # groups, MITRE ATT&CK techniques, or other expected outcomes.
 
-        #     Example: Set expected Wazuh rule ID and level when analyzing logs
-        #     expected_rule_id = None  # Replace with actual rule ID
-        #     expected_rule_level = None  # Replace with actual rule level
 
-        #     self.assertEqual(response.rule_id, expected_rule_id)
-        #       self.assertEqual(response.rule_level, expected_rule_level)
-
-        # If you want a simple result after a series of logs, you can use an "at least one" control. For instance:
-
-        # Ensure there is at least one alert gets triggered with T1021.001 - Remote Services: Remote Desktop Protocol
-        expected_mitre_id: set[str] = {{'T1021.001'}}
-        self.assertTrue(expr=any(expected_mitre_id & r.rule_mitre_ids for r in responses if r.rule_mitre_ids),
-                        msg='T1021.001 not found in MITRE ATT&CK IDs')
-
-        # TODO: Write the expected result as test cases when the logs are analyzed by Wazuh.
-        self.fail("Test not implemented yet. Define expected results.")
 """
-                test_functions.append(test_function)
+                )
 
-            # Generate test class
-            test_class_code = f"""\
-import unittest
+            test_code = """\
+import pytest
 
-import internal.logtest as lt  # type: ignore
+from wazuhtester import send_multiple_logs
 
 
-class Test{test_class_name}(unittest.TestCase):
-{''.join(test_functions)}"""
+pytestmark = pytest.mark.wazuh_logtest
 
-            # Define output file per directory
+
+""" + "".join(test_functions)
+
             test_file_path = os.path.join(
-                output_directory, f"test_{self.sanitize('_'.join(subdirs)).lower()}.py")
+                output_directory,
+                f"test_{directory_name}.py",
+            )
 
-            # Write to test file
-            with open(test_file_path, "w", encoding="utf-8") as f:
-                f.write(test_class_code)
+            with open(test_file_path, "w", encoding="utf-8") as test_file:
+                test_file.write(test_code)
 
-            print(f"Unit test file '{test_file_path}' generated successfully!")
-
-    def __sanitize(self, text: str) -> str:
-        return text.replace('.evtx', '').replace('\\', '_').replace(' ', '_').replace('#', '').replace(':', '_').replace('/', '_').replace('-', '_').replace('___', '_').replace('__', '_').replace(',', '_').replace('.', '_').replace('(', '').replace(')', '').replace("'", '').replace('"', '').replace('=', '').replace('?', '').replace('!', '').replace(';', '').replace('&', '').replace('@', '').replace('$', '').replace('%', '').replace('^', '').replace('*', '').replace('+', '').replace('~', '').replace('`', '').replace('[', '').replace(']', '').replace('{', '').replace('}', '').replace('\\', '').replace('|', '').replace('<', '').replace('>', '').lower()
-
-    def __snake_to_pascal(self, snake_str: str) -> str:
-        return ''.join(word.capitalize() for word in snake_str.split('_'))
+            print(f"Test file '{test_file_path}' generated successfully.")
