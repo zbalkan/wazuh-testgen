@@ -12,6 +12,10 @@ INI files contain complete expected outcomes, so the converter emits runnable pa
 
 EVTX and rule XML are different. They provide source material but do not contain enough information to infer the intended detection outcome. Those converters therefore generate editable pytest templates marked as skipped. The detection engineer supplies the expected rule IDs, levels, groups, MITRE ATT&CK techniques, or other assertions and then removes the skip marker.
 
+## Requirements
+
+`wazuh-testgen` requires Python 3.10 or newer. EVTX conversion additionally requires Windows and the `wazuhevtx` package.
+
 ## Generated test dependencies
 
 Generated tests use:
@@ -30,7 +34,6 @@ pytestmark = pytest.mark.wazuh_logtest
 
 The `wazuhtester` pytest plugin can therefore skip tests that require Wazuh when the logtest daemon is unavailable, or fail the session when configured to require it.
 
-EVTX conversion additionally requires the `wazuhevtx` package and runs only on Windows.
 
 ## Usage
 
@@ -114,20 +117,35 @@ Fail cases are emitted separately:
 
 ```python
 @pytest.mark.parametrize(
-    ("log", "rule_id"),
+    ("log", "decoder", "rule_id", "rule_level"),
     [
         pytest.param(
             "example log",
+            "su",
             "5503",
+            5,
             id="rule_must_not_match",
         ),
     ],
 )
-def test_rule_does_not_match(log: str, rule_id: str) -> None:
+def test_rule_does_not_match(
+    log: str,
+    decoder: str,
+    rule_id: str,
+    rule_level: int,
+) -> None:
     response = send_log(log)
 
     assert response.status is not LogtestStatus.Error
-    assert response.rule_id != rule_id
+    assert (
+        response.decoder,
+        response.rule_id,
+        response.rule_level,
+    ) != (
+        decoder,
+        rule_id,
+        rule_level,
+    )
 ```
 
 ## Rule XML output
