@@ -34,7 +34,6 @@ pytestmark = pytest.mark.wazuh_logtest
 
 The `wazuhtester` pytest plugin can therefore skip tests that require Wazuh when the logtest daemon is unavailable, or fail the session when configured to require it.
 
-
 ## Usage
 
 Top level:
@@ -188,7 +187,11 @@ The generator deliberately does not invent a rule ID, MITRE ATT&CK technique, or
 
 Files under `output/` are generated artifacts rather than generator source. A checked-in snapshot can therefore reflect an older generator version. Regenerate output from the authoritative INI, EVTX, or rule inputs when validating the current generator behavior.
 
-## Note about oscap.ini
+## Notes
+
+The tests extracted from [INI files](https://github.com/wazuh/wazuh/tree/4.14.10/ruleset/testing/tests) have some exceptions.
+
+### oscap.ini
 
 The upstream `oscap.ini` file contains a test case without the normal `log <number> <condition> =` prefix.
 
@@ -207,6 +210,14 @@ Add a condition before converting it:
 
 log 1 pass = oscap: msg: "xccdf-result", scan-id: "0011477050403", content: "ssg-centos-7-ds.xml", title: "Ensure /tmp Located On Separate Partition", ...
 ```
+
+### Commented out tests
+
+The test conditions within `unbound.ini` and `win_application.ini` are commented out and the files are excluded as a whole.
+
+### Regex pattern tests
+
+The test files with `test_*.ini` pattern are for pattern matching (OS_Regex, OS_Match, PCRE2) not rule tests, and files are excluded as a whole.
 
 ## License
 
