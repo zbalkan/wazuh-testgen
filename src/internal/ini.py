@@ -20,6 +20,13 @@ def _python_log_literal(value: str) -> str:
     return repr(value)
 
 
+def _python_logs_literal(values: tuple[str, ...]) -> str:
+    rendered = ", ".join(_python_log_literal(value) for value in values)
+    if len(values) == 1:
+        rendered += ","
+    return f"({rendered})"
+
+
 class IniConverter:
 
     header_template = """\
@@ -229,7 +236,7 @@ def test_rule_does_not_match_multiple_logs(
         return "\n".join(
             (
                 "        pytest.param(\n"
-                f"            {case.logs[0]!r},\n"
+                f"            {_python_logs_literal(case.logs)},\n"
                 f"            {case.decoder!r},\n"
                 f"            {case.rule!r},\n"
                 f"            {case.alert},\n"

@@ -117,7 +117,9 @@ decoder = test
         in generated
     )
     assert "def test_rule_match_multiple_logs(" in generated
-    assert "('first', 'second', 'third')" in generated
+    assert 'r"""first"""' in generated
+    assert 'r"""second"""' in generated
+    assert 'r"""third"""' in generated
     assert "responses = send_multiple_logs(list(logs))" in generated
     assert "response = responses[-1]" in generated
 
