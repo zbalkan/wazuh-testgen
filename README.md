@@ -58,7 +58,7 @@ options:
 INI:
 
 ```text
-generator.py ini --input_dir INPUT_DIR --output_dir OUTPUT_DIR
+generator.py ini --input_dir INPUT_DIR --output_dir OUTPUT_DIR [--support-dir SUPPORT_DIR]
 ```
 
 EVTX:
@@ -72,6 +72,33 @@ Wazuh rules:
 ```text
 generator.py rule --input_dir INPUT_DIR --output_dir OUTPUT_DIR
 ```
+
+## Upstream Wazuh regression harness
+
+The upstream INI suite is not self-contained. Wazuh's own `ruleset/testing/runtests.py`
+temporarily changes Windows base rule 60000 to match JSON-decoded test events and copies
+test-only rules and decoders from `ruleset/testing/ruleset`.
+
+When the input uses the canonical Wazuh layout
+(`ruleset/testing/tests`), the sibling `ruleset/testing/ruleset` directory is
+detected automatically. For a detached copy of the INI files, pass it explicitly:
+
+```text
+generator.py ini \
+  --input_dir tests \
+  --output_dir output \
+  --support-dir /path/to/ruleset/testing/ruleset
+```
+
+This adds `_wazuh_test_support/` and a generated `conftest.py`. The fixture activates
+for an explicit live regression run using `--wazuh-require-logtest`, which is the mode used
+by the qualified corpus. It can also be enabled with
+`WAZUH_TESTGEN_UPSTREAM_HARNESS=1`.
+
+Because the fixture temporarily changes the manager ruleset, run this mode only on a
+disposable regression-test manager. The fixture uses `WAZUH_HOME` when set and otherwise
+defaults to `/var/ossec`. It restores the Windows base rules and removes or restores copied
+test files at session teardown.
 
 ## INI output
 
@@ -193,23 +220,10 @@ The tests extracted from [INI files](https://github.com/wazuh/wazuh/tree/4.14.10
 
 ### oscap.ini
 
-The upstream `oscap.ini` file contains a test case without the normal `log <number> <condition> =` prefix.
-
-Original:
-
-```ini
-[OpenSCAP rule notapplicable]
-
-oscap: msg: "xccdf-result", scan-id: "0011477050403", content: "ssg-centos-7-ds.xml", title: "Ensure /tmp Located On Separate Partition", ...
-```
-
-Add a condition before converting it:
-
-```ini
-[OpenSCAP rule notapplicable]
-
-log 1 pass = oscap: msg: "xccdf-result", scan-id: "0011477050403", content: "ssg-centos-7-ds.xml", title: "Ensure /tmp Located On Separate Partition", ...
-```
+The upstream `oscap.ini` file contains one legacy test case without the normal
+`log <number> <condition> =` prefix. The parser accepts a single unkeyed line in a section
+as a positive log entry, matching that upstream exception without replacing or truncating
+the log content.
 
 ### Commented out tests
 

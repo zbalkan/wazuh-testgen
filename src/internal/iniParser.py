@@ -48,18 +48,28 @@ class IniParser:
         decoder: str | None = None
 
         pairs: list[tuple[str, str]] = []
+        unkeyed_lines: list[str] = []
         for line in lines[1:]:
             if not line or line.startswith("#") or line.startswith(";"):
                 continue
 
             try:
                 delim = line.index("=")
-            except ValueError as exc:
-                raise ValueError(f"Invalid line: {line} under {header}.") from exc
+            except ValueError:
+                unkeyed_lines.append(line)
+                continue
 
             key = line[:delim].strip()
             value = line[delim + 1:].strip()
             pairs.append((key, value))
+
+        if unkeyed_lines:
+            keyed_logs = any(key.startswith("log") for key, _ in pairs)
+            if len(unkeyed_lines) != 1 or keyed_logs:
+                raise ValueError(
+                    f"Invalid unkeyed log data under {header}."
+                )
+            pairs.insert(0, ("log 1 pass", unkeyed_lines[0]))
 
         if not pairs:
             return None

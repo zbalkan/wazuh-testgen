@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import ast
 import enum
+import importlib.util
 import sys
 import types
 import xml.etree.ElementTree as ET
@@ -13,6 +14,7 @@ from internal.ini import IniConverter, _python_log_literal
 from internal.iniParser import IniParser
 from internal.naming import identifier
 from internal.rule import RuleConverter
+from internal.wazuh_support import write_wazuh_test_support
 
 
 def test_identifier_sanitizes_arbitrary_text() -> None:
@@ -55,6 +57,44 @@ decoder = su
     assert "def test_rule_match(" in generated
     assert "def test_rule_does_not_match(" in generated
     assert "assert response.status is not LogtestStatus.Error" in generated
+
+
+def test_ini_parser_accepts_single_legacy_unkeyed_log(tmp_path) -> None:
+    source = tmp_path / "legacy.ini"
+    log = (
+        'oscap: msg: "xccdf-result", scan-id: "0011477050403", '
+        'result: "notapplicable", references: "https://example.test/report".'
+    )
+    source.write_text(
+        "[Legacy]\n"
+        f"{log}\n"
+        "rule = 81523\n"
+        "alert = 0\n"
+        "decoder = oscap\n",
+        encoding="utf-8",
+    )
+
+    cases = IniParser().parse(str(source))
+
+    assert len(cases) == 1
+    assert cases[0].logs == (log,)
+    assert cases[0].condition == "pass"
+
+
+def test_ini_parser_rejects_ambiguous_unkeyed_logs(tmp_path) -> None:
+    source = tmp_path / "ambiguous.ini"
+    source.write_text(
+        "[Ambiguous]\n"
+        "first bare log\n"
+        "second bare log\n"
+        "rule = 1\n"
+        "alert = 0\n"
+        "decoder = test\n",
+        encoding="utf-8",
+    )
+
+    with pytest.raises(ValueError, match="Invalid unkeyed log data"):
+        IniParser().parse(str(source))
 
 
 def test_ini_parser_groups_only_repeated_log_keys(tmp_path) -> None:
@@ -178,6 +218,16 @@ def test_python_log_literal_handles_quote_boundaries(log: str) -> None:
     assert ast.literal_eval(literal) == log
 
 
+@pytest.mark.parametrize("count", range(1, 9))
+def test_python_log_literal_preserves_backslash_runs(count: int) -> None:
+    log = "before" + ("\\" * count) + "after"
+    literal = _python_log_literal(log)
+
+    ast.parse(f"value = {literal}")
+    assert ast.literal_eval(literal) == log
+    assert ast.literal_eval(literal).count("\\") == count
+
+
 class _FakeStatus(enum.Enum):
     RuleMatch = "rule-match"
     Error = "error"
@@ -241,6 +291,135 @@ decoder = su
     )
     with pytest.raises(AssertionError):
         test_function("example", "su", "5503", 5)
+
+
+def test_wazuh_support_fixture_is_disabled_by_default(
+    tmp_path,
+    monkeypatch,
+) -> None:
+    source = tmp_path / "support"
+    output = tmp_path / "out"
+    source.mkdir()
+    output.mkdir()
+    (source / "test_rules.xml").write_text(
+        "<group name=\"test\" />",
+        encoding="utf-8",
+    )
+
+    write_wazuh_test_support(str(source), str(output))
+    monkeypatch.delenv("WAZUH_TESTGEN_UPSTREAM_HARNESS", raising=False)
+    monkeypatch.setenv("WAZUH_HOME", str(tmp_path / "missing"))
+
+    spec = importlib.util.spec_from_file_location(
+        "generated_disabled_wazuh_conftest",
+        output / "conftest.py",
+    )
+    assert spec is not None
+    assert spec.loader is not None
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+
+    request = types.SimpleNamespace(
+        config=types.SimpleNamespace(
+            getoption=lambda *_args, **_kwargs: False,
+        )
+    )
+    fixture = module._wazuh_upstream_regression_environment.__wrapped__(
+        request
+    )
+    next(fixture)
+    with pytest.raises(StopIteration):
+        next(fixture)
+
+
+def test_wazuh_support_fixture_applies_and_restores_test_harness(
+    tmp_path,
+    monkeypatch,
+) -> None:
+    source = tmp_path / "support"
+    output = tmp_path / "out"
+    source.mkdir()
+    output.mkdir()
+
+    (source / "test_rules.xml").write_text("<group name=\"test\" />", encoding="utf-8")
+    (source / "test_overwrite_rules.xml").write_text(
+        "<group name=\"overwrite\" />",
+        encoding="utf-8",
+    )
+    (source / "test_decoders.xml").write_text(
+        "<decoder name=\"test\" />",
+        encoding="utf-8",
+    )
+    (source / "ignore.xml").write_text("<group />", encoding="utf-8")
+
+    write_wazuh_test_support(str(source), str(output))
+
+    support = output / "_wazuh_test_support"
+    assert sorted(path.name for path in support.iterdir()) == [
+        "test_decoders.xml",
+        "test_overwrite_rules.xml",
+        "test_rules.xml",
+    ]
+
+    wazuh_home = tmp_path / "wazuh"
+    base_rules = wazuh_home / "ruleset/rules/0575-win-base_rules.xml"
+    custom_rules = wazuh_home / "etc/rules"
+    custom_decoders = wazuh_home / "etc/decoders"
+    base_rules.parent.mkdir(parents=True)
+    custom_rules.mkdir(parents=True)
+    custom_decoders.mkdir(parents=True)
+
+    original = (
+        "<group name=\"windows\">"
+        "<rule id=\"60000\" level=\"0\">"
+        "<category>ossec</category>"
+        "<decoded_as>windows_eventchannel</decoded_as>"
+        "<field name=\"win.system.providerName\">\\.+</field>"
+        "</rule>"
+        "</group>"
+    )
+    base_rules.write_text(original, encoding="utf-8")
+
+    monkeypatch.delenv("WAZUH_TESTGEN_UPSTREAM_HARNESS", raising=False)
+    monkeypatch.setenv("WAZUH_HOME", str(wazuh_home))
+
+    spec = importlib.util.spec_from_file_location(
+        "generated_wazuh_conftest",
+        output / "conftest.py",
+    )
+    assert spec is not None
+    assert spec.loader is not None
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+
+    request = types.SimpleNamespace(
+        config=types.SimpleNamespace(
+            getoption=lambda option, **_kwargs: (
+                option == "--wazuh-require-logtest"
+            ),
+        )
+    )
+    fixture = module._wazuh_upstream_regression_environment.__wrapped__(
+        request
+    )
+    next(fixture)
+
+    tree = ET.parse(base_rules)
+    base_rule = tree.find('.//rule[@id="60000"]')
+    assert base_rule is not None
+    assert base_rule.find("category") is None
+    assert base_rule.findtext("decoded_as") == "json"
+    assert (custom_rules / "test_rules.xml").exists()
+    assert (custom_rules / "test_overwrite_rules.xml").exists()
+    assert (custom_decoders / "test_decoders.xml").exists()
+
+    with pytest.raises(StopIteration):
+        next(fixture)
+
+    assert base_rules.read_text(encoding="utf-8") == original
+    assert not (custom_rules / "test_rules.xml").exists()
+    assert not (custom_rules / "test_overwrite_rules.xml").exists()
+    assert not (custom_decoders / "test_decoders.xml").exists()
 
 
 def test_rule_converter_generates_skipped_pytest_templates(tmp_path) -> None:

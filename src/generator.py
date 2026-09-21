@@ -11,6 +11,7 @@ from typing import Final
 from internal.evtx import EvtxConverter
 from internal.ini import IniConverter
 from internal.rule import RuleConverter
+from internal.wazuh_support import write_wazuh_test_support
 
 APP_NAME: Final[str] = "wazuh-testgen"
 APP_VERSION: Final[str] = "0.4"
@@ -59,6 +60,14 @@ def main() -> None:
         "-o",
         required=True,
         help="Directory where generated Python tests will be saved.",
+    )
+    ini_parser.add_argument(
+        "--support-dir",
+        help=(
+            "Optional Wazuh ruleset/testing/ruleset directory. "
+            "Copies test-only rules/decoders and emits a guarded pytest "
+            "fixture that reproduces the upstream regression harness."
+        ),
     )
 
     evtx_parser = subparsers.add_parser(
@@ -128,6 +137,21 @@ def main() -> None:
                 wazuh_test_ini,
             )
             ini_converter.convert(ini_file_path, output_directory)
+
+        support_directory = args.support_dir
+        if support_directory is None:
+            candidate = os.path.join(
+                os.path.dirname(os.path.normpath(input_directory)),
+                "ruleset",
+            )
+            if os.path.isdir(candidate):
+                support_directory = candidate
+
+        if support_directory:
+            write_wazuh_test_support(
+                support_directory,
+                output_directory,
+            )
 
     elif args.command == "evtx":
         EvtxConverter().convert(input_directory, output_directory)
