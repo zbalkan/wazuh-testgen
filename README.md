@@ -222,26 +222,17 @@ The tests extracted from [INI files](https://github.com/wazuh/wazuh/tree/4.14.10
 
 ### Upstream corpus exclusions
 
-`overwrite.ini` depends on test-only overwrite rules and decoders, while
-`user.ini` depends on test-only rule `999286` from
-`ruleset/testing/ruleset/test_rules.xml`. Neither is a standalone built-in rule
-regression test.
-
-When preparing the upstream INI directory for the built-in rule corpus, delete both
-files manually before running `wazuh-testgen`:
+`overwrite.ini` depends on test-only overwrite rules and decoders. It is not a
+standalone built-in-rule regression test and must still be removed before generation:
 
 ```bash
 rm /path/to/ruleset/testing/tests/overwrite.ini
-rm /path/to/ruleset/testing/tests/user.ini
 ```
 
-Generate into a clean output directory. If an existing output directory is reused,
-remove any previously generated `test_overwrite_rules.py` and
-`test_user_rules.py` before regeneration; the generator does not delete stale
-output files.
-
-The generator intentionally does not special-case these filenames. Their exclusion
-is part of preparing the upstream built-in-rule corpus.
+`user.ini` depends on test-only rule `999286` from
+`ruleset/testing/ruleset/test_rules.xml`. The INI converter excludes this file
+automatically and removes a stale `test_user_rules.py` from the output directory
+if one exists.
 
 ### oscap.ini
 
@@ -249,6 +240,10 @@ The upstream `oscap.ini` file contains one legacy test case without the normal
 `log <number> <condition> =` prefix. The parser accepts a single unkeyed line in a section
 as a positive log entry, matching that upstream exception without replacing or truncating
 the log content.
+
+The `OpenSCAP rule notapplicable` case is excluded from generated pytest output.
+Its upstream expected rule does not match the standalone built-in-rule corpus
+qualification environment. Other `oscap.ini` cases are still generated normally.
 
 ### Commented out tests
 
