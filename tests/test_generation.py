@@ -56,6 +56,36 @@ decoder = su
     assert "assert response.status is not LogtestStatus.Error" in generated
 
 
+def test_ini_converter_preserves_backslashes_without_double_escaping(tmp_path) -> None:
+    source = tmp_path / "windows.ini"
+    output = tmp_path / "out"
+    output.mkdir()
+    log = r'{"win":{"eventdata":{"image":"C:\\\\Windows\\\\System32\\\\cmd.exe"}}}'
+
+    source.write_text(
+        "[Windows path]\n"
+        f"log 1 pass = {log}\n"
+        "rule = 61603\n"
+        "alert = 0\n"
+        "decoder = json\n",
+        encoding="utf-8",
+    )
+
+    IniConverter().convert(str(source), str(output))
+
+    generated = (output / "test_windows_rules.py").read_text(encoding="utf-8")
+    tree = ast.parse(generated)
+    constants = [
+        node.value
+        for node in ast.walk(tree)
+        if isinstance(node, ast.Constant) and isinstance(node.value, str)
+    ]
+
+    assert log in constants
+    assert log in generated
+    assert r"C:\\\\\\\\Windows" not in generated
+
+
 class _FakeStatus(enum.Enum):
     RuleMatch = "rule-match"
     Error = "error"

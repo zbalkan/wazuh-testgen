@@ -8,6 +8,18 @@ from internal.iniParser import IniParser, TestCase
 from internal.naming import identifier
 
 
+def _python_log_literal(value: str) -> str:
+    trailing_backslashes = len(value) - len(value.rstrip("\\"))
+    if trailing_backslashes % 2:
+        return repr(value)
+
+    for delimiter in ("'''", '"""'):
+        if delimiter not in value:
+            return f"r{delimiter}{value}{delimiter}"
+
+    return repr(value)
+
+
 class IniConverter:
 
     header_template = """\
@@ -123,7 +135,7 @@ def test_rule_does_not_match(
         return "\n".join(
             (
                 "        pytest.param(\n"
-                f"            {case.log!r},\n"
+                f"            {_python_log_literal(case.log)},\n"
                 f"            {case.decoder!r},\n"
                 f"            {case.rule!r},\n"
                 f"            {case.alert},\n"
@@ -138,7 +150,7 @@ def test_rule_does_not_match(
         return "\n".join(
             (
                 "        pytest.param(\n"
-                f"            {case.log!r},\n"
+                f"            {_python_log_literal(case.log)},\n"
                 f"            {case.decoder!r},\n"
                 f"            {case.rule!r},\n"
                 f"            {case.alert},\n"
