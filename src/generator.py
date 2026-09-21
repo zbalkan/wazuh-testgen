@@ -11,7 +11,6 @@ from typing import Final
 from internal.evtx import EvtxConverter
 from internal.ini import IniConverter
 from internal.rule import RuleConverter
-from internal.wazuh_support import write_wazuh_test_support
 
 APP_NAME: Final[str] = "wazuh-testgen"
 APP_VERSION: Final[str] = "0.4"
@@ -61,15 +60,6 @@ def main() -> None:
         required=True,
         help="Directory where generated Python tests will be saved.",
     )
-    ini_parser.add_argument(
-        "--support-dir",
-        help=(
-            "Optional Wazuh ruleset/testing/ruleset directory containing "
-            "test-only rules/decoders. INI generation always emits the "
-            "guarded Windows regression fixture."
-        ),
-    )
-
     evtx_parser = subparsers.add_parser(
         "evtx",
         help="Generate editable pytest templates from EVTX files.",
@@ -137,11 +127,6 @@ def main() -> None:
                 wazuh_test_ini,
             )
             ini_converter.convert(ini_file_path, output_directory)
-
-        write_wazuh_test_support(
-            args.support_dir,
-            output_directory,
-        )
 
     elif args.command == "evtx":
         EvtxConverter().convert(input_directory, output_directory)

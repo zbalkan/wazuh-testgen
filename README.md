@@ -58,7 +58,7 @@ options:
 INI:
 
 ```text
-generator.py ini --input_dir INPUT_DIR --output_dir OUTPUT_DIR [--support-dir SUPPORT_DIR]
+generator.py ini --input_dir INPUT_DIR --output_dir OUTPUT_DIR
 ```
 
 EVTX:
@@ -73,34 +73,16 @@ Wazuh rules:
 generator.py rule --input_dir INPUT_DIR --output_dir OUTPUT_DIR
 ```
 
-## Upstream Wazuh regression harness
+## Execution environment
 
-The upstream INI suite is not self-contained. Wazuh's own `ruleset/testing/runtests.py`
-temporarily changes Windows base rule 60000 to match JSON-decoded test events.
+`wazuh-testgen` only generates pytest modules. Generated tests do not modify the
+Wazuh installation, copy rules or decoders into the manager, or write under
+`/var/ossec/ruleset`.
 
-INI generation always emits a guarded `conftest.py` that reproduces this Windows
-regression mode, including when the input is a detached copy of
-`ruleset/testing/tests`. The fixture activates for an explicit live regression run
-using `--wazuh-require-logtest`. It can also be enabled with
-`WAZUH_TESTGEN_UPSTREAM_HARNESS=1`.
-
-The optional `--support-dir` argument is only for upstream tests that intentionally
-depend on test-only XML from `ruleset/testing/ruleset`:
-
-```text
-generator.py ini \
-  --input_dir tests \
-  --output_dir output \
-  --support-dir /path/to/ruleset/testing/ruleset
-```
-
-When supplied, those support XML files are copied under
-`_wazuh_test_support/`. They are not discovered or copied automatically.
-
-Because the fixture temporarily changes the manager ruleset, run this mode only on a
-disposable regression-test manager. The fixture uses `WAZUH_HOME` when set and otherwise
-defaults to `/var/ossec`. It restores the Windows base rules and removes or restores any
-copied test-support files at session teardown.
+When using the upstream Wazuh regression corpus with `wazuhdevenv`, prepare the
+manager with `wazuhdevenv init` before running the generated tests.
+`wazuhdevenv` owns privileged manager configuration, including the Windows rule
+60000 JSON-decoding adjustment and the development workspace bind mounts.
 
 ## INI output
 

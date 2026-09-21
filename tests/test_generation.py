@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import ast
 import enum
-import importlib.util
 import sys
 import types
 import xml.etree.ElementTree as ET
@@ -15,7 +14,6 @@ from internal.ini import IniConverter, _python_log_literal
 from internal.iniParser import IniParser
 from internal.naming import identifier
 from internal.rule import RuleConverter
-from internal.wazuh_support import write_wazuh_test_support
 
 
 def test_identifier_sanitizes_arbitrary_text() -> None:
@@ -24,7 +22,7 @@ def test_identifier_sanitizes_arbitrary_text() -> None:
     assert identifier("", fallback="root") == "root"
 
 
-def test_ini_command_emits_regression_fixture_without_support_dir(
+def test_ini_command_generates_only_pytest_modules(
     tmp_path,
     monkeypatch,
 ) -> None:
@@ -56,7 +54,7 @@ def test_ini_command_emits_regression_fixture_without_support_dir(
     generator_main()
 
     assert (output / "test_su_rules.py").is_file()
-    assert (output / "conftest.py").is_file()
+    assert not (output / "conftest.py").exists()
     assert not (output / "_wazuh_test_support").exists()
 
 
@@ -383,189 +381,6 @@ decoder = su
     )
     with pytest.raises(AssertionError):
         test_function("example", "su", "5503", 5)
-
-
-def test_wazuh_support_fixture_is_disabled_by_default(
-    tmp_path,
-    monkeypatch,
-) -> None:
-    output = tmp_path / "out"
-    output.mkdir()
-
-    write_wazuh_test_support(None, str(output))
-    monkeypatch.delenv("WAZUH_TESTGEN_UPSTREAM_HARNESS", raising=False)
-    monkeypatch.setenv("WAZUH_HOME", str(tmp_path / "missing"))
-
-    assert (output / "conftest.py").is_file()
-    assert not (output / "_wazuh_test_support").exists()
-
-    spec = importlib.util.spec_from_file_location(
-        "generated_disabled_wazuh_conftest",
-        output / "conftest.py",
-    )
-    assert spec is not None
-    assert spec.loader is not None
-    module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
-
-    request = types.SimpleNamespace(
-        config=types.SimpleNamespace(
-            getoption=lambda *_args, **_kwargs: False,
-        )
-    )
-    fixture = module._wazuh_upstream_regression_environment.__wrapped__(
-        request
-    )
-    next(fixture)
-    with pytest.raises(StopIteration):
-        next(fixture)
-
-
-def test_wazuh_support_fixture_applies_windows_mode_without_support(
-    tmp_path,
-    monkeypatch,
-) -> None:
-    output = tmp_path / "out"
-    output.mkdir()
-    write_wazuh_test_support(None, str(output))
-
-    wazuh_home = tmp_path / "wazuh"
-    base_rules = wazuh_home / "ruleset/rules/0575-win-base_rules.xml"
-    base_rules.parent.mkdir(parents=True)
-    original = (
-        "<group name=\"windows\">"
-        "<rule id=\"60000\" level=\"0\">"
-        "<category>ossec</category>"
-        "<decoded_as>windows_eventchannel</decoded_as>"
-        "<field name=\"win.system.providerName\">\\.+</field>"
-        "</rule>"
-        "</group>"
-    )
-    base_rules.write_text(original, encoding="utf-8")
-
-    monkeypatch.delenv("WAZUH_TESTGEN_UPSTREAM_HARNESS", raising=False)
-    monkeypatch.setenv("WAZUH_HOME", str(wazuh_home))
-
-    spec = importlib.util.spec_from_file_location(
-        "generated_windows_wazuh_conftest",
-        output / "conftest.py",
-    )
-    assert spec is not None
-    assert spec.loader is not None
-    module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
-
-    request = types.SimpleNamespace(
-        config=types.SimpleNamespace(
-            getoption=lambda option, **_kwargs: (
-                option == "--wazuh-require-logtest"
-            ),
-        )
-    )
-    fixture = module._wazuh_upstream_regression_environment.__wrapped__(
-        request
-    )
-    next(fixture)
-
-    tree = ET.parse(base_rules)
-    base_rule = tree.find('.//rule[@id="60000"]')
-    assert base_rule is not None
-    assert base_rule.find("category") is None
-    assert base_rule.findtext("decoded_as") == "json"
-
-    with pytest.raises(StopIteration):
-        next(fixture)
-
-    assert base_rules.read_text(encoding="utf-8") == original
-
-def test_wazuh_support_fixture_applies_and_restores_test_harness(
-    tmp_path,
-    monkeypatch,
-) -> None:
-    source = tmp_path / "support"
-    output = tmp_path / "out"
-    source.mkdir()
-    output.mkdir()
-
-    (source / "test_rules.xml").write_text("<group name=\"test\" />", encoding="utf-8")
-    (source / "test_overwrite_rules.xml").write_text(
-        "<group name=\"overwrite\" />",
-        encoding="utf-8",
-    )
-    (source / "test_decoders.xml").write_text(
-        "<decoder name=\"test\" />",
-        encoding="utf-8",
-    )
-    (source / "ignore.xml").write_text("<group />", encoding="utf-8")
-
-    write_wazuh_test_support(str(source), str(output))
-
-    support = output / "_wazuh_test_support"
-    assert sorted(path.name for path in support.iterdir()) == [
-        "test_decoders.xml",
-        "test_overwrite_rules.xml",
-        "test_rules.xml",
-    ]
-
-    wazuh_home = tmp_path / "wazuh"
-    base_rules = wazuh_home / "ruleset/rules/0575-win-base_rules.xml"
-    custom_rules = wazuh_home / "etc/rules"
-    custom_decoders = wazuh_home / "etc/decoders"
-    base_rules.parent.mkdir(parents=True)
-    custom_rules.mkdir(parents=True)
-    custom_decoders.mkdir(parents=True)
-
-    original = (
-        "<group name=\"windows\">"
-        "<rule id=\"60000\" level=\"0\">"
-        "<category>ossec</category>"
-        "<decoded_as>windows_eventchannel</decoded_as>"
-        "<field name=\"win.system.providerName\">\\.+</field>"
-        "</rule>"
-        "</group>"
-    )
-    base_rules.write_text(original, encoding="utf-8")
-
-    monkeypatch.delenv("WAZUH_TESTGEN_UPSTREAM_HARNESS", raising=False)
-    monkeypatch.setenv("WAZUH_HOME", str(wazuh_home))
-
-    spec = importlib.util.spec_from_file_location(
-        "generated_wazuh_conftest",
-        output / "conftest.py",
-    )
-    assert spec is not None
-    assert spec.loader is not None
-    module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
-
-    request = types.SimpleNamespace(
-        config=types.SimpleNamespace(
-            getoption=lambda option, **_kwargs: (
-                option == "--wazuh-require-logtest"
-            ),
-        )
-    )
-    fixture = module._wazuh_upstream_regression_environment.__wrapped__(
-        request
-    )
-    next(fixture)
-
-    tree = ET.parse(base_rules)
-    base_rule = tree.find('.//rule[@id="60000"]')
-    assert base_rule is not None
-    assert base_rule.find("category") is None
-    assert base_rule.findtext("decoded_as") == "json"
-    assert (custom_rules / "test_rules.xml").exists()
-    assert (custom_rules / "test_overwrite_rules.xml").exists()
-    assert (custom_decoders / "test_decoders.xml").exists()
-
-    with pytest.raises(StopIteration):
-        next(fixture)
-
-    assert base_rules.read_text(encoding="utf-8") == original
-    assert not (custom_rules / "test_rules.xml").exists()
-    assert not (custom_rules / "test_overwrite_rules.xml").exists()
-    assert not (custom_decoders / "test_decoders.xml").exists()
 
 
 def test_rule_converter_generates_skipped_pytest_templates(tmp_path) -> None:
