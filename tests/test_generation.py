@@ -63,7 +63,7 @@ def test_ini_parser_accepts_single_legacy_unkeyed_log(tmp_path) -> None:
     source = tmp_path / "legacy.ini"
     log = (
         'oscap: msg: "xccdf-result", scan-id: "0011477050403", '
-        'result: "notapplicable", references: "https://example.test/report".'
+        'result: "notapplicable", references: "https://example.test/?a=b".'
     )
     source.write_text(
         "[Legacy]\n"
