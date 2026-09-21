@@ -66,7 +66,10 @@ def _wazuh_upstream_regression_environment(
             f"Wazuh base rules not found at {base_rules}. "
             "Set WAZUH_HOME to the manager installation."
         )
-    if not rules_directory.is_dir() or not decoders_directory.is_dir():
+    support_files = sorted(_SUPPORT_DIRECTORY.glob("*.xml"))
+    if support_files and (
+        not rules_directory.is_dir() or not decoders_directory.is_dir()
+    ):
         raise RuntimeError(
             f"Wazuh custom rules/decoders directories not found under {wazuh_home}."
         )
@@ -94,7 +97,7 @@ def _wazuh_upstream_regression_environment(
         decoded_as.text = "json"
         tree.write(base_rules, encoding="utf-8")
 
-        for source in sorted(_SUPPORT_DIRECTORY.glob("*.xml")):
+        for source in support_files:
             target_directory = (
                 decoders_directory
                 if source.name.endswith("_decoders.xml")
@@ -121,34 +124,35 @@ def _wazuh_upstream_regression_environment(
 
 
 def write_wazuh_test_support(
-    source_directory: str,
+    source_directory: str | None,
     output_directory: str,
 ) -> None:
-    """Copy Wazuh regression-test support files and emit their pytest fixture."""
-
-    source = Path(source_directory)
-    if not source.is_dir():
-        raise FileNotFoundError(
-            f"Wazuh test support directory '{source_directory}' not found."
-        )
-
-    support_files = sorted(
-        path
-        for path in source.iterdir()
-        if path.is_file() and _SUPPORT_FILE.fullmatch(path.name)
-    )
-    if not support_files:
-        raise FileNotFoundError(
-            f"No Wazuh test rules or decoders found in '{source_directory}'."
-        )
+    """Emit the regression fixture and optionally copy test-only support XML."""
 
     output = Path(output_directory)
     target = output / SUPPORT_DIRECTORY
     if target.exists():
         shutil.rmtree(target)
-    target.mkdir(parents=True)
 
-    for path in support_files:
-        shutil.copy2(path, target / path.name)
+    if source_directory is not None:
+        source = Path(source_directory)
+        if not source.is_dir():
+            raise FileNotFoundError(
+                f"Wazuh test support directory '{source_directory}' not found."
+            )
+
+        support_files = sorted(
+            path
+            for path in source.iterdir()
+            if path.is_file() and _SUPPORT_FILE.fullmatch(path.name)
+        )
+        if not support_files:
+            raise FileNotFoundError(
+                f"No Wazuh test rules or decoders found in '{source_directory}'."
+            )
+
+        target.mkdir(parents=True)
+        for path in support_files:
+            shutil.copy2(path, target / path.name)
 
     (output / "conftest.py").write_text(_CONFTEST, encoding="utf-8")

@@ -64,9 +64,9 @@ def main() -> None:
     ini_parser.add_argument(
         "--support-dir",
         help=(
-            "Optional Wazuh ruleset/testing/ruleset directory. "
-            "Copies test-only rules/decoders and emits a guarded pytest "
-            "fixture that reproduces the upstream regression harness."
+            "Optional Wazuh ruleset/testing/ruleset directory containing "
+            "test-only rules/decoders. INI generation always emits the "
+            "guarded Windows regression fixture."
         ),
     )
 
@@ -138,20 +138,10 @@ def main() -> None:
             )
             ini_converter.convert(ini_file_path, output_directory)
 
-        support_directory = args.support_dir
-        if support_directory is None:
-            candidate = os.path.join(
-                os.path.dirname(os.path.normpath(input_directory)),
-                "ruleset",
-            )
-            if os.path.isdir(candidate):
-                support_directory = candidate
-
-        if support_directory:
-            write_wazuh_test_support(
-                support_directory,
-                output_directory,
-            )
+        write_wazuh_test_support(
+            args.support_dir,
+            output_directory,
+        )
 
     elif args.command == "evtx":
         EvtxConverter().convert(input_directory, output_directory)

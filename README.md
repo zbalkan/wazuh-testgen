@@ -76,12 +76,16 @@ generator.py rule --input_dir INPUT_DIR --output_dir OUTPUT_DIR
 ## Upstream Wazuh regression harness
 
 The upstream INI suite is not self-contained. Wazuh's own `ruleset/testing/runtests.py`
-temporarily changes Windows base rule 60000 to match JSON-decoded test events and copies
-test-only rules and decoders from `ruleset/testing/ruleset`.
+temporarily changes Windows base rule 60000 to match JSON-decoded test events.
 
-When the input uses the canonical Wazuh layout
-(`ruleset/testing/tests`), the sibling `ruleset/testing/ruleset` directory is
-detected automatically. For a detached copy of the INI files, pass it explicitly:
+INI generation always emits a guarded `conftest.py` that reproduces this Windows
+regression mode, including when the input is a detached copy of
+`ruleset/testing/tests`. The fixture activates for an explicit live regression run
+using `--wazuh-require-logtest`. It can also be enabled with
+`WAZUH_TESTGEN_UPSTREAM_HARNESS=1`.
+
+The optional `--support-dir` argument is only for upstream tests that intentionally
+depend on test-only XML from `ruleset/testing/ruleset`:
 
 ```text
 generator.py ini \
@@ -90,15 +94,13 @@ generator.py ini \
   --support-dir /path/to/ruleset/testing/ruleset
 ```
 
-This adds `_wazuh_test_support/` and a generated `conftest.py`. The fixture activates
-for an explicit live regression run using `--wazuh-require-logtest`, which is the mode used
-by the qualified corpus. It can also be enabled with
-`WAZUH_TESTGEN_UPSTREAM_HARNESS=1`.
+When supplied, those support XML files are copied under
+`_wazuh_test_support/`. They are not discovered or copied automatically.
 
 Because the fixture temporarily changes the manager ruleset, run this mode only on a
 disposable regression-test manager. The fixture uses `WAZUH_HOME` when set and otherwise
-defaults to `/var/ossec`. It restores the Windows base rules and removes or restores copied
-test files at session teardown.
+defaults to `/var/ossec`. It restores the Windows base rules and removes or restores any
+copied test-support files at session teardown.
 
 ## INI output
 
@@ -218,25 +220,28 @@ Files under `output/` are generated artifacts rather than generator source. A ch
 
 The tests extracted from [INI files](https://github.com/wazuh/wazuh/tree/4.14.10/ruleset/testing/tests) have some exceptions.
 
-### overwrite.ini
+### Upstream corpus exclusions
 
-`overwrite.ini` depends on test-only rules and decoders from Wazuh's
-`ruleset/testing/ruleset` directory. It is not a standalone built-in rule
-regression test and must not be converted into `test_overwrite_rules.py`.
+`overwrite.ini` depends on test-only overwrite rules and decoders, while
+`user.ini` depends on test-only rule `999286` from
+`ruleset/testing/ruleset/test_rules.xml`. Neither is a standalone built-in rule
+regression test.
 
-When preparing a copied upstream INI directory for rule-test generation, delete
-`overwrite.ini` manually before running `wazuh-testgen`:
+When preparing the upstream INI directory for the built-in rule corpus, delete both
+files manually before running `wazuh-testgen`:
 
 ```bash
 rm /path/to/ruleset/testing/tests/overwrite.ini
+rm /path/to/ruleset/testing/tests/user.ini
 ```
 
 Generate into a clean output directory. If an existing output directory is reused,
-remove any previously generated `test_overwrite_rules.py` before regeneration; the
-generator does not delete stale output files.
+remove any previously generated `test_overwrite_rules.py` and
+`test_user_rules.py` before regeneration; the generator does not delete stale
+output files.
 
-The generator intentionally does not special-case this filename; the exclusion is
-part of preparing the upstream regression corpus.
+The generator intentionally does not special-case these filenames. Their exclusion
+is part of preparing the upstream built-in-rule corpus.
 
 ### oscap.ini
 

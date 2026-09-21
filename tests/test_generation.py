@@ -9,6 +9,7 @@ import xml.etree.ElementTree as ET
 
 import pytest
 
+from generator import main as generator_main
 from internal.evtx import EvtxConverter
 from internal.ini import IniConverter, _python_log_literal
 from internal.iniParser import IniParser
@@ -21,6 +22,42 @@ def test_identifier_sanitizes_arbitrary_text() -> None:
     assert identifier("Su: failed / root") == "su_failed_root"
     assert identifier("123") == "case_123"
     assert identifier("", fallback="root") == "root"
+
+
+def test_ini_command_emits_regression_fixture_without_support_dir(
+    tmp_path,
+    monkeypatch,
+) -> None:
+    source = tmp_path / "input"
+    output = tmp_path / "output"
+    source.mkdir()
+    (source / "su.ini").write_text(
+        "[SU failed]\n"
+        "log 1 pass = Apr 27 host su[123]: failed\n"
+        "rule = 5302\n"
+        "alert = 9\n"
+        "decoder = su\n",
+        encoding="utf-8",
+    )
+
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "generator.py",
+            "ini",
+            "--input_dir",
+            str(source),
+            "--output_dir",
+            str(output),
+        ],
+    )
+
+    generator_main()
+
+    assert (output / "test_su_rules.py").is_file()
+    assert (output / "conftest.py").is_file()
+    assert not (output / "_wazuh_test_support").exists()
 
 
 def test_ini_converter_generates_native_pytest(tmp_path) -> None:
@@ -297,18 +334,15 @@ def test_wazuh_support_fixture_is_disabled_by_default(
     tmp_path,
     monkeypatch,
 ) -> None:
-    source = tmp_path / "support"
     output = tmp_path / "out"
-    source.mkdir()
     output.mkdir()
-    (source / "test_rules.xml").write_text(
-        "<group name=\"test\" />",
-        encoding="utf-8",
-    )
 
-    write_wazuh_test_support(str(source), str(output))
+    write_wazuh_test_support(None, str(output))
     monkeypatch.delenv("WAZUH_TESTGEN_UPSTREAM_HARNESS", raising=False)
     monkeypatch.setenv("WAZUH_HOME", str(tmp_path / "missing"))
+
+    assert (output / "conftest.py").is_file()
+    assert not (output / "_wazuh_test_support").exists()
 
     spec = importlib.util.spec_from_file_location(
         "generated_disabled_wazuh_conftest",
@@ -331,6 +365,63 @@ def test_wazuh_support_fixture_is_disabled_by_default(
     with pytest.raises(StopIteration):
         next(fixture)
 
+
+def test_wazuh_support_fixture_applies_windows_mode_without_support(
+    tmp_path,
+    monkeypatch,
+) -> None:
+    output = tmp_path / "out"
+    output.mkdir()
+    write_wazuh_test_support(None, str(output))
+
+    wazuh_home = tmp_path / "wazuh"
+    base_rules = wazuh_home / "ruleset/rules/0575-win-base_rules.xml"
+    base_rules.parent.mkdir(parents=True)
+    original = (
+        "<group name=\"windows\">"
+        "<rule id=\"60000\" level=\"0\">"
+        "<category>ossec</category>"
+        "<decoded_as>windows_eventchannel</decoded_as>"
+        "<field name=\"win.system.providerName\">\\.+</field>"
+        "</rule>"
+        "</group>"
+    )
+    base_rules.write_text(original, encoding="utf-8")
+
+    monkeypatch.delenv("WAZUH_TESTGEN_UPSTREAM_HARNESS", raising=False)
+    monkeypatch.setenv("WAZUH_HOME", str(wazuh_home))
+
+    spec = importlib.util.spec_from_file_location(
+        "generated_windows_wazuh_conftest",
+        output / "conftest.py",
+    )
+    assert spec is not None
+    assert spec.loader is not None
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+
+    request = types.SimpleNamespace(
+        config=types.SimpleNamespace(
+            getoption=lambda option, **_kwargs: (
+                option == "--wazuh-require-logtest"
+            ),
+        )
+    )
+    fixture = module._wazuh_upstream_regression_environment.__wrapped__(
+        request
+    )
+    next(fixture)
+
+    tree = ET.parse(base_rules)
+    base_rule = tree.find('.//rule[@id="60000"]')
+    assert base_rule is not None
+    assert base_rule.find("category") is None
+    assert base_rule.findtext("decoded_as") == "json"
+
+    with pytest.raises(StopIteration):
+        next(fixture)
+
+    assert base_rules.read_text(encoding="utf-8") == original
 
 def test_wazuh_support_fixture_applies_and_restores_test_harness(
     tmp_path,
