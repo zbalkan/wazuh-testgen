@@ -50,7 +50,7 @@ class IniParser:
         pairs: list[tuple[str, str]] = []
         unkeyed_lines: list[str] = []
         assignment_pattern = re.compile(
-            r"^[A-Za-z_][A-Za-z0-9_. -]*\\s*="
+            r"^[A-Za-z_][A-Za-z0-9_. -]*\s*="
         )
         for line in lines[1:]:
             if not line or line.startswith("#") or line.startswith(";"):
