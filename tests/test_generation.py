@@ -96,6 +96,61 @@ decoder = su
     assert "assert response.status is not LogtestStatus.Error" in generated
 
 
+def test_ini_converter_excludes_user_ini(tmp_path) -> None:
+    source = tmp_path / "user.ini"
+    output = tmp_path / "out"
+    output.mkdir()
+    stale = output / "test_user_rules.py"
+    stale.write_text("stale\n", encoding="utf-8")
+
+    source.write_text(
+        """\
+[User is considered an alias for the static user field]
+log 1 pass = { "user": "root" }
+rule = 999286
+alert = 3
+decoder = json
+""",
+        encoding="utf-8",
+    )
+
+    IniConverter().convert(str(source), str(output))
+
+    assert not stale.exists()
+
+
+def test_ini_converter_excludes_openscap_notapplicable_case(tmp_path) -> None:
+    source = tmp_path / "oscap.ini"
+    output = tmp_path / "out"
+    output.mkdir()
+
+    source.write_text(
+        """\
+[OpenSCAP rule notapplicable]
+log 1 pass = oscap: result: "notapplicable"
+rule = 81523
+alert = 0
+decoder = oscap
+
+[OpenSCAP rule fixed]
+log 1 pass = oscap: result: "fixed"
+rule = 81524
+alert = 3
+decoder = oscap
+""",
+        encoding="utf-8",
+    )
+
+    IniConverter().convert(str(source), str(output))
+
+    generated = (output / "test_oscap_rules.py").read_text(encoding="utf-8")
+    ast.parse(generated)
+
+    assert "openscap_rule_notapplicable" not in generated
+    assert "openscap_rule_fixed" in generated
+    assert "'81524'" in generated
+
+
 def test_ini_parser_accepts_single_legacy_unkeyed_log(tmp_path) -> None:
     source = tmp_path / "legacy.ini"
     log = (

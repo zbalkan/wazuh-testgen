@@ -8,6 +8,12 @@ from internal.iniParser import IniParser, TestCase
 from internal.naming import identifier
 
 
+_EXCLUDED_INI_FILES = {"user.ini"}
+_EXCLUDED_INI_CASES = {
+    "oscap.ini": {"openscap rule notapplicable"},
+}
+
+
 def _python_log_literal(value: str) -> str:
     trailing_backslashes = len(value) - len(value.rstrip("\\"))
     if trailing_backslashes % 2:
@@ -164,21 +170,31 @@ def test_rule_does_not_match_multiple_logs(
     def convert(self, wazuh_ini_test: str, output_directory: str) -> None:
         """Convert a Wazuh INI regression-test file to native pytest tests."""
 
-        parser = IniParser()
-        test_cases = parser.parse(wazuh_ini_test)
-
-        if not test_cases:
-            print(f"No test cases found in {wazuh_ini_test}")
-            return
-
-        ini_base_name = os.path.splitext(
-            os.path.basename(wazuh_ini_test)
-        )[0].lower()
+        ini_file_name = os.path.basename(wazuh_ini_test).lower()
+        ini_base_name = os.path.splitext(ini_file_name)[0]
         sanitized = identifier(ini_base_name)
         test_file_name = os.path.join(
             output_directory,
             f"test_{sanitized}_rules.py",
         )
+
+        if ini_file_name in _EXCLUDED_INI_FILES:
+            if os.path.exists(test_file_name):
+                os.remove(test_file_name)
+            print(f"Excluded upstream corpus file {ini_file_name}")
+            return
+
+        parser = IniParser()
+        excluded_cases = _EXCLUDED_INI_CASES.get(ini_file_name, set())
+        test_cases = [
+            case
+            for case in parser.parse(wazuh_ini_test)
+            if case.header not in excluded_cases
+        ]
+
+        if not test_cases:
+            print(f"No test cases found in {wazuh_ini_test}")
+            return
 
         positive = [case for case in test_cases if case.condition == "pass"]
         negative = [case for case in test_cases if case.condition == "fail"]
