@@ -29,7 +29,7 @@ class IniConverter:
 # potentially derived from or inspired by Wazuh rulesets and public log samples.
 
 import pytest
-from wazuhtester import LogtestStatus, send_log
+from wazuhtester import LogtestStatus, send_log{multiple_import}
 
 pytestmark = pytest.mark.wazuh_logtest
 
@@ -51,6 +51,30 @@ def test_rule_match(
     rule_level: int,
 ) -> None:
     response = send_log(log)
+
+    assert response.status is LogtestStatus.RuleMatch
+    assert response.decoder == decoder
+    assert response.rule_id == rule_id
+    assert response.rule_level == rule_level
+
+
+"""
+
+    positive_multiple_test_template = """\
+@pytest.mark.parametrize(
+    ("logs", "decoder", "rule_id", "rule_level"),
+    [
+{parameters}
+    ],
+)
+def test_rule_match_multiple_logs(
+    logs: tuple[str, ...],
+    decoder: str,
+    rule_id: str,
+    rule_level: int,
+) -> None:
+    responses = send_multiple_logs(list(logs))
+    response = responses[-1]
 
     assert response.status is LogtestStatus.RuleMatch
     assert response.decoder == decoder
@@ -89,6 +113,42 @@ def test_rule_does_not_match(
 
 """
 
+    negative_multiple_test_template = """\
+@pytest.mark.parametrize(
+    ("logs", "decoder", "rule_id", "rule_level"),
+    [
+{parameters}
+    ],
+)
+def test_rule_does_not_match_multiple_logs(
+    logs: tuple[str, ...],
+    decoder: str,
+    rule_id: str,
+    rule_level: int,
+) -> None:
+    responses = send_multiple_logs(list(logs))
+
+    assert all(
+        response.status is not LogtestStatus.Error
+        for response in responses
+    )
+    assert all(
+        (
+            response.decoder,
+            response.rule_id,
+            response.rule_level,
+        )
+        != (
+            decoder,
+            rule_id,
+            rule_level,
+        )
+        for response in responses
+    )
+
+
+"""
+
     def convert(self, wazuh_ini_test: str, output_directory: str) -> None:
         """Convert a Wazuh INI regression-test file to native pytest tests."""
 
@@ -110,19 +170,38 @@ def test_rule_does_not_match(
 
         positive = [case for case in test_cases if case.condition == "pass"]
         negative = [case for case in test_cases if case.condition == "fail"]
+        positive_single = [case for case in positive if len(case.logs) == 1]
+        positive_multiple = [case for case in positive if len(case.logs) > 1]
+        negative_single = [case for case in negative if len(case.logs) == 1]
+        negative_multiple = [case for case in negative if len(case.logs) > 1]
 
         generated = self.header_template.format(
-            ini_file_name=os.path.basename(wazuh_ini_test)
+            ini_file_name=os.path.basename(wazuh_ini_test),
+            multiple_import=(
+                ", send_multiple_logs"
+                if positive_multiple or negative_multiple
+                else ""
+            ),
         )
 
-        if positive:
+        if positive_single:
             generated += self.positive_test_template.format(
-                parameters=self._render_positive_parameters(positive)
+                parameters=self._render_single_parameters(positive_single)
             )
 
-        if negative:
+        if positive_multiple:
+            generated += self.positive_multiple_test_template.format(
+                parameters=self._render_multiple_parameters(positive_multiple)
+            )
+
+        if negative_single:
             generated += self.negative_test_template.format(
-                parameters=self._render_negative_parameters(negative)
+                parameters=self._render_single_parameters(negative_single)
+            )
+
+        if negative_multiple:
+            generated += self.negative_multiple_test_template.format(
+                parameters=self._render_multiple_parameters(negative_multiple)
             )
 
         with open(test_file_name, "w", encoding="utf-8") as test_file:
@@ -131,11 +210,11 @@ def test_rule_does_not_match(
         print(f"Test file {test_file_name} created successfully.")
 
     @staticmethod
-    def _render_positive_parameters(test_cases: list[TestCase]) -> str:
+    def _render_single_parameters(test_cases: list[TestCase]) -> str:
         return "\n".join(
             (
                 "        pytest.param(\n"
-                f"            {_python_log_literal(case.log)},\n"
+                f"            {_python_log_literal(case.logs[0])},\n"
                 f"            {case.decoder!r},\n"
                 f"            {case.rule!r},\n"
                 f"            {case.alert},\n"
@@ -146,11 +225,11 @@ def test_rule_does_not_match(
         )
 
     @staticmethod
-    def _render_negative_parameters(test_cases: list[TestCase]) -> str:
+    def _render_multiple_parameters(test_cases: list[TestCase]) -> str:
         return "\n".join(
             (
                 "        pytest.param(\n"
-                f"            {_python_log_literal(case.log)},\n"
+                f"            {case.logs[0]!r},\n"
                 f"            {case.decoder!r},\n"
                 f"            {case.rule!r},\n"
                 f"            {case.alert},\n"

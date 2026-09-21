@@ -8,7 +8,7 @@ from typing import Literal
 @dataclass(frozen=True, slots=True)
 class TestCase:
     header: str
-    log: str
+    logs: tuple[str, ...]
     condition: Literal["pass", "fail"]
     rule: str
     alert: int
@@ -17,7 +17,7 @@ class TestCase:
     def __str__(self) -> str:
         return (
             f"Test Case: {self.header}\n"
-            f"Log: {self.log}\n"
+            f"Logs: {self.logs}\n"
             f"Condition: {self.condition}\n"
             f"Rule ID: {self.rule}\n"
             f"Alert level: {self.alert}\n"
@@ -39,7 +39,10 @@ class IniParser:
 
     def __read(self, lines: list[str]) -> list[TestCase] | None:
         header = lines[0].replace("[", "").replace("]", "").lower()
-        logs: list[tuple[str, Literal["pass", "fail"]]] = []
+        log_groups: dict[
+            str,
+            tuple[Literal["pass", "fail"], list[str]],
+        ] = {}
         rule: str | None = None
         alert: int | None = None
         decoder: str | None = None
@@ -69,7 +72,12 @@ class IniParser:
                         f"Invalid log condition '{key}' under {header}. "
                         "Expected 'log <number> pass' or 'log <number> fail'."
                     )
-                logs.append((value, parts[2]))  # type: ignore[arg-type]
+
+                condition: Literal["pass", "fail"] = parts[2]
+                if key in log_groups:
+                    log_groups[key][1].append(value)
+                else:
+                    log_groups[key] = (condition, [value])
             elif key.startswith("rule"):
                 rule = value
             elif key.startswith("alert"):
@@ -82,7 +90,7 @@ class IniParser:
             elif key.startswith("decoder"):
                 decoder = value
 
-        if not logs:
+        if not log_groups:
             return None
 
         missing = [
@@ -103,20 +111,30 @@ class IniParser:
         assert alert is not None
         assert decoder is not None
 
-        if len(logs) == 1:
-            log, condition = logs[0]
-            return [TestCase(header, log, condition, rule, alert, decoder)]
+        groups = list(log_groups.values())
+        if len(groups) == 1:
+            condition, logs = groups[0]
+            return [
+                TestCase(
+                    header,
+                    tuple(logs),
+                    condition,
+                    rule,
+                    alert,
+                    decoder,
+                )
+            ]
 
         return [
             TestCase(
                 f"{header} - {index}",
-                log,
+                tuple(logs),
                 condition,
                 rule,
                 alert,
                 decoder,
             )
-            for index, (log, condition) in enumerate(logs, start=1)
+            for index, (condition, logs) in enumerate(groups, start=1)
         ]
 
     def __split(self, path: str) -> list[list[str]]:

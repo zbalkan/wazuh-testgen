@@ -10,6 +10,7 @@ import pytest
 
 from internal.evtx import EvtxConverter
 from internal.ini import IniConverter
+from internal.iniParser import IniParser
 from internal.naming import identifier
 from internal.rule import RuleConverter
 
@@ -54,6 +55,71 @@ decoder = su
     assert "def test_rule_match(" in generated
     assert "def test_rule_does_not_match(" in generated
     assert "assert response.status is not LogtestStatus.Error" in generated
+
+
+def test_ini_parser_groups_only_repeated_log_keys(tmp_path) -> None:
+    source = tmp_path / "frequency.ini"
+    source.write_text(
+        """\
+[Frequency]
+log 1 pass = first
+log 1 pass = second
+log 1 pass = third
+rule = 100001
+alert = 10
+decoder = test
+
+[Independent]
+log 1 pass = alpha
+log 2 pass = beta
+rule = 100002
+alert = 5
+decoder = test
+""",
+        encoding="utf-8",
+    )
+
+    cases = IniParser().parse(str(source))
+
+    assert [case.logs for case in cases] == [
+        ("first", "second", "third"),
+        ("alpha",),
+        ("beta",),
+    ]
+
+
+def test_ini_converter_generates_multiple_log_fixture(tmp_path) -> None:
+    source = tmp_path / "frequency.ini"
+    output = tmp_path / "out"
+    output.mkdir()
+    source.write_text(
+        """\
+[Frequency]
+log 1 pass = first
+log 1 pass = second
+log 1 pass = third
+rule = 100001
+alert = 10
+decoder = test
+""",
+        encoding="utf-8",
+    )
+
+    IniConverter().convert(str(source), str(output))
+
+    generated = (output / "test_frequency_rules.py").read_text(
+        encoding="utf-8"
+    )
+    ast.parse(generated)
+
+    assert (
+        "from wazuhtester import LogtestStatus, send_log, send_multiple_logs"
+        in generated
+    )
+    assert "def test_rule_match_multiple_logs(" in generated
+    assert "('first', 'second', 'third')" in generated
+    assert "responses = send_multiple_logs(list(logs))" in generated
+    assert "response = responses[-1]" in generated
 
 
 def test_ini_converter_preserves_backslashes_without_double_escaping(tmp_path) -> None:
