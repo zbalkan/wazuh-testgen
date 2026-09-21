@@ -13,8 +13,13 @@ def _python_log_literal(value: str) -> str:
     if trailing_backslashes % 2:
         return repr(value)
 
-    for delimiter in ("'''", '"""'):
-        if delimiter not in value:
+    for delimiter in ('"""', "'''"):
+        quote = delimiter[0]
+        if (
+            delimiter not in value
+            and not value.startswith(quote)
+            and not value.endswith(quote)
+        ):
             return f"r{delimiter}{value}{delimiter}"
 
     return repr(value)

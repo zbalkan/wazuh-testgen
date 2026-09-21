@@ -9,7 +9,7 @@ import xml.etree.ElementTree as ET
 import pytest
 
 from internal.evtx import EvtxConverter
-from internal.ini import IniConverter
+from internal.ini import IniConverter, _python_log_literal
 from internal.iniParser import IniParser
 from internal.naming import identifier
 from internal.rule import RuleConverter
@@ -152,6 +152,30 @@ def test_ini_converter_preserves_backslashes_without_double_escaping(tmp_path) -
     assert log in constants
     assert log in generated
     assert r"C:\\\\\\\\Windows" not in generated
+
+
+@pytest.mark.parametrize(
+    "log",
+    [
+        "type=ANOM_EXEC msg=audit(1222174623.498:608): msg='failed'",
+        "%ASA-5-111010: User 'pgskyadm' executed 'terminal pager 0'",
+        "dovecot: Support not compiled in for passdb driver 'ldap'",
+        "Unable to load config file 'cel.conf'",
+        "redis/client.rb:228:in `read'",
+        "Failed opening required 'includes/SkinTemplate.php'",
+        'message ending in "double quote"',
+        "'message starting with single quote",
+        '"message starting with double quote',
+        "contains '''triple single quotes'''",
+        'contains """triple double quotes"""',
+        "ends with one backslash\\",
+    ],
+)
+def test_python_log_literal_handles_quote_boundaries(log: str) -> None:
+    literal = _python_log_literal(log)
+
+    ast.parse(f"value = {literal}")
+    assert ast.literal_eval(literal) == log
 
 
 class _FakeStatus(enum.Enum):
