@@ -218,6 +218,26 @@ Files under `output/` are generated artifacts rather than generator source. A ch
 
 The tests extracted from [INI files](https://github.com/wazuh/wazuh/tree/4.14.10/ruleset/testing/tests) have some exceptions.
 
+### overwrite.ini
+
+`overwrite.ini` depends on test-only rules and decoders from Wazuh's
+`ruleset/testing/ruleset` directory. It is not a standalone built-in rule
+regression test and must not be converted into `test_overwrite_rules.py`.
+
+When preparing a copied upstream INI directory for rule-test generation, delete
+`overwrite.ini` manually before running `wazuh-testgen`:
+
+```bash
+rm /path/to/ruleset/testing/tests/overwrite.ini
+```
+
+Generate into a clean output directory. If an existing output directory is reused,
+remove any previously generated `test_overwrite_rules.py` before regeneration; the
+generator does not delete stale output files.
+
+The generator intentionally does not special-case this filename; the exclusion is
+part of preparing the upstream regression corpus.
+
 ### oscap.ini
 
 The upstream `oscap.ini` file contains one legacy test case without the normal
