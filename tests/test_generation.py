@@ -8,12 +8,12 @@ import xml.etree.ElementTree as ET
 
 import pytest
 
-from generator import main as generator_main
-from internal.evtx import EvtxConverter
-from internal.ini import IniConverter, _python_log_literal
-from internal.iniParser import IniParser
-from internal.naming import identifier
-from internal.rule import RuleConverter
+from wazuhtestgen.generator import main as generator_main
+from wazuhtestgen.internal.evtx import EvtxConverter
+from wazuhtestgen.internal.ini import IniConverter, _python_log_literal
+from wazuhtestgen.internal.iniParser import IniParser
+from wazuhtestgen.internal.naming import identifier
+from wazuhtestgen.internal.rule import RuleConverter
 
 
 def test_identifier_sanitizes_arbitrary_text() -> None:

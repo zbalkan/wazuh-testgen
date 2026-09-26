@@ -5,28 +5,55 @@ from __future__ import annotations
 import argparse
 import logging
 import os
+import platform
 import sys
+from importlib.metadata import PackageNotFoundError, version
+from pathlib import Path
 from typing import Final
 
-from internal.evtx import EvtxConverter
-from internal.ini import IniConverter
-from internal.rule import RuleConverter
+from .internal.evtx import EvtxConverter
+from .internal.ini import IniConverter
+from .internal.rule import RuleConverter
 
 APP_NAME: Final[str] = "wazuh-testgen"
-APP_VERSION: Final[str] = "0.4"
+ENCODING: Final[str] = "utf-8"
+
+
+def _package_version() -> str:
+    try:
+        return version(APP_NAME)
+    except PackageNotFoundError:
+        pyproject = Path(__file__).resolve().parents[2] / "pyproject.toml"
+        in_project = False
+        try:
+            lines = pyproject.read_text(encoding=ENCODING).splitlines()
+        except OSError as exc:
+            raise RuntimeError(
+                "Unable to determine the wazuh-testgen package version."
+            ) from exc
+
+        for raw_line in lines:
+            line = raw_line.strip()
+            if line == "[project]":
+                in_project = True
+                continue
+            if line.startswith("[") and line.endswith("]"):
+                in_project = False
+                continue
+            if in_project and line.startswith("version"):
+                _, value = line.split("=", 1)
+                return value.strip().strip('"').strip("'")
+
+        raise RuntimeError(
+            "Unable to determine the wazuh-testgen package version."
+        )
+
+
+APP_VERSION: Final[str] = _package_version()
 DESCRIPTION: Final[str] = (
     f"{APP_NAME} ({APP_VERSION}) generates pytest-formatted Wazuh rule tests "
     "from Wazuh INI regression tests, Windows EVTX files, or Wazuh rule XML."
 )
-ENCODING: Final[str] = "utf-8"
-
-
-def get_root_dir() -> str:
-    if getattr(sys, "frozen", False):
-        return os.path.dirname(sys.executable)
-    if __file__:
-        return os.path.dirname(__file__)
-    return "./"
 
 
 def main() -> None:
@@ -96,6 +123,13 @@ def main() -> None:
 
     args = parser.parse_args()
 
+    if args.command == "evtx" and platform.system() != "Windows":
+        parser.error(
+            "the evtx command requires Windows, because wazuhevtx reads EVTX files "
+            "through the Windows event log API. The ini and rule commands run on "
+            "any operating system."
+        )
+
     if args.debug:
         logging.getLogger().setLevel(logging.DEBUG)
 
@@ -145,8 +179,33 @@ def exception_handler(exc_type, exc_value, exc_traceback) -> None:
         logging.error("(%s): %s", exc_type.__name__, exc_value)
 
 
+def _log_directory() -> str:
+    system = platform.system()
+
+    if system == "Windows":
+        base = os.environ.get("LOCALAPPDATA")
+        if not base:
+            base = os.path.join(os.path.expanduser("~"), "AppData", "Local")
+        return os.path.join(base, APP_NAME, "Logs")
+
+    if system == "Darwin":
+        return os.path.join(
+            os.path.expanduser("~"),
+            "Library",
+            "Logs",
+            APP_NAME,
+        )
+
+    base = os.environ.get("XDG_STATE_HOME")
+    if not base:
+        base = os.path.join(os.path.expanduser("~"), ".local", "state")
+    return os.path.join(base, APP_NAME)
+
+
 def setup_logging() -> None:
-    log_path = os.path.join(get_root_dir(), f"{APP_NAME}.log")
+    log_directory = _log_directory()
+    os.makedirs(log_directory, exist_ok=True)
+    log_path = os.path.join(log_directory, f"{APP_NAME}.log")
     logging.basicConfig(
         filename=log_path,
         encoding=ENCODING,
@@ -157,24 +216,21 @@ def setup_logging() -> None:
     sys.excepthook = exception_handler
 
 
-if __name__ == "__main__":
+def run() -> None:
     try:
         setup_logging()
-
         logging.info("Starting")
         main()
         logging.info("Exiting.")
     except KeyboardInterrupt:
-        print("Cancelled by user.")
+        print("Cancelled by user.", file=sys.stderr)
         logging.info("Cancelled by user.")
-        try:
-            sys.exit(0)
-        except SystemExit:
-            os._exit(0)
+        raise SystemExit(130)
     except Exception as ex:
-        print("ERROR: " + str(ex))
+        print(f"ERROR: {ex}", file=sys.stderr)
         exception_handler(type(ex), ex, ex.__traceback__)
-        try:
-            sys.exit(1)
-        except SystemExit:
-            os._exit(1)
+        raise SystemExit(1)
+
+
+if __name__ == "__main__":
+    run()

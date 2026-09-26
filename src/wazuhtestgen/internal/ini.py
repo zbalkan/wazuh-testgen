@@ -4,8 +4,8 @@ from __future__ import annotations
 
 import os
 
-from internal.iniParser import IniParser, TestCase
-from internal.naming import identifier
+from .iniParser import IniParser, TestCase
+from .naming import identifier
 
 
 _EXCLUDED_INI_FILES = {"user.ini"}

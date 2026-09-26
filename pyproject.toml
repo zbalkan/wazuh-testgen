@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "wazuh-testgen"
+version = "0.4.0"
+description = "Generate pytest-formatted Wazuh rule tests from INI, EVTX and rule XML inputs"
+readme = "README.md"
+license = "GPL-2.0-only"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+authors = [
+  { name = "Zafer Balkan", email = "zafer@zaferbalkan.com" },
+]
+keywords = ["wazuh", "security", "pytest", "testing", "evtx"]
+classifiers = [
+  "Environment :: Console",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Topic :: Security",
+]
+dependencies = [
+  "wazuhevtx>=1.1,<2; sys_platform == 'win32'",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8,<10"]
+build = ["build>=1.2", "twine>=5"]
+
+[project.scripts]
+wazuh-testgen = "wazuhtestgen.generator:run"
+
+[project.urls]
+Homepage = "https://github.com/zbalkan/wazuh-testgen"
+Repository = "https://github.com/zbalkan/wazuh-testgen"
+Issues = "https://github.com/zbalkan/wazuh-testgen/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]

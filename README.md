@@ -14,7 +14,7 @@ EVTX and rule XML are different. They provide source material but do not contain
 
 ## Requirements
 
-`wazuh-testgen` requires Python 3.10 or newer. EVTX conversion additionally requires Windows and the `wazuhevtx` package.
+`wazuh-testgen` requires Python 3.10 or newer. The `ini` and `rule` commands run on Windows, macOS and Linux. The `evtx` command runs on Windows only and stops with a clear error on other operating systems. On Windows, the required `wazuhevtx` dependency is installed automatically.
 
 ## Generated test dependencies
 
@@ -36,42 +36,31 @@ The `wazuhtester` pytest plugin can therefore skip tests that require Wazuh when
 
 ## Usage
 
-Top level:
+Install with pipx:
 
-```text
-usage: generator.py [-h] [--debug] {ini,evtx,rule} ...
-
-wazuh-testgen (0.4) generates pytest-formatted Wazuh rule tests from Wazuh
-INI regression tests, Windows EVTX files, or Wazuh rule XML.
-
-positional arguments:
-  {ini,evtx,rule}
-    ini             Generate pytest tests from Wazuh INI regression tests.
-    evtx            Generate editable pytest templates from EVTX files.
-    rule            Generate editable pytest templates from Wazuh rule XML files.
-
-options:
-  -h, --help        show this help message and exit
-  --debug, -d       Enable debug logging.
+```bash
+pipx install wazuh-testgen
 ```
 
-INI:
+Generate tests from Wazuh INI regression tests:
 
-```text
-generator.py ini --input_dir INPUT_DIR --output_dir OUTPUT_DIR
+```bash
+wazuh-testgen ini --input_dir ... --output_dir ...
 ```
 
-EVTX:
+Generate templates from Wazuh rule XML:
 
-```text
-generator.py evtx --input_dir INPUT_DIR --output_dir OUTPUT_DIR
+```bash
+wazuh-testgen rule --input_dir ... --output_dir ...
 ```
 
-Wazuh rules:
+Generate templates from EVTX files on Windows:
 
-```text
-generator.py rule --input_dir INPUT_DIR --output_dir OUTPUT_DIR
+```bash
+wazuh-testgen evtx --input_dir ... --output_dir ...
 ```
+
+The EVTX command is Windows-only. On macOS and Linux it exits with an error before creating the requested output directory.
 
 ## Execution environment
 

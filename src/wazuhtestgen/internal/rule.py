@@ -8,7 +8,7 @@ import pathlib
 import xml.etree.ElementTree as ET
 from typing import Any, Final
 
-from internal.naming import claim_unique_name, identifier
+from .naming import claim_unique_name, identifier
 
 ENCODING: Final[str] = "utf-8"
 PLACEHOLDER_LOG: Final[str] = "TODO: provide a matching log here"

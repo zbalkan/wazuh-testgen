@@ -5,7 +5,7 @@ import os
 import pathlib
 import platform
 
-from internal.naming import claim_unique_name, identifier
+from .naming import claim_unique_name, identifier
 
 
 class EvtxConverter:
