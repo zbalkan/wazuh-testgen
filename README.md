@@ -14,7 +14,7 @@ EVTX and rule XML are different. They provide source material but do not contain
 
 ## Requirements
 
-`wazuhtestgen` requires Python 3.10 or newer. EVTX conversion additionally requires Windows and the `wazuhevtx` package.
+`wazuhtestgen` requires Python 3.9 or newer. EVTX conversion additionally requires Windows and the `wazuhevtx` package.
 
 ## Generated test dependencies
 
@@ -39,7 +39,7 @@ The `wazuhtester` pytest plugin can therefore skip tests that require Wazuh when
 Top level:
 
 ```text
-usage: generator.py [-h] [--debug] {ini,evtx,rule} ...
+usage: wazuhtestgen [-h] [--debug] {ini,evtx,rule} ...
 
 wazuhtestgen (0.4) generates pytest-formatted Wazuh rule tests from Wazuh
 INI regression tests, Windows EVTX files, or Wazuh rule XML.
@@ -58,19 +58,19 @@ options:
 INI:
 
 ```text
-generator.py ini --input_dir INPUT_DIR --output_dir OUTPUT_DIR
+wazuhtestgen ini --input_dir INPUT_DIR --output_dir OUTPUT_DIR
 ```
 
 EVTX:
 
 ```text
-generator.py evtx --input_dir INPUT_DIR --output_dir OUTPUT_DIR
+wazuhtestgen evtx --input_dir INPUT_DIR --output_dir OUTPUT_DIR
 ```
 
 Wazuh rules:
 
 ```text
-generator.py rule --input_dir INPUT_DIR --output_dir OUTPUT_DIR
+wazuhtestgen rule --input_dir INPUT_DIR --output_dir OUTPUT_DIR
 ```
 
 ## Execution environment

@@ -2,13 +2,15 @@ from __future__ import annotations
 
 import ast
 import enum
+import logging
+import platform
 import sys
 import types
 import xml.etree.ElementTree as ET
 
 import pytest
 
-from generator import main as generator_main
+from generator import main as generator_main, run as generator_run
 from internal.evtx import EvtxConverter
 from internal.ini import IniConverter, _python_log_literal
 from internal.iniParser import IniParser
@@ -522,3 +524,39 @@ def test_evtx_converter_rejects_output_name_collisions(tmp_path) -> None:
 
     with pytest.raises(ValueError, match="EVTX output module name collision"):
         _evtx_converter().convert(str(source), str(output))
+
+
+def test_evtx_converter_rejects_non_windows(monkeypatch) -> None:
+    monkeypatch.setattr(platform, "system", lambda: "Linux")
+
+    with pytest.raises(RuntimeError, match="only on Windows"):
+        EvtxConverter()
+
+
+def test_cli_reports_runtime_errors_without_traceback(
+    tmp_path,
+    monkeypatch,
+    capsys,
+) -> None:
+    source = tmp_path / "input"
+    output = tmp_path / "output"
+    source.mkdir()
+    monkeypatch.setattr(platform, "system", lambda: "Linux")
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "wazuhtestgen",
+            "evtx",
+            "--input_dir",
+            str(source),
+            "--output_dir",
+            str(output),
+        ],
+    )
+    monkeypatch.setattr(logging, "basicConfig", lambda **_kwargs: None)
+
+    assert generator_run() == 2
+    captured = capsys.readouterr()
+    assert "EVTX parsing works only on Windows platforms." in captured.err
+    assert "Traceback" not in captured.err

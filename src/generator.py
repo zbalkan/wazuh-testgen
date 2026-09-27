@@ -13,7 +13,7 @@ from internal.ini import IniConverter
 from internal.rule import RuleConverter
 
 APP_NAME: Final[str] = "wazuhtestgen"
-APP_VERSION: Final[str] = "0.4"
+APP_VERSION: Final[str] = "0.4.0"
 DESCRIPTION: Final[str] = (
     f"{APP_NAME} ({APP_VERSION}) generates pytest-formatted Wazuh rule tests "
     "from Wazuh INI regression tests, Windows EVTX files, or Wazuh rule XML."
@@ -135,6 +135,26 @@ def main() -> None:
         RuleConverter().convert(input_directory, output_directory)
 
 
+def run() -> int:
+    """Run the installed console command with user-facing error handling."""
+    try:
+        setup_logging()
+        main()
+    except KeyboardInterrupt:
+        print("Cancelled by user.")
+        logging.info("Cancelled by user.")
+        return 130
+    except RuntimeError as ex:
+        print("ERROR: " + str(ex), file=sys.stderr)
+        exception_handler(type(ex), ex, ex.__traceback__)
+        return 2
+    except Exception as ex:
+        print("ERROR: " + str(ex), file=sys.stderr)
+        exception_handler(type(ex), ex, ex.__traceback__)
+        return 1
+    return 0
+
+
 def exception_handler(exc_type, exc_value, exc_traceback) -> None:
     if logging.root.level == logging.DEBUG:
         logging.error(
@@ -158,23 +178,4 @@ def setup_logging() -> None:
 
 
 if __name__ == "__main__":
-    try:
-        setup_logging()
-
-        logging.info("Starting")
-        main()
-        logging.info("Exiting.")
-    except KeyboardInterrupt:
-        print("Cancelled by user.")
-        logging.info("Cancelled by user.")
-        try:
-            sys.exit(0)
-        except SystemExit:
-            os._exit(0)
-    except Exception as ex:
-        print("ERROR: " + str(ex))
-        exception_handler(type(ex), ex, ex.__traceback__)
-        try:
-            sys.exit(1)
-        except SystemExit:
-            os._exit(1)
+    sys.exit(run())
