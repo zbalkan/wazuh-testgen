@@ -12,7 +12,7 @@ from internal.evtx import EvtxConverter
 from internal.ini import IniConverter
 from internal.rule import RuleConverter
 
-APP_NAME: Final[str] = "wazuh-testgen"
+APP_NAME: Final[str] = "wazuhtestgen"
 APP_VERSION: Final[str] = "0.4"
 DESCRIPTION: Final[str] = (
     f"{APP_NAME} ({APP_VERSION}) generates pytest-formatted Wazuh rule tests "

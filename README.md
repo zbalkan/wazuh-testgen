@@ -1,4 +1,4 @@
-# wazuh-testgen
+# wazuhtestgen
 
 A small generator for creating pytest-formatted Wazuh rule tests from Wazuh INI regression tests, Windows Event Log (EVTX) files, or Wazuh rule XML.
 
@@ -6,7 +6,7 @@ The generated tests target the public `wazuhtester` API instead of the old `wazu
 
 ## Rationale
 
-Wazuh ships regression-test content in an INI format. `wazuh-testgen` converts that content into ordinary pytest modules so detection engineers can extend the tests with Python assertions, fixtures, parametrization, and other pytest features.
+Wazuh ships regression-test content in an INI format. `wazuhtestgen` converts that content into ordinary pytest modules so detection engineers can extend the tests with Python assertions, fixtures, parametrization, and other pytest features.
 
 INI files contain complete expected outcomes, so the converter emits runnable parameterized tests. Positive and negative cases are generated separately. Negative cases also verify that Wazuh did not return an error before accepting that a particular rule did not match.
 
@@ -14,7 +14,7 @@ EVTX and rule XML are different. They provide source material but do not contain
 
 ## Requirements
 
-`wazuh-testgen` requires Python 3.10 or newer. EVTX conversion additionally requires Windows and the `wazuhevtx` package.
+`wazuhtestgen` requires Python 3.10 or newer. EVTX conversion additionally requires Windows and the `wazuhevtx` package.
 
 ## Generated test dependencies
 
@@ -41,7 +41,7 @@ Top level:
 ```text
 usage: generator.py [-h] [--debug] {ini,evtx,rule} ...
 
-wazuh-testgen (0.4) generates pytest-formatted Wazuh rule tests from Wazuh
+wazuhtestgen (0.4) generates pytest-formatted Wazuh rule tests from Wazuh
 INI regression tests, Windows EVTX files, or Wazuh rule XML.
 
 positional arguments:
@@ -75,7 +75,7 @@ generator.py rule --input_dir INPUT_DIR --output_dir OUTPUT_DIR
 
 ## Execution environment
 
-`wazuh-testgen` only generates pytest modules. Generated tests do not modify the
+`wazuhtestgen` only generates pytest modules. Generated tests do not modify the
 Wazuh installation, copy rules or decoders into the manager, or write under
 `/var/ossec/ruleset`.
 
