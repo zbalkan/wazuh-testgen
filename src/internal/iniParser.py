@@ -2,10 +2,10 @@ from __future__ import annotations
 
 import re
 from dataclasses import dataclass
-from typing import Literal
+from typing import Literal, Optional
 
 
-@dataclass(frozen=True, slots=True)
+@dataclass(frozen=True)
 class TestCase:
     header: str
     logs: tuple[str, ...]
@@ -37,15 +37,15 @@ class IniParser:
 
         return test_cases
 
-    def __read(self, lines: list[str]) -> list[TestCase] | None:
+    def __read(self, lines: list[str]) -> Optional[list[TestCase]]:
         header = lines[0].replace("[", "").replace("]", "").lower()
         log_groups: dict[
             str,
             tuple[Literal["pass", "fail"], list[str]],
         ] = {}
-        rule: str | None = None
-        alert: int | None = None
-        decoder: str | None = None
+        rule: Optional[str] = None
+        alert: Optional[int] = None
+        decoder: Optional[str] = None
 
         pairs: list[tuple[str, str]] = []
         unkeyed_lines: list[str] = []
