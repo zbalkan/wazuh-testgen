@@ -41,7 +41,7 @@ Top level:
 ```text
 usage: wazuhtestgen [-h] [--debug] {ini,evtx,rule} ...
 
-wazuhtestgen (0.4) generates pytest-formatted Wazuh rule tests from Wazuh
+wazuhtestgen generates pytest-formatted Wazuh rule tests from Wazuh
 INI regression tests, Windows EVTX files, or Wazuh rule XML.
 
 positional arguments:
