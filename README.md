@@ -14,7 +14,7 @@ EVTX and rule XML are different. They provide source material but do not contain
 
 ## Requirements
 
-`wazuhtestgen` requires Python 3.9 or newer. EVTX conversion additionally requires Windows and the `wazuhevtx` package.
+`wazuhtestgen` requires Python 3.9 or newer. EVTX conversion additionally requires Windows; the `wazuhevtx` dependency is installed automatically on Windows.
 
 ## Generated test dependencies
 

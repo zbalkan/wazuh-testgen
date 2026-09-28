@@ -14,7 +14,7 @@ from .internal.ini import IniConverter
 from .internal.rule import RuleConverter
 
 APP_NAME: Final[str] = "wazuhtestgen"
-APP_VERSION: Final[str] = "0.4.0"
+APP_VERSION: Final[str] = "0.4.1"
 DESCRIPTION: Final[str] = (
     f"{APP_NAME} ({APP_VERSION}) generates pytest-formatted Wazuh rule tests "
     "from Wazuh INI regression tests, Windows EVTX files, or Wazuh rule XML."
